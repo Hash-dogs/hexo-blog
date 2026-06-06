@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Generated files
+public/
+db.json
+*.log
+
+# Secret files
+.env
+_config.yml.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+.cache/
