@@ -5,12 +5,9 @@ updated: 2026-06-07
 categories:
   - github热门
 tags:
-  - GitHub
-  - Microsoft
-  - Markdown
-  - Python
   - 开源
   - AI
+  - Markdown
   - 文档转换
 cover: https://opengraph.githubassets.com/1/microsoft/markitdown
 description: microsoft/markitdown 本周以 15,000+ stars 登顶 GitHub 热门榜首，这是一个强大的 Python 工具，可将 PDF、Office 文档、图片、音视频等多种格式一键转换为 Markdown，专为 LLM 数据处理和文本分析管线设计。

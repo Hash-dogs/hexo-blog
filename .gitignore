@@ -5,6 +5,9 @@ node_modules/
 db.json
 *.log
 
+# Hexo build output (部署分支专用，源码分支不提交)
+public/
+
 # Secret files
 .env
 _config.yml.bak

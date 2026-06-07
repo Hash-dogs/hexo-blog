@@ -104,12 +104,13 @@
         +pvBlock('','post-meta-pv-cv','')
           span#busuanzi_value_page_pv
             i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
-      - let location = page.location ? page.location : theme.post_copyright.location
-      if theme.post_copyright.enable && location
-        span.post-meta-separator        
-        span.post-meta-position(title="作者IP属地为" + location)
-          i.anzhiyufont.anzhiyu-icon-location-dot
-          =location
+      //- 定位服务未启用，以下位置信息暂注释
+      //- - let location = page.location ? page.location : theme.post_copyright.location
+      //- if theme.post_copyright.enable && location
+      //-   span.post-meta-separator
+      //-   span.post-meta-position(title="作者IP属地为" + location)
+      //-     i.anzhiyufont.anzhiyu-icon-location-dot
+      //-     =location
 
       if comments.count && !comments.lazyload && page.comments !== false && comments.use
         - var whichCount = comments.use[0]

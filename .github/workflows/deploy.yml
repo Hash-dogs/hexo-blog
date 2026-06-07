@@ -1,0 +1,60 @@
+# ============================================================
+# Hexo Blog - GitHub Pages 自动部署工作流
+# 分支策略:
+#   main    → Hexo 源码分支（手动维护）
+#   gh-pages → 构建产物分支（自动维护，请勿手动操作）
+# ============================================================
+name: Deploy Hexo to GitHub Pages
+
+on:
+  # 推送 main 分支时触发
+  push:
+    branches:
+      - main
+  # 允许手动触发
+  workflow_dispatch:
+
+# 权限设置：允许写入内容以部署到 gh-pages 分支
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# 确保同一时间只有一个部署任务运行
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔄 拉取源码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: ⚙️ 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 📦 安装依赖
+        run: |
+          npm ci
+
+      - name: 🏗️ 构建静态文件
+        run: |
+          npm run build
+
+      - name: 🚀 部署到 gh-pages 分支
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'chore: deploy updated site [skip ci]'
