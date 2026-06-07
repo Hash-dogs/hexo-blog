@@ -14,7 +14,7 @@ timezone: 'Asia/Shanghai'
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://hash-dogs.github.io
-root: /hexo-blog/
+# root: /hexo-blog/ # 注释掉：使用 Vercel + 自定义域名，站点在根路径，无需 subpath
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
