@@ -1,0 +1,688 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践 | 我的技术博客</title><meta name="keywords" content="MCP,Hermes Agent,飞书,AI Agent,Docker,阿里云,自动化"><meta name="author" content="hash-dog"><meta name="copyright" content="hash-dog"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践"><meta name="application-name" content="从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践"><meta property="og:url" content="https://hash-dog.cc.cd/2026/06/11/hermes-agent-feishu-life-empowerment/index.html"><meta property="og:site_name" content="我的技术博客"><meta property="og:description" content="一步步教你从阿里云部署 Hermes Agent，接入飞书消息平台，集成官方 MCP，打造个人 AI 生活管家——日程管理、知识库、信息聚合、自动化流程全覆盖。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="hash-dog"><meta property="article:tag" content="技术,博客,编程,开发"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="一步步教你从阿里云部署 Hermes Agent，接入飞书消息平台，集成官方 MCP，打造个人 AI 生活管家——日程管理、知识库、信息聚合、自动化流程全覆盖。"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://hash-dog.cc.cd/2026/06/11/hermes-agent-feishu-life-empowerment/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: hash-dog","link":"链接: ","source":"来源: 我的技术博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的技术博客',
+  title: '从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践',
+  postAI: '',
+  pageFillDescription: '引言, Part 1｜部署篇：阿里云搭建 Hermes Agent, 1.1 云服务器选购与环境初始化, 1.2 可选登陆方式, 1.3 模型服务配置, Part 2｜集成篇：Hermes Gateway 接入飞书, 2.1 飞书开放平台应用创建, 2.2 Gateway 配置方式, 2.3 权限与安全设置, 2.4 启动 Gateway 与消息测试, Part 3｜扩展篇：飞书官方 MCP 集成, 3.1 MCP 协议速览, 3.2 安装飞书官方 MCP Server, 3.3 区分飞书的用户身份权限和应用身份权限, 3.4 配置用户身份权限给hermes, 3.5 以sse模式启动MCP Server常驻服务, Part 4｜实战篇：生活场景功能实现, 4.1 智能日程管理, 4.2 信息聚合推送, 4.3 AI 生活助手, 4.4 知识库与云盘, 4.5 自动化流程, 总结与展望, 安全性注意事项, 后续可扩展方向, 附录, 常用命令速查引言年正在从开发者的玩具变成真正能提升生活效率的工具但在众多框架中找到一个开源可自我进化支持多平台消息接入的方案并不容易由出品自年初开源以来迅速获得成为社区最活跃的自主框架之一它最吸引人的特性包括自我改进的学习循环完成任务后自动生成越用越聪明消息网关一套实例对接多个平台协议支持既可连接外部服务也可将自身暴露为可插拔记忆后端跨会话持久化记忆而飞书作为国内领先的企业协作平台拥有开放丰富的机器人能力以及无处不在的移动端触达恰好成为最理想的交互界面本文目标从零开始在阿里云上部署通过接入飞书集成飞书官方落地多个生活自动化场景前置条件一台云服务器本文以阿里云配置好的轻量应用服务器为例一个飞书企业账号可免费创建基本的和操作知识部署篇阿里云搭建云服务器选购与环境初始化选型建议本身资源消耗不高足够运行两个进程如果后续需要运行本地模型建议上购买成功后打开阿里云控制台进行服务器初始化完成后已经成功再服务器安装好注意阿里云预装一般是安装在用户下的可选登陆方式方案一阿里云登录远程登录连接方案二本地工具登录或者通过服务器的外网进行连接方案三阿里云配置的登录模型服务配置需要接入一个后端推荐使用方式或者添加方案一方案二配置先使用工具连接用户打开方式打开方式如果没找到文件可以使用查看补充和常用指令操作进入编辑直接输入按退出编辑模式默认进入编辑模式按保存回车回车退出回车保存并退出后回车强制退出不保存回车搜索关键词回车跳到下一个搜索结果再回车补充对于操作系统而言用户和用户的文件权限是不同的用户的地址是用户的地址是且无法访问文件夹由于阿里云的默认安装在用户文件夹下所以一般使用连接也会使用用户操作当你忘记用户的时只能通过用户进行更改阿里云网页中只能修改的无法修改的先登录后在用户下修改密码集成篇接入飞书飞书开放平台应用创建登录飞书开放平台点击创建企业自建应用填写应用名称如我的管家和描述创建完成后进入凭证与基础信息记录和启用机器人能力配置方式方法使用配置向导推荐进入终端执行配置向导按照交互提示选择扫描二维码或输入和选择域国内或国际选择连接模式推荐方法手动配置适合自动化部署在中添加以下配置飞书配置或或模式时的端口权限与安全设置在飞书开放平台右上角进入开发者后台点击你创建的机器人进入权限管理页面给应用添加需要的权限具体权限可以到最后一章根据所需服务选择注意对机器人权限进行进行任何修改后需要发布新版本才会修改成功启动与消息测试启动扩展篇飞书官方集成协议速览是由提出的开放协议为模型提供标准化的工具调用接口可以把理解为世界的协议标准化的接入方式让任何客户端都能无缝使用各种工具的架构支持两种模式模式作为客户端连接外部如飞书获取工具能力模式自身暴露为供其他应用如调用本文主要使用模式让通过飞书官方调用飞书安装飞书官方飞书官方提供了对飞书开放的标准化访问能力包括云文档云盘日历通讯录等模块优先在用户下进行安装用户下安装可能会安装在目录下服务无法访问注意飞书官方的具体安装命令和包名请参考飞书开放平台文档以下为通用参考步骤前置环境配置安装镜像写入环境变量指定阿里云下载镜像安装配置阿里云镜像验证服务安装全局安装验证区分飞书的用户身份权限和应用身份权限一用户身份权限本质是授予机器人一个用户的权限该权限需要用户使用自己的和来获取的来实现授权因此使用用户权限的可以访问该用户下的被开放的私人数据如云盘知识库会议记录等等二应用身份权限默认使用的操作方式无需手工配置通过连接后会自动得到一个获得公共资源的访问能力如以身份在某些群聊中发送信息获取信息需要在该群聊内获取该加入的群聊列表等等配置用户身份权限给本质是存储到服务器本地同时也要解决到期时自动获取新问题一在飞书开发者后台的安全设置中添加下面重定向二建立连接在本地的终端使用连接云服务器由于阿里云服务器内默认是无头服务器连接不上浏览器所以需要使用连接云服务器于本机浏览器你的服务器外网为的密码三云服务登录加载中会出现一个使用本地浏览器打开进行权限确认确认成功后会出现类似字样授权后和都会保存到本地目录下这一步是报错的大源头如果成功也没有出现两个可能是飞书更新了相关逻辑可以查查官网四刷新的脚本云服务器终端创建脚本注意填入你的读取当前获取用换新的更新文件更新里的重启刷新成功刷新失败添加权限第一次创建地址保存当前的从前面的文件中获取你的测试脚本设置定时更新里面添加本质是一个以模式启动常驻服务在配置中注册飞书获取的地址打开第一次添加服务是没有字段的自己创建即可一定要换绝对路径下换为十分注意文件的缩进一定要对齐在步返回的中的结果转换为绝对路径的结果转换为绝对路径你的你的你的用于第一次配置后面使用脚本刷新实战篇生活场景功能实现智能日程管理场景通过飞书对话让创建查询修改日历事件例如帮我明天下午点创建一个与团队的周会持续小时实现思路用户在飞书发送自然语言指令解析时间标题参与人等关键信息调用飞书日历完成日程操作将结果以飞书消息卡片形式返回确认支持的操作创建日程指定时间标题参与人地点查询日程按日期范围关键词检索修改取消日程更新已有事件日程提醒设置提前通知需要在飞书后台打开的权限日历读写创建查询修改日程日历事件管理发送消息卡片给用户确认对话示例用户周五下午点和张三对齐项目进度帮我加个日程已为你创建日程项目对齐本周五已邀请张三信息聚合推送场景每天早上定时推送当日天气技术热点和日程摘要到飞书开启高效的一天实现思路调度器在设定时间触发并行聚合天气订阅源飞书日历事件调用飞书将内容格式化为富文本消息卡片推送到指定飞书个人或群聊支持的操作天气播报接入和风天气获取当日天气技术热点订阅日程摘要查询当天飞书日历事件概览每日提醒自定义待办事项或习惯打卡需要在飞书后台打开的权限发送消息卡片到个人或群聊获取群聊列表定位推送目标查询当日日程用于摘要配置每天早上点飞书群聊或私聊示例推送内容飞书消息卡片早安今日简报年月日星期五上海晴热门今日日程项周会生活助手场景将飞书当作你的私人助理通过自然语言对话完成日常查询记录和提醒实现思路用户在飞书直接发送消息给无需特定指令格式根据意图自动路由到对应的或工具结合记忆系统跨会话维护上下文如记账连续累计返回结构化回复或富文本消息支持的操作信息查询联网搜索百科天气汇率记录与笔记快捷记录到飞书文档或个人知识库提醒与待办创建定时提醒循环提醒记账与统计记录日常开支定期生成消费报表闲聊陪伴日常对话灵感记录需要在飞书后台打开的权限收发消息的基础能力读取用户基本信息称呼个性化将对话记录笔记存为云盘文档创建修改飞书文档详细记录创建提醒日程对话示例用户记一笔今晚买水果花了块已记录水果用户我这个月一共花了多少钱本月已记笔合计较上月同期知识库与云盘场景通过对个人云盘知识库内内容进行操作读取修改等实现思路通过飞书云盘上传下载搜索文件配合记忆系统实现语义搜索自动归档聊天中的重要文件到知识空间支持的操作上传将对话中的文件自动保存到云盘知识库目录下载根据描述找到文件并推送到对话中搜索语义级检索云盘中的文档内容归档定时整理飞书群聊中的共享文件需要在飞书后台打开的权限对话示例用户帮我找我上周上传的那份部署文档找到了这是你上周三上传的阿里云部署指南我帮你做个摘要自动化流程场景设定定时任务或触发器让自动完成巡检汇总通知等重复性工作实现思路通过调度器或飞书定时消息配置触发条件在后台自动执行预定义的流程执行结果自动推送到飞书个人或指定群聊支持条件分支异常时告警正常时静默支持的操作定时巡检每分钟检测服务器健康状态异常时告警日报周报生成定时汇总云盘文档日历事件生成报告自动归档将飞书群聊中过期文件自动整理到知识库监控告警对接服务监控异常时自动推送飞书消息需要在飞书后台打开的权限推送执行结果到个人或群聊获取群聊列表管理推送目标自动归档文件到云盘生成日程汇总报告自动化任务配置每分钟每周五对话示例用户每天晚上点帮我总结当天的飞书文档更新已设置定时任务每晚自动汇总文档变更并推送到你的私聊总结与展望安全性注意事项管理使用环境变量而非硬编码定期轮换权限最小化飞书应用只申请必要的权限用户白名单启用限制访问范围后续可扩展方向多协作部署多个专用如工作助理家庭管家共享记忆后端更多工具链接入数据库等本地模型部署结合或实现完全本地化运行监控与日志接入或可视化运行状态附录常用命令速查命令用途配置消息网关启动消息网关列出已配置的服务添加服务命令行对话模式查看定时任务查看运行日志',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-06-12 00:00:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="我的技术博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">我的技术博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.05rem;">AI<sup>2</sup></a><a href="/tags/AI-Agent/" style="font-size: 1.05rem;">AI Agent<sup>1</sup></a><a href="/tags/Docker/" style="font-size: 1.05rem;">Docker<sup>1</sup></a><a href="/tags/Hermes-Agent/" style="font-size: 1.05rem;">Hermes Agent<sup>1</sup></a><a href="/tags/LLM/" style="font-size: 1.05rem;">LLM<sup>1</sup></a><a href="/tags/MCP/" style="font-size: 1.05rem;">MCP<sup>2</sup></a><a href="/tags/Markdown/" style="font-size: 1.05rem;">Markdown<sup>1</sup></a><a href="/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 1.05rem;">Token优化<sup>1</sup></a><a href="/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 1.05rem;">压缩<sup>1</sup></a><a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.05rem;">开源<sup>2</sup></a><a href="/tags/%E6%96%87%E6%A1%A3%E8%BD%AC%E6%8D%A2/" style="font-size: 1.05rem;">文档转换<sup>1</sup></a><a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.05rem;">自动化<sup>1</sup></a><a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 1.05rem;">阿里云<sup>1</sup></a><a href="/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 1.05rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/06/"><span class="card-archive-list-date">六月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url">技术分享</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/MCP/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>MCP</span></a><a class="article-meta__tags" href="/tags/Hermes-Agent/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Hermes Agent</span></a><a class="article-meta__tags" href="/tags/%E9%A3%9E%E4%B9%A6/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>飞书</span></a><a class="article-meta__tags" href="/tags/AI-Agent/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI Agent</span></a><a class="article-meta__tags" href="/tags/Docker/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Docker</span></a><a class="article-meta__tags" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>阿里云</span></a><a class="article-meta__tags" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>自动化</span></a></span></div></div><h1 class="post-title" itemprop="name headline">从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-06-11T16:00:00.000Z" title="发表于 2026-06-12 00:00:00">2026-06-12</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-06-11T16:00:00.000Z" title="更新于 2026-06-12 00:00:00">2026-06-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hash-dog.cc.cd/2026/06/11/hermes-agent-feishu-life-empowerment/"><header><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url">技术分享</a><a href="/tags/MCP/" tabindex="-1" itemprop="url">MCP</a><a href="/tags/Hermes-Agent/" tabindex="-1" itemprop="url">Hermes Agent</a><a href="/tags/%E9%A3%9E%E4%B9%A6/" tabindex="-1" itemprop="url">飞书</a><a href="/tags/AI-Agent/" tabindex="-1" itemprop="url">AI Agent</a><a href="/tags/Docker/" tabindex="-1" itemprop="url">Docker</a><a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" tabindex="-1" itemprop="url">阿里云</a><a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url">自动化</a><h1 id="CrawlerTitle" itemprop="name headline">从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">hash-dog</span><time itemprop="dateCreated datePublished" datetime="2026-06-11T16:00:00.000Z" title="发表于 2026-06-12 00:00:00">2026-06-12</time><time itemprop="dateCreated datePublished" datetime="2026-06-11T16:00:00.000Z" title="更新于 2026-06-12 00:00:00">2026-06-12</time></header><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>2026 年，AI Agent 正在从开发者的玩具变成真正能提升生活效率的工具。但在众多 Agent 框架中，找到一个 <strong>开源、可自我进化、支持多平台消息接入</strong> 的方案并不容易。</p>
+<p><strong>Hermes Agent</strong> 由 Nous Research 出品，自 2026 年初开源以来迅速获得 134k+ Stars，成为社区最活跃的自主 AI Agent 框架之一。它最吸引人的特性包括：</p>
+<ul>
+<li><strong>自我改进的学习循环</strong> — 完成任务后自动生成 Skill，越用越聪明</li>
+<li><strong>消息网关（Gateway）</strong> — 一套 Agent 实例对接多个 IM 平台</li>
+<li><strong>MCP 协议支持</strong> — 既可连接外部 MCP 服务，也可将自身暴露为 MCP Server</li>
+<li><strong>可插拔记忆后端</strong> — 跨会话持久化记忆</li>
+</ul>
+<p>而 <strong>飞书</strong> 作为国内领先的企业协作平台，拥有开放 API、丰富的机器人能力，以及无处不在的移动端触达——恰好成为 Hermes Agent 最理想的交互界面。</p>
+<blockquote>
+<p>🎯 <strong>本文目标</strong>：从零开始，在阿里云 ECS 上部署 Hermes Agent → 通过 Gateway 接入飞书 → 集成飞书官方 MCP → 落地多个生活自动化场景。</p>
+</blockquote>
+<p><strong>前置条件</strong>：</p>
+<ul>
+<li>一台云服务器（本文以阿里云配置好hermes的轻量应用服务器为例）</li>
+<li>一个飞书企业账号（可免费创建）</li>
+<li>基本的 Linux 和 Docker 操作知识</li>
+</ul>
+<hr>
+<h2 id="Part-1｜部署篇：阿里云搭建-Hermes-Agent"><a href="#Part-1｜部署篇：阿里云搭建-Hermes-Agent" class="headerlink" title="Part 1｜部署篇：阿里云搭建 Hermes Agent"></a>Part 1｜部署篇：阿里云搭建 Hermes Agent</h2><h3 id="1-1-云服务器选购与环境初始化"><a href="#1-1-云服务器选购与环境初始化" class="headerlink" title="1.1 云服务器选购与环境初始化"></a>1.1 云服务器选购与环境初始化</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/../images/hermes-feishu/image.png" alt="alt text"></p>
+<blockquote>
+<p>💡 <strong>选型建议</strong>：Hermes Agent 本身资源消耗不高，2C4G 足够运行 Agent + Gateway 两个进程。如果后续需要运行本地模型，建议上 4C8G+。</p>
+</blockquote>
+<p>购买成功后打开<code>阿里云控制台</code>，进行服务器初始化，完成后已经成功再服务器安装好hermes agent</p>
+<p>注意：阿里云预装hermes一般是安装在admin用户下的</p>
+<h3 id="1-2-可选登陆方式"><a href="#1-2-可选登陆方式" class="headerlink" title="1.2 可选登陆方式"></a>1.2 可选登陆方式</h3><p><strong>方案一：阿里云workbench登录</strong><br><code>远程登录</code> -&gt; <code>workbench</code>连接<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/../images/hermes-feishu/Snipaste_2026-06-12_11-43-39.png" alt="alt text"></p>
+<p><strong>方案二：本地shell工具登录</strong><br><code>FinalShell</code>或者<code>Xshell</code>通过服务器的<strong>外网ip</strong>进行连接</p>
+<p><strong>方案三：阿里云配置的WebUI登录</strong><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/../images/hermes-feishu/Snipaste_2026-06-12_11-47-47.png" alt="alt text"></p>
+<h3 id="1-3-模型服务配置"><a href="#1-3-模型服务配置" class="headerlink" title="1.3 模型服务配置"></a>1.3 模型服务配置</h3><p>Hermes Agent 需要接入一个 LLM 后端。推荐使用WebUI方式或者.env添加</p>
+<p><strong>方案一：WebUI</strong><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/../images/hermes-feishu/Snipaste_2026-06-12_11-55-24.png" alt="alt text"></p>
+<p><strong>方案二：配置.env</strong><br>先使用shell工具连接admin用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim打开方式</span></span><br><span class="line">vim ~/.hermes/.env</span><br><span class="line"></span><br><span class="line"><span class="comment"># nano打开方式</span></span><br><span class="line">nano ~/.hermes/.env</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没找到文件可以使用ls查看</span></span><br><span class="line"><span class="built_in">ls</span> -la ~/.hermes/</span><br></pre></td></tr></table></figure>
+
+
+<p>补充1：nano和vim常用指令</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>nano</th>
+<th>vim</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>进入编辑</td>
+<td>直接输入</td>
+<td>按 <code>i</code></td>
+</tr>
+<tr>
+<td>退出编辑模式</td>
+<td>默认进入编辑模式</td>
+<td>按 <code>Esc</code></td>
+</tr>
+<tr>
+<td>保存</td>
+<td><code>Ctrl+O</code> → 回车</td>
+<td><code>:w</code> 回车</td>
+</tr>
+<tr>
+<td>退出</td>
+<td><code>Ctrl+X</code></td>
+<td><code>:q</code> 回车</td>
+</tr>
+<tr>
+<td>保存并退出</td>
+<td><code>Ctrl+O</code> 后 <code>Ctrl+X</code></td>
+<td><code>:wq</code> 回车</td>
+</tr>
+<tr>
+<td>强制退出不保存</td>
+<td><code>Ctrl+X</code> → <code>N</code></td>
+<td><code>:q!</code> 回车</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td><code>Ctrl+W</code></td>
+<td><code>/关键词</code> 回车</td>
+</tr>
+<tr>
+<td>跳到下一个搜索结果</td>
+<td><code>Ctrl+W</code> 再回车</td>
+<td><code>n</code></td>
+</tr>
+</tbody></table>
+<p>补充2：<br>对于linux操作系统而言，root用户和admin用户的文件权限是不同的：</p>
+<ul>
+<li>root用户的~地址是&#x2F;root</li>
+<li>admin用户的~地址是&#x2F;home&#x2F;admin，且无法访问&#x2F;root文件夹</li>
+</ul>
+<p>由于阿里云的hermes默认安装在admin用户文件夹下，所以一般使用shell连接也会使用admin用户操作。当你忘记admin用户的password时，只能通过root用户进行更改（阿里云网页UI中只能修改root的password，无法修改admin的password）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先登录root后，在root用户下修改admin密码</span></span><br><span class="line">passwd admin</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Part-2｜集成篇：Hermes-Gateway-接入飞书"><a href="#Part-2｜集成篇：Hermes-Gateway-接入飞书" class="headerlink" title="Part 2｜集成篇：Hermes Gateway 接入飞书"></a>Part 2｜集成篇：Hermes Gateway 接入飞书</h2><h3 id="2-1-飞书开放平台应用创建"><a href="#2-1-飞书开放平台应用创建" class="headerlink" title="2.1 飞书开放平台应用创建"></a>2.1 飞书开放平台应用创建</h3><ol>
+<li>登录 <a target="_blank" rel="noopener" href="https://open.feishu.cn/">飞书开放平台</a></li>
+<li>点击”创建企业自建应用”</li>
+<li>填写应用名称（如”我的 AI 管家”）和描述</li>
+<li>创建完成后进入 <strong>凭证与基础信息</strong>，记录 <code>App ID</code> 和 <code>App Secret</code></li>
+<li>启用 <strong>机器人能力</strong></li>
+</ol>
+<h3 id="2-2-Gateway-配置方式"><a href="#2-2-Gateway-配置方式" class="headerlink" title="2.2 Gateway 配置方式"></a>2.2 Gateway 配置方式</h3><p><strong>方法 A：使用配置向导（推荐）</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入终端执行配置向导</span></span><br><span class="line">hermes gateway setup</span><br></pre></td></tr></table></figure>
+
+<p>按照交互提示：</p>
+<ol>
+<li>选择 <code>Feishu / Lark</code></li>
+<li>扫描二维码或输入 App ID 和 App Secret</li>
+<li>选择域：<code>feishu</code>（国内）或 <code>lark</code>（国际）</li>
+<li>选择连接模式：<code>websocket</code>（推荐）</li>
+</ol>
+<p><strong>方法 B：手动配置（适合自动化部署）</strong></p>
+<p>在 <code>.env</code> 中添加以下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># === 飞书 Gateway 配置 ===</span></span><br><span class="line">FEISHU_APP_ID=cli_xxxxxxxxxxxxxxx</span><br><span class="line">FEISHU_APP_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line">FEISHU_DOMAIN=feishu              <span class="comment"># feishu 或 lark</span></span><br><span class="line">FEISHU_CONNECTION_MODE=websocket  <span class="comment"># websocket 或 webhook</span></span><br><span class="line">FEISHU_WEBHOOK_PORT=8765          <span class="comment"># webhook 模式时的端口</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-3-权限与安全设置"><a href="#2-3-权限与安全设置" class="headerlink" title="2.3 权限与安全设置"></a>2.3 权限与安全设置</h3><p>在<a target="_blank" rel="noopener" href="https://open.feishu.cn/?lang=zh-CN">飞书开放平台</a>右上角，进入开发者后台，点击你创建的<strong>机器人bot</strong>，进入<strong>权限管理</strong>页面，给应用添加需要的权限</p>
+<p>具体权限可以到<a href="#part-4%E5%AE%9E%E6%88%98%E7%AF%87%E7%94%9F%E6%B4%BB%E5%9C%BA%E6%99%AF%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0">最后一章</a>根据所需服务选择</p>
+<p>注意对机器人权限进行进行任何修改后，需要发布新版本才会修改成功</p>
+<h3 id="2-4-启动-Gateway-与消息测试"><a href="#2-4-启动-Gateway-与消息测试" class="headerlink" title="2.4 启动 Gateway 与消息测试"></a>2.4 启动 Gateway 与消息测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 Gateway</span></span><br><span class="line">hermes gateway restart</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Part-3｜扩展篇：飞书官方-MCP-集成"><a href="#Part-3｜扩展篇：飞书官方-MCP-集成" class="headerlink" title="Part 3｜扩展篇：飞书官方 MCP 集成"></a>Part 3｜扩展篇：飞书官方 MCP 集成</h2><h3 id="3-1-MCP-协议速览"><a href="#3-1-MCP-协议速览" class="headerlink" title="3.1 MCP 协议速览"></a>3.1 MCP 协议速览</h3><p><strong>MCP（Model Context Protocol）</strong> 是由 Anthropic 提出的开放协议，为 AI 模型提供标准化的工具调用接口。可以把 MCP 理解为”AI 世界的 USB 协议”——标准化的接入方式让任何 MCP 客户端都能无缝使用各种工具。</p>
+<p>Hermes Agent 的 MCP 架构支持两种模式：</p>
+<ul>
+<li><strong>MCP Client 模式</strong> — Hermes 作为客户端，连接外部 MCP Server（如飞书 MCP、GitHub MCP），获取工具能力</li>
+<li><strong>MCP Server 模式</strong> — Hermes 自身暴露为 MCP Server，供其他应用（如 Claude Desktop、VS Code）调用</li>
+</ul>
+<p>本文主要使用 <strong>Client 模式</strong>，让 Hermes 通过飞书官方 MCP 调用飞书 API。</p>
+<!-- TODO: 添加 MCP 协议示意图 -->
+
+<h3 id="3-2-安装飞书官方-MCP-Server"><a href="#3-2-安装飞书官方-MCP-Server" class="headerlink" title="3.2 安装飞书官方 MCP Server"></a>3.2 安装飞书官方 MCP Server</h3><p>飞书（Lark）官方 MCP Server 提供了对飞书开放 API 的标准化访问能力，包括云文档、云盘、日历、通讯录等模块。</p>
+<p>优先在<strong>admin用户</strong>下进行安装（root用户下安装可能会安装在&#x2F;root目录下，hermes服务无法访问）</p>
+<blockquote>
+<p>🚧 <strong>注意</strong>：飞书官方 MCP Server 的具体安装命令和包名请参考 <a target="_blank" rel="noopener" href="https://open.feishu.cn/">飞书开放平台 MCP 文档</a>。以下为通用参考步骤。</p>
+</blockquote>
+<p><strong>前置环境配置：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 安装 nvm（gitee 镜像）</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/mirrors/nvm.git ~/.nvm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 写入环境变量 + 指定阿里云 Node 下载镜像</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.bashrc &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span></span><br><span class="line"><span class="built_in">export</span> NVM_NODEJS_ORG_MIRROR=https://mirrors.aliyun.com/nodejs-release</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 安装 Node LTS</span></span><br><span class="line">nvm install --lts &amp;&amp; nvm use --lts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 配置 npm 阿里云镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://mirrors.aliyun.com/npm/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 验证</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p><strong>MCP服务安装：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局安装</span></span><br><span class="line">npm install -g @larkhq/mcp-server-lark</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">lark-mcp --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-区分飞书的用户身份权限和应用身份权限"><a href="#3-3-区分飞书的用户身份权限和应用身份权限" class="headerlink" title="3.3 区分飞书的用户身份权限和应用身份权限"></a>3.3 区分飞书的用户身份权限和应用身份权限</h3><p>一、用户身份权限<br>本质是授予机器人一个用户的权限，该权限需要用户使用自己的id和secret来获取的<code>user-access-token</code>来实现授权。</p>
+<p>因此使用用户权限的bot可以访问该用户下的被开放的私人数据如云盘，知识库，会议记录等等</p>
+<p>二、应用身份权限<br>hermes默认使用的操作方式（无需手工配置），通过gateway连接后会自动得到一个<code>tenant-access-token</code>，获得公共资源的访问能力，如以bot身份在某些群聊中发送信息、获取信息（bot需要在该群聊内），获取该bot加入的群聊列表等等</p>
+<h3 id="3-4-配置用户身份权限给hermes"><a href="#3-4-配置用户身份权限给hermes" class="headerlink" title="3.4 配置用户身份权限给hermes"></a>3.4 配置用户身份权限给hermes</h3><p>本质是存储user-access-token到服务器本地，同时也要解决token到期时自动获取新token问题</p>
+<p>一、在飞书开发者后台的安全设置中添加下面重定向url</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3100/callback</span><br></pre></td></tr></table></figure>
+
+<p>二、建立ssh连接<br>在本地windows的终端使用ssh连接云服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 由于阿里云服务器内默认是无头服务器，连接不上浏览器，所以需要使用ssh连接云服务器于本机浏览器</span></span><br><span class="line">ssh -L 3100:127.0.0.1:3100 admin@你的服务器外网IP</span><br><span class="line"></span><br><span class="line"><span class="comment"># password为admin的密码</span></span><br></pre></td></tr></table></figure>
+<p>三、云服务登录lar-mcp</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npx -y @larksuiteoapi/lark-mcp login -a &lt;your_app_id&gt; -s &lt;your_app_secret&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载中会出现一个url，使用本地浏览器打开url进行权限确认</span></span><br><span class="line"><span class="comment"># 确认成功后会出现类似login successfully字样</span></span><br><span class="line"><span class="comment"># 授权后 user-access-token 和 refresh-token 都会保存到本地 ~/.lark-mcp/ 目录下。</span></span><br><span class="line"><span class="comment"># 这一步是报错的大源头，如果login成功也没有出现两个token可能是飞书更新了相关逻辑，可以查查官网</span></span><br></pre></td></tr></table></figure>
+
+
+<p>四、刷新token的脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 云服务器终端创建脚本</span></span><br><span class="line"><span class="comment"># 注意填入你的id，secret</span></span><br><span class="line"><span class="built_in">cat</span> &gt; ~/refresh_lark_token.sh &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">APP_ID=<span class="string">&quot;&quot;</span></span><br><span class="line">APP_SECRET=<span class="string">&quot;&quot;</span></span><br><span class="line">CONFIG_FILE=<span class="string">&quot;/home/admin/.hermes/config.yaml&quot;</span></span><br><span class="line">TOKEN_FILE=<span class="string">&quot;/home/admin/.lark_tokens&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取当前 refresh_token</span></span><br><span class="line">REFRESH_TOKEN=$(<span class="built_in">cat</span> <span class="variable">$TOKEN_FILE</span> | grep refresh_token | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取 app_access_token</span></span><br><span class="line">APP_TOKEN=$(curl -s -X POST <span class="string">&#x27;https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal&#x27;</span> \</span><br><span class="line">  -H <span class="string">&#x27;Content-Type: application/json&#x27;</span> \</span><br><span class="line">  -d <span class="string">&quot;&#123;\&quot;app_id\&quot;:\&quot;<span class="variable">$APP_ID</span>\&quot;,\&quot;app_secret\&quot;:\&quot;<span class="variable">$APP_SECRET</span>\&quot;&#125;&quot;</span> \</span><br><span class="line">  | python3 -c <span class="string">&quot;import sys,json; print(json.load(sys.stdin)[&#x27;app_access_token&#x27;])&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 refresh_token 换新的 user_access_token</span></span><br><span class="line">RESPONSE=$(curl -s -X POST <span class="string">&#x27;https://open.feishu.cn/open-apis/authen/v1/oidc/refresh_access_token&#x27;</span> \</span><br><span class="line">  -H <span class="string">&#x27;Content-Type: application/json&#x27;</span> \</span><br><span class="line">  -H <span class="string">&quot;Authorization: Bearer <span class="variable">$APP_TOKEN</span>&quot;</span> \</span><br><span class="line">  -d <span class="string">&quot;&#123;\&quot;grant_type\&quot;:\&quot;refresh_token\&quot;,\&quot;refresh_token\&quot;:\&quot;<span class="variable">$REFRESH_TOKEN</span>\&quot;&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">NEW_ACCESS_TOKEN=$(<span class="built_in">echo</span> <span class="variable">$RESPONSE</span> | python3 -c <span class="string">&quot;import sys,json; print(json.load(sys.stdin)[&#x27;data&#x27;][&#x27;access_token&#x27;])&quot;</span>)</span><br><span class="line">NEW_REFRESH_TOKEN=$(<span class="built_in">echo</span> <span class="variable">$RESPONSE</span> | python3 -c <span class="string">&quot;import sys,json; print(json.load(sys.stdin)[&#x27;data&#x27;][&#x27;refresh_token&#x27;])&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$NEW_ACCESS_TOKEN</span> == u-* ]]; <span class="keyword">then</span></span><br><span class="line">  <span class="comment"># 更新 token 文件</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;refresh_token <span class="variable">$NEW_REFRESH_TOKEN</span>&quot;</span> &gt; <span class="variable">$TOKEN_FILE</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 更新 config.yaml 里的 user_access_token</span></span><br><span class="line">  sed -i <span class="string">&quot;s/- \&quot;u-.*\&quot;/- \&quot;<span class="variable">$NEW_ACCESS_TOKEN</span>\&quot;/&quot;</span> <span class="variable">$CONFIG_FILE</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 重启 hermes</span></span><br><span class="line">  pkill -f lark-mcp</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="subst">$(date)</span>: Token 刷新成功&quot;</span> &gt;&gt; /home/admin/.lark_token_refresh.log</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="subst">$(date)</span>: Token 刷新失败: <span class="variable">$RESPONSE</span>&quot;</span> &gt;&gt; /home/admin/.lark_token_refresh.log</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加权限</span></span><br><span class="line"><span class="built_in">chmod</span> +x ~/refresh_lark_token.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一次创建地址保存当前的refresh-token（从前面的~/.lark-mcp/文件中获取）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;refresh_token 你的refresh-token&quot;</span> &gt; ~/.lark_tokens</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试脚本</span></span><br><span class="line">bash ~/refresh_lark_token.sh</span><br><span class="line"><span class="built_in">cat</span> ~/.lark_token_refresh.log</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置crontab，定时更新</span></span><br><span class="line">crontab -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># 里面添加（crontab本质是一个vim）</span></span><br><span class="line">0 * * * * /home/admin/refresh_lark_token.sh</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-5-以sse模式启动MCP-Server常驻服务"><a href="#3-5-以sse模式启动MCP-Server常驻服务" class="headerlink" title="3.5 以sse模式启动MCP Server常驻服务"></a>3.5 以sse模式启动MCP Server常驻服务</h3><p>在 Hermes 配置中注册飞书 MCP Server：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取node，lark-mcp的地址</span></span><br><span class="line"><span class="string">which</span> <span class="string">node</span></span><br><span class="line"><span class="string">which</span> <span class="string">lark-mcp</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vim/nano打开config.yaml</span></span><br><span class="line"><span class="string">vim</span> <span class="string">~/hermes/config.yaml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一次添加mcp服务是没有mcp_servers字段的，自己创建即可</span></span><br><span class="line"><span class="comment"># 一定要换绝对路径：admin下~换为/home/admin</span></span><br><span class="line"><span class="comment"># 十分注意yaml文件的缩进，一定要对齐</span></span><br><span class="line"><span class="comment"># user-access-token在3.4步返回的json中</span></span><br><span class="line"><span class="attr">mcp_servers:</span></span><br><span class="line">  <span class="attr">lark-docs:</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">which</span> <span class="string">node的结果转换为绝对路径</span></span><br><span class="line">    <span class="attr">args:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">which</span> <span class="string">lark-mcp的结果转换为绝对路径</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">mcp</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">-a</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">你的id</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">-s</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">你的secret</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">--token-mode</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">user_access_token</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">-u</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">你的user-access-token（用于第一次配置，后面使用脚本刷新）</span></span><br><span class="line">    <span class="attr">tools:</span></span><br><span class="line">      <span class="attr">include:</span> <span class="string">&#x27;[]&#x27;</span></span><br><span class="line">    <span class="attr">resources:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">prompts:</span> <span class="literal">false</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Part-4｜实战篇：生活场景功能实现"><a href="#Part-4｜实战篇：生活场景功能实现" class="headerlink" title="Part 4｜实战篇：生活场景功能实现"></a>Part 4｜实战篇：生活场景功能实现</h2><h3 id="4-1-智能日程管理"><a href="#4-1-智能日程管理" class="headerlink" title="4.1 智能日程管理"></a>4.1 智能日程管理</h3><p><strong>场景：</strong> 通过飞书对话让 bot 创建、查询、修改日历事件，例如”帮我明天下午 3 点创建一个与团队的周会，持续 1 小时”</p>
+<p><strong>实现思路：</strong></p>
+<ol>
+<li>用户在飞书发送自然语言指令</li>
+<li>Hermes Agent 解析时间、标题、参与人等关键信息</li>
+<li>调用飞书 MCP 日历 API 完成日程操作</li>
+<li>将结果以飞书消息卡片形式返回确认</li>
+</ol>
+<p><strong>支持的操作：</strong></p>
+<ul>
+<li>📅 <strong>创建日程</strong>：指定时间、标题、参与人、地点</li>
+<li>🔍 <strong>查询日程</strong>：按日期范围、关键词检索</li>
+<li>✏️ <strong>修改&#x2F;取消日程</strong>：更新已有事件</li>
+<li>⏰ <strong>日程提醒</strong>：设置提前通知</li>
+</ul>
+<p><strong>需要在飞书后台打开的权限：</strong></p>
+<ul>
+<li><code>calendar:calendar</code> — 日历读写（创建、查询、修改日程）</li>
+<li><code>calendar:calendar.event</code> — 日历事件管理</li>
+<li><code>im:message</code> — 发送消息卡片给用户确认</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对话示例</span></span><br><span class="line">用户: <span class="string">&quot;周五下午 4 点和张三对齐项目进度，帮我加个日程&quot;</span></span><br><span class="line">Agent: <span class="string">&quot;已为你创建日程：📅 项目对齐（本周五 16:00-17:00），已邀请张三&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-信息聚合推送"><a href="#4-2-信息聚合推送" class="headerlink" title="4.2 信息聚合推送"></a>4.2 信息聚合推送</h3><p><strong>场景：</strong> 每天早上定时推送当日天气、技术热点和日程摘要到飞书，开启高效的一天</p>
+<p><strong>实现思路：</strong></p>
+<ol>
+<li>Hermes Cron 调度器在设定时间触发</li>
+<li>Agent 并行聚合天气 API、RSS 订阅源、飞书日历事件</li>
+<li>调用飞书 MCP 将内容格式化为富文本消息卡片</li>
+<li>推送到指定飞书个人或群聊</li>
+</ol>
+<p><strong>支持的操作：</strong></p>
+<ul>
+<li>🌤 <strong>天气播报</strong>：接入和风天气&#x2F;OpenWeather API 获取当日天气</li>
+<li>📰 <strong>技术热点</strong>：订阅 GitHub Trending、Hacker News、RSS</li>
+<li>📋 <strong>日程摘要</strong>：查询当天飞书日历事件概览</li>
+<li>🎯 <strong>每日提醒</strong>：自定义待办事项或习惯打卡</li>
+</ul>
+<p><strong>需要在飞书后台打开的权限：</strong></p>
+<ul>
+<li><code>im:message</code> — 发送消息卡片到个人或群聊</li>
+<li><code>im:chat</code> — 获取群聊列表，定位推送目标</li>
+<li><code>calendar:calendar</code> — 查询当日日程用于摘要</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config.yaml cron_jobs 配置</span></span><br><span class="line"><span class="attr">cron_jobs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;daily_briefing&quot;</span></span><br><span class="line">    <span class="attr">schedule:</span> <span class="string">&quot;0 8 * * *&quot;</span>   <span class="comment"># 每天早上 8 点</span></span><br><span class="line">    <span class="attr">skill:</span> <span class="string">&quot;daily_briefing&quot;</span></span><br><span class="line">    <span class="attr">channel:</span> <span class="string">&quot;oc_xxxxx&quot;</span>      <span class="comment"># 飞书群聊或私聊 ID</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例推送内容（飞书消息卡片）</span></span><br><span class="line">┌─────────────────────────────────┐</span><br><span class="line">│ ☀️ 早安！今日简报              │</span><br><span class="line">│ 📅 2026年6月12日 星期五         │</span><br><span class="line">│                                 │</span><br><span class="line">│ 🌤 上海：晴 28~34°C            │</span><br><span class="line">│ 📰 GitHub 热门：hermes-agent   │</span><br><span class="line">│ 📋 今日日程：2项 · 周会 15:00  │</span><br><span class="line">└─────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-AI-生活助手"><a href="#4-3-AI-生活助手" class="headerlink" title="4.3 AI 生活助手"></a>4.3 AI 生活助手</h3><p><strong>场景：</strong> 将飞书 bot 当作你的私人 AI 助理，通过自然语言对话完成日常查询、记录和提醒</p>
+<p><strong>实现思路：</strong></p>
+<ol>
+<li>用户在飞书直接发送消息给 bot，无需特定指令格式</li>
+<li>Hermes Agent 根据意图自动路由到对应的 Skill 或 MCP 工具</li>
+<li>结合记忆系统跨会话维护上下文（如记账连续累计）</li>
+<li>返回结构化回复或富文本消息</li>
+</ol>
+<p><strong>支持的操作：</strong></p>
+<ul>
+<li>🔎 <strong>信息查询</strong>：联网搜索、百科、天气、汇率</li>
+<li>📝 <strong>记录与笔记</strong>：快捷记录到飞书文档或个人知识库</li>
+<li>⏰ <strong>提醒与待办</strong>：创建定时提醒、循环提醒</li>
+<li>💰 <strong>记账与统计</strong>：记录日常开支，定期生成消费报表</li>
+<li>🗣 <strong>闲聊陪伴</strong>：日常对话、灵感记录</li>
+</ul>
+<p><strong>需要在飞书后台打开的权限：</strong></p>
+<ul>
+<li><code>im:message</code> — 收发消息（bot 的基础能力）</li>
+<li><code>contact:user.base</code> — 读取用户基本信息（称呼个性化）</li>
+<li><code>drive:drive</code> — 将对话记录、笔记存为云盘文档</li>
+<li><code>docx:document</code> — 创建&#x2F;修改飞书文档（详细记录）</li>
+<li><code>calendar:calendar</code> — 创建提醒日程</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对话示例</span></span><br><span class="line">用户: <span class="string">&quot;记一笔，今晚买水果花了 38 块&quot;</span></span><br><span class="line">Agent: <span class="string">&quot;✅ 已记录：🍎 水果 - ¥38.00（2026-06-12）&quot;</span></span><br><span class="line">用户: <span class="string">&quot;我这个月一共花了多少钱&quot;</span></span><br><span class="line">Agent: <span class="string">&quot;📊 本月已记 18 笔，合计 ￥2,356.00，较上月同期 -12%&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-知识库与云盘"><a href="#4-4-知识库与云盘" class="headerlink" title="4.4 知识库与云盘"></a>4.4 知识库与云盘</h3><p><strong>场景：</strong> 通过bot对个人云盘，知识库内内容进行操作（读取，修改等）</p>
+<p><strong>实现思路：</strong></p>
+<ol>
+<li>通过飞书 MCP 云盘 API 上传 &#x2F; 下载 &#x2F; 搜索文件</li>
+<li>配合 Hermes 记忆系统实现语义搜索</li>
+<li>自动归档聊天中的重要文件到知识空间</li>
+</ol>
+<p><strong>支持的操作：</strong></p>
+<ul>
+<li>📤 <strong>上传</strong>：将对话中的文件自动保存到云盘知识库目录</li>
+<li>📥 <strong>下载</strong>：根据描述找到文件并推送到对话中</li>
+<li>🔍 <strong>搜索</strong>：语义级检索云盘中的文档内容</li>
+<li>📋 <strong>归档</strong>：定时整理飞书群聊中的共享文件</li>
+</ul>
+<p>需要在飞书后台打开的权限：</p>
+<ul>
+<li>drive:drive</li>
+<li>drive:file</li>
+<li>wiki:wiki</li>
+<li>docx:document</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对话示例</span></span><br><span class="line">用户: <span class="string">&quot;帮我找我上周上传的那份 Hermes 部署文档&quot;</span></span><br><span class="line">Agent: <span class="string">&quot;找到了！这是你上周三上传的《Hermes Agent 阿里云部署指南》，我帮你做个摘要...&quot;</span></span><br></pre></td></tr></table></figure>
+
+<!-- TODO: 添加 Skill 配置、云盘 API 调用示例 -->
+
+<h3 id="4-5-自动化流程"><a href="#4-5-自动化流程" class="headerlink" title="4.5 自动化流程"></a>4.5 自动化流程</h3><p><strong>场景：</strong> 设定定时任务或触发器，让 Agent 自动完成巡检、汇总、通知等重复性工作</p>
+<p><strong>实现思路：</strong></p>
+<ol>
+<li>通过 Hermes Cron 调度器或飞书定时消息配置触发条件</li>
+<li>Agent 在后台自动执行预定义的 Skill 流程</li>
+<li>执行结果自动推送到飞书个人或指定群聊</li>
+<li>支持条件分支——异常时告警，正常时静默</li>
+</ol>
+<p><strong>支持的操作：</strong></p>
+<ul>
+<li>🔁 <strong>定时巡检</strong>：每 30 分钟检测服务器健康状态，异常时告警</li>
+<li>📊 <strong>日报&#x2F;周报生成</strong>：定时汇总云盘文档、日历事件生成报告</li>
+<li>📥 <strong>自动归档</strong>：将飞书群聊中过期文件自动整理到知识库</li>
+<li>🚨 <strong>监控告警</strong>：对接服务监控，异常时自动推送飞书消息</li>
+</ul>
+<p><strong>需要在飞书后台打开的权限：</strong></p>
+<ul>
+<li><code>im:message</code> — 推送执行结果到个人或群聊</li>
+<li><code>im:chat</code> — 获取群聊列表，管理推送目标</li>
+<li><code>drive:drive</code> — 自动归档文件到云盘</li>
+<li><code>calendar:calendar</code> — 生成日程汇总报告</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config.yaml 自动化任务配置</span></span><br><span class="line"><span class="attr">cron_jobs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;server_health_check&quot;</span></span><br><span class="line">    <span class="attr">schedule:</span> <span class="string">&quot;*/30 * * * *&quot;</span>       <span class="comment"># 每 30 分钟</span></span><br><span class="line">    <span class="attr">skill:</span> <span class="string">&quot;check_server_health&quot;</span></span><br><span class="line">    <span class="attr">channel:</span> <span class="string">&quot;oc_xxxxx&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;weekly_report&quot;</span></span><br><span class="line">    <span class="attr">schedule:</span> <span class="string">&quot;0 18 * * 5&quot;</span>         <span class="comment"># 每周五 18:00</span></span><br><span class="line">    <span class="attr">skill:</span> <span class="string">&quot;weekly_summary&quot;</span></span><br><span class="line">    <span class="attr">channel:</span> <span class="string">&quot;oc_xxxxx&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对话示例</span></span><br><span class="line">用户: <span class="string">&quot;每天晚上 10 点帮我总结当天的飞书文档更新&quot;</span></span><br><span class="line">Agent: <span class="string">&quot;✅ 已设置定时任务，每晚 22:00 自动汇总文档变更并推送到你的私聊&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结与展望"><a href="#总结与展望" class="headerlink" title="总结与展望"></a>总结与展望</h2><h3 id="安全性注意事项"><a href="#安全性注意事项" class="headerlink" title="安全性注意事项"></a>安全性注意事项</h3><ul>
+<li><strong>API Key 管理</strong>：使用环境变量而非硬编码，定期轮换</li>
+<li><strong>权限最小化</strong>：飞书应用只申请必要的 API 权限</li>
+<li><strong>用户白名单</strong>：启用 <code>FEISHU_ALLOWED_USERS</code> 限制访问范围</li>
+</ul>
+<h3 id="后续可扩展方向"><a href="#后续可扩展方向" class="headerlink" title="后续可扩展方向"></a>后续可扩展方向</h3><ul>
+<li>🤖 <strong>多 Agent 协作</strong> — 部署多个专用 Agent（如工作助理、家庭管家），共享记忆后端</li>
+<li>🔗 <strong>更多 MCP 工具链</strong> — 接入 GitHub MCP、Notion MCP、数据库 MCP 等</li>
+<li>🧠 <strong>本地模型部署</strong> — 结合 Ollama 或 vLLM，实现完全本地化运行</li>
+<li>📊 <strong>监控与日志</strong> — 接入 Grafana 或 Prometheus，可视化 Agent 运行状态</li>
+</ul>
+<hr>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="常用命令速查"><a href="#常用命令速查" class="headerlink" title="常用命令速查"></a>常用命令速查</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hermes gateway setup</code></td>
+<td>配置消息网关</td>
+</tr>
+<tr>
+<td><code>hermes gateway start</code></td>
+<td>启动消息网关</td>
+</tr>
+<tr>
+<td><code>hermes mcp list</code></td>
+<td>列出已配置的 MCP 服务</td>
+</tr>
+<tr>
+<td><code>hermes mcp add &lt;name&gt; --url &lt;endpoint&gt;</code></td>
+<td>添加 MCP 服务</td>
+</tr>
+<tr>
+<td><code>hermes chat</code></td>
+<td>命令行对话模式</td>
+</tr>
+<tr>
+<td><code>hermes cron list</code></td>
+<td>查看定时任务</td>
+</tr>
+<tr>
+<td><code>docker compose logs -f</code></td>
+<td>查看运行日志</td>
+</tr>
+</tbody></table>
+<hr>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">hash-dog</div><div class="post-copyright__author_desc">记录学习与技术分享</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hash-dog.cc.cd/2026/06/11/hermes-agent-feishu-life-empowerment/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hash-dog.cc.cd/2026/06/11/hermes-agent-feishu-life-empowerment/')">从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hash-dog.cc.cd/2026/06/11/hermes-agent-feishu-life-empowerment/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践&amp;url=https://hash-dog.cc.cd/2026/06/11/hermes-agent-feishu-life-empowerment/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hash-dog.cc.cd" target="_blank">我的技术博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/MCP/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>MCP<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/Hermes-Agent/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Hermes Agent<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E9%A3%9E%E4%B9%A6/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>飞书<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/AI-Agent/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI Agent<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/Docker/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Docker<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>阿里云<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>自动化<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/06/06/headroom-context-compression-intro/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/chopratejas/headroom" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">GitHub 本周热门：chopratejas/headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失</div></div></a></div><div class="next-post pull-right"><a href="/2026/06/12/hello-world/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2026/06/06/headroom-context-compression-intro/" title="GitHub 本周热门：chopratejas&#x2F;headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/chopratejas/headroom" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-07</div><div class="title">GitHub 本周热门：chopratejas&#x2F;headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">hash-dog 的技术博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">hash-dog</h1><div class="author-info__desc">记录学习与技术分享</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="mailto:18033207159@163.com" target="_blank" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1%EF%BD%9C%E9%83%A8%E7%BD%B2%E7%AF%87%EF%BC%9A%E9%98%BF%E9%87%8C%E4%BA%91%E6%90%AD%E5%BB%BA-Hermes-Agent"><span class="toc-number">2.</span> <span class="toc-text">Part 1｜部署篇：阿里云搭建 Hermes Agent</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 云服务器选购与环境初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%8F%AF%E9%80%89%E7%99%BB%E9%99%86%E6%96%B9%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 可选登陆方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%A8%A1%E5%9E%8B%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 模型服务配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-2%EF%BD%9C%E9%9B%86%E6%88%90%E7%AF%87%EF%BC%9AHermes-Gateway-%E6%8E%A5%E5%85%A5%E9%A3%9E%E4%B9%A6"><span class="toc-number">3.</span> <span class="toc-text">Part 2｜集成篇：Hermes Gateway 接入飞书</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%A3%9E%E4%B9%A6%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%BA%94%E7%94%A8%E5%88%9B%E5%BB%BA"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 飞书开放平台应用创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Gateway-%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 Gateway 配置方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%9D%83%E9%99%90%E4%B8%8E%E5%AE%89%E5%85%A8%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 权限与安全设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%90%AF%E5%8A%A8-Gateway-%E4%B8%8E%E6%B6%88%E6%81%AF%E6%B5%8B%E8%AF%95"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 启动 Gateway 与消息测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-3%EF%BD%9C%E6%89%A9%E5%B1%95%E7%AF%87%EF%BC%9A%E9%A3%9E%E4%B9%A6%E5%AE%98%E6%96%B9-MCP-%E9%9B%86%E6%88%90"><span class="toc-number">4.</span> <span class="toc-text">Part 3｜扩展篇：飞书官方 MCP 集成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-MCP-%E5%8D%8F%E8%AE%AE%E9%80%9F%E8%A7%88"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 MCP 协议速览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%AE%89%E8%A3%85%E9%A3%9E%E4%B9%A6%E5%AE%98%E6%96%B9-MCP-Server"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 安装飞书官方 MCP Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%8C%BA%E5%88%86%E9%A3%9E%E4%B9%A6%E7%9A%84%E7%94%A8%E6%88%B7%E8%BA%AB%E4%BB%BD%E6%9D%83%E9%99%90%E5%92%8C%E5%BA%94%E7%94%A8%E8%BA%AB%E4%BB%BD%E6%9D%83%E9%99%90"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 区分飞书的用户身份权限和应用身份权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E8%BA%AB%E4%BB%BD%E6%9D%83%E9%99%90%E7%BB%99hermes"><span class="toc-number">4.4.</span> <span class="toc-text">3.4 配置用户身份权限给hermes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E4%BB%A5sse%E6%A8%A1%E5%BC%8F%E5%90%AF%E5%8A%A8MCP-Server%E5%B8%B8%E9%A9%BB%E6%9C%8D%E5%8A%A1"><span class="toc-number">4.5.</span> <span class="toc-text">3.5 以sse模式启动MCP Server常驻服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-4%EF%BD%9C%E5%AE%9E%E6%88%98%E7%AF%87%EF%BC%9A%E7%94%9F%E6%B4%BB%E5%9C%BA%E6%99%AF%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.</span> <span class="toc-text">Part 4｜实战篇：生活场景功能实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%99%BA%E8%83%BD%E6%97%A5%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 智能日程管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E4%BF%A1%E6%81%AF%E8%81%9A%E5%90%88%E6%8E%A8%E9%80%81"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 信息聚合推送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-AI-%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 AI 生活助手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E7%9F%A5%E8%AF%86%E5%BA%93%E4%B8%8E%E4%BA%91%E7%9B%98"><span class="toc-number">5.4.</span> <span class="toc-text">4.4 知识库与云盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B"><span class="toc-number">5.5.</span> <span class="toc-text">4.5 自动化流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="toc-number">6.</span> <span class="toc-text">总结与展望</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">6.1.</span> <span class="toc-text">安全性注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E7%BB%AD%E5%8F%AF%E6%89%A9%E5%B1%95%E6%96%B9%E5%90%91"><span class="toc-number">6.2.</span> <span class="toc-text">后续可扩展方向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">7.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5"><span class="toc-number">7.1.</span> <span class="toc-text">常用命令速查</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/12/hello-world/" title="Hello World">Hello World</a><time datetime="2026-06-12T06:03:19.079Z" title="发表于 2026-06-12 14:03:19">2026-06-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/11/hermes-agent-feishu-life-empowerment/" title="从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践">从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践</a><time datetime="2026-06-11T16:00:00.000Z" title="发表于 2026-06-12 00:00:00">2026-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/06/headroom-context-compression-intro/" title="GitHub 本周热门：chopratejas/headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/chopratejas/headroom" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GitHub 本周热门：chopratejas/headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失"/></a><div class="content"><a class="title" href="/2026/06/06/headroom-context-compression-intro/" title="GitHub 本周热门：chopratejas/headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失">GitHub 本周热门：chopratejas/headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失</a><time datetime="2026-06-06T16:00:00.000Z" title="发表于 2026-06-07 00:00:00">2026-06-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/06/microsoft-markitdown-intro/" title="GitHub 本周热门：microsoft/markitdown — 微软开源的通用文件转 Markdown 工具"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/microsoft/markitdown" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GitHub 本周热门：microsoft/markitdown — 微软开源的通用文件转 Markdown 工具"/></a><div class="content"><a class="title" href="/2026/06/06/microsoft-markitdown-intro/" title="GitHub 本周热门：microsoft/markitdown — 微软开源的通用文件转 Markdown 工具">GitHub 本周热门：microsoft/markitdown — 微软开源的通用文件转 Markdown 工具</a><time datetime="2026-06-06T16:00:00.000Z" title="发表于 2026-06-07 00:00:00">2026-06-07</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2026 By <a class="footer-bar-link" href="/" title="hash-dog" target="_blank">hash-dog</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">2</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 0.88rem;">AI<sup>2</sup></a><a href="/tags/AI-Agent/" style="font-size: 0.88rem;">AI Agent<sup>1</sup></a><a href="/tags/Docker/" style="font-size: 0.88rem;">Docker<sup>1</sup></a><a href="/tags/Hermes-Agent/" style="font-size: 0.88rem;">Hermes Agent<sup>1</sup></a><a href="/tags/LLM/" style="font-size: 0.88rem;">LLM<sup>1</sup></a><a href="/tags/MCP/" style="font-size: 0.88rem;">MCP<sup>2</sup></a><a href="/tags/Markdown/" style="font-size: 0.88rem;">Markdown<sup>1</sup></a><a href="/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 0.88rem;">Token优化<sup>1</sup></a><a href="/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 0.88rem;">压缩<sup>1</sup></a><a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 0.88rem;">开源<sup>2</sup></a><a href="/tags/%E6%96%87%E6%A1%A3%E8%BD%AC%E6%8D%A2/" style="font-size: 0.88rem;">文档转换<sup>1</sup></a><a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 0.88rem;">自动化<sup>1</sup></a><a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 0.88rem;">阿里云<sup>1</sup></a><a href="/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 0.88rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 hash-dog 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
