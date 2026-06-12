@@ -264,25 +264,6 @@ npx -y @larksuiteoapi/lark-mcp login -a <your_app_id> -s <your_app_secret>
 # 这一步是报错的大源头，如果login成功也没有出现两个token可能是飞书更新了相关逻辑，可以查查官网
 ```
 
-<!-- 补充：快速获得user-access-token的方法
-
-
-```bash
-# 先在飞书开发者平台添加重定向url：
-https://www.feishu.cn
-
-# 本地浏览器访问飞书官方授权码网页并登录，登陆后再跳转url中有一个字段 code
-https://open.feishu.cn/open-apis/authen/v1/authorize
-
-# 本地终端
-curl -X POST 'https://open.feishu.cn/open-apis/authen/v1/oidc/access_token' \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer t-g1046c8WJU4HVXTIYDZVK7ELZFII346APGXJJ52T' \
-  -d '{
-    "grant_type": "authorization_code",
-    "code": "你拿到的code"
-  }'
-``` -->
 
 四、刷新token的脚本
 ```bash
