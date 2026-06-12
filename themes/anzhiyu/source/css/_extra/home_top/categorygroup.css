@@ -60,6 +60,10 @@ a.categoryButton i {
   transform: scale(1) rotate(15deg);
 }
 
+a.categoryButton.purple {
+  background: linear-gradient(to right, #a855f7, #6366f1);
+  background-size: 200%;
+}
 a.categoryButton.blue {
   background: linear-gradient(to right, #358bff, #15c6ff);
   background-size: 200%;
@@ -73,8 +77,12 @@ a.categoryButton.green {
   background-size: 200%;
 }
 
+.categoryItem {
+  width: calc(100% / 4 - 0.33rem) !important;
+}
+
 .categoryItem:hover {
-  width: 50%;
+  width: 45%;
 }
 
 .categoryItem:hover svg,
@@ -104,6 +112,10 @@ a.categoryButton:after {
   }
 }
 
+[data-theme="dark"] a.categoryButton.purple {
+  background: linear-gradient(to right, #7c3aed, #4f46e5);
+  background-size: 200%;
+}
 [data-theme="dark"] a.categoryButton.blue {
   background: linear-gradient(to right, #0653b8, #2fcbff);
   background-size: 200%;

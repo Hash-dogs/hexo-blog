@@ -1042,6 +1042,11 @@ home_top:
   subTitle: 万物可爱。
   siteText: anheyu.com
   category:
+    - name: 技术分享
+      path: /categories/技术分享/
+      shadow: var(--anzhiyu-shadow-purple)
+      class: purple
+      icon: anzhiyu-icon-code
     - name: 前端
       path: /categories/前端开发/
       shadow: var(--anzhiyu-shadow-blue)
