@@ -4,7 +4,10 @@
         #catalog-list
           .catalog-list-item(id='首页')
             a(href="/") 首页
-          !=catalog_list("categories")
+          - var categoryList = site.categories.filter(cat => cat.name !== '友链').toArray()
+          each cat in categoryList
+            .catalog-list-item(id=`/${cat.path}`)
+              a(href=`/${cat.path}`) #{cat.name}
         .category-bar-next#category-bar-next(onclick="anzhiyu.scrollCategoryBarToRight()")
           i.anzhiyufont.anzhiyu-icon-angle-double-right
         a.catalog-more(href="/categories/")!= '更多'
