@@ -57,9 +57,9 @@ allowed_tools:
 
 无论哪个分支，在正式开始写作前，必须执行此检查点：
 
-1. 用 Glob 或 Grep 扫描 `source/_posts/*.md`，读取所有博文的 title 和 categories
-2. 筛选出与当前主题同分类（github热门/技术分享/其他）的博文标题列表
-3. 用 AskUserQuestion 询问用户：**"以下为同分类的已有博文标题，是否与当前选题重复或有冲突？确认通过后继续。"**
+1. 读取 `.claude/skills/newblog/posts-index.md`，获取所有博文的标题、分类、描述和标签
+2. 筛选出与当前主题同分类（github热门/技术分享/其他）的博文标题列表，**逐条对比**新选题是否与已有博文在主题、项目名、技术领域上重复或冲突
+3. 用 AskUserQuestion 向用户展示同分类已有博文列表，询问：**"以下为同分类的已有博文标题，是否与当前选题重复或有冲突？确认通过后继续。"**
 4. 等待用户确认。如果用户指出撞题，调整选题方向后重新执行阶段 2（最多重试 2 次）
 
 ---
@@ -69,10 +69,11 @@ allowed_tools:
 ### 通用规则（所有分类适用）
 
 1. **风格参考**：先阅读同分类最近一篇博文（同一 categories 的最新 .md 文件），分析其语气、篇幅、章节结构，按相同风格撰写
-2. **模板**：使用 `templates/post-template.md` 的 YAML front-matter 结构
-3. **文件命名**：`source/_posts/<英文-kebab-slug>.md`
-4. **语言**：zh-CN
-5. **构建**：博文保存后执行 `npm run build`，确保构建通过
+2. **发布时间**：`date` 和 `updated` 字段必须设置为博文完成时的**前一个整点时间**（而非 `00:00:00`）。完成博文后执行 `date +"%Y-%m-%d %H:%M:%S"` 获取当前时间，小时部分向下取整（如 22:20 完成 → `22:00:00`，09:05 完成 → `09:00:00`）
+3. **模板**：使用 `templates/post-template.md` 的 YAML front-matter 结构
+4. **文件命名**：`source/_posts/<英文-kebab-slug>.md`
+5. **语言**：zh-CN
+6. **构建**：博文保存后执行 `npm run build`，确保构建通过
 
 ### github热门 分支专项规则
 
@@ -114,8 +115,10 @@ allowed_tools:
 ## 阶段 4：发布
 
 1. 执行 `git add source/_posts/<filename>`
-2. 按格式写入 commit message：`feat: 发布新博文「{title}」`
-3. 执行 `git commit`
+2. 将博文信息（标题、文件名、分类、标签、描述）追加到 `.claude/skills/newblog/posts-index.md` 的对应分类下
+3. 执行 `git add .claude/skills/newblog/posts-index.md`
+4. 按格式写入 commit message：`feat: 发布新博文「{title}」`
+5. 执行 `git commit`
 
 ---
 
