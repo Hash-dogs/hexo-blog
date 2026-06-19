@@ -5,6 +5,7 @@ updated: 2026-06-16 22:00:00
 categories:
   - github热门
 tags:
+  - 技术分享
   - 开源
   - AI
   - 配置管理

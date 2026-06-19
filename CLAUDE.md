@@ -85,7 +85,7 @@ description: SEO description
 
 | 分类 | 标签 |
 |---|---|
-| 领域 | `开源` `AI` `AI Agent` `LLM` `MCP` `Skills` `Claude Code` `安全` |
+| 领域 | `开源` `AI` `AI Agent` `LLM` `MCP` `Skills` `Claude Code` `技术分享` `安全` |
 | 技术栈 | `Hermes Agent` `Rust` `Tauri` `Docker` `Markdown` |
 | 场景 | `配置管理` `跨平台` `压缩` `Token优化` `飞书` `阿里云` `自动化` `研究工具` |
 

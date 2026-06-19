@@ -5,6 +5,7 @@ updated: 2026-06-12
 categories:
   - 技术分享
 tags:
+  - 技术分享
   - Hermes Agent
   - 飞书
   - AI Agent

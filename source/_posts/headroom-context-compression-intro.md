@@ -5,6 +5,7 @@ updated: 2026-06-07
 categories:
   - github热门
 tags:
+  - 技术分享
   - 开源
   - AI
   - LLM

@@ -4,8 +4,8 @@ menu:
     分类: /categories/ || anzhiyu-icon-shapes
     标签: /tags/ || anzhiyu-icon-tags
 
-  友链:
-    友人帐: /link/ || anzhiyu-icon-link
+  # 友链:
+  #   友人帐: /link/ || anzhiyu-icon-link
 
   关于:
     关于本人: /about/ || anzhiyu-icon-paper-plane
@@ -1043,15 +1043,10 @@ home_top:
   siteText: anheyu.com
   category:
     - name: 技术分享
-      path: /categories/技术分享/
+      path: /tags/技术分享/
       shadow: var(--anzhiyu-shadow-purple)
       class: purple
       icon: anzhiyu-icon-code
-    - name: 前端
-      path: /categories/前端开发/
-      shadow: var(--anzhiyu-shadow-blue)
-      class: blue
-      icon: anzhiyu-icon-dove
     - name: 大学
       path: /categories/大学生涯/
       shadow: var(--anzhiyu-shadow-red)
