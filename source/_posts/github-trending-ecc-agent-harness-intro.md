@@ -7,7 +7,7 @@ categories:
 tags:
   - 开源
   - AI
-  - Agent
+  - AI Agent
   - Skills
   - Claude Code
   - 安全

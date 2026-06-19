@@ -7,10 +7,9 @@ categories:
 tags:
   - 开源
   - AI
-  - Skill
+  - Skills
   - Claude Code
   - 研究工具
-  - 信息聚合
 cover: https://opengraph.githubassets.com/1/mvanhorn/last30days-skill
 description: mvanhorn/last30days-skill 本周以 12,053 stars 的增量登顶 GitHub 热门第一，这是一款革命性的 AI Agent Skill，能在 Reddit、X、YouTube、HN、Polymarket 等 14+ 平台跨源研究任意话题，并合成带有引用的深度摘要，代表着 Claude Skills 生态爆发的标志性项目。
 ---
