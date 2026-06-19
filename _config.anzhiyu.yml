@@ -1047,13 +1047,18 @@ home_top:
       shadow: var(--anzhiyu-shadow-purple)
       class: purple
       icon: anzhiyu-icon-code
+    - name: 观点分享
+      path: /tags/观点分享/
+      shadow: var(--anzhiyu-shadow-yellow)
+      class: yellow
+      icon: anzhiyu-icon-comment
     - name: 大学
-      path: /categories/大学生涯/
+      path: /tags/大学/
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire
     - name: 生活
-      path: /categories/生活日常/
+      path: /tags/生活/
       shadow: var(--anzhiyu-shadow-green)
       class: green
       icon: anzhiyu-icon-book
