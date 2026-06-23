@@ -37,6 +37,12 @@
 - **描述**: affaan-m/ECC 以 212K+ Stars 持续霸榜 GitHub Trending，被社区称为"Agent 开发者的操作系统"，通过 261 个 Skills、64 个 Agent 角色和 AgentShield 安全扫描，为 Claude Code、Codex、Cursor 等 AI 编程工具提供统一的性能优化和编排平台。
 - **标签**: 开源, AI, Agent, Skills, Claude Code, 安全
 
+### 6. Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛
+- **文件名**: `agent-reach-intro.md`
+- **发布日期**: 2026-06-23
+- **描述**: Panniantong/Agent-Reach 以 8,000+ 周增量登顶本周 GitHub 热门，这是一个纯 Python 的 AI Agent 联网能力层，一键安装即可让 Claude Code、OpenClaw、Cursor 等 Agent 免费读写 Twitter、Reddit、YouTube、B站、小红书等 15+ 平台，无需任何官方 API 费用。
+- **标签**: 开源, AI, AI Agent, Skills, 研究工具, 自动化
+
 ---
 
 ## 技术分享
