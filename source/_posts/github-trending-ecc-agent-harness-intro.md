@@ -1,5 +1,5 @@
 ---
-title: GitHub 本周热门：affaan-m/ECC — 212K Stars 的 Agent Harness 操作系统，Skills 生态终极集大成者
+title: GitHub热门项目推荐（6月8日~6月14日）affaan-m/ECC — 212K Stars 的 Agent Harness 操作系统，Skills 生态终极集大成者
 date: 2026-06-17 21:00:00
 updated: 2026-06-17 21:00:00
 categories:

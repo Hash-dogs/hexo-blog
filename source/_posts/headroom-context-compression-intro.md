@@ -1,5 +1,5 @@
 ---
-title: GitHub 本周热门：chopratejas/headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失
+title: GitHub热门项目推荐（6月1日~6月7日）chopratejas/headroom — AI 上下文压缩层，60-95% Token 节省且零精度损失
 date: 2026-06-07
 updated: 2026-06-07
 categories:

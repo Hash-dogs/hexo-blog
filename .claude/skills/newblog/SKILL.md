@@ -74,9 +74,11 @@ allowed_tools:
 4. **文件命名**：`source/_posts/<英文-kebab-slug>.md`
 5. **语言**：zh-CN
 6. **构建**：博文保存后执行 `npm run build`，确保构建通过
+7. **流程图/图表**：博文中如需展示流程图、时序图、架构图等，统一使用 Mermaid 代码块（` ```mermaid `）实现，禁止使用 ASCII 艺术图或图片截图。Mermaid 代码块在博客前端会被主题自动渲染为可视化图形
 
 ### github热门 分支专项规则
 
+- **标题格式**：`GitHub热门项目推荐（X月X日~X月X日）{owner}/{repo} — 描述`，周时间范围根据发布日所在的自然周（周一~周日）确定
 - **封面图**：`https://opengraph.githubassets.com/1/{owner}/{repo}`
 - **章节结构**（固定顺序）：
 
