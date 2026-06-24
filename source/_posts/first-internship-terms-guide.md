@@ -7,6 +7,7 @@ categories:
 tags:
   - 观点分享
   - 配置管理
+cover: https://images.pexels.com/photos/23496663/pexels-photo-23496663.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
 description: 从实习协议到五险一金，从个税到档案户口，写给第一次踏入职场的大学生。用大白话拆解七大学生实习高频名词，附常见坑和避雷指南。
 ---
 

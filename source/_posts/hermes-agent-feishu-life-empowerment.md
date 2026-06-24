@@ -13,7 +13,7 @@ tags:
   - Docker
   - 阿里云
   - 自动化
-cover:
+cover: https://images.pexels.com/photos/8566470/pexels-photo-8566470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
 description: 一步步教你从阿里云部署 Hermes Agent，接入飞书消息平台，集成官方 MCP，打造个人 AI 生活管家——日程管理、知识库、信息聚合、自动化流程全覆盖。
 ---
 

@@ -75,6 +75,13 @@ allowed_tools:
 5. **语言**：zh-CN
 6. **构建**：博文保存后执行 `npm run build`，确保构建通过
 7. **流程图/图表**：博文中如需展示流程图、时序图、架构图等，统一使用 Mermaid 代码块（` ```mermaid `）实现，禁止使用 ASCII 艺术图或图片截图。Mermaid 代码块在博客前端会被主题自动渲染为可视化图形
+8. **封面图（非 github热门 分支）**：
+   - github热门 分支使用 GitHub Open Graph，无需额外处理
+   - 其他分类（技术分享/观点分享等）必须配置封面图
+   - 使用 Pexels API 搜索封面图：API Key 存储在 `.claude/pexels-api-key`
+   - 搜索命令：`curl -s -H "Authorization: <key>" "https://api.pexels.com/v1/search?query=<英文关键词>&per_page=3&orientation=landscape"`
+   - 关键词根据博文主题提炼（用英文），优先选贴合主题的 `large` 尺寸 URL（参数 `?auto=compress&cs=tinysrgb&h=650&w=940`）
+   - 将返回的图片 URL 直接填入 front-matter 的 `cover:` 字段，Pexels 支持热链直用
 
 ### github热门 分支专项规则
 
@@ -99,7 +106,7 @@ allowed_tools:
 ### 通用 分支专项规则
 
 - 章节结构自由组织，根据内容灵活安排
-- 封面图可选
+- 封面图必须配置（按通用规则第 8 条通过 Pexels API 自动搜索）
 - 标签按需定义
 - 风格参考同分类最近一篇博文
 
