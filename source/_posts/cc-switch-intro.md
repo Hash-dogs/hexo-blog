@@ -1,5 +1,5 @@
 ---
-title: GitHub热门项目推荐（6月8日~6月14日）farion1231/cc-switch — 多 AI 工具配置统一管理，周增 6,621 Star 的跨平台桌面中枢
+title: GitHub热门（6/8-6/14）farion1231/cc-switch — 多 AI 工具配置统一管理，跨平台桌面中枢
 date: 2026-06-16 22:00:00
 updated: 2026-06-16 22:00:00
 categories:

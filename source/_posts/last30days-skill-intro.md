@@ -1,5 +1,5 @@
 ---
-title: GitHub热门项目推荐（6月8日~6月14日）mvanhorn/last30days-skill — 跨平台 AI 研究神器，12K Stars 的 Skill 生态标杆
+title: GitHub热门（6/8-6/14）mvanhorn/last30days-skill — 跨平台 AI 研究神器
 date: 2026-06-15
 updated: 2026-06-15
 categories:
