@@ -43,6 +43,12 @@
 - **描述**: Panniantong/Agent-Reach 以 8,000+ 周增量登顶本周 GitHub 热门，这是一个纯 Python 的 AI Agent 联网能力层，一键安装即可让 Claude Code、OpenClaw、Cursor 等 Agent 免费读写 Twitter、Reddit、YouTube、B站、小红书等 15+ 平台，无需任何官方 API 费用。
 - **标签**: 开源, AI, AI Agent, Skills, 研究工具, 自动化
 
+### 7. GitHub热门（6/22-6/28）addyosmani/agent-skills — 工程AI技能
+- **文件名**: `addyosmani-agent-skills-intro.md`
+- **发布日期**: 2026-06-28
+- **描述**: addyosmani/agent-skills 将生产级工程工作流编码为 24 个结构化 Skills，覆盖从需求定义到生产发布的完整开发生命周期，由 Google Chrome 工程总监 Addy Osmani 出品，从根本上改变了 AI 编码的工程纪律。
+- **标签**: 开源, AI, Skills, Claude Code, AI Agent
+
 ---
 
 ## 技术分享
