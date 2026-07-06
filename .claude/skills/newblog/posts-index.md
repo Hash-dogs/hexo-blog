@@ -49,11 +49,17 @@
 - **描述**: addyosmani/agent-skills 将生产级工程工作流编码为 24 个结构化 Skills，覆盖从需求定义到生产发布的完整开发生命周期，由 Google Chrome 工程总监 Addy Osmani 出品，从根本上改变了 AI 编码的工程纪律。
 - **标签**: 开源, AI, Skills, Claude Code, AI Agent
 
+### 8. GitHub热门（6/30-7/6）alibaba/page-agent — 页面内嵌 GUI Agent
+- **文件名**: `alibaba-page-agent-intro.md`
+- **发布日期**: 2026-07-06
+- **描述**: alibaba/page-agent 以 3,151 周增量冲进本周 GitHub Trending 前列，是一款纯 TypeScript 的页面内嵌 GUI Agent：一行脚本即可让 Web 应用获得自然语言交互、表单填写和跨页面控制能力，并支持 Chrome Extension 与 MCP Server 扩展。
+- **标签**: 开源, AI, AI Agent, MCP, 自动化
+
 ---
 
 ## 技术分享
 
-### 6. 从零部署 Hermes Agent + 飞书
+### 1. 从零部署 Hermes Agent + 飞书
 - **文件名**: `hermes-agent-feishu-life-empowerment.md`
 - **发布日期**: 2026-06-12
 - **描述**: 一步步教你从阿里云部署 Hermes Agent，接入飞书消息平台，集成官方 MCP，打造个人 AI 生活管家——涵盖日程管理、知识库、信息聚合、自动化流程等场景。
@@ -63,7 +69,7 @@
 
 ## 观点分享
 
-### 6. 第一次实习打工，这七个词你得先弄明白
+### 1. 第一次实习打工，这七个词你得先弄明白
 - **文件名**: `first-internship-terms-guide.md`
 - **发布日期**: 2026-06-19
 - **描述**: 从实习协议到五险一金，从个税到档案户口，写给第一次踏入职场的大学生。用大白话拆解七大学生实习高频名词：实习协议、三方协议、劳务报酬个税、五险一金、试用期、竞业限制、档案户口。每个名词包含法律依据、常见场景和避坑指南。
