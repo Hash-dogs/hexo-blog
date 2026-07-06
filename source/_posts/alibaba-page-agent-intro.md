@@ -78,7 +78,7 @@ PageAgent 的核心创新可以概括成一句话：**把 AI Agent 从页面外�
 
 PageAgent 的仓库结构是一个典型的 monorepo，核心模块分工很清晰：
 
-```mermaid
+{% mermaid %}
 flowchart LR
     App[Web 页面] --> Agent[PageAgent]
     Agent --> Core[@page-agent/core]
@@ -87,7 +87,7 @@ flowchart LR
     Agent --> UI[@page-agent/ui]
     Agent --> MCP[@page-agent/mcp]
     Agent --> Ext[@page-agent/extension]
-```
+{% endmermaid %}
 
 ### 1. `@page-agent/core`
 
