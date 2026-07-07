@@ -59,7 +59,13 @@
 
 ## 技术分享
 
-### 1. 从零部署 Hermes Agent + 飞书
+### 1. 2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南
+- **文件名**: `rpa-landscape-2026-ai-agent-era.md`
+- **发布日期**: 2026-07-06
+- **描述**: 2026年，当 Claude Code、Codex、Cursor 等 AI 编程智能体横行开发界，传统 RPA 厂商正全面向 Agent 架构转型。一文读懂 UiPath、Automation Anywhere、Blue Prism 国际三巨头与影刀、来也、弘玑国产三强的差异化定位与选型策略。
+- **标签**: 技术分享, RPA, AI Agent, 自动化
+
+### 2. 从零部署 Hermes Agent + 飞书
 - **文件名**: `hermes-agent-feishu-life-empowerment.md`
 - **发布日期**: 2026-06-12
 - **描述**: 一步步教你从阿里云部署 Hermes Agent，接入飞书消息平台，集成官方 MCP，打造个人 AI 生活管家——涵盖日程管理、知识库、信息聚合、自动化流程等场景。
