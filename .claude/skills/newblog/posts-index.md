@@ -71,6 +71,12 @@
 - **描述**: 2026年，当 Claude Code、Codex、Cursor 等 AI 编程智能体横行开发界，传统 RPA 厂商正全面向 Agent 架构转型。一文读懂 UiPath、Automation Anywhere、Blue Prism 国际三巨头与影刀、来也、弘玑国产三强的差异化定位与选型策略。
 - **标签**: 技术分享, RPA, AI Agent, 自动化
 
+### 3. Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命
+- **文件名**: `prompt-dead-loop-engineering-paradigm-shift.md`
+- **发布日期**: 2026-07-19
+- **描述**: 2026年6月中旬，黄仁勋一句"没人再写提示词了"引爆整个 AI 圈。从 Prompt Engineering 到 Loop Engineering 的第四次范式迁移正在发生——但 ClickUp 裁员 22%、AI 精神病、理解债务等阴影也随之而来。
+- **标签**: 观点分享, AI, AI Agent, LLM, Skills, Claude Code, 自动化
+
 ### 2. 从零部署 Hermes Agent + 飞书
 - **文件名**: `hermes-agent-feishu-life-empowerment.md`
 - **发布日期**: 2026-06-12
