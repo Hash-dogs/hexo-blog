@@ -55,6 +55,12 @@
 - **描述**: alibaba/page-agent 以 3,151 周增量冲进本周 GitHub Trending 前列，是一款纯 TypeScript 的页面内嵌 GUI Agent：一行脚本即可让 Web 应用获得自然语言交互、表单填写和跨页面控制能力，并支持 Chrome Extension 与 MCP Server 扩展。
 - **标签**: 开源, AI, AI Agent, MCP, 自动化
 
+### 9. GitHub热门（6/13-6/19）Leonxlnx/taste-skill — 前端审美校准器
+- **文件名**: `taste-skill-anti-slop-frontend.md`
+- **发布日期**: 2026-07-19
+- **描述**: Leonxlnx/taste-skill 以 8,700+ 周增量登顶 Agent 类 GitHub Trending 前列，是一款专为 AI 编码工具设计的 Anti-Slop 前端技能框架，通过三旋钮调节 + 严格反模式约束，让 AI 生成的界面告别"模板脸"。
+- **标签**: 开源, AI, Skills, Claude Code, AI Agent
+
 ---
 
 ## 技术分享
