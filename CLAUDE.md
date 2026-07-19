@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Hexo 7.3.0** static blog (Chinese-language tech blog), deployed on both **Vercel** (primary, via `hash-dog.cc.cd`) and **GitHub Pages** (via `gh-pages` branch).
+This is a **Hexo 7.3.0** static blog (Chinese-language tech blog), deployed on **GitHub Pages** (via `gh-pages` branch).
 
 ## Common Commands
 
@@ -43,7 +43,6 @@ npx hexo publish <draft-name>
 |---|---|
 | `_config.yml` | Site-wide Hexo config (title, URL, theme, plugins, search) |
 | `_config.anzhiyu.yml` | Theme configuration overrides (~1340 lines — menus, music, comments, CDN, etc.) |
-| `vercel.json` | Vercel deployment settings (build, rewrite rules, cache headers) |
 | `.github/workflows/deploy.yml` | GitHub Actions: builds and deploys to `gh-pages` branch on push to `main` |
 
 ### Content Structure
@@ -105,7 +104,6 @@ Custom tag plugins are registered as Hexo tags — e.g., `{% bilibili BV1... %}`
 
 ### Deployment
 
-- **Vercel**: Auto-deploys from GitHub `main` branch. Build: `npm run build`. Output: `public/`. Custom domain: `hash-dog.cc.cd`.
 - **GitHub Pages**: GitHub Actions workflow (`.github/workflows/deploy.yml`) builds on push to `main` and deploys to `gh-pages` branch via `peaceiris/actions-gh-pages`.
 - **Dependabot**: Daily npm dependency checks (up to 20 PRs at a time).
 
@@ -124,5 +122,5 @@ Custom tag plugins are registered as Hexo tags — e.g., `{% bilibili BV1... %}`
 - **`AGENTS.md`** exists for Qoder (Alibaba's AI assistant) and is outdated — it references the default `landscape` theme. This project uses the **anzhiyu** theme.
 - Always run `hexo clean` if you encounter unexpected behavior after config changes.
 - The `public/` directory is gitignored (generated artifacts).
-- Site URL is `https://hash-dog.cc.cd` (Vercel custom domain). No root subpath is needed.
+- Site URL is `https://hash-dogs.github.io/hexo-blog/` (GitHub Pages project site). The `root: /hexo-blog/` config must remain set.
 - Language is `zh-CN`, timezone `Asia/Shanghai`.
