@@ -61,6 +61,12 @@
 - **描述**: Leonxlnx/taste-skill 以 8,700+ 周增量登顶 Agent 类 GitHub Trending 前列，是一款专为 AI 编码工具设计的 Anti-Slop 前端技能框架，通过三旋钮调节 + 严格反模式约束，让 AI 生成的界面告别"模板脸"。
 - **标签**: 开源, AI, Skills, Claude Code, AI Agent
 
+### 10. GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent
+- **文件名**: `xai-org-grok-build-intro.md`
+- **发布日期**: 2026-07-24
+- **描述**: xai-org/grok-build 由 xAI 开源，是一套 99.6% Rust 编写的终端 AI 编程 Agent，支持 TUI/Headless/ACP 三种模式，9 天内斩获 22K+ Stars，代表了编码 Agent 从"闭源黑盒"走向"完全透明"的关键转折。
+- **标签**: 开源, AI, AI Agent, Rust, Skills, MCP
+
 ---
 
 ## 技术分享
