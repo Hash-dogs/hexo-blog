@@ -67,6 +67,12 @@
 - **描述**: xai-org/grok-build 由 xAI 开源，是一套 99.6% Rust 编写的终端 AI 编程 Agent，支持 TUI/Headless/ACP 三种模式，9 天内斩获 22K+ Stars，代表了编码 Agent 从"闭源黑盒"走向"完全透明"的关键转折。
 - **标签**: 开源, AI, AI Agent, Rust, Skills, MCP
 
+### 11. GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台
+- **文件名**: `block-buzz-intro.md`
+- **发布日期**: 2026-07-26
+- **描述**: block/buzz 由 Block（原 Square）开源，是基于 Nostr 协议的自托管蜂巢式协作平台——人类与 AI Agent 共享同一工作空间。本周以 +3,270 Stars/日 的增速登顶 GitHub Trending 日榜，12K+ Stars，纯 Rust 实现。
+- **标签**: 开源, Rust, Docker
+
 ---
 
 ## 技术分享
