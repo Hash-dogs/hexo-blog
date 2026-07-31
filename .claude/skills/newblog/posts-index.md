@@ -73,6 +73,12 @@
 - **描述**: block/buzz 由 Block（原 Square）开源，是基于 Nostr 协议的自托管蜂巢式协作平台——人类与 AI Agent 共享同一工作空间。本周以 +3,270 Stars/日 的增速登顶 GitHub Trending 日榜，12K+ Stars，纯 Rust 实现。
 - **标签**: 开源, Rust, Docker
 
+### 12. GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台
+- **文件名**: `odysseus-self-hosted-ai-workspace.md`
+- **发布日期**: 2026-07-31
+- **描述**: odysseus-dev/odysseus 由 PewDiePie（Felix Kjellberg）开源，是一个自托管的一站式 AI 工作空间，84.4K Stars，本周 +22.2K 登顶 Trendshift 周榜第一，Python + FastAPI + ChromaDB 技术栈，集 Chat、Agent、Deep Research、邮件、日历、笔记于一体。
+- **标签**: 开源, AI, AI Agent, MCP, Docker
+
 ---
 
 ## 技术分享
