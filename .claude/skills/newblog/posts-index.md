@@ -79,6 +79,12 @@
 - **描述**: odysseus-dev/odysseus 由 PewDiePie（Felix Kjellberg）开源，是一个自托管的一站式 AI 工作空间，84.4K Stars，本周 +22.2K 登顶 Trendshift 周榜第一，Python + FastAPI + ChromaDB 技术栈，集 Chat、Agent、Deep Research、邮件、日历、笔记于一体。
 - **标签**: 开源, AI, AI Agent, MCP, Docker
 
+### 13. GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架
+- **文件名**: `yc-software-qm-multiplayer-agent-harness.md`
+- **发布日期**: 2026-08-08
+- **描述**: yc-software/qm 由 Y Combinator 开源，是团队级多人 Agent 协作框架（Multiplayer Agent Harness），本周约 12.1K Stars 登顶 GitHub Trending 第一、Hacker News 榜首，TypeScript 技术栈，为每个员工和项目提供隔离工作区与共享协作空间。
+- **标签**: 开源, AI, AI Agent, Skills, 自动化
+
 ---
 
 ## 技术分享
