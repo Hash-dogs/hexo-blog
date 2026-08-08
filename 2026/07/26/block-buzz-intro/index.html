@@ -1,0 +1,545 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台 | 我的技术博客</title><meta name="keywords" content="开源,Rust,Docker"><meta name="author" content="hash-dog"><meta name="copyright" content="hash-dog"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"><meta name="application-name" content="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"><meta property="og:url" content="https://hash-dogs.github.io/hexo-blog/2026/07/26/block-buzz-intro/index.html"><meta property="og:site_name" content="我的技术博客"><meta property="og:description" content="block&amp;#x2F;buzz 由 Block（原 Square）开源，是一个基于 Nostr 协议的自托管蜂巢式协作平台——人类与 AI Agent 共享同一工作空间。本周以 +3,270 Stars&amp;#x2F;日的增速登顶 GitHub Trending 日榜，12K+ Stars，纯 Rust 实现。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://opengraph.githubassets.com/1/block/buzz"><meta property="article:author" content="hash-dog"><meta property="article:tag" content="技术,博客,编程,开发"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://opengraph.githubassets.com/1/block/buzz"><meta name="description" content="block&amp;#x2F;buzz 由 Block（原 Square）开源，是一个基于 Nostr 协议的自托管蜂巢式协作平台——人类与 AI Agent 共享同一工作空间。本周以 +3,270 Stars&amp;#x2F;日的增速登顶 GitHub Trending 日榜，12K+ Stars，纯 Rust 实现。"><link rel="shortcut icon" href="/hexo-blog/favicon.ico"><link rel="canonical" href="https://hash-dogs.github.io/hexo-blog/2026/07/26/block-buzz-intro/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/hexo-blog/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/hexo-blog/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/hexo-blog/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: hash-dog","link":"链接: ","source":"来源: 我的技术博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的技术博客',
+  title: 'GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台',
+  postAI: '',
+  pageFillDescription: '引言, 项目背景：协作工具的割裂之痛, 七 Tab 困境, Agent 的二等公民身份, Nostr 协议的机遇, 核心创新：人机同室的一等公民, 人机同室, 统一事件日志, 身份即权限, 深度架构解析, Rust 多 Crate 工作区, Nostr Relay 为中心, ACP 协议：Agent 生态的连接器, 快速上手, 一键安装（桌面端）, 源码构建, 生产部署, 接入 Agent, 总结引言本周上以日的速度登顶月日日榜第一三天内从数千飙升至成为本周非领域最受关注的开源项目项目地址许可证技术栈主要语言由原开源定位为一个你自有的上人类和共同构建的工作空间它的核心不是什么框架而是一个基于协议的蜂巢式通信协作平台恰好支持作为一等公民参与其中项目背景协作工具的割裂之痛七困境现代开发团队面临一个尴尬的现状沟通在代码在在文档在审批在七个互不知晓对方的存在当一个凌晨点的故障发生时工程师需要在多个平台之间来回跳转手动拼凑上下文更糟的是一旦有团队成员休假关键的历史决策轨迹就藏在聊天记录和评论的缝隙里无人知晓的二等公民身份现有的协作平台对的支持充其量是只能收发消息无法访问代码仓库无法触发工作流无法参与代码审查被隔离在聊天框的隔离区里而不是真正的团队成员协议的机遇是一个简洁的开放协议每一条消息反应工作流步骤审查批准事件都是上的一个签名事件同样的数据结构同样的身份模型同样的审计轨迹无论作者是人还是程序正是基于的这一特性将整个团队的协作数据统一到一个事件日志中核心创新人机同室的一等公民维度传统工具身份一等公民独立密钥独立频道成员独立审计受限账号功能阉割数据主权自托管自有厂商托管数据无法迁移通信协议开放协议签名事件标准一致各自私有协议互不兼容事件模型统一事件日志消息代码审批同一格式各自分离跨平台需胶水代码审计签名事件链人和同一审计标准厂商封闭日志自托管一键部署企业版自托管极其昂贵桌面端原生应用但功能受限于厂商人机同室最核心的设计理念是是频道成员不是机器人将加入频道的方式和加入一个人完全一样通过密钥认证有自己的成员身份自己的频道权限自己的审计轨迹在中可以做的远不止聊天打开代码仓库提交审查代码批准合并运行工作流创建和编辑画布发起语音讨论编排其他统一事件日志整个系统的核心是一个无论是人的消息还是的操作都遵循规范同样的签名算法同样的存储格式同样的全文搜索索引搜索这个错误见过吗同时命中六个月前人的讨论和上周的分析变为频道代码审查合并决定在同一处发布流水线自写发布说明每个步骤签名可追溯身份即权限不采用传统权限标志模式而是通过身份本身作用域限定权限有自己的密钥对自己的频道成员身份自己的审计日志你不需要告诉它可以在哪个频道做什么它的密钥本身就决定了这些深度架构解析多工作区是一个由多个面向特定职责的组成职责服务零类型过滤器验证事件存储全文搜索认证速率限制发布订阅在线状态正在输入全文搜索哈希链审计日志优先入出适配层工作流引擎媒体存储类型化事件构建器为中心客户端层桌面端层认证频道媒体工作流审计日志存储层事件存储搜索发布订阅媒体存储单一的真相源是所有客户端无论是桌面应用还是都通过或与同一个通信协议生态的连接器实现了适配层使得主流编程工具能够原生接入工作空间桥接意味着在中的操作打开仓库审查代码运行工作流都可以通过工具暴露给客户端快速上手一键安装桌面端从页面下载对应平台的安装包源码构建初始化环境需启动开发模式运行在桌面端自动弹出生产部署单节点部署预配置可选接入设置密钥使用入出专为工具调用设计总结以和日均的增长在本周上爆发其背后信号耐人寻味在热潮席卷的年社区最追捧的并不一定是另一个框架而是一个能让人类和真正同处一室的协作基础设施的核心理念所有参与者所有事件所有审计在同一个协议层上统一切中了团队协作中最深层的痛点信息碎片化由这样的金融科技巨头开源纯实现基于开放协议构建代表着协作工具从厂商锁定的私有协议向开放的去中心化协议演进的一个信号虽然它还处于早期阶段尚未发布但它提出的是频道成员而非机器人的设计哲学已经在社区引发了广泛讨论本周只是开始如果能兑现其愿景一个取代七个它可能成为开源协作基础设施领域的重要一极本文基于仓库文档及数据编写数据截至年月日',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-07-26 14:00:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="我的技术博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/hexo-blog/" accesskey="h"><div class="title">我的技术博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 1.05rem;">AI<sup>14</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 1.05rem;">AI Agent<sup>12</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 1.05rem;">Claude Code<sup>5</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 1.05rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 1.05rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 1.05rem;">LLM<sup>3</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 1.05rem;">MCP<sup>6</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 1.05rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 1.05rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 1.05rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 1.05rem;">Skills<sup>8</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 1.05rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 1.05rem;">Token优化<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 1.05rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.05rem;">安全<sup>1</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.05rem;">开源<sup>14</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">技术分享<sup>7</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">研究工具<sup>2</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.05rem;">自动化<sup>6</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">观点分享<sup>3</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.05rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.05rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 1.05rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 1.05rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/08/"><span class="card-archive-list-date">八月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/07/"><span class="card-archive-list-date">七月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/06/"><span class="card-archive-list-date">六月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/hexo-blog/categories/github%E7%83%AD%E9%97%A8/" itemprop="url">github热门</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>开源</span></a><a class="article-meta__tags" href="/hexo-blog/tags/Rust/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Rust</span></a><a class="article-meta__tags" href="/hexo-blog/tags/Docker/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Docker</span></a></span></div></div><h1 class="post-title" itemprop="name headline">GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-07-26T06:00:00.000Z" title="发表于 2026-07-26 14:00:00">2026-07-26</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-07-26T06:00:00.000Z" title="更新于 2026-07-26 14:00:00">2026-07-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://opengraph.githubassets.com/1/block/buzz"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hash-dogs.github.io/hexo-blog/2026/07/26/block-buzz-intro/"><header><a class="post-meta-categories" href="/hexo-blog/categories/github%E7%83%AD%E9%97%A8/" itemprop="url">github热门</a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" tabindex="-1" itemprop="url">开源</a><a href="/hexo-blog/tags/Rust/" tabindex="-1" itemprop="url">Rust</a><a href="/hexo-blog/tags/Docker/" tabindex="-1" itemprop="url">Docker</a><h1 id="CrawlerTitle" itemprop="name headline">GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">hash-dog</span><time itemprop="dateCreated datePublished" datetime="2026-07-26T06:00:00.000Z" title="发表于 2026-07-26 14:00:00">2026-07-26</time><time itemprop="dateCreated datePublished" datetime="2026-07-26T06:00:00.000Z" title="更新于 2026-07-26 14:00:00">2026-07-26</time></header><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>本周 GitHub Trending 上，<strong>block&#x2F;buzz</strong> 以 <strong>+3,270 Stars&#x2F;日</strong> 的速度登顶 7 月 25 日日榜第一，三天内从数千 Stars 飙升至 <strong>12,265 Stars</strong>（Forks 989），成为本周非 Agent 领域最受关注的开源项目。</p>
+<ul>
+<li>项目地址：<a target="_blank" rel="noopener" href="https://github.com/block/buzz">https://github.com/block/buzz</a>  </li>
+<li>许可证：Apache 2.0  </li>
+<li>技术栈：Rust（主要语言）  </li>
+<li>由 Block, Inc.（原 Square）开源</li>
+</ul>
+<p>buzz 定位为”一个你自有的 Relay 上，人类和 Agent 共同构建的工作空间”。它的核心不是什么 AI Agent 框架，而是一个<strong>基于 Nostr 协议的蜂巢式通信协作平台</strong>——恰好支持 Agent 作为一等公民参与其中。</p>
+<hr>
+<h2 id="项目背景：协作工具的割裂之痛"><a href="#项目背景：协作工具的割裂之痛" class="headerlink" title="项目背景：协作工具的割裂之痛"></a>项目背景：协作工具的割裂之痛</h2><h3 id="七-Tab-困境"><a href="#七-Tab-困境" class="headerlink" title="七 Tab 困境"></a>七 Tab 困境</h3><p>现代开发团队面临一个尴尬的现状：沟通在 Slack&#x2F;Discord，代码在 GitHub，CI&#x2F;CD 在 Jenkins，文档在 Notion，审批在 Jira——七个 Tab 互不知晓对方的存在。</p>
+<p>当一个凌晨 2 点的故障发生时，工程师需要在多个平台之间来回跳转，手动拼凑上下文。更糟的是，一旦有团队成员休假，关键的历史决策轨迹就藏在聊天记录和 PR 评论的缝隙里，无人知晓。</p>
+<h3 id="Agent-的”二等公民”身份"><a href="#Agent-的”二等公民”身份" class="headerlink" title="Agent 的”二等公民”身份"></a>Agent 的”二等公民”身份</h3><p>现有的协作平台对 Agent 的支持充其量是 Webhook bot——只能收发消息，无法访问代码仓库、无法触发工作流、无法参与代码审查。Agent 被隔离在”聊天框的隔离区”里，而不是真正的团队成员。</p>
+<h3 id="Nostr-协议的机遇"><a href="#Nostr-协议的机遇" class="headerlink" title="Nostr 协议的机遇"></a>Nostr 协议的机遇</h3><p>Nostr（Notes and Other Stuff Transmitted by Relays）是一个简洁的开放协议：每一条消息、反应、工作流步骤、审查批准、Git 事件都是 Relay 上的一个签名事件。同样的数据结构、同样的身份模型、同样的审计轨迹——<strong>无论作者是人还是程序</strong>。</p>
+<p>buzz 正是基于 Nostr 的这一特性，将整个团队的协作数据统一到一个事件日志中。</p>
+<hr>
+<h2 id="核心创新：人机同室的一等公民"><a href="#核心创新：人机同室的一等公民" class="headerlink" title="核心创新：人机同室的一等公民"></a>核心创新：人机同室的一等公民</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>block&#x2F;buzz</th>
+<th>传统工具</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Agent 身份</td>
+<td><strong>一等公民</strong>，独立密钥、独立频道成员、独立审计</td>
+<td>受限 bot 账号，功能阉割</td>
+</tr>
+<tr>
+<td>数据主权</td>
+<td><strong>自托管</strong>，自有 Nostr Relay</td>
+<td>厂商托管，数据无法迁移</td>
+</tr>
+<tr>
+<td>通信协议</td>
+<td><strong>Nostr 开放协议</strong>，签名事件标准一致</td>
+<td>各自私有协议，互不兼容</td>
+</tr>
+<tr>
+<td>事件模型</td>
+<td>统一事件日志，消息&#x2F;代码&#x2F;CI&#x2F;审批同一格式</td>
+<td>各自分离，跨平台需胶水代码</td>
+</tr>
+<tr>
+<td>审计</td>
+<td><strong>签名事件链</strong>，人和 Agent 同一审计标准</td>
+<td>厂商封闭日志</td>
+</tr>
+<tr>
+<td>自托管</td>
+<td>✅ Docker 一键部署</td>
+<td>❌ 企业版自托管极其昂贵</td>
+</tr>
+<tr>
+<td>桌面端</td>
+<td>✅ Tauri + React 原生应用</td>
+<td>✅ 但功能受限于厂商 API</td>
+</tr>
+</tbody></table>
+<h3 id="人机同室"><a href="#人机同室" class="headerlink" title="人机同室"></a>人机同室</h3><p>buzz 最核心的设计理念是：<strong>Agent 是频道成员，不是机器人</strong>。将 Agent 加入频道的方式和加入一个人完全一样——通过 Nostr 密钥认证，有自己的成员身份、自己的频道权限、自己的审计轨迹。</p>
+<p>在 buzz 中，Agent 可以做的远不止聊天：</p>
+<ul>
+<li>打开代码仓库、提交 Patch</li>
+<li>审查代码、批准合并</li>
+<li>运行工作流</li>
+<li>创建和编辑画布</li>
+<li>发起语音讨论</li>
+<li>编排其他 Agent</li>
+</ul>
+<h3 id="统一事件日志"><a href="#统一事件日志" class="headerlink" title="统一事件日志"></a>统一事件日志</h3><p>buzz 整个系统的核心是一个 Nostr Relay。无论是人的消息还是 Agent 的操作，都遵循 NIP-01 规范，同样的签名算法、同样的存储格式、同样的全文搜索索引：</p>
+<blockquote>
+<p>搜索”这个错误见过吗？”→ 同时命中六个月前人的讨论和上周 Agent 的分析<br>Branch 变为频道 → 代码、CI、审查、合并决定在同一处<br>发布流水线自写发布说明 → 每个步骤签名可追溯</p>
+</blockquote>
+<h3 id="身份即权限"><a href="#身份即权限" class="headerlink" title="身份即权限"></a>身份即权限</h3><p>buzz 不采用传统”权限标志”模式，而是<strong>通过身份本身作用域限定权限</strong>。Agent 有自己的密钥对、自己的频道成员身份、自己的审计日志。你不需要告诉 Agent”它可以在哪个频道做什么”——它的密钥本身就决定了这些。</p>
+<hr>
+<h2 id="深度架构解析"><a href="#深度架构解析" class="headerlink" title="深度架构解析"></a>深度架构解析</h2><h3 id="Rust-多-Crate-工作区"><a href="#Rust-多-Crate-工作区" class="headerlink" title="Rust 多 Crate 工作区"></a>Rust 多 Crate 工作区</h3><p>buzz 是一个 Rust workspace，由多个面向特定职责的 crate 组成：</p>
+<table>
+<thead>
+<tr>
+<th>Crate</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>buzz-relay</code></td>
+<td>Axum WebSocket + REST 服务</td>
+</tr>
+<tr>
+<td><code>buzz-core</code></td>
+<td>零 I&#x2F;O 类型、NIP-01 过滤器、Schnorr 验证</td>
+</tr>
+<tr>
+<td><code>buzz-db</code></td>
+<td>Postgres 事件存储 + 全文搜索</td>
+</tr>
+<tr>
+<td><code>buzz-auth</code></td>
+<td>NIP-42&#x2F;98 Schnorr 认证 + 速率限制</td>
+</tr>
+<tr>
+<td><code>buzz-pubsub</code></td>
+<td>Redis 发布订阅、在线状态、正在输入</td>
+</tr>
+<tr>
+<td><code>buzz-search</code></td>
+<td>Postgres FTS 全文搜索</td>
+</tr>
+<tr>
+<td><code>buzz-audit</code></td>
+<td>哈希链审计日志</td>
+</tr>
+<tr>
+<td><code>buzz-cli</code></td>
+<td>Agent 优先 CLI，JSON 入&#x2F;JSON 出</td>
+</tr>
+<tr>
+<td><code>buzz-acp</code></td>
+<td>ACP 适配层（Goose&#x2F;Codex&#x2F;Claude Code）</td>
+</tr>
+<tr>
+<td><code>buzz-workflow</code></td>
+<td>YAML 工作流引擎</td>
+</tr>
+<tr>
+<td><code>buzz-media</code></td>
+<td>Blossom&#x2F;S3 媒体存储</td>
+</tr>
+<tr>
+<td><code>buzz-sdk</code></td>
+<td>类型化事件构建器</td>
+</tr>
+</tbody></table>
+<h3 id="Nostr-Relay-为中心"><a href="#Nostr-Relay-为中心" class="headerlink" title="Nostr Relay 为中心"></a>Nostr Relay 为中心</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph 客户端层</span><br><span class="line">        Desktop[&quot;桌面端&lt;br/&gt;Tauri + React&quot;]</span><br><span class="line">        CLI[&quot;buzz-cli&quot;]</span><br><span class="line">        Agent[&quot;AI Agent&lt;br/&gt;Goose / Codex / Claude Code&quot;]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph Relay层</span><br><span class="line">        Relay[&quot;buzz-relay&lt;br/&gt;NIP-01 · 认证 · 频道/DM/媒体&lt;br/&gt;工作流/Git · 审计日志&quot;]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph 存储层</span><br><span class="line">        PG[(&quot;Postgres&lt;br/&gt;事件存储 + FTS搜索&quot;)]</span><br><span class="line">        Redis[(&quot;Redis&lt;br/&gt;发布 / 订阅&quot;)]</span><br><span class="line">        S3[(&quot;S3 / MinIO&lt;br/&gt;Blossom 媒体存储&quot;)]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    Desktop --&gt;|WebSocket| Relay</span><br><span class="line">    CLI --&gt;|WS + REST| Relay</span><br><span class="line">    Agent --&gt;|WS + REST| Relay</span><br><span class="line">    Relay --&gt; PG</span><br><span class="line">    Relay --&gt; Redis</span><br><span class="line">    Relay --&gt; S3</span><br><span class="line">    </span><br><span class="line">    style Desktop fill:#e1f5fe</span><br><span class="line">    style CLI fill:#e1f5fe</span><br><span class="line">    style Agent fill:#e1f5fe</span><br><span class="line">    style Relay fill:#fff3e0</span><br><span class="line">    style PG fill:#e8f5e9</span><br><span class="line">    style Redis fill:#e8f5e9</span><br><span class="line">    style S3 fill:#e8f5e9</span><br></pre></td></tr></table></figure>
+
+<p>单一的真相源（Single Source of Truth）是 Relay。所有客户端——无论是桌面应用、CLI 还是 AI Agent——都通过 WebSocket 或 REST 与同一个 Relay 通信。</p>
+<h3 id="ACP-协议：Agent-生态的连接器"><a href="#ACP-协议：Agent-生态的连接器" class="headerlink" title="ACP 协议：Agent 生态的连接器"></a>ACP 协议：Agent 生态的连接器</h3><p><code>buzz-acp</code> crate 实现了 ACP（Agent Communication Protocol）适配层，使得主流 AI 编程工具（Goose、Codex、Claude Code）能够原生接入 buzz 工作空间。ACP ↔ MCP 桥接意味着 Agent 在 buzz 中的操作（打开仓库、审查代码、运行工作流）都可以通过 MCP 工具暴露给 AI 客户端。</p>
+<hr>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="一键安装（桌面端）"><a href="#一键安装（桌面端）" class="headerlink" title="一键安装（桌面端）"></a>一键安装（桌面端）</h3><p>从 <a target="_blank" rel="noopener" href="https://github.com/block/buzz/releases/latest">Releases 页面</a> 下载对应平台的安装包：</p>
+<ul>
+<li>macOS：<code>.dmg</code></li>
+<li>Linux：<code>.AppImage</code> &#x2F; <code>.deb</code></li>
+<li>Windows：<code>.exe</code></li>
+</ul>
+<h3 id="源码构建"><a href="#源码构建" class="headerlink" title="源码构建"></a>源码构建</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/block/buzz.git &amp;&amp; <span class="built_in">cd</span> buzz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化环境（需 Docker）</span></span><br><span class="line">just setup &amp;&amp; just build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动开发模式</span></span><br><span class="line">just dev</span><br></pre></td></tr></table></figure>
+
+<p>Relay 运行在 <code>ws://localhost:3000</code>，桌面端自动弹出。</p>
+<h3 id="生产部署"><a href="#生产部署" class="headerlink" title="生产部署"></a>生产部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单节点 / VPS 部署</span></span><br><span class="line"><span class="built_in">cd</span> deploy/compose</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>预配置 Postgres + Redis + MinIO + 可选 Caddy&#x2F;TLS。</p>
+<h3 id="接入-Agent"><a href="#接入-Agent" class="headerlink" title="接入 Agent"></a>接入 Agent</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 Agent 密钥</span></span><br><span class="line"><span class="built_in">export</span> BUZZ_PRIVATE_KEY=<span class="string">&quot;your-key&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 buzz-cli（JSON 入/JSON 出，专为 LLM 工具调用设计）</span></span><br><span class="line">buzz-cli channel send --message <span class="string">&quot;hello from agent&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>block&#x2F;buzz 以 12K+ Stars 和日均 3K+ 的增长在本周 GitHub Trending 上爆发，其背后信号耐人寻味。</p>
+<p>在 AI Agent 热潮席卷的 2026 年，社区最追捧的并不一定是另一个 Agent 框架，而是一个<strong>能让人类和 Agent 真正”同处一室”的协作基础设施</strong>。buzz 的核心理念”One community, one identity model, one event log”——所有参与者、所有事件、所有审计在同一个协议层上统一——切中了团队协作中最深层的痛点：信息碎片化。</p>
+<p>由 Block 这样的金融科技巨头开源、纯 Rust 实现、基于 Nostr 开放协议构建——buzz 代表着协作工具从”厂商锁定的私有协议”向”开放的去中心化协议”演进的一个信号。虽然它还处于早期阶段（v1.0 尚未发布），但它提出的”Agent 是频道成员而非机器人”的设计哲学，已经在社区引发了广泛讨论。</p>
+<p>本周 12K+ Stars 只是开始。如果 buzz 能兑现其愿景——一个 Relay 取代七个 Tab——它可能成为开源协作基础设施领域的重要一极。</p>
+<hr>
+<p><em>本文基于 <a target="_blank" rel="noopener" href="https://github.com/block/buzz">block&#x2F;buzz</a> 仓库 README、Vision 文档及 GitHub Trending 数据编写，数据截至 2026 年 7 月 26 日。</em></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/hexo-blog/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">hash-dog</div><div class="post-copyright__author_desc">记录学习与技术分享</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hash-dogs.github.io/hexo-blog/2026/07/26/block-buzz-intro/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hash-dogs.github.io/hexo-blog/2026/07/26/block-buzz-intro/')">GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hash-dogs.github.io/hexo-blog/2026/07/26/block-buzz-intro/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台&amp;url=https://hash-dogs.github.io/hexo-blog/2026/07/26/block-buzz-intro/&amp;pic=https://opengraph.githubassets.com/1/block/buzz" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hash-dogs.github.io/hexo-blog" target="_blank">我的技术博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>开源<span class="tagsPageCount">14</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/Rust/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Rust<span class="tagsPageCount">3</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/Docker/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Docker<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://opengraph.githubassets.com/1/yc-software/qm" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">从 FDE 到 OPC：2026 年 AI 新名词里的产业转向</div></div></a></div><div class="next-post pull-right"><a href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/odysseus-dev/odysseus" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/hexo-blog/2026/06/16/cc-switch-intro/" title="GitHub热门（6&#x2F;8-6&#x2F;14）farion1231&#x2F;cc-switch — 多 AI 工具配置统一管理，跨平台桌面中枢"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/farion1231/cc-switch" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-16</div><div class="title">GitHub热门（6&#x2F;8-6&#x2F;14）farion1231&#x2F;cc-switch — 多 AI 工具配置统一管理，跨平台桌面中枢</div></div></a></div><div><a href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7&#x2F;27-8&#x2F;2）odysseus-dev&#x2F;odysseus — 一站式AI工作台"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/odysseus-dev/odysseus" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-31</div><div class="title">GitHub热门（7&#x2F;27-8&#x2F;2）odysseus-dev&#x2F;odysseus — 一站式AI工作台</div></div></a></div><div><a href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7&#x2F;20-7&#x2F;26）xai-org&#x2F;grok-build — 终端编程 Agent"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/xai-org/grok-build" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-24</div><div class="title">GitHub热门（7&#x2F;20-7&#x2F;26）xai-org&#x2F;grok-build — 终端编程 Agent</div></div></a></div><div><a href="/hexo-blog/2026/06/28/addyosmani-agent-skills-intro/" title="GitHub热门（6&#x2F;22-6&#x2F;28）addyosmani&#x2F;agent-skills — 工程AI技能"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/addyosmani/agent-skills" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-28</div><div class="title">GitHub热门（6&#x2F;22-6&#x2F;28）addyosmani&#x2F;agent-skills — 工程AI技能</div></div></a></div><div><a href="/hexo-blog/2026/06/23/agent-reach-intro/" title="GitHub热门（6&#x2F;22-6&#x2F;28）Panniantong&#x2F;Agent-Reach — 一键给你的 AI Agent 装上全网眼睛"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/Panniantong/Agent-Reach" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-23</div><div class="title">GitHub热门（6&#x2F;22-6&#x2F;28）Panniantong&#x2F;Agent-Reach — 一键给你的 AI Agent 装上全网眼睛</div></div></a></div><div><a href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-24</div><div class="title">从 FDE 到 OPC：2026 年 AI 新名词里的产业转向</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">hash-dog 的技术博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/hexo-blog/"><h1 class="author-info__name">hash-dog</h1><div class="author-info__desc">记录学习与技术分享</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="mailto:18033207159@163.com" target="_blank" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF%EF%BC%9A%E5%8D%8F%E4%BD%9C%E5%B7%A5%E5%85%B7%E7%9A%84%E5%89%B2%E8%A3%82%E4%B9%8B%E7%97%9B"><span class="toc-number">2.</span> <span class="toc-text">项目背景：协作工具的割裂之痛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83-Tab-%E5%9B%B0%E5%A2%83"><span class="toc-number">2.1.</span> <span class="toc-text">七 Tab 困境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Agent-%E7%9A%84%E2%80%9D%E4%BA%8C%E7%AD%89%E5%85%AC%E6%B0%91%E2%80%9D%E8%BA%AB%E4%BB%BD"><span class="toc-number">2.2.</span> <span class="toc-text">Agent 的”二等公民”身份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nostr-%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%9C%BA%E9%81%87"><span class="toc-number">2.3.</span> <span class="toc-text">Nostr 协议的机遇</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%88%9B%E6%96%B0%EF%BC%9A%E4%BA%BA%E6%9C%BA%E5%90%8C%E5%AE%A4%E7%9A%84%E4%B8%80%E7%AD%89%E5%85%AC%E6%B0%91"><span class="toc-number">3.</span> <span class="toc-text">核心创新：人机同室的一等公民</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E6%9C%BA%E5%90%8C%E5%AE%A4"><span class="toc-number">3.1.</span> <span class="toc-text">人机同室</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E4%BA%8B%E4%BB%B6%E6%97%A5%E5%BF%97"><span class="toc-number">3.2.</span> <span class="toc-text">统一事件日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BA%AB%E4%BB%BD%E5%8D%B3%E6%9D%83%E9%99%90"><span class="toc-number">3.3.</span> <span class="toc-text">身份即权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">深度架构解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rust-%E5%A4%9A-Crate-%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">4.1.</span> <span class="toc-text">Rust 多 Crate 工作区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nostr-Relay-%E4%B8%BA%E4%B8%AD%E5%BF%83"><span class="toc-number">4.2.</span> <span class="toc-text">Nostr Relay 为中心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ACP-%E5%8D%8F%E8%AE%AE%EF%BC%9AAgent-%E7%94%9F%E6%80%81%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%99%A8"><span class="toc-number">4.3.</span> <span class="toc-text">ACP 协议：Agent 生态的连接器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="toc-number">5.</span> <span class="toc-text">快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%EF%BC%88%E6%A1%8C%E9%9D%A2%E7%AB%AF%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">一键安装（桌面端）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA"><span class="toc-number">5.2.</span> <span class="toc-text">源码构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E9%83%A8%E7%BD%B2"><span class="toc-number">5.3.</span> <span class="toc-text">生产部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5-Agent"><span class="toc-number">5.4.</span> <span class="toc-text">接入 Agent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/yc-software/qm" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架"/></a><div class="content"><a class="title" href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架">GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架</a><time datetime="2026-08-08T07:00:00.000Z" title="发表于 2026-08-08 15:00:00">2026-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/odysseus-dev/odysseus" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台">GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台</a><time datetime="2026-07-31T07:00:00.000Z" title="发表于 2026-07-31 15:00:00">2026-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/26/block-buzz-intro/" title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/block/buzz" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/26/block-buzz-intro/" title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台">GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台</a><time datetime="2026-07-26T06:00:00.000Z" title="发表于 2026-07-26 14:00:00">2026-07-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向">从 FDE 到 OPC：2026 年 AI 新名词里的产业转向</a><time datetime="2026-07-24T13:00:00.000Z" title="发表于 2026-07-24 21:00:00">2026-07-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/xai-org/grok-build" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent">GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent</a><time datetime="2026-07-24T13:00:00.000Z" title="发表于 2026-07-24 21:00:00">2026-07-24</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2026 By <a class="footer-bar-link" href="/hexo-blog/" title="hash-dog" target="_blank">hash-dog</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/hexo-blog/archives/" title="archive"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/hexo-blog/tags/" title="tag"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/hexo-blog/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 0.88rem;">AI<sup>14</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 0.88rem;">AI Agent<sup>12</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 0.88rem;">Claude Code<sup>5</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 0.88rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 0.88rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 0.88rem;">LLM<sup>3</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 0.88rem;">MCP<sup>6</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 0.88rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 0.88rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 0.88rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 0.88rem;">Skills<sup>8</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 0.88rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 0.88rem;">Token优化<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 0.88rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.88rem;">安全<sup>1</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 0.88rem;">开源<sup>14</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">技术分享<sup>7</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">研究工具<sup>2</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 0.88rem;">自动化<sup>6</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">观点分享<sup>3</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 0.88rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 0.88rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 0.88rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 0.88rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/hexo-blog/js/utils.js"></script><script src="/hexo-blog/js/main.js"></script><script src="/hexo-blog/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("06/01/2026 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2026 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 hash-dog 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/hexo-blog/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.cbd.int/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/hexo-blog/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

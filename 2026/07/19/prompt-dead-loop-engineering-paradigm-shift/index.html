@@ -1,0 +1,679 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命 | 我的技术博客</title><meta name="keywords" content="AI,Skills,Claude Code,AI Agent,自动化,观点分享,LLM"><meta name="author" content="hash-dog"><meta name="copyright" content="hash-dog"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命"><meta name="application-name" content="Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命"><meta property="og:url" content="https://hash-dogs.github.io/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/index.html"><meta property="og:site_name" content="我的技术博客"><meta property="og:description" content="2026年6月中旬，黄仁勋一句&amp;quot;没人再写提示词了&amp;quot;引爆整个AI圈。从 Prompt Engineering 到 Loop Engineering 的第四次范式迁移正在发生——但 ClickUp 裁员 22%、AI 精神病、理解债务等阴影也随之而来。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"><meta property="article:author" content="hash-dog"><meta property="article:tag" content="技术,博客,编程,开发"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"><meta name="description" content="2026年6月中旬，黄仁勋一句&amp;quot;没人再写提示词了&amp;quot;引爆整个AI圈。从 Prompt Engineering 到 Loop Engineering 的第四次范式迁移正在发生——但 ClickUp 裁员 22%、AI 精神病、理解债务等阴影也随之而来。"><link rel="shortcut icon" href="/hexo-blog/favicon.ico"><link rel="canonical" href="https://hash-dogs.github.io/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/hexo-blog/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/hexo-blog/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/hexo-blog/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: hash-dog","link":"链接: ","source":"来源: 我的技术博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的技术博客',
+  title: 'Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命',
+  postAI: '',
+  pageFillDescription: '引言, 什么是 Loop Engineering？, 从 Prompt 到 Loop：四次范式跃迁, Prompt 模式 vs Loop 模式, 硅谷大佬集体站台, 产品落地：你用的工具已经在Loop了, OpenAI Codex：Record and Replay, Claude Code：内置循环指令, 一个真实对比, 开源工具落地：当 Loop Engineering 遇到 n8n, n8n AI Agent 节点：循环即架构, n8n-goal-loop：把写需求变成设目标, Guarded Agentic：生产级的防御闭环, 启示, 阴影面：AI 精神病与信任危机, ClickUp 裁掉 22% 的员工, AI 精神病, 理解债务（Comprehension Decay）, Loop 的五步框架：怎么真正Loop 起来, 1. 发现（Discovery）, 2. 交接（Handoff）, 3. 验证（Verification）, 4. 持久化（Persistence）, 5. 调度（Scheduling）, 总结：人的判断力是最后的稀缺资源引言黄仁勋年月年月中旬英伟达黄仁勋在接受美联社采访时的这句话像一颗深水炸弹投进了圈它被截成片段做成海报刷遍引爆讨论区紧接着吴恩达之父等一众硅谷大佬纷纷站台在同周发布了功能做一次给看从此不用写与此同时宣布裁掉的员工代之以个精神病一词由此诞生一周之内和交织在一起本文试图还原年月日这一周里编程领域正在发生的范式级变化以及那些容易被欢呼声淹没的隐忧什么是从到四次范式跃迁要理解为什么让整个硅谷疯狂需要先看清编程在过去三年经历的四个阶段编程范式四阶段演进怎么问提示词技巧给看什么上下文构建让能干什么工具链搭建让自主循环系统设计时代核心是怎么问人们研究角色设定把写当成一门玄学手艺时代核心是给看什么协议知识图谱兴起焦点从提问技巧转向上下文构建时代核心是让能干什么沙箱工具链爆发从对话变成执行系统时代核心是让自主循环运转人的角色从执行者变为规则设计者不再一步一步指挥而是设计一套系统让在其中自主发现任务执行验证迭代这个术语由工程师在年月日的博文中正式命名一周之内它成为整个圈讨论度最高的话题模式模式维度模式模式人扮演的角色执行者传话人规则设计者算力分配师工作方式写得结果再写设目标系统自主循环人必要时介入运行时间仅限人坐在电脑前持续运转瓶颈人的注意力和决策带宽预算和验证质量出错后果单个输出有误人及时发现错误可能积累入库发现时已晚适用任务一次性探索性任务重复性有明确验收标准的工作硅谷大佬集体站台那周最引人注目的不是某一家公司的产品发布而是整个行业领袖的集体表态人物言论冲击力黄仁勋没人再写提示词了新时代的工作是编写和管理循环吴恩达领袖个月内所有人都会使用自改进循环必死之父我已经彻底卸载了几百个小同时在跑所有代码在手机上完成正式命名并定义了五步框架前你可以外包你的思考但你无法外包你的理解之父每月一提醒别再手写提示词了设计循环才是正事据内部工程师透露超过的工程师已经在使用自改进循环预计个月内将达到产品落地你用的工具已经在了年月日发布了的功能它不是一个新的技巧而是彻底绕过了你在上做一遍某个操作如填一张报销单在旁边看着你完成所有步骤然后它自动生成一个文件一份人类可读的可编辑的说明文档下次只需要告诉它再做一遍参数换一下就会自动重放整个流程这意味着对于重复性工作你再也不需要写了做一次让学会然后放手内置循环指令的在这一波中走得更远它已经完全内置了循环原语定时循环让每隔一段时间自动执行任务目标驱动设定目标自主规划并执行云端定时任务在后台持续运行最关键的设计决策是写代码的大模型和验收的小模型分离负责写代码负责验证两者独立运行验收者看不到写代码者的推理过程一个真实对比有人在上分享了一个实验用传统的方式构建一个复古小游戏耗时分钟花费改用方式构建同一个应用耗时小时花费但产出的质量明显更高代码更健壮覆盖了更多边界情况这引出了一个关键问题不是免费的它用开销换取了质量提升当你的成本足够低验证足够自动化时才真正划算开源工具落地当遇到理论说完了那现实中有没有开源工具能让开发者真正起来答案是这个拥有的开源工作流引擎在年已经演变为最重要的实践平台之一节点循环即架构的节点天然实现了的核心模型它不是传统的输入处理输出的确定性节点而是一个循环执行引擎输入触发定时组装系统指令上下文记忆推理决定下一步调用工具是工具执行数据库自定义函数结果更新上下文否返回最终答案断路器最大迭代限制每个循环中经历推理决定调用工具执行工具更新上下文再次推理直到任务完成或被断路器终止社区围绕这一循环生态生长出了一系列关键工具工具项目定位与的关系节点内置循环执行引擎实现了的核心推理行动观察闭环九要素生成器将工作流需求转为驱动的完整开发测试闭环原生集成在内直接运行支持多仓库官方协议支持可实时查询个节点文档和个工作流模板自然语言生成工作流个专家技能集成让自主生成校验修复工作流节点人工介入暂停恢复提供签名审批链接支持邮件多渠道把写需求变成设目标这个社区项目是哲学最鲜明的体现它将一个工作流的构建需求转化为个要素的然后驱动进入构建验证部署测试迭代的闭环要素说明要构建什么工作流节点链交付物数据流契约节点间的字段映射最大的来源错误处理降级存储优雅降级验证分层测试脚本验证端到端验证约束红线规则不硬编码密钥不在节点发边界只修改目标工作流不触及凭证和其他工作流迭代策略小样本先行后刷新缓存最多轮完成条件端到端测试通过真实业务字段值正确暂停条件何时需要人工介入真实凭证支付实例异常这套框架的精妙之处在于它把人写告诉做什么变成了人设定目标和边界让自己规划并执行这正是的核心主张生产级的防御闭环在的年工作中出现了一种更严谨的模式在的每次循环中插入确定性的守卫节点层时机作用每个之后确定性节点规范化输出每个之后结构化解析器检查输出是否符合声明契约每个行动之前评估该行动在当前状态下是否合法每次写入之后独立重新查询数据源失败自动回滚这套防御闭环解决了最核心的信任问题写和验必须分离而且每次循环都要经过多层守卫而不是让自己给自己打分启示生态的爆发揭示了一个事实不是一个抽象概念而是一套正在被开源社区实现的架构模式从节点的循环引擎到的驱动开发再到的分层守卫每一层都在把让自主循环这件事变得更可靠更可审计更可控制如果你想让自己的第一个落地从开始可能是最务实的选择阴影面精神病与信任危机就在硅谷为欢呼的同时另一条新闻也在发酵裁掉的员工年月项目管理平台的宣布裁掉的员工同时部署了约个内部人与的比例达到剩余的员工被重新划分为构建者系统管理者和一线人员三类公司甚至推出了百万美元年薪的薪酬区间前提是你能产生倍的影响上对此的讨论充满愤怒和嘲讽有人指出的真实动机可能不是效率革命而是用叙事掩盖增长放缓当你的产品是项目管理工具却裁掉自己的项目经理时这更像是一场营销表演而非技术突破精神病创始人在同期提出了一个迅速走红的概念精神病他描述了一种现象科技们长期只看高层级的产品演示远离实际开发一线逐渐产生了无所不能的幻觉他们看到能写一段代码就认为能替代整个工程团队看到能生成一个页面就认为产品团队可以砍掉一半这种幻觉正在成为大规模裁员的借口数据显示这并非危言耸听年前五个月已有名科技从业者被裁几乎与年全年持平被列为首要原因更值得深思的是实证研究和的研究均未发现当前采纳率与整体生产力增长之间存在稳健关联甚至预测达到文本任务的基准能力可能要等到年理解债务在采访中坦率地承认了一个被很多人忽视的问题理解债务写代码的速度越来越快但开发人员对代码库本身的理解却在变浅代码不再是你写的而是生成的有一天你打开仓库发现自己已经看不懂里面到底在干什么了他把这称为理解债务类似于技术债务但更隐蔽代码还在但理解代码的人不在了当里跑着的越来越复杂人类逐渐退到只管审批的位置整个系统的可理解性在悄然流失的警告与此呼应你可以外包你的思考但你没法外包你的理解的五步框架怎么真正起来在一片喧嚣中和社区贡献者总结了构建一个可靠的五个关键环节发现交接验证持久化调度循环自主寻找价值工作失败未解决独立沙箱多并行不干扰独立评估者写与验必须分离状态落地到磁盘文件自动化周期性触发闭合循环发现利用技能库自主寻找有价值的工作读取失败记录扫描未解决的监控异常日志不再是人告诉做什么而是自己找到该做什么交接每个任务开启独立沙盒多个并行运行互不干扰这是的和的多子系统的核心逻辑验证这是最核心也最容易被忽视的一步写代码的和验收的必须分离不能用同一个模型既写又验关键在于验收者不应该看到写代码者的推理过程以避免确认偏误持久化将状态和进度固化到磁盘如文件的记忆不应该只存在于上下文窗口中断线后重启应该从中断处继续而不是从头再来调度通过自动化脚本让系统周期性自主运转的和就是这层的实现冷启动建议在投入复杂之前先做四条件测试任务重复发生吗有自动化验收手段吗预算扛得住吗有高级工具吗四个全过才值得建总结人的判断力是最后的稀缺资源年月中旬这一周编程走到了一个分水岭一方面的范式迁移真实发生着它不是炒作你的工具已经在变的的你身边的同事已经在用工程师的采纳率你崇拜的大佬已经在喊你跟上另一方面这一波的隐忧远比以往更深理解债务在积累精神病在蔓延生产力神话尚未被数据证实当用个替换的员工时技术没问题但动机和后果值得追问或许这一周留给我们的最清醒的声音来自代码生成几乎免费了判断力成了唯一的稀缺资源你今天在编程上的核心竞争力不是会写那确实在贬值也不是会用那很快会成为标配而是判断力知道什么时候该信任的输出什么时候该人工介入什么时候根本不该用这才是任何范式迁移中唯一不可外包的能力参考资料采访博文发布公告更新日志报道报道生产力研究相关讨论',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-07-19 15:00:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="我的技术博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/hexo-blog/" accesskey="h"><div class="title">我的技术博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 1.05rem;">AI<sup>14</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 1.05rem;">AI Agent<sup>12</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 1.05rem;">Claude Code<sup>5</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 1.05rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 1.05rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 1.05rem;">LLM<sup>3</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 1.05rem;">MCP<sup>6</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 1.05rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 1.05rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 1.05rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 1.05rem;">Skills<sup>8</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 1.05rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 1.05rem;">Token优化<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 1.05rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.05rem;">安全<sup>1</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.05rem;">开源<sup>14</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">技术分享<sup>7</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">研究工具<sup>2</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.05rem;">自动化<sup>6</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">观点分享<sup>3</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.05rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.05rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 1.05rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 1.05rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/08/"><span class="card-archive-list-date">八月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/07/"><span class="card-archive-list-date">七月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/06/"><span class="card-archive-list-date">六月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/hexo-blog/categories/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" itemprop="url">观点分享</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/hexo-blog/tags/AI/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI</span></a><a class="article-meta__tags" href="/hexo-blog/tags/Skills/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Skills</span></a><a class="article-meta__tags" href="/hexo-blog/tags/Claude-Code/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Claude Code</span></a><a class="article-meta__tags" href="/hexo-blog/tags/AI-Agent/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI Agent</span></a><a class="article-meta__tags" href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>自动化</span></a><a class="article-meta__tags" href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>观点分享</span></a><a class="article-meta__tags" href="/hexo-blog/tags/LLM/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>LLM</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-07-19T07:00:00.000Z" title="发表于 2026-07-19 15:00:00">2026-07-19</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-07-19T07:00:00.000Z" title="更新于 2026-07-19 15:00:00">2026-07-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hash-dogs.github.io/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/"><header><a class="post-meta-categories" href="/hexo-blog/categories/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" itemprop="url">观点分享</a><a href="/hexo-blog/tags/AI/" tabindex="-1" itemprop="url">AI</a><a href="/hexo-blog/tags/Skills/" tabindex="-1" itemprop="url">Skills</a><a href="/hexo-blog/tags/Claude-Code/" tabindex="-1" itemprop="url">Claude Code</a><a href="/hexo-blog/tags/AI-Agent/" tabindex="-1" itemprop="url">AI Agent</a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url">自动化</a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url">观点分享</a><a href="/hexo-blog/tags/LLM/" tabindex="-1" itemprop="url">LLM</a><h1 id="CrawlerTitle" itemprop="name headline">Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">hash-dog</span><time itemprop="dateCreated datePublished" datetime="2026-07-19T07:00:00.000Z" title="发表于 2026-07-19 15:00:00">2026-07-19</time><time itemprop="dateCreated datePublished" datetime="2026-07-19T07:00:00.000Z" title="更新于 2026-07-19 15:00:00">2026-07-19</time></header><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p><em>“Nobody writes prompts anymore. The new job is to write and handle loops.”</em><br>—— 黄仁勋（Jensen Huang），2026年6月</p>
+</blockquote>
+<p>2026年6月中旬，英伟达CEO黄仁勋在接受美联社采访时的这句话，像一颗深水炸弹投进了AI圈。它被截成片段、做成海报、刷遍 X（Twitter）、引爆 Hacker News 讨论区。</p>
+<p>紧接着，吴恩达、Andrej Karpathy、Addy Osmani、Boris Cherny（Claude Code之父）等一众硅谷大佬纷纷站台。OpenAI 在同周发布了 Codex <strong>Record and Replay</strong> 功能——“做一次给 AI 看，从此不用写 Prompt”。与此同时，ClickUp CEO 宣布裁掉 22% 的员工，代之以 3,000 个 AI Agent，”AI 精神病”一词由此诞生。</p>
+<p>一周之内，Promises 和 Panic 交织在一起。本文试图还原 2026 年 6 月 13-19 日这一周里，AI 编程领域正在发生的范式级变化，以及那些容易被欢呼声淹没的隐忧。</p>
+<hr>
+<h2 id="什么是-Loop-Engineering？"><a href="#什么是-Loop-Engineering？" class="headerlink" title="什么是 Loop Engineering？"></a>什么是 Loop Engineering？</h2><h3 id="从-Prompt-到-Loop：四次范式跃迁"><a href="#从-Prompt-到-Loop：四次范式跃迁" class="headerlink" title="从 Prompt 到 Loop：四次范式跃迁"></a>从 Prompt 到 Loop：四次范式跃迁</h3><p>要理解为什么”Loop”让整个硅谷疯狂，需要先看清 AI 编程在过去三年经历的四个阶段：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    subgraph &quot;AI 编程范式四阶段演进&quot;</span><br><span class="line">        direction LR</span><br><span class="line">        P[Prompt Engineering&lt;br/&gt;2023-2024] --&gt; C[Context Engineering&lt;br/&gt;2024-2025]</span><br><span class="line">        C --&gt; H[Harness Engineering&lt;br/&gt;2025-2026]</span><br><span class="line">        H --&gt; L[Loop Engineering&lt;br/&gt;2026-]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    P --- P1[&quot;怎么问 AI&lt;br/&gt;（提示词技巧）&quot;]</span><br><span class="line">    C --- C1[&quot;给 AI 看什么&lt;br/&gt;（上下文构建）&quot;]</span><br><span class="line">    H --- H1[&quot;让 AI 能干什么&lt;br/&gt;（工具链搭建）&quot;]</span><br><span class="line">    L --- L1[&quot;让 AI 自主循环&lt;br/&gt;（系统设计）&quot;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Prompt Engineering 时代</strong>（2023-2024）：核心是”怎么问”。人们研究 Chain-of-Thought、few-shot、角色设定，把写 Prompt 当成一门玄学手艺。</li>
+<li><strong>Context Engineering 时代</strong>（2024-2025）：核心是”给 AI 看什么”。RAG、MCP 协议、知识图谱兴起，焦点从提问技巧转向上下文构建。</li>
+<li><strong>Harness&#x2F;Toolchain Engineering 时代</strong>（2025-2026）：核心是”让 AI 能干什么”。Skills、MCP Server、沙箱、工具链爆发，Agent 从对话变成执行系统。</li>
+<li><strong>Loop Engineering 时代</strong>（2026-）：核心是”让 AI 自主循环运转”。人的角色从”执行者”变为”规则设计者”——不再一步一步指挥 AI，而是设计一套系统，让 AI 在其中自主发现任务、执行、验证、迭代。</li>
+</ul>
+<p>“Loop Engineering”这个术语由 Google Chrome 工程师 <strong>Addy Osmani</strong> 在 <strong>2026年6月7日</strong> 的博文中正式命名。一周之内，它成为整个 AI 圈讨论度最高的话题。</p>
+<h3 id="Prompt-模式-vs-Loop-模式"><a href="#Prompt-模式-vs-Loop-模式" class="headerlink" title="Prompt 模式 vs Loop 模式"></a>Prompt 模式 vs Loop 模式</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Prompt 模式</th>
+<th>Loop 模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>人扮演的角色</strong></td>
+<td>执行者&#x2F;传话人</td>
+<td>规则设计者&#x2F;算力分配师</td>
+</tr>
+<tr>
+<td><strong>工作方式</strong></td>
+<td>写 Prompt → 得结果 → 再写 Prompt</td>
+<td>设目标 → 系统自主循环 → 人必要时介入</td>
+</tr>
+<tr>
+<td><strong>运行时间</strong></td>
+<td>仅限人坐在电脑前</td>
+<td>24&#x2F;7 持续运转</td>
+</tr>
+<tr>
+<td><strong>瓶颈</strong></td>
+<td>人的注意力和决策带宽</td>
+<td>Token 预算和验证质量</td>
+</tr>
+<tr>
+<td><strong>出错后果</strong></td>
+<td>单个输出有误，人及时发现</td>
+<td>错误可能积累入库，发现时已晚</td>
+</tr>
+<tr>
+<td><strong>适用任务</strong></td>
+<td>一次性、探索性任务</td>
+<td>重复性、有明确验收标准的工作</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="硅谷大佬集体站台"><a href="#硅谷大佬集体站台" class="headerlink" title="硅谷大佬集体站台"></a>硅谷大佬集体站台</h2><p>那周最引人注目的不是某一家公司的产品发布，而是整个行业领袖的<strong>集体表态</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>人物</th>
+<th>言论</th>
+<th>冲击力</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>黄仁勋</strong>（NVIDIA CEO）</td>
+<td>“没人再写提示词了，新时代的工作是编写和管理循环。”</td>
+<td>🔥🔥🔥🔥🔥</td>
+</tr>
+<tr>
+<td><strong>吴恩达</strong>（AI 领袖）</td>
+<td>“3-6 个月内，所有人都会使用自改进循环。Prompt 必死。”</td>
+<td>🔥🔥🔥🔥🔥</td>
+</tr>
+<tr>
+<td><strong>Boris Cherny</strong>（Claude Code 之父）</td>
+<td>“我已经彻底卸载了 IDE。几百个小 Agent 同时在跑，所有代码在手机上完成。”</td>
+<td>🔥🔥🔥🔥</td>
+</tr>
+<tr>
+<td><strong>Addy Osmani</strong>（Google Chrome）</td>
+<td>正式命名”Loop Engineering”并定义了五步框架</td>
+<td>🔥🔥🔥🔥</td>
+</tr>
+<tr>
+<td><strong>Andrej Karpathy</strong>（前 Tesla AI）</td>
+<td>“你可以外包你的思考，但你无法外包你的理解。”</td>
+<td>🔥🔥🔥🔥</td>
+</tr>
+<tr>
+<td><strong>Peter Steinberger</strong>（OpenClaw 之父）</td>
+<td>“每月一提醒：别再手写提示词了——设计循环才是正事。”</td>
+<td>🔥🔥🔥🔥</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>据 Anthropic 内部工程师透露，Anthropic 超过 80% 的工程师已经在使用自改进循环，预计 3-6 个月内将达到 100%。</p>
+</blockquote>
+<h2 id="产品落地：你用的工具已经在”Loop”了"><a href="#产品落地：你用的工具已经在”Loop”了" class="headerlink" title="产品落地：你用的工具已经在”Loop”了"></a>产品落地：你用的工具已经在”Loop”了</h2><h3 id="OpenAI-Codex：Record-and-Replay"><a href="#OpenAI-Codex：Record-and-Replay" class="headerlink" title="OpenAI Codex：Record and Replay"></a>OpenAI Codex：Record and Replay</h3><p>2026年6月18日，OpenAI 发布了 Codex 的 <strong>Record and Replay</strong> 功能。它不是一个新的 Prompt 技巧，而是彻底绕过了 Prompt：</p>
+<blockquote>
+<p>你在 Mac 上<strong>做一遍</strong>某个操作（如填一张报销单），Codex 在旁边”看着”你完成所有步骤。然后它自动生成一个 <strong>SKILL.md</strong> 文件——一份人类可读的、可编辑的说明文档。下次只需要告诉它”再做一遍”，参数换一下，Codex 就会自动重放整个流程。</p>
+</blockquote>
+<p>这意味着：对于重复性工作，你再也不需要写 Prompt 了。做一次，让 AI 学会，然后放手。</p>
+<h3 id="Claude-Code：内置循环指令"><a href="#Claude-Code：内置循环指令" class="headerlink" title="Claude Code：内置循环指令"></a>Claude Code：内置循环指令</h3><p>Anthropic 的 Claude Code 在这一波中走得更远——它已经完全内置了循环原语：</p>
+<ul>
+<li><strong><code>/loop</code></strong> — 定时循环：让 Agent 每隔一段时间自动执行任务</li>
+<li><strong><code>/goal</code></strong> — 目标驱动：设定目标，Agent 自主规划并执行</li>
+<li><strong><code>/schedule</code></strong> — 云端定时任务：Agent 在后台持续运行</li>
+</ul>
+<p>最关键的设计决策是：<strong>写代码的大模型和验收的小模型分离</strong>——Claude Opus 负责写代码，Claude Haiku 负责验证，两者独立运行，验收者看不到写代码者的推理过程。</p>
+<h3 id="一个真实对比"><a href="#一个真实对比" class="headerlink" title="一个真实对比"></a>一个真实对比</h3><p>有人在 Hacker News 上分享了一个实验：用传统的 Prompt 方式构建一个复古小游戏 App，耗时 20 分钟，花费 $9；改用 Loop 方式构建同一个应用，耗时 6 小时，花费 $200。<strong>但</strong> Loop 产出的质量明显更高、代码更健壮、覆盖了更多边界情况。</p>
+<p>这引出了一个关键问题：Loop 不是免费的。它用 <strong>Token 开销</strong> 换取了 <strong>质量提升</strong>。当你的 Token 成本足够低、验证足够自动化时，Loop 才真正划算。</p>
+<hr>
+<h2 id="开源工具落地：当-Loop-Engineering-遇到-n8n"><a href="#开源工具落地：当-Loop-Engineering-遇到-n8n" class="headerlink" title="开源工具落地：当 Loop Engineering 遇到 n8n"></a>开源工具落地：当 Loop Engineering 遇到 n8n</h2><p>理论说完了，那现实中有没有开源工具能让开发者真正”Loop 起来”？答案是 <strong>n8n</strong>——这个拥有 60,000+ GitHub Stars 的开源工作流引擎，在 2026 年已经演变为 Loop Engineering 最重要的实践平台之一。</p>
+<h3 id="n8n-AI-Agent-节点：循环即架构"><a href="#n8n-AI-Agent-节点：循环即架构" class="headerlink" title="n8n AI Agent 节点：循环即架构"></a>n8n AI Agent 节点：循环即架构</h3><p>n8n 的 AI Agent 节点天然实现了 Loop 的核心模型——它不是传统的”输入→处理→输出”的确定性节点，而是一个<strong>循环执行引擎</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[输入触发&lt;br/&gt;Webhook / 定时] --&gt; B[Prompt 组装&lt;br/&gt;系统指令 + 上下文 + 记忆]</span><br><span class="line">    B --&gt; C[LLM 推理&lt;br/&gt;决定下一步]</span><br><span class="line">    C --&gt; D&#123;调用工具?&#125;</span><br><span class="line">    D --&gt;|是| E[工具执行&lt;br/&gt;HTTP / 数据库 / 自定义函数]</span><br><span class="line">    E --&gt; F[结果更新上下文]</span><br><span class="line">    F --&gt; C</span><br><span class="line">    D --&gt;|否| G[返回最终答案]</span><br><span class="line">    </span><br><span class="line">    H[断路器&lt;br/&gt;最大迭代限制] -.- C</span><br></pre></td></tr></table></figure>
+
+<p>每个循环中，Agent 经历：<strong>推理 → 决定调用工具 → 执行工具 → 更新上下文 → 再次推理</strong>，直到任务完成或被断路器终止。</p>
+<p>n8n 社区围绕这一循环生态，生长出了一系列关键工具：</p>
+<table>
+<thead>
+<tr>
+<th>工具&#x2F;项目</th>
+<th>定位</th>
+<th>与 Loop 的关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>n8n AI Agent 节点</strong></td>
+<td>内置循环执行引擎</td>
+<td>实现了 Loop 的核心”推理→行动→观察”闭环</td>
+</tr>
+<tr>
+<td><strong>n8n-goal-loop</strong></td>
+<td>九要素 Goal 生成器</td>
+<td>将工作流需求转为驱动 Agent 的完整开发测试闭环</td>
+</tr>
+<tr>
+<td><strong>n8n-nodes-claude-code-agent-loop</strong></td>
+<td>Claude Code 原生集成</td>
+<td>在 n8n 内直接运行 Claude Code Agent，支持多仓库</td>
+</tr>
+<tr>
+<td><strong>n8n-MCP Server</strong></td>
+<td>官方 MCP 协议支持</td>
+<td>AI Agent 可实时查询 1,084 个节点文档和 2,709 个工作流模板</td>
+</tr>
+<tr>
+<td><strong>n8n AI Builder</strong></td>
+<td>自然语言生成工作流</td>
+<td>8 个专家技能 + MCP 集成，让 Agent 自主生成、校验、修复工作流</td>
+</tr>
+<tr>
+<td><strong>Human-in-the-Loop 节点</strong></td>
+<td>人工介入暂停&#x2F;恢复</td>
+<td>提供签名审批链接，支持邮件&#x2F;Telegram&#x2F;WhatsApp 多渠道</td>
+</tr>
+</tbody></table>
+<h3 id="n8n-goal-loop：把”写需求”变成”设目标”"><a href="#n8n-goal-loop：把”写需求”变成”设目标”" class="headerlink" title="n8n-goal-loop：把”写需求”变成”设目标”"></a>n8n-goal-loop：把”写需求”变成”设目标”</h3><p>这个社区项目是 Loop 哲学最鲜明的体现。它将一个 n8n 工作流的构建需求转化为 <strong>9 个要素</strong>的 Goal，然后驱动 Agent 进入”构建 → 验证 → 部署 → 测试 → 迭代”的闭环：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>Outcome</strong></td>
+<td>要构建什么工作流（节点链 + 交付物）</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>数据流契约</strong></td>
+<td>节点间的字段映射——最大的 Bug 来源</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>错误处理</strong></td>
+<td>continueOnFail、降级存储、优雅降级</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>验证</strong></td>
+<td>分层测试：脚本验证 + 端到端验证</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>约束</strong></td>
+<td>红线规则（不硬编码密钥、不在 Code 节点发 HTTP）</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>边界</strong></td>
+<td>只修改目标工作流，不触及凭证和其他工作流</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>迭代策略</strong></td>
+<td>小样本先行、PUT 后刷新缓存、最多 3 轮</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>完成条件</strong></td>
+<td>端到端测试通过 + 真实业务字段值正确</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>暂停条件</strong></td>
+<td>何时需要人工介入（真实凭证、支付、实例异常）</td>
+</tr>
+</tbody></table>
+<p>这套框架的精妙之处在于：它把”人写 Prompt 告诉 AI 做什么”变成了”人设定目标和边界，让 AI 自己规划并执行”——这正是 Loop Engineering 的核心主张。</p>
+<h3 id="Guarded-Agentic：生产级的防御闭环"><a href="#Guarded-Agentic：生产级的防御闭环" class="headerlink" title="Guarded Agentic：生产级的防御闭环"></a>Guarded Agentic：生产级的防御闭环</h3><p>在 GÉANT 的 2026 年 SIG-AI 工作中，出现了一种更严谨的模式——<strong>Guarded Agentic Workflows</strong>。在 Agent 的每次循环中插入确定性的守卫节点：</p>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>时机</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Normalise</strong></td>
+<td>每个 Agent 之后</td>
+<td>确定性节点规范化 Agent 输出</td>
+</tr>
+<tr>
+<td><strong>Validate</strong></td>
+<td>每个 Agent 之后</td>
+<td>结构化解析器检查输出是否符合声明契约</td>
+</tr>
+<tr>
+<td><strong>Guard</strong></td>
+<td>每个行动之前</td>
+<td>评估该行动在当前状态下是否合法</td>
+</tr>
+<tr>
+<td><strong>Verify</strong></td>
+<td>每次写入之后</td>
+<td>独立重新查询数据源，失败自动回滚</td>
+</tr>
+</tbody></table>
+<p>这套”防御闭环”解决了 Loop 最核心的信任问题：<strong>写和验必须分离</strong>，而且每次循环都要经过多层守卫，而不是让 Agent 自己给自己打分。</p>
+<h3 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h3><p>n8n 生态的爆发揭示了一个事实：<strong>Loop Engineering 不是一个抽象概念，而是一套正在被开源社区 concretely 实现的架构模式。</strong> 从 n8n AI Agent 节点的循环引擎，到 n8n-goal-loop 的 Goal 驱动开发，再到 Guarded Agentic 的分层守卫——每一层都在把”让 AI 自主循环”这件事变得更可靠、更可审计、更可控制。</p>
+<p>如果你想让自己的第一个 Loop 落地，从 n8n 开始可能是最务实的选择。</p>
+<hr>
+<h2 id="阴影面：AI-精神病与信任危机"><a href="#阴影面：AI-精神病与信任危机" class="headerlink" title="阴影面：AI 精神病与信任危机"></a>阴影面：AI 精神病与信任危机</h2><p>就在硅谷为”Loop”欢呼的同时，另一条新闻也在发酵：</p>
+<h3 id="ClickUp-裁掉-22-的员工"><a href="#ClickUp-裁掉-22-的员工" class="headerlink" title="ClickUp 裁掉 22% 的员工"></a>ClickUp 裁掉 22% 的员工</h3><p>2026年5-6月，项目管理平台 ClickUp 的 CEO Zeb Evans 宣布 <strong>裁掉 22% 的员工</strong>，同时部署了约 <strong>3,000 个内部 AI Agent</strong>，人与 Agent 的比例达到 1:3。剩余的员工被重新划分为”构建者”、”系统管理者”和”一线人员”三类。公司甚至推出了<strong>百万美元年薪</strong>的薪酬区间——前提是你能产生”100 倍的影响”。</p>
+<p>Hacker News 上对此的讨论充满愤怒和嘲讽。有人指出：ClickUp 的真实动机可能不是效率革命，而是<strong>用 AI 叙事掩盖增长放缓</strong>——当你的产品是”项目管理工具”却裁掉自己的项目经理时，这更像是一场营销表演而非技术突破。</p>
+<h3 id="“AI-精神病”"><a href="#“AI-精神病”" class="headerlink" title="“AI 精神病”"></a>“AI 精神病”</h3><p>Box 创始人 <strong>Aaron Levie</strong> 在同期提出了一个迅速走红的概念：**”AI Psychosis”（AI 精神病）**。他描述了一种现象：</p>
+<blockquote>
+<p>科技 CEO 们长期只看高层级的产品演示，远离实际开发一线，逐渐产生了”AI 无所不能”的幻觉。他们看到 AI 能写一段代码，就认为 AI 能替代整个工程团队；看到 AI 能生成一个页面，就认为产品团队可以砍掉一半。这种”幻觉”正在成为大规模裁员的借口。</p>
+</blockquote>
+<p>数据显示这并非危言耸听：2026年前五个月，已有 <strong>115,000+ 名科技从业者被裁</strong>（几乎与 2025 年全年持平），”AI”被列为首要原因。</p>
+<p>更值得深思的是实证研究：<strong>UC Berkeley、NBER 和 MIT 的研究均未发现当前 AI 采纳率与整体生产力增长之间存在稳健关联</strong>。MIT 甚至预测，AI 达到文本任务的基准能力可能要等到 2029 年。</p>
+<h3 id="理解债务（Comprehension-Decay）"><a href="#理解债务（Comprehension-Decay）" class="headerlink" title="理解债务（Comprehension Decay）"></a>理解债务（Comprehension Decay）</h3><p>Boris Cherny 在采访中坦率地承认了一个被很多人忽视的问题——<strong>理解债务</strong>：</p>
+<blockquote>
+<p>“Agent 写代码的速度越来越快，但开发人员对代码库本身的理解却在变浅。代码不再是你写的，而是 Agent 生成的。有一天你打开仓库，发现自己已经看不懂里面到底在干什么了。”</p>
+</blockquote>
+<p>他把这称为”理解债务”——类似于技术债务，但更隐蔽：<strong>代码还在，但理解代码的人不在了。</strong> 当 Loop 里跑着的 Agent 越来越复杂，人类逐渐退到”只管审批”的位置，整个系统的可理解性在悄然流失。</p>
+<p>Andrej Karpathy 的警告与此呼应：</p>
+<blockquote>
+<p>“你可以外包你的思考，但你没法外包你的理解。”</p>
+</blockquote>
+<hr>
+<h2 id="Loop-的五步框架：怎么真正”Loop-起来”"><a href="#Loop-的五步框架：怎么真正”Loop-起来”" class="headerlink" title="Loop 的五步框架：怎么真正”Loop 起来”"></a>Loop 的五步框架：怎么真正”Loop 起来”</h2><p>在一片喧嚣中，Addy Osmani 和社区贡献者总结了构建一个可靠 Loop 的五个关键环节：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[发现&lt;br/&gt;Discovery] --&gt; B[交接&lt;br/&gt;Handoff]</span><br><span class="line">    B --&gt; C[验证&lt;br/&gt;Verification]</span><br><span class="line">    C --&gt; D[持久化&lt;br/&gt;Persistence]</span><br><span class="line">    D --&gt; E[调度&lt;br/&gt;Scheduling]</span><br><span class="line">    E -.-&gt;|循环| A</span><br><span class="line">    </span><br><span class="line">    A1[&quot;AI 自主寻找价值工作&lt;br/&gt;CI 失败 / 未解决 Issue&quot;] -.- A</span><br><span class="line">    B1[&quot;独立沙箱&lt;br/&gt;多 Agent 并行不干扰&quot;] -.- B</span><br><span class="line">    C1[&quot;独立评估者&lt;br/&gt;写与验必须分离&quot;] -.- C</span><br><span class="line">    D1[&quot;状态落地到磁盘&lt;br/&gt;STATE.md 文件&quot;] -.- D</span><br><span class="line">    E1[&quot;自动化周期性触发&lt;br/&gt;闭合循环&quot;] -.- E</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-发现（Discovery）"><a href="#1-发现（Discovery）" class="headerlink" title="1. 发现（Discovery）"></a>1. 发现（Discovery）</h3><p>AI 利用技能库自主寻找有价值的工作：读取 CI 失败记录、扫描未解决的 Issue、监控异常日志。不再是”人告诉 AI 做什么”，而是 AI <strong>自己找到该做什么</strong>。</p>
+<h3 id="2-交接（Handoff）"><a href="#2-交接（Handoff）" class="headerlink" title="2. 交接（Handoff）"></a>2. 交接（Handoff）</h3><p>每个任务开启独立沙盒，多个 Agent 并行运行互不干扰。这是 Claude Code 的 <code>/goal</code> 和 Codex 的多子 Agent 系统的核心逻辑。</p>
+<h3 id="3-验证（Verification）"><a href="#3-验证（Verification）" class="headerlink" title="3. 验证（Verification）"></a>3. 验证（Verification）</h3><p><strong>这是最核心、也最容易被忽视的一步。</strong> 写代码的 Agent 和验收的 Agent 必须分离——不能用同一个模型既写又验。关键在于：<strong>验收者不应该看到写代码者的推理过程</strong>，以避免确认偏误。</p>
+<h3 id="4-持久化（Persistence）"><a href="#4-持久化（Persistence）" class="headerlink" title="4. 持久化（Persistence）"></a>4. 持久化（Persistence）</h3><p>将状态和进度固化到磁盘（如 STATE.md 文件）。Agent 的”记忆”不应该只存在于上下文窗口中——断线后重启，Loop 应该从中断处继续，而不是从头再来。</p>
+<h3 id="5-调度（Scheduling）"><a href="#5-调度（Scheduling）" class="headerlink" title="5. 调度（Scheduling）"></a>5. 调度（Scheduling）</h3><p>通过自动化脚本让系统周期性自主运转。Claude Code 的 <code>/loop</code> 和 <code>/schedule</code> 就是这层的实现。</p>
+<blockquote>
+<p><strong>冷启动建议</strong>：在投入复杂 Loop 之前，先做”四条件测试”——任务重复发生吗？有自动化验收手段吗？Token 预算扛得住吗？Agent 有高级工具吗？四个全过才值得建 Loop。</p>
+</blockquote>
+<hr>
+<h2 id="总结：人的判断力是最后的稀缺资源"><a href="#总结：人的判断力是最后的稀缺资源" class="headerlink" title="总结：人的判断力是最后的稀缺资源"></a>总结：人的判断力是最后的稀缺资源</h2><p>2026 年 6 月中旬这一周，AI 编程走到了一个分水岭。</p>
+<p>一方面，”Prompt → Loop”的范式迁移真实发生着。它不是炒作——你的工具已经在变（Claude Code 的 <code>/loop</code>、OpenAI 的 Record and Replay），你身边的同事已经在用（Anthropic 80% 工程师的采纳率），你崇拜的大佬已经在喊你跟上。</p>
+<p>另一方面，这一波的隐忧远比以往更深。理解债务在积累，AI 精神病在蔓延，生产力神话尚未被数据证实。当 ClickUp 用 3,000 个 Agent 替换 22% 的员工时——技术没问题，但动机和后果值得追问。</p>
+<p>或许这一周留给我们的最清醒的声音来自 Karpathy：</p>
+<blockquote>
+<p>代码生成几乎免费了。<strong>判断力</strong>成了唯一的稀缺资源。</p>
+</blockquote>
+<p>你今天在 AI 编程上的核心竞争力，不是”会写 Prompt”（那确实在贬值），也不是”会用 Loop”（那很快会成为标配），而是 <strong>判断力</strong>——知道什么时候该信任 AI 的输出、什么时候该人工介入、什么时候根本不该用 Loop。</p>
+<p>这才是任何范式迁移中，唯一不可外包的能力。</p>
+<hr>
+<p><em>参考资料：Jensen Huang AP 采访、Addy Osmani “Loop Engineering” 博文、OpenAI Codex Record and Replay 发布公告、Anthropic Claude Code 更新日志、TechCrunch “AI Psychosis” 报道、The Next Web ClickUp 报道、UC Berkeley &#x2F; NBER &#x2F; MIT 生产力研究、Hacker News 相关讨论。</em></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/hexo-blog/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">hash-dog</div><div class="post-copyright__author_desc">记录学习与技术分享</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hash-dogs.github.io/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hash-dogs.github.io/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/')">Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hash-dogs.github.io/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命&amp;url=https://hash-dogs.github.io/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/&amp;pic=https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hash-dogs.github.io/hexo-blog" target="_blank">我的技术博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/hexo-blog/tags/AI/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI<span class="tagsPageCount">14</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/Skills/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Skills<span class="tagsPageCount">8</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/Claude-Code/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Claude Code<span class="tagsPageCount">5</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/AI-Agent/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI Agent<span class="tagsPageCount">12</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>自动化<span class="tagsPageCount">6</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>观点分享<span class="tagsPageCount">3</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/LLM/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>LLM<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://opengraph.githubassets.com/1/yc-software/qm" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo-blog/2026/07/19/taste-skill-anti-slop-frontend/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/Leonxlnx/taste-skill" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">GitHub热门（6/13-6/19）Leonxlnx/taste-skill — 前端审美校准器</div></div></a></div><div class="next-post pull-right"><a href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/xai-org/grok-build" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/hexo-blog/2026/06/28/addyosmani-agent-skills-intro/" title="GitHub热门（6&#x2F;22-6&#x2F;28）addyosmani&#x2F;agent-skills — 工程AI技能"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/addyosmani/agent-skills" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-28</div><div class="title">GitHub热门（6&#x2F;22-6&#x2F;28）addyosmani&#x2F;agent-skills — 工程AI技能</div></div></a></div><div><a href="/hexo-blog/2026/06/23/agent-reach-intro/" title="GitHub热门（6&#x2F;22-6&#x2F;28）Panniantong&#x2F;Agent-Reach — 一键给你的 AI Agent 装上全网眼睛"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/Panniantong/Agent-Reach" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-23</div><div class="title">GitHub热门（6&#x2F;22-6&#x2F;28）Panniantong&#x2F;Agent-Reach — 一键给你的 AI Agent 装上全网眼睛</div></div></a></div><div><a href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-24</div><div class="title">从 FDE 到 OPC：2026 年 AI 新名词里的产业转向</div></div></a></div><div><a href="/hexo-blog/2026/06/17/github-trending-ecc-agent-harness-intro/" title="GitHub热门（6&#x2F;8-6&#x2F;14）affaan-m&#x2F;ECC — 212K Stars 的 Agent Harness 操作系统"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/affaan-m/ECC" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-17</div><div class="title">GitHub热门（6&#x2F;8-6&#x2F;14）affaan-m&#x2F;ECC — 212K Stars 的 Agent Harness 操作系统</div></div></a></div><div><a href="/hexo-blog/2026/07/19/taste-skill-anti-slop-frontend/" title="GitHub热门（6&#x2F;13-6&#x2F;19）Leonxlnx&#x2F;taste-skill — 前端审美校准器"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/Leonxlnx/taste-skill" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-19</div><div class="title">GitHub热门（6&#x2F;13-6&#x2F;19）Leonxlnx&#x2F;taste-skill — 前端审美校准器</div></div></a></div><div><a href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8&#x2F;3-8&#x2F;9）yc-software&#x2F;qm — 团队级多人Agent协作框架"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/yc-software/qm" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-08-08</div><div class="title">GitHub热门（8&#x2F;3-8&#x2F;9）yc-software&#x2F;qm — 团队级多人Agent协作框架</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">hash-dog 的技术博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/hexo-blog/"><h1 class="author-info__name">hash-dog</h1><div class="author-info__desc">记录学习与技术分享</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="mailto:18033207159@163.com" target="_blank" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Loop-Engineering%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">什么是 Loop Engineering？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E-Prompt-%E5%88%B0-Loop%EF%BC%9A%E5%9B%9B%E6%AC%A1%E8%8C%83%E5%BC%8F%E8%B7%83%E8%BF%81"><span class="toc-number">2.1.</span> <span class="toc-text">从 Prompt 到 Loop：四次范式跃迁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prompt-%E6%A8%A1%E5%BC%8F-vs-Loop-%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">Prompt 模式 vs Loop 模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%85%E8%B0%B7%E5%A4%A7%E4%BD%AC%E9%9B%86%E4%BD%93%E7%AB%99%E5%8F%B0"><span class="toc-number">3.</span> <span class="toc-text">硅谷大佬集体站台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E8%90%BD%E5%9C%B0%EF%BC%9A%E4%BD%A0%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%E5%B7%B2%E7%BB%8F%E5%9C%A8%E2%80%9DLoop%E2%80%9D%E4%BA%86"><span class="toc-number">4.</span> <span class="toc-text">产品落地：你用的工具已经在”Loop”了</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenAI-Codex%EF%BC%9ARecord-and-Replay"><span class="toc-number">4.1.</span> <span class="toc-text">OpenAI Codex：Record and Replay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Claude-Code%EF%BC%9A%E5%86%85%E7%BD%AE%E5%BE%AA%E7%8E%AF%E6%8C%87%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">Claude Code：内置循环指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%9C%9F%E5%AE%9E%E5%AF%B9%E6%AF%94"><span class="toc-number">4.3.</span> <span class="toc-text">一个真实对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7%E8%90%BD%E5%9C%B0%EF%BC%9A%E5%BD%93-Loop-Engineering-%E9%81%87%E5%88%B0-n8n"><span class="toc-number">5.</span> <span class="toc-text">开源工具落地：当 Loop Engineering 遇到 n8n</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#n8n-AI-Agent-%E8%8A%82%E7%82%B9%EF%BC%9A%E5%BE%AA%E7%8E%AF%E5%8D%B3%E6%9E%B6%E6%9E%84"><span class="toc-number">5.1.</span> <span class="toc-text">n8n AI Agent 节点：循环即架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n8n-goal-loop%EF%BC%9A%E6%8A%8A%E2%80%9D%E5%86%99%E9%9C%80%E6%B1%82%E2%80%9D%E5%8F%98%E6%88%90%E2%80%9D%E8%AE%BE%E7%9B%AE%E6%A0%87%E2%80%9D"><span class="toc-number">5.2.</span> <span class="toc-text">n8n-goal-loop：把”写需求”变成”设目标”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Guarded-Agentic%EF%BC%9A%E7%94%9F%E4%BA%A7%E7%BA%A7%E7%9A%84%E9%98%B2%E5%BE%A1%E9%97%AD%E7%8E%AF"><span class="toc-number">5.3.</span> <span class="toc-text">Guarded Agentic：生产级的防御闭环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%A4%BA"><span class="toc-number">5.4.</span> <span class="toc-text">启示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B4%E5%BD%B1%E9%9D%A2%EF%BC%9AAI-%E7%B2%BE%E7%A5%9E%E7%97%85%E4%B8%8E%E4%BF%A1%E4%BB%BB%E5%8D%B1%E6%9C%BA"><span class="toc-number">6.</span> <span class="toc-text">阴影面：AI 精神病与信任危机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ClickUp-%E8%A3%81%E6%8E%89-22-%E7%9A%84%E5%91%98%E5%B7%A5"><span class="toc-number">6.1.</span> <span class="toc-text">ClickUp 裁掉 22% 的员工</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9CAI-%E7%B2%BE%E7%A5%9E%E7%97%85%E2%80%9D"><span class="toc-number">6.2.</span> <span class="toc-text">“AI 精神病”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%80%BA%E5%8A%A1%EF%BC%88Comprehension-Decay%EF%BC%89"><span class="toc-number">6.3.</span> <span class="toc-text">理解债务（Comprehension Decay）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loop-%E7%9A%84%E4%BA%94%E6%AD%A5%E6%A1%86%E6%9E%B6%EF%BC%9A%E6%80%8E%E4%B9%88%E7%9C%9F%E6%AD%A3%E2%80%9DLoop-%E8%B5%B7%E6%9D%A5%E2%80%9D"><span class="toc-number">7.</span> <span class="toc-text">Loop 的五步框架：怎么真正”Loop 起来”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8F%91%E7%8E%B0%EF%BC%88Discovery%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">1. 发现（Discovery）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%A4%E6%8E%A5%EF%BC%88Handoff%EF%BC%89"><span class="toc-number">7.2.</span> <span class="toc-text">2. 交接（Handoff）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%AA%8C%E8%AF%81%EF%BC%88Verification%EF%BC%89"><span class="toc-number">7.3.</span> <span class="toc-text">3. 验证（Verification）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8C%81%E4%B9%85%E5%8C%96%EF%BC%88Persistence%EF%BC%89"><span class="toc-number">7.4.</span> <span class="toc-text">4. 持久化（Persistence）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%B0%83%E5%BA%A6%EF%BC%88Scheduling%EF%BC%89"><span class="toc-number">7.5.</span> <span class="toc-text">5. 调度（Scheduling）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%BA%BA%E7%9A%84%E5%88%A4%E6%96%AD%E5%8A%9B%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E7%A8%80%E7%BC%BA%E8%B5%84%E6%BA%90"><span class="toc-number">8.</span> <span class="toc-text">总结：人的判断力是最后的稀缺资源</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/yc-software/qm" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架"/></a><div class="content"><a class="title" href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架">GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架</a><time datetime="2026-08-08T07:00:00.000Z" title="发表于 2026-08-08 15:00:00">2026-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/odysseus-dev/odysseus" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台">GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台</a><time datetime="2026-07-31T07:00:00.000Z" title="发表于 2026-07-31 15:00:00">2026-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/26/block-buzz-intro/" title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/block/buzz" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/26/block-buzz-intro/" title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台">GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台</a><time datetime="2026-07-26T06:00:00.000Z" title="发表于 2026-07-26 14:00:00">2026-07-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向">从 FDE 到 OPC：2026 年 AI 新名词里的产业转向</a><time datetime="2026-07-24T13:00:00.000Z" title="发表于 2026-07-24 21:00:00">2026-07-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/xai-org/grok-build" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent">GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent</a><time datetime="2026-07-24T13:00:00.000Z" title="发表于 2026-07-24 21:00:00">2026-07-24</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2026 By <a class="footer-bar-link" href="/hexo-blog/" title="hash-dog" target="_blank">hash-dog</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/hexo-blog/archives/" title="archive"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/hexo-blog/tags/" title="tag"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/hexo-blog/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 0.88rem;">AI<sup>14</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 0.88rem;">AI Agent<sup>12</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 0.88rem;">Claude Code<sup>5</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 0.88rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 0.88rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 0.88rem;">LLM<sup>3</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 0.88rem;">MCP<sup>6</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 0.88rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 0.88rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 0.88rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 0.88rem;">Skills<sup>8</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 0.88rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 0.88rem;">Token优化<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 0.88rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.88rem;">安全<sup>1</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 0.88rem;">开源<sup>14</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">技术分享<sup>7</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">研究工具<sup>2</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 0.88rem;">自动化<sup>6</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">观点分享<sup>3</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 0.88rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 0.88rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 0.88rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 0.88rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/hexo-blog/js/utils.js"></script><script src="/hexo-blog/js/main.js"></script><script src="/hexo-blog/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("06/01/2026 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2026 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 hash-dog 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/hexo-blog/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.cbd.int/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/hexo-blog/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

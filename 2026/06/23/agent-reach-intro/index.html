@@ -1,0 +1,612 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛 | 我的技术博客</title><meta name="keywords" content="开源,AI,Skills,AI Agent,研究工具,自动化"><meta name="author" content="hash-dog"><meta name="copyright" content="hash-dog"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛"><meta name="application-name" content="GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛"><meta property="og:url" content="https://hash-dogs.github.io/hexo-blog/2026/06/23/agent-reach-intro/index.html"><meta property="og:site_name" content="我的技术博客"><meta property="og:description" content="Panniantong&amp;#x2F;Agent-Reach 以 8,000+ 周增量登顶本周 GitHub 热门，这是一个纯 Python 的 AI Agent 联网能力层，一键安装即可让 Claude Code、OpenClaw、Cursor 等 Agent 免费读写 Twitter、Reddit、YouTu"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://opengraph.githubassets.com/1/Panniantong/Agent-Reach"><meta property="article:author" content="hash-dog"><meta property="article:tag" content="技术,博客,编程,开发"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://opengraph.githubassets.com/1/Panniantong/Agent-Reach"><meta name="description" content="Panniantong&amp;#x2F;Agent-Reach 以 8,000+ 周增量登顶本周 GitHub 热门，这是一个纯 Python 的 AI Agent 联网能力层，一键安装即可让 Claude Code、OpenClaw、Cursor 等 Agent 免费读写 Twitter、Reddit、YouTu"><link rel="shortcut icon" href="/hexo-blog/favicon.ico"><link rel="canonical" href="https://hash-dogs.github.io/hexo-blog/2026/06/23/agent-reach-intro/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/hexo-blog/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/hexo-blog/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/hexo-blog/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: hash-dog","link":"链接: ","source":"来源: 我的技术博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的技术博客',
+  title: 'GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛',
+  postAI: '',
+  pageFillDescription: '引言, 项目背景：AI Agent 的互联网困境, 一个会写代码但没法上网的 Agent, 现有方案的局限性, 核心创新：脚手架哲学与多后端智能路由, 1. 脚手架式架构（Scaffolding Not Framework）, 2. 多后端自动故障转移（Multi-Backend Routing）, 3. 统一的 Cookie 认证体系, 4. agent-reach doctor 一键诊断, 5. Agent 自动发现（SKILL.md 注册）, 深度架构解析, 通道注册表（Channel Registry）, 安装管线（Installation Pipeline）, 认证与安全模型, 快速上手, 一句话安装, 手动安装, 使用示例, 配置 Cookie, 总结引言本周榜单上以的周增量强势登榜发布仅四个月已累计超过这是一个由构建的联网能力层正在重新定义获取互联网数据的方式项目地址当前版本许可证技术栈依赖管理通过后端工具覆盖等作者项目背景的互联网困境一个会写代码但没法上网的年的已经能编写代码管理项目编辑文档但当它需要上网查一下时却瞬间变成了睁眼瞎问题的根源并非本身的能力不足而是互联网数据获取的基础设施极度碎片化平台官方费用反爬措施数据清洗难度月基础套餐频率限制严格需处理免费但限频服务器需认证免费有配额需字幕提取复杂小红书无公开登录墙加密极高免费接口不稳定海外封禁需解析多重格式微博无公开登录验证需处理反爬微信公众号无公开严格登录限制极高开发者面对的现实是每个平台都有自己的付费反爬封锁登录要求和数据格式想给装上联网能力就得为每个平台单独写适配器处理认证维护更新这几乎是一个全职工作现有方案的局限性在出现之前社区也有一些尝试通过浏览器自动化访问网页但速度慢资源占用高容易被检测为机器人优秀的网页转工具但仅限公开网页无法访问需要登录的平台各平台独立的工具如等每个都要单独安装配置没有统一入口付费聚合如功能全但费用高昂市场上缺少一个免费的开箱即用的覆盖多平台的统一入口让能像人一样上网冲浪这正是要解决的问题核心创新脚手架哲学与多后端智能路由的核心创新不在于重新发明轮子而在于以极其精妙的方式组装和管理现有的轮子脚手架式架构将自己定位为能力安装器路由器诊断医生而非传统意义上的数据抓取库它不直接实现任何平台的调用而是自动选择最优的开源工具作为后端一键安装所有依赖并完成配置健康检查每个通道的运行状态智能路由在多个后端之间自动切换这种脚手架哲学意味着项目本身极其轻量核心代码就是一套安装脚本和路由配置却能撬动整个开源生态的力量多后端自动故障转移这是最具实用价值的设计每个平台都有一个有序的后端列表当某个工具被平台封禁或失效时系统自动切换平台主要后端备用后端备用后端状态已退役小红书当被的反爬机制封杀后自动将通道的后端从切换为用户完全感知不到任何变化统一的认证体系对于需要登录的平台小红书等提供了一套标准化的注入流程浏览器登录目标平台使用扩展导出粘贴到终端所有存储在权限仅本地保存永不上传一键诊断通道健康检查网页已过期上次导出天前后端小红书未配置需要雪球对有问题的通道运行获取修复指引一个命令看遍所有通道状态哪个正常哪个需要配置哪个已过期一目了然自动发现注册安装完成后会在的目录中注册一份告诉你的用户已经安装了当用户要求你查看搜索读取字幕时使用对应的命令即可这实现了零配置的协作自动知道自己拥有哪些联网能力无需人工提示深度架构解析通道注册表的核心是一个插件化的通道注册表每个通道是一个独立的模块继承自统一接口通道注册表自动发现所有通道网页抓取语义搜索公开微博内置接口微信公众号雪球股票行情小宇宙播客转文字抖音视频解析每个通道模块包含依赖定义需要安装哪些系统工具后端优先级列表主用备用次备用健康检查逻辑验证通道是否正常工作使用时生命周期安装验证启用监控切换安装管线的安装是一个精心编排的多阶段管线阶段环境检测检测操作系统检测已安装的工具检测运行环境本地笔记本云服务器服务器环境提示是否需要住宅代理月阶段核心依赖安装工具本体安装系统依赖通过配置搜索引擎免费无需阶段注册检测当前使用的生成对应格式的注册到的目录阶段交互式通道配置询问用户需要启用哪些平台对需要的平台引导用户完成导出流程运行确认所有通道正常整个安装过程只需一句提示词发送给其余全部自动完成认证与安全模型的认证管理遵循最小暴露原则用户浏览器扩展粘贴到终端文件权限仅当前用户可读运行时读取注入调用操作完成后仅存本地安全特性总览特性说明凭证本地存储写入权限全程开源全部代码依赖工具均开源可审计模式标志仅扫描不安装列出需变更项预览所有操作但不执行安全提示推荐使用专用副账号避免主账号被封快速上手一句话安装在你的等中输入帮我安装会自动完成安装安装系统依赖配置语义搜索引擎免费无需检测运行环境笔记本服务器注册供自动发现引导选择需要接入的平台更新同样简单更新手动安装通过安装验证安装配置额外的平台交互式查看所有可用命令使用示例安装完成后你可以对说出这样的指令帮我搜索上关于的最新讨论读取这个视频的字幕并总结要点在小红书上搜一下工具的热门笔记查看上本周增长最快的项目把上今天的热门帖子整理给我读取这个微信公众号文章的内容会自动识别需求调用对应的通道来完成操作配置对于需要登录的平台遵循三步流程在中登录目标平台安装扩展导出粘贴给自动存入本地配置或手动添加总结在短短四个月内从零增长到其增长速度反映了社区对一个核心痛点的强烈需求的联网能力不应该是一个需要付费的奢侈品它的脚手架哲学令人耳目一新不是重新造轮子而是以极低的摩擦组装现有的最佳工具多后端自动故障转移设计确保了通道的长期可用性而统一的一键安装体验让任何开发者都能在五分钟内为装上全网眼睛从技术角度看并没有使用什么高深算法或复杂架构纯简单的插件注册表脚本式的依赖管理但正是这种简单到极致的设计让它如此成功贡献者可以轻松添加新通道用户可以透明地理解每一步操作可以无缝地发现和使用能力在从能写代码进化到能上网的年正处于这个转折点的中心和还在快速增长的趋势让它有望成为基础设施中不可或缺的一环数据说明数据基于公开数据年月日项目技术栈和功能描述基于仓库及社区解读文章',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-06-23 21:00:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="我的技术博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/hexo-blog/" accesskey="h"><div class="title">我的技术博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 1.05rem;">AI<sup>14</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 1.05rem;">AI Agent<sup>12</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 1.05rem;">Claude Code<sup>5</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 1.05rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 1.05rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 1.05rem;">LLM<sup>3</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 1.05rem;">MCP<sup>6</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 1.05rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 1.05rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 1.05rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 1.05rem;">Skills<sup>8</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 1.05rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 1.05rem;">Token优化<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 1.05rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.05rem;">安全<sup>1</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.05rem;">开源<sup>14</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">技术分享<sup>7</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">研究工具<sup>2</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.05rem;">自动化<sup>6</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">观点分享<sup>3</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.05rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.05rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 1.05rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 1.05rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/08/"><span class="card-archive-list-date">八月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/07/"><span class="card-archive-list-date">七月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/06/"><span class="card-archive-list-date">六月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/hexo-blog/categories/github%E7%83%AD%E9%97%A8/" itemprop="url">github热门</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>开源</span></a><a class="article-meta__tags" href="/hexo-blog/tags/AI/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI</span></a><a class="article-meta__tags" href="/hexo-blog/tags/Skills/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Skills</span></a><a class="article-meta__tags" href="/hexo-blog/tags/AI-Agent/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI Agent</span></a><a class="article-meta__tags" href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>研究工具</span></a><a class="article-meta__tags" href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>自动化</span></a></span></div></div><h1 class="post-title" itemprop="name headline">GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-06-23T13:00:00.000Z" title="发表于 2026-06-23 21:00:00">2026-06-23</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-06-23T13:00:00.000Z" title="更新于 2026-06-23 21:00:00">2026-06-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://opengraph.githubassets.com/1/Panniantong/Agent-Reach"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hash-dogs.github.io/hexo-blog/2026/06/23/agent-reach-intro/"><header><a class="post-meta-categories" href="/hexo-blog/categories/github%E7%83%AD%E9%97%A8/" itemprop="url">github热门</a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" tabindex="-1" itemprop="url">开源</a><a href="/hexo-blog/tags/AI/" tabindex="-1" itemprop="url">AI</a><a href="/hexo-blog/tags/Skills/" tabindex="-1" itemprop="url">Skills</a><a href="/hexo-blog/tags/AI-Agent/" tabindex="-1" itemprop="url">AI Agent</a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" tabindex="-1" itemprop="url">研究工具</a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url">自动化</a><h1 id="CrawlerTitle" itemprop="name headline">GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">hash-dog</span><time itemprop="dateCreated datePublished" datetime="2026-06-23T13:00:00.000Z" title="发表于 2026-06-23 21:00:00">2026-06-23</time><time itemprop="dateCreated datePublished" datetime="2026-06-23T13:00:00.000Z" title="更新于 2026-06-23 21:00:00">2026-06-23</time></header><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>本周 GitHub Trending 榜单上，<strong>Panniantong&#x2F;Agent-Reach</strong> 以 <strong>8,000+ stars</strong> 的周增量强势登榜，发布仅四个月已累计 <strong>32,000+ stars</strong>，Forks 超过 <strong>2,500</strong>。这是一个由 Python 构建的 AI Agent 联网能力层（Capability Layer），正在重新定义 Agent 获取互联网数据的方式。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Panniantong/Agent-Reach">https://github.com/Panniantong/Agent-Reach</a><br>当前版本：v1.5.0（2026-06-11）<br>许可证：MIT<br>技术栈：Python 100%（依赖管理通过 pip），后端工具覆盖 Node.js、yt-dlp、gh CLI 等<br>作者：Panniantong (Neo Reid)</p>
+<hr>
+<h2 id="项目背景：AI-Agent-的互联网困境"><a href="#项目背景：AI-Agent-的互联网困境" class="headerlink" title="项目背景：AI Agent 的互联网困境"></a>项目背景：AI Agent 的互联网困境</h2><h3 id="一个会写代码但没法上网的-Agent"><a href="#一个会写代码但没法上网的-Agent" class="headerlink" title="一个会写代码但没法上网的 Agent"></a>一个会写代码但没法上网的 Agent</h3><p>2026 年的 AI Agent 已经能编写代码、管理项目、编辑文档——但当它需要”上网查一下”时，却瞬间变成了睁眼瞎。问题的根源并非 LLM 本身的能力不足，而是<strong>互联网数据获取的基础设施极度碎片化</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>官方 API 费用</th>
+<th>反爬措施</th>
+<th>数据清洗难度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Twitter&#x2F;X</td>
+<td>~$215&#x2F;月（基础套餐）</td>
+<td>频率限制严格</td>
+<td>需处理 API JSON</td>
+</tr>
+<tr>
+<td>Reddit</td>
+<td>免费但限频</td>
+<td>服务器 IP 403</td>
+<td>需 API 认证</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>免费（有配额）</td>
+<td>需 API Key</td>
+<td>字幕提取复杂</td>
+</tr>
+<tr>
+<td>小红书</td>
+<td>无公开 API</td>
+<td>登录墙 + 加密</td>
+<td>极高</td>
+</tr>
+<tr>
+<td>Bilibili</td>
+<td>免费接口不稳定</td>
+<td>海外 IP 封禁</td>
+<td>需解析多重格式</td>
+</tr>
+<tr>
+<td>微博</td>
+<td>无公开 API</td>
+<td>登录验证</td>
+<td>需处理反爬</td>
+</tr>
+<tr>
+<td>微信公众号</td>
+<td>无公开 API</td>
+<td>严格登录 + IP 限制</td>
+<td>极高</td>
+</tr>
+</tbody></table>
+<p>开发者面对的现实是：<strong>每个平台都有自己的付费 API、反爬封锁、登录要求和数据格式</strong>。想给 Agent 装上”联网能力”，就得为每个平台单独写适配器、处理认证、维护更新——这几乎是一个全职工作。</p>
+<h3 id="现有方案的局限性"><a href="#现有方案的局限性" class="headerlink" title="现有方案的局限性"></a>现有方案的局限性</h3><p>在 Agent-Reach 出现之前，社区也有一些尝试：</p>
+<ul>
+<li><strong>Browser Use</strong> &#x2F; <strong>Playwright MCP</strong>：通过浏览器自动化访问网页，但速度慢、资源占用高、容易被检测为机器人</li>
+<li><strong>Firecrawl</strong> &#x2F; <strong>Jina Reader</strong>：优秀的网页转 Markdown 工具，但仅限公开网页，无法访问需要登录的平台</li>
+<li><strong>各平台独立的 CLI 工具</strong>：如 <code>tw</code>（Twitter CLI）、<code>bili-cli</code>、<code>rdt-cli</code> 等——每个都要单独安装配置，没有统一入口</li>
+<li><strong>付费聚合 API</strong>：如 Bright Data、Apify——功能全但费用高昂</li>
+</ul>
+<p>市场上缺少一个<strong>免费的、开箱即用的、覆盖多平台的统一入口</strong>，让 AI Agent 能像人一样”上网冲浪”——这正是 Agent-Reach 要解决的问题。</p>
+<hr>
+<h2 id="核心创新：脚手架哲学与多后端智能路由"><a href="#核心创新：脚手架哲学与多后端智能路由" class="headerlink" title="核心创新：脚手架哲学与多后端智能路由"></a>核心创新：脚手架哲学与多后端智能路由</h2><p>Agent-Reach 的核心创新不在于重新发明轮子，而在于以极其精妙的方式<strong>组装和管理现有的轮子</strong>：</p>
+<h3 id="1-脚手架式架构（Scaffolding-Not-Framework）"><a href="#1-脚手架式架构（Scaffolding-Not-Framework）" class="headerlink" title="1. 脚手架式架构（Scaffolding, Not Framework）"></a>1. 脚手架式架构（Scaffolding, Not Framework）</h3><p>Agent-Reach 将自己定位为”能力安装器+路由器+诊断医生”，而非传统意义上的数据抓取库。它不直接实现任何平台的 API 调用，而是：</p>
+<ol>
+<li><strong>自动选择</strong>最优的开源工具作为后端</li>
+<li><strong>一键安装</strong>所有依赖并完成配置</li>
+<li><strong>健康检查</strong>每个通道的运行状态</li>
+<li><strong>智能路由</strong>在多个后端之间自动切换</li>
+</ol>
+<p>这种”脚手架哲学”意味着项目本身极其轻量——核心代码就是一套安装脚本和路由配置——却能撬动整个开源生态的力量。</p>
+<h3 id="2-多后端自动故障转移（Multi-Backend-Routing）"><a href="#2-多后端自动故障转移（Multi-Backend-Routing）" class="headerlink" title="2. 多后端自动故障转移（Multi-Backend Routing）"></a>2. 多后端自动故障转移（Multi-Backend Routing）</h3><p>这是 Agent-Reach 最具实用价值的设计。每个平台都有一个<strong>有序的后端列表</strong>（Primary → Fallbacks），当某个工具被平台封禁或失效时，系统自动切换：</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>主要后端</th>
+<th>备用后端 1</th>
+<th>备用后端 2</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Twitter&#x2F;X</td>
+<td>twitter-cli</td>
+<td>OpenCLI</td>
+<td>bird</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Bilibili</td>
+<td>bili-cli</td>
+<td>OpenCLI</td>
+<td>search API</td>
+<td>⚠️ yt-dlp 已退役</td>
+</tr>
+<tr>
+<td>小红书</td>
+<td>OpenCLI</td>
+<td>xiaohongshu-mcp</td>
+<td>xhs-cli</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Reddit</td>
+<td>OpenCLI</td>
+<td>rdt-cli</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>LinkedIn</td>
+<td>linkedin-mcp</td>
+<td>Jina Reader</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<p>当 yt-dlp 被 Bilibili 的 412 反爬机制封杀后，Agent-Reach 自动将 Bilibili 通道的后端从 yt-dlp 切换为 bili-cli——用户完全感知不到任何变化。</p>
+<h3 id="3-统一的-Cookie-认证体系"><a href="#3-统一的-Cookie-认证体系" class="headerlink" title="3. 统一的 Cookie 认证体系"></a>3. 统一的 Cookie 认证体系</h3><p>对于需要登录的平台（Twitter、小红书、LinkedIn 等），Agent-Reach 提供了一套<strong>标准化的 Cookie 注入流程</strong>：</p>
+<ol>
+<li>浏览器登录目标平台</li>
+<li>使用 Cookie-Editor Chrome 扩展导出 Cookies</li>
+<li>粘贴到 Agent 终端</li>
+</ol>
+<p>所有 Cookie 存储在 <code>~/.agent-reach/config.yaml</code>（权限 600），<strong>仅本地保存，永不上传</strong>。</p>
+<h3 id="4-agent-reach-doctor-一键诊断"><a href="#4-agent-reach-doctor-一键诊断" class="headerlink" title="4. agent-reach doctor 一键诊断"></a>4. <code>agent-reach doctor</code> 一键诊断</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ agent-reach doctor</span><br><span class="line"></span><br><span class="line">🧪 Agent-Reach 通道健康检查</span><br><span class="line">─────────────────────────────</span><br><span class="line">🌐 网页（Jina Reader）   ✅ Ready</span><br><span class="line">🐦 Twitter              ⚠️ Cookie 已过期（上次导出: 30 天前）</span><br><span class="line">📺 YouTube              ✅ Ready</span><br><span class="line">📺 Bilibili             ✅ Ready（后端: bili-cli）</span><br><span class="line">📕 小红书               ✅ Ready</span><br><span class="line">📖 Reddit               ✅ Ready</span><br><span class="line">📦 GitHub               ✅ Ready</span><br><span class="line">💼 LinkedIn             ❌ 未配置（需要 Cookie）</span><br><span class="line">📡 RSS                  ✅ Ready</span><br><span class="line">📈 雪球                 ✅ Ready</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">ℹ️ 对有问题的通道运行 `agent-reach doctor --fix` 获取修复指引</span><br></pre></td></tr></table></figure>
+
+<p>一个命令看遍所有通道状态——哪个正常、哪个需要配置、哪个已过期，一目了然。</p>
+<h3 id="5-Agent-自动发现（SKILL-md-注册）"><a href="#5-Agent-自动发现（SKILL-md-注册）" class="headerlink" title="5. Agent 自动发现（SKILL.md 注册）"></a>5. Agent 自动发现（SKILL.md 注册）</h3><p>安装完成后，Agent-Reach 会在 Agent 的 skills 目录中注册一份 <code>SKILL.md</code>，告诉 AI Agent：</p>
+<blockquote>
+<p>“你的用户已经安装了 Agent-Reach。当用户要求你查看 Twitter、搜索 Reddit、读取 YouTube 字幕时，使用对应的 CLI 命令即可。”</p>
+</blockquote>
+<p>这实现了<strong>零配置的 Agent 协作</strong>——Agent 自动知道自己拥有哪些联网能力，无需人工提示。</p>
+<hr>
+<h2 id="深度架构解析"><a href="#深度架构解析" class="headerlink" title="深度架构解析"></a>深度架构解析</h2><h3 id="通道注册表（Channel-Registry）"><a href="#通道注册表（Channel-Registry）" class="headerlink" title="通道注册表（Channel Registry）"></a>通道注册表（Channel Registry）</h3><p>Agent-Reach 的核心是一个插件化的通道注册表。每个通道是一个独立的 Python 模块，继承自统一接口：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">channels/</span><br><span class="line">├── __init__.py        → 通道注册表（自动发现所有通道）</span><br><span class="line">├── web.py             → Jina Reader 网页抓取</span><br><span class="line">├── twitter.py         → twitter-cli → OpenCLI → bird</span><br><span class="line">├── youtube.py         → yt-dlp</span><br><span class="line">├── github.py          → gh CLI</span><br><span class="line">├── bilibili.py        → bili-cli → OpenCLI → search API</span><br><span class="line">├── reddit.py          → OpenCLI → rdt-cli</span><br><span class="line">├── xiaohongshu.py     → OpenCLI → xiaohongshu-mcp → xhs-cli</span><br><span class="line">├── linkedin.py        → linkedin-mcp → Jina Reader</span><br><span class="line">├── rss.py             → feedparser</span><br><span class="line">├── exa_search.py      → Exa via mcporter（语义搜索）</span><br><span class="line">├── v2ex.py            → V2EX 公开 JSON API</span><br><span class="line">├── weibo.py           → 微博内置接口</span><br><span class="line">├── wechat.py          → 微信公众号（Exa + Camoufox）</span><br><span class="line">├── xueqiu.py          → 雪球股票行情</span><br><span class="line">├── xiaoyuzhou.py      → 小宇宙播客（Whisper 转文字）</span><br><span class="line">└── douyin.py          → 抖音视频解析（douyin-mcp-server）</span><br></pre></td></tr></table></figure>
+
+<p>每个通道模块包含：</p>
+<ul>
+<li><strong>依赖定义</strong>：需要安装哪些系统工具</li>
+<li><strong>后端优先级列表</strong>：主用 → 备用 → 次备用</li>
+<li><strong>健康检查逻辑</strong>：验证通道是否正常工作</li>
+<li><strong>使用时生命周期</strong>：安装 → 验证 → 启用 → 监控 → 切换</li>
+</ul>
+<h3 id="安装管线（Installation-Pipeline）"><a href="#安装管线（Installation-Pipeline）" class="headerlink" title="安装管线（Installation Pipeline）"></a>安装管线（Installation Pipeline）</h3><p>Agent-Reach 的安装是一个精心编排的多阶段管线：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">阶段 1: 环境检测</span><br><span class="line">  → 检测操作系统（macOS / Linux / Windows）</span><br><span class="line">  → 检测已安装的工具（Node.js, gh CLI, mcporter...）</span><br><span class="line">  → 检测运行环境（本地笔记本 vs 云服务器）</span><br><span class="line">  ↘ 服务器环境：提示是否需要住宅代理（~$1/月）</span><br><span class="line"></span><br><span class="line">阶段 2: 核心依赖安装</span><br><span class="line">  → pip install agent-reach（CLI 工具本体）</span><br><span class="line">  → 安装系统依赖（Node.js, gh CLI）</span><br><span class="line">  → 通过 mcporter 配置 Exa 搜索引擎（免费，无需 API Key）</span><br><span class="line"></span><br><span class="line">阶段 3: SKILL.md 注册</span><br><span class="line">  → 检测当前使用的 AI Agent（Claude Code / OpenClaw / Cursor / ...）</span><br><span class="line">  → 生成对应格式的 SKILL.md</span><br><span class="line">  → 注册到 Agent 的 skills 目录</span><br><span class="line"></span><br><span class="line">阶段 4: 交互式通道配置</span><br><span class="line">  → 询问用户需要启用哪些平台</span><br><span class="line">  → 对需要 Cookie 的平台，引导用户完成 Cookie 导出流程</span><br><span class="line">  → 运行 agent-reach doctor 确认所有通道正常</span><br></pre></td></tr></table></figure>
+
+<p>整个安装过程只需一句提示词发送给 AI Agent，其余全部自动完成。</p>
+<h3 id="认证与安全模型"><a href="#认证与安全模型" class="headerlink" title="认证与安全模型"></a>认证与安全模型</h3><p>Agent-Reach 的认证管理遵循”最小暴露”原则：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用户浏览器 → Cookie-Editor 扩展 → 粘贴到终端</span><br><span class="line">                                          ↓</span><br><span class="line">                            ~/.agent-reach/config.yaml</span><br><span class="line">                            （文件权限 600，仅当前用户可读）</span><br><span class="line">                                          ↓</span><br><span class="line">                           Agent 运行时读取 → 注入 CLI 调用</span><br><span class="line">                                          ↓</span><br><span class="line">                           操作完成后 → Cookie 仅存本地</span><br></pre></td></tr></table></figure>
+
+<p>安全特性总览：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>凭证本地存储</td>
+<td>Cookie 写入 <code>~/.agent-reach/config.yaml</code>，权限 600</td>
+</tr>
+<tr>
+<td>全程开源</td>
+<td>全部代码 + 依赖工具均开源，可审计</td>
+</tr>
+<tr>
+<td>Safe 模式</td>
+<td><code>--safe</code> 标志：仅扫描不安装，列出需变更项</td>
+</tr>
+<tr>
+<td>Dry Run</td>
+<td><code>--dry-run</code>：预览所有操作但不执行</td>
+</tr>
+<tr>
+<td>安全提示</td>
+<td>推荐使用<strong>专用副账号</strong>，避免主账号被封</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="一句话安装"><a href="#一句话安装" class="headerlink" title="一句话安装"></a>一句话安装</h3><p>在你的 AI Agent（Claude Code、OpenClaw、Cursor、Codex CLI 等）中输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我安装 Agent Reach：https://raw.githubusercontent.com/Panniantong/agent-reach/main/docs/install.md</span><br></pre></td></tr></table></figure>
+
+<p>Agent 会自动完成：</p>
+<ol>
+<li><code>pip install agent-reach</code>（安装 CLI）</li>
+<li>安装系统依赖（Node.js、gh CLI、mcporter）</li>
+<li>配置语义搜索引擎（Exa，免费，无需 API Key）</li>
+<li>检测运行环境（笔记本 vs 服务器）</li>
+<li>注册 SKILL.md 供 Agent 自动发现</li>
+<li>引导选择需要接入的平台</li>
+</ol>
+<p>更新同样简单：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">更新 Agent Reach：https://raw.githubusercontent.com/Panniantong/agent-reach/main/docs/update.md</span><br></pre></td></tr></table></figure>
+
+<h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 pipx 安装</span></span><br><span class="line">pipx install agent-reach</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">agent-reach doctor</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置额外的平台（交互式）</span></span><br><span class="line">agent-reach setup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有可用命令</span></span><br><span class="line">agent-reach --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><p>安装完成后，你可以对 AI Agent 说出这样的指令：</p>
+<blockquote>
+<p>“帮我搜索 Twitter 上关于 Claude Code Skills 的最新讨论”<br>“读取这个 YouTube 视频的字幕并总结要点”<br>“在小红书上搜一下 ‘AI Agent 工具’ 的热门笔记”<br>“查看 GitHub 上本周 stars 增长最快的 Rust 项目”<br>“把 Reddit 上 r&#x2F;MachineLearning 今天的热门帖子整理给我”<br>“读取这个微信公众号文章的内容”</p>
+</blockquote>
+<p>Agent 会自动识别需求，调用对应的 Agent-Reach 通道来完成操作。</p>
+<h3 id="配置-Cookie"><a href="#配置-Cookie" class="headerlink" title="配置 Cookie"></a>配置 Cookie</h3><p>对于需要登录的平台，遵循三步流程：</p>
+<ol>
+<li>在 Chrome 中登录目标平台</li>
+<li>安装 Cookie-Editor 扩展，导出 Cookies</li>
+<li>粘贴给 Agent，Cookie 自动存入本地配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 或手动添加 Cookie</span></span><br><span class="line">agent-reach config <span class="built_in">set</span> twitter.cookie <span class="string">&quot;auth_token=xxx; ct0=yyy&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Agent-Reach 在短短四个月内从零增长到 32K+ Stars，其增长速度反映了社区对一个核心痛点的强烈需求：<strong>AI Agent 的联网能力不应该是一个需要付费的奢侈品</strong>。</p>
+<p>它的”脚手架哲学”令人耳目一新——不是重新造轮子，而是以极低的摩擦组装现有的最佳工具。多后端自动故障转移设计确保了通道的长期可用性，而统一的一键安装体验让任何开发者都能在五分钟内为 Agent 装上”全网眼睛”。</p>
+<p>从技术角度看，Agent-Reach 并没有使用什么高深算法或复杂架构——纯 Python、简单的插件注册表、shell 脚本式的依赖管理。但正是这种**”简单到极致”的设计**让它如此成功：贡献者可以轻松添加新通道，用户可以透明地理解每一步操作，Agent 可以无缝地发现和使用能力。</p>
+<p>在 AI Agent 从”能写代码”进化到”能上网”的 2026 年，Agent-Reach 正处于这个转折点的中心。32K Stars 和还在快速增长的趋势，让它有望成为 AI Agent 基础设施中不可或缺的一环。</p>
+<hr>
+<blockquote>
+<p><strong>数据说明</strong>：Star 数据基于 GitHub Trending 公开数据（2026 年 6 月 23 日）。项目技术栈和功能描述基于 <a target="_blank" rel="noopener" href="https://github.com/Panniantong/Agent-Reach">Panniantong&#x2F;Agent-Reach</a> 仓库 README 及社区解读文章。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/hexo-blog/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">hash-dog</div><div class="post-copyright__author_desc">记录学习与技术分享</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hash-dogs.github.io/hexo-blog/2026/06/23/agent-reach-intro/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hash-dogs.github.io/hexo-blog/2026/06/23/agent-reach-intro/')">GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hash-dogs.github.io/hexo-blog/2026/06/23/agent-reach-intro/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛&amp;url=https://hash-dogs.github.io/hexo-blog/2026/06/23/agent-reach-intro/&amp;pic=https://opengraph.githubassets.com/1/Panniantong/Agent-Reach" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hash-dogs.github.io/hexo-blog" target="_blank">我的技术博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>开源<span class="tagsPageCount">14</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/AI/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI<span class="tagsPageCount">14</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/Skills/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Skills<span class="tagsPageCount">8</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/AI-Agent/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI Agent<span class="tagsPageCount">12</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>研究工具<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>自动化<span class="tagsPageCount">6</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://opengraph.githubassets.com/1/yc-software/qm" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo-blog/2026/06/19/first-internship-terms-guide/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/23496663/pexels-photo-23496663.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第一次实习打工，这七个词你得先弄明白</div></div></a></div><div class="next-post pull-right"><a href="/hexo-blog/2026/06/28/addyosmani-agent-skills-intro/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/addyosmani/agent-skills" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GitHub热门（6/22-6/28）addyosmani/agent-skills — 工程AI技能</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8&#x2F;3-8&#x2F;9）yc-software&#x2F;qm — 团队级多人Agent协作框架"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/yc-software/qm" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-08-08</div><div class="title">GitHub热门（8&#x2F;3-8&#x2F;9）yc-software&#x2F;qm — 团队级多人Agent协作框架</div></div></a></div><div><a href="/hexo-blog/2026/06/28/addyosmani-agent-skills-intro/" title="GitHub热门（6&#x2F;22-6&#x2F;28）addyosmani&#x2F;agent-skills — 工程AI技能"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/addyosmani/agent-skills" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-28</div><div class="title">GitHub热门（6&#x2F;22-6&#x2F;28）addyosmani&#x2F;agent-skills — 工程AI技能</div></div></a></div><div><a href="/hexo-blog/2026/07/06/alibaba-page-agent-intro/" title="GitHub热门（6&#x2F;30-7&#x2F;6）alibaba&#x2F;page-agent — 页面内嵌 GUI Agent"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/alibaba/page-agent" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-06</div><div class="title">GitHub热门（6&#x2F;30-7&#x2F;6）alibaba&#x2F;page-agent — 页面内嵌 GUI Agent</div></div></a></div><div><a href="/hexo-blog/2026/06/17/github-trending-ecc-agent-harness-intro/" title="GitHub热门（6&#x2F;8-6&#x2F;14）affaan-m&#x2F;ECC — 212K Stars 的 Agent Harness 操作系统"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/affaan-m/ECC" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-17</div><div class="title">GitHub热门（6&#x2F;8-6&#x2F;14）affaan-m&#x2F;ECC — 212K Stars 的 Agent Harness 操作系统</div></div></a></div><div><a href="/hexo-blog/2026/06/14/last30days-skill-intro/" title="GitHub热门（6&#x2F;8-6&#x2F;14）mvanhorn&#x2F;last30days-skill — 跨平台 AI 研究神器"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/mvanhorn/last30days-skill" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-15</div><div class="title">GitHub热门（6&#x2F;8-6&#x2F;14）mvanhorn&#x2F;last30days-skill — 跨平台 AI 研究神器</div></div></a></div><div><a href="/hexo-blog/2026/07/19/taste-skill-anti-slop-frontend/" title="GitHub热门（6&#x2F;13-6&#x2F;19）Leonxlnx&#x2F;taste-skill — 前端审美校准器"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/Leonxlnx/taste-skill" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-19</div><div class="title">GitHub热门（6&#x2F;13-6&#x2F;19）Leonxlnx&#x2F;taste-skill — 前端审美校准器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">hash-dog 的技术博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/hexo-blog/"><h1 class="author-info__name">hash-dog</h1><div class="author-info__desc">记录学习与技术分享</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="mailto:18033207159@163.com" target="_blank" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF%EF%BC%9AAI-Agent-%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E5%9B%B0%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">项目背景：AI Agent 的互联网困境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BC%9A%E5%86%99%E4%BB%A3%E7%A0%81%E4%BD%86%E6%B2%A1%E6%B3%95%E4%B8%8A%E7%BD%91%E7%9A%84-Agent"><span class="toc-number">2.1.</span> <span class="toc-text">一个会写代码但没法上网的 Agent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E6%96%B9%E6%A1%88%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">现有方案的局限性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%88%9B%E6%96%B0%EF%BC%9A%E8%84%9A%E6%89%8B%E6%9E%B6%E5%93%B2%E5%AD%A6%E4%B8%8E%E5%A4%9A%E5%90%8E%E7%AB%AF%E6%99%BA%E8%83%BD%E8%B7%AF%E7%94%B1"><span class="toc-number">3.</span> <span class="toc-text">核心创新：脚手架哲学与多后端智能路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%84%9A%E6%89%8B%E6%9E%B6%E5%BC%8F%E6%9E%B6%E6%9E%84%EF%BC%88Scaffolding-Not-Framework%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">1. 脚手架式架构（Scaffolding, Not Framework）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%9A%E5%90%8E%E7%AB%AF%E8%87%AA%E5%8A%A8%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB%EF%BC%88Multi-Backend-Routing%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">2. 多后端自动故障转移（Multi-Backend Routing）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%9F%E4%B8%80%E7%9A%84-Cookie-%E8%AE%A4%E8%AF%81%E4%BD%93%E7%B3%BB"><span class="toc-number">3.3.</span> <span class="toc-text">3. 统一的 Cookie 认证体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-agent-reach-doctor-%E4%B8%80%E9%94%AE%E8%AF%8A%E6%96%AD"><span class="toc-number">3.4.</span> <span class="toc-text">4. agent-reach doctor 一键诊断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Agent-%E8%87%AA%E5%8A%A8%E5%8F%91%E7%8E%B0%EF%BC%88SKILL-md-%E6%B3%A8%E5%86%8C%EF%BC%89"><span class="toc-number">3.5.</span> <span class="toc-text">5. Agent 自动发现（SKILL.md 注册）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">深度架构解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E9%81%93%E6%B3%A8%E5%86%8C%E8%A1%A8%EF%BC%88Channel-Registry%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">通道注册表（Channel Registry）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%AE%A1%E7%BA%BF%EF%BC%88Installation-Pipeline%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">安装管线（Installation Pipeline）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.3.</span> <span class="toc-text">认证与安全模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="toc-number">5.</span> <span class="toc-text">快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%AE%89%E8%A3%85"><span class="toc-number">5.1.</span> <span class="toc-text">一句话安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="toc-number">5.2.</span> <span class="toc-text">手动安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.3.</span> <span class="toc-text">使用示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Cookie"><span class="toc-number">5.4.</span> <span class="toc-text">配置 Cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/yc-software/qm" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架"/></a><div class="content"><a class="title" href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架">GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架</a><time datetime="2026-08-08T07:00:00.000Z" title="发表于 2026-08-08 15:00:00">2026-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/odysseus-dev/odysseus" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台">GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台</a><time datetime="2026-07-31T07:00:00.000Z" title="发表于 2026-07-31 15:00:00">2026-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/26/block-buzz-intro/" title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/block/buzz" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/26/block-buzz-intro/" title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台">GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台</a><time datetime="2026-07-26T06:00:00.000Z" title="发表于 2026-07-26 14:00:00">2026-07-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向">从 FDE 到 OPC：2026 年 AI 新名词里的产业转向</a><time datetime="2026-07-24T13:00:00.000Z" title="发表于 2026-07-24 21:00:00">2026-07-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/xai-org/grok-build" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent">GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent</a><time datetime="2026-07-24T13:00:00.000Z" title="发表于 2026-07-24 21:00:00">2026-07-24</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2026 By <a class="footer-bar-link" href="/hexo-blog/" title="hash-dog" target="_blank">hash-dog</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/hexo-blog/archives/" title="archive"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/hexo-blog/tags/" title="tag"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/hexo-blog/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 0.88rem;">AI<sup>14</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 0.88rem;">AI Agent<sup>12</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 0.88rem;">Claude Code<sup>5</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 0.88rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 0.88rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 0.88rem;">LLM<sup>3</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 0.88rem;">MCP<sup>6</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 0.88rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 0.88rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 0.88rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 0.88rem;">Skills<sup>8</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 0.88rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 0.88rem;">Token优化<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 0.88rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.88rem;">安全<sup>1</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 0.88rem;">开源<sup>14</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">技术分享<sup>7</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">研究工具<sup>2</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 0.88rem;">自动化<sup>6</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">观点分享<sup>3</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 0.88rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 0.88rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 0.88rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 0.88rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/hexo-blog/js/utils.js"></script><script src="/hexo-blog/js/main.js"></script><script src="/hexo-blog/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("06/01/2026 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2026 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 hash-dog 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/hexo-blog/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.cbd.int/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/hexo-blog/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

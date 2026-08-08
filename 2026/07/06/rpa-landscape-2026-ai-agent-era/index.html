@@ -1,0 +1,694 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南 | 我的技术博客</title><meta name="keywords" content="AI Agent,自动化,技术分享,RPA"><meta name="author" content="hash-dog"><meta name="copyright" content="hash-dog"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南"><meta name="application-name" content="2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南"><meta property="og:url" content="https://hash-dogs.github.io/hexo-blog/2026/07/06/rpa-landscape-2026-ai-agent-era/index.html"><meta property="og:site_name" content="我的技术博客"><meta property="og:description" content="2026年，当 Claude Code、Codex、Cursor 等 AI 编程智能体横行开发界，传统 RPA 厂商正全面向 Agent 架构转型。一文读懂 UiPath、Automation Anywhere、Blue Prism 国际三巨头与影刀、来也、弘玑国产三强的差异化定位与选型策略。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://images.pexels.com/photos/34207359/pexels-photo-34207359.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"><meta property="article:author" content="hash-dog"><meta property="article:tag" content="技术,博客,编程,开发"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://images.pexels.com/photos/34207359/pexels-photo-34207359.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"><meta name="description" content="2026年，当 Claude Code、Codex、Cursor 等 AI 编程智能体横行开发界，传统 RPA 厂商正全面向 Agent 架构转型。一文读懂 UiPath、Automation Anywhere、Blue Prism 国际三巨头与影刀、来也、弘玑国产三强的差异化定位与选型策略。"><link rel="shortcut icon" href="/hexo-blog/favicon.ico"><link rel="canonical" href="https://hash-dogs.github.io/hexo-blog/2026/07/06/rpa-landscape-2026-ai-agent-era/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/hexo-blog/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/hexo-blog/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/hexo-blog/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: hash-dog","link":"链接: ","source":"来源: 我的技术博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '我的技术博客',
+  title: '2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南',
+  postAI: '',
+  pageFillDescription: '引言, 行业变局：RPA 增速放缓Agent 市场爆发, 国际阵营：三巨头的 Agent 化转型, 1. UiPath — 生态之王, 2. Automation Anywhere — AI 先行者, 3. Blue Prism（SSampC Blue Prism）— 合规首选, Microsoft Power Automate — 生态绑定的最佳选择, 国产阵营：影刀、来也、弘玑的差异化路线, 1. 影刀 — 全民 RPA 的推动者, 2. 来也科技 — 行业深度的 AI+RPA 方案, 3. 弘玑 Cyclone — 大型企业的超自动化平台, AI 编程 Agent vs RPA：竞争还是互补？, 核心差异, 谁在蚕食谁？, 实际趋势：融合而非替代, 选型决策指南, 总结引言年的自动化市场正经历一场结构性变革一方面以为代表的编程智能体正在重新定义软件开发它们能自主理解需求编写代码修复甚至管理整个流水线在开发者社区替代人工已不再是一句口号另一方面传统的市场正在经历一场自我革命等老牌厂商纷纷摘下的帽子转而拥抱架构它们不再说我用机器人模拟你的鼠标点击而是说我用智能体自主完成你的业务流程这场变革背后的问题是当编程都能写代码了还有存在的必要吗答案是肯定的但的形态已经彻底改变了本文将从国际阵营国产阵营编程工具三个维度为你梳理年市场的全景图与选型逻辑行业变局增速放缓市场爆发先看两组关键数据指标年年预估增长率全球市场规模亿亿全球市场规模亿亿企业自动化预算转向新项目首选架构市场仍在增长但增速远不及更关键的是所有主流厂商都在主动去化推出了和编排平台收购了公司围绕自主智能体重塑品牌将深度融入传统能自动化的流程约占企业总流程的而引入能力后这一比例有望提升至这是整个行业转型的根本驱动力国际阵营三巨头的化转型生态之王核心定位企业级超自动化平台是领域毫无争议的第一品牌福布斯强中超过是其客户但在年的市场份额正被新兴平台蚕食从巅峰期的下降至约能力低代码构建集成多编排层管理多个的协作与调度基于视觉的理解让能看懂桌面应用统一模型管理部署与监控优势生态最强超万开发者社区最大文档理解能力领先短板授权成本极高年费约万机器人复杂度大部署周期长最佳场景大型企业全栈自动化尤其是需要与遗留桌面系统打交道的场景先行者核心定位云原生自动化认知是三者中最激进向转型的厂商年收购后其能力显著增强能力可视化构建认知流程推理引擎理解业务流程而非固定脚本自动化副驾用自然语言创建和触发自动化优势云原生架构驱动自动化智能文档处理能力强短板高级功能需额外付费复杂部署依赖专业服务价格偏高机器人月最佳场景追求深度集成云优先策略的企业合规首选核心定位安全合规型企业被收购后继续保持其在合规治理方面的极致追求是金融和医疗行业的首选能力起步较晚但正在围绕自主智能体重塑产品线推出智能文档处理和优势治理与合规能力顶尖完整审计追踪稳定性评分最高短板能力相对落后云原生较弱价格昂贵定制报价最佳场景银行保险政府等强监管行业三巨头核心对比维度市场份额能力起步中稳定性评分年费机器人万中高档定制报价生态规模万开发者中等较小成熟度生态绑定的最佳选择虽然不算传统三巨头但凭借与的深度绑定已成为年最具性价比的自动化平台之一定价仅用户月且深度集成了的能力如果你的企业已经生活在微软生态中它几乎是不用思考的选择国产阵营影刀来也弘玑的差异化路线国内市场呈现出与全球市场截然不同的格局国产厂商通过低价本地化服务和信创合规正在快速占领中小企业市场影刀全民的推动者核心定位驱动的轻量级平台影刀是国产中知名度最高的品牌之一以电商场景起家目前在电商领域的市占率超过差异化策略个人免费大力推广个人用户培养全民生态极致易用拖拽式操作业务人员周即可上手自然语言驱动魔法指令让用户用中文描述需求自动生成流程进展集成了辅助流程设计但能力仍依赖外部大模型自主任务规划能力有限与的结合深度尚浅适用场景电商运营标题优化竞品监控自动上架中小企业内部自动化价格专业版约年机器人企业版约年机器人一句话评价入门门槛最低适合想先跑起来的团队来也科技行业深度的方案核心定位全栈解决方案来也科技的产品矩阵由三部分组成自动化平台吾来对话机器人平台能力平台智能文档处理差异化策略深耕高门槛行业在金融政务领域累积了大量标杆客户尤其在智能文档处理保单识别合同审核学历验证方面积累深厚进展推出数字员工产品线将打包为一体化解决方案支持国产化与私有化部署满足信创合规要求适用场景政务审批金融行业合同审核学历验证保险单据处理价格中高价位模块可能额外收费一句话评价如果你在金融或政务行业来也是信创合规下的安全牌弘玑大型企业的超自动化平台核心定位超自动化平台弘玑是唯一入选魔力象限的中国厂商产品具备全球化基因支持多语言多时区处理差异化策略走大企业大平台路线将流程挖掘整合为端到端平台服务中石化国家电网比亚迪等大型标杆客户进展强调端到端流程智能从流程设计运行管理到赋能的全链路打通在比亚迪项目中通过整合等多套异构系统将生产排产效率提升适用场景大型企业数字化转型制造业能源央企的复杂流程自动化跨国业务价格较高需定制报价一句话评价如果你在大型国企或跨国企业弘玑的平台化架构更适合复杂需求国产三强对比维度影刀来也科技弘玑核心优势易用低价行业深度信创平台化全球化能力外部依赖深度集成端到端上手门槛极低较高高适用企业规模中小中大型大型超大型主打行业电商零售金融政务制造能源央企价格区间低中高编程竞争还是互补年等编程工具的能力已经强大到让人不禁发问它们会取代吗答案是不会完全取代但会重塑的边界核心差异维度编程平台影刀等操作对象代码终端文件系统桌面应用页面企业系统用户群体开发者工程师业务人员平民开发者核心能力写代码重构调试模拟人工操作数据搬运流程编排自动化形态直接生成代码脚本录制回放拖拽流程图人机交互插件可视化设计器流程图治理与合规弱面向开发强审计追踪角色权限版本管理谁在蚕食谁编程正在吃掉市场的技术端以前需要自动化一个操作现在开发者可以让直接写一个脚本来调用的以前需要拖拽流程图实现的审批流程现在可以直接生成一个但的护城河在于非技术用户和遗留系统业务人员不会写脚本但他们能理解拖拽流程图很多老旧企业系统没有只能通过自动化操作平台提供的治理审计合规能力是裸脚本无法替代的实际趋势融合而非替代最好的实践是组合使用编程生成自动化脚本调用平台编排非系统操作统一编排层业务流程完成例如一个订单处理流程可以是生成调用的脚本脚本将数据写入中间表影刀从中间表读取数据并填入老旧的桌面客户端做大脑做手脚选型决策指南没有最好的只有最适合的以下是年的分场景推荐你的情况推荐平台核心理由已在微软生态中最低集成成本透明定价全球大型企业追求功能完整生态最强社区最大重视深度集成云优先认知能力云原生架构金融政务强合规行业来也科技审计追踪与信创合规国内中小企业电商场景影刀低价易用电商生态好大型国企制造业主弘玑平台化架构端到端服务你是开发团队仅需简单自动化零成本灵活可定制想要尝试原生平台纯架构无遗留包袱总结年市场的关键词不是竞争而是融合传统厂商正在拥抱推收购影刀的魔法指令用自然语言驱动流程与此同时等编程工具正在模糊写代码和做自动化之间的界限对企业的启示是不要纠结于选还是而是思考哪些流程需要确定性执行哪些需要智能决策前者交给后者交给而两者之间的桥梁正在被年的技术浪潮悄然铺就工具没有绝对好坏只有是否适合建议在做出最终决策前用周做一个概念验证让候选平台在你的真实业务场景中跑一遍这是最有说服力的选型方式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-07-06 23:00:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="我的技术博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/hexo-blog/" accesskey="h"><div class="title">我的技术博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 1.05rem;">AI<sup>14</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 1.05rem;">AI Agent<sup>12</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 1.05rem;">Claude Code<sup>5</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 1.05rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 1.05rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 1.05rem;">LLM<sup>3</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 1.05rem;">MCP<sup>6</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 1.05rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 1.05rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 1.05rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 1.05rem;">Skills<sup>8</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 1.05rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 1.05rem;">Token优化<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 1.05rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.05rem;">安全<sup>1</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.05rem;">开源<sup>14</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">技术分享<sup>7</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">研究工具<sup>2</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.05rem;">自动化<sup>6</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">观点分享<sup>3</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.05rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.05rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 1.05rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 1.05rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/08/"><span class="card-archive-list-date">八月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/07/"><span class="card-archive-list-date">七月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/06/"><span class="card-archive-list-date">六月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/hexo-blog/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url">技术分享</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/hexo-blog/tags/AI-Agent/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI Agent</span></a><a class="article-meta__tags" href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>自动化</span></a><a class="article-meta__tags" href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>技术分享</span></a><a class="article-meta__tags" href="/hexo-blog/tags/RPA/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>RPA</span></a></span></div></div><h1 class="post-title" itemprop="name headline">2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-07-06T15:00:00.000Z" title="发表于 2026-07-06 23:00:00">2026-07-06</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-07-06T15:00:00.000Z" title="更新于 2026-07-06 23:00:00">2026-07-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://images.pexels.com/photos/34207359/pexels-photo-34207359.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hash-dogs.github.io/hexo-blog/2026/07/06/rpa-landscape-2026-ai-agent-era/"><header><a class="post-meta-categories" href="/hexo-blog/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url">技术分享</a><a href="/hexo-blog/tags/AI-Agent/" tabindex="-1" itemprop="url">AI Agent</a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" tabindex="-1" itemprop="url">自动化</a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url">技术分享</a><a href="/hexo-blog/tags/RPA/" tabindex="-1" itemprop="url">RPA</a><h1 id="CrawlerTitle" itemprop="name headline">2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">hash-dog</span><time itemprop="dateCreated datePublished" datetime="2026-07-06T15:00:00.000Z" title="发表于 2026-07-06 23:00:00">2026-07-06</time><time itemprop="dateCreated datePublished" datetime="2026-07-06T15:00:00.000Z" title="更新于 2026-07-06 23:00:00">2026-07-06</time></header><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>2026 年的自动化市场正经历一场结构性变革。</p>
+<p>一方面，以 <strong>Claude Code</strong>、<strong>OpenAI Codex</strong>、<strong>Cursor</strong> 为代表的 AI 编程智能体（Coding Agent）正在重新定义软件开发——它们能自主理解需求、编写代码、修复 Bug、甚至管理整个 CI&#x2F;CD 流水线。在开发者社区，”Agent 替代人工”已不再是一句口号。</p>
+<p>另一方面，传统的 <strong>RPA（Robotic Process Automation）</strong> 市场正在经历一场”自我革命”。UiPath、Automation Anywhere、Blue Prism 等老牌厂商纷纷摘下”RPA”的帽子，转而拥抱 Agent 架构。它们不再说”我用机器人模拟你的鼠标点击”，而是说”我用 AI 智能体自主完成你的业务流程”。</p>
+<p>这场变革背后的问题是：<strong>当 AI 编程 Agent 都能写代码了，RPA 还有存在的必要吗？</strong></p>
+<p>答案是肯定的——但 RPA 的形态已经彻底改变了。本文将从国际阵营、国产阵营、AI 编程工具三个维度，为你梳理 2026 年 RPA 市场的全景图与选型逻辑。</p>
+<hr>
+<h2 id="行业变局：RPA-增速放缓，Agent-市场爆发"><a href="#行业变局：RPA-增速放缓，Agent-市场爆发" class="headerlink" title="行业变局：RPA 增速放缓，Agent 市场爆发"></a>行业变局：RPA 增速放缓，Agent 市场爆发</h2><p>先看两组关键数据：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>2025 年</th>
+<th>2026 年（预估）</th>
+<th>增长率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全球 RPA 市场规模</td>
+<td>~$36 亿</td>
+<td>~$41 亿</td>
+<td>~14%</td>
+</tr>
+<tr>
+<td>全球 AI Agent 市场规模</td>
+<td>~$76 亿</td>
+<td>~$109 亿</td>
+<td>&gt;45%</td>
+</tr>
+<tr>
+<td>企业自动化预算转向 Agent</td>
+<td>—</td>
+<td>60%+ 新项目首选 Agent 架构</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p>RPA 市场仍在增长，但增速远不及 AI Agent。更关键的是，**所有主流 RPA 厂商都在主动”去 RPA 化”**：</p>
+<ul>
+<li><strong>UiPath</strong> 推出了 Agent Builder 和 Maestro 编排平台</li>
+<li><strong>Automation Anywhere</strong> 收购了 AI 公司 Aisera</li>
+<li><strong>Blue Prism</strong> 围绕”自主智能体”重塑品牌</li>
+<li><strong>Microsoft</strong> 将 Power Automate 深度融入 Azure AI Foundry</li>
+</ul>
+<p>传统 RPA 能自动化的流程约占企业总流程的 20-30%，而引入 Agent 能力后，这一比例有望提升至 60-80%。这是整个行业转型的根本驱动力。</p>
+<hr>
+<h2 id="国际阵营：三巨头的-Agent-化转型"><a href="#国际阵营：三巨头的-Agent-化转型" class="headerlink" title="国际阵营：三巨头的 Agent 化转型"></a>国际阵营：三巨头的 Agent 化转型</h2><h3 id="1-UiPath-—-生态之王"><a href="#1-UiPath-—-生态之王" class="headerlink" title="1. UiPath — 生态之王"></a>1. UiPath — 生态之王</h3><p><strong>核心定位</strong>：企业级超自动化平台 + Agent Builder</p>
+<p>UiPath 是 RPA 领域毫无争议的第一品牌，福布斯 500 强中超过 60% 是其客户。但在 2026 年，UiPath 的市场份额正被新兴 Agent 平台蚕食，从巅峰期的 25%+ 下降至约 19.5%。</p>
+<p><strong>AI&#x2F;Agent 能力</strong>：</p>
+<ul>
+<li><strong>Agent Builder</strong>：低代码构建 AI Agent，集成多 LLM（GPT、Claude、Gemini）</li>
+<li><strong>Maestro</strong>：Agent 编排层，管理多个 Agent 的协作与调度</li>
+<li><strong>ScreenPlay</strong>：基于视觉的 UI 理解，让 Agent 能”看懂”桌面应用</li>
+<li><strong>AI Fabric</strong>：统一 AI 模型管理、部署与监控</li>
+</ul>
+<p><strong>优势</strong>：生态最强（超 100 万开发者）、社区最大、文档理解（Document Understanding）能力领先<br><strong>短板</strong>：授权成本极高（年费约 ¥85-160 万&#x2F;20 机器人）、复杂度大、部署周期长<br><strong>最佳场景</strong>：大型企业全栈自动化，尤其是需要与遗留桌面系统打交道的场景</p>
+<h3 id="2-Automation-Anywhere-—-AI-先行者"><a href="#2-Automation-Anywhere-—-AI-先行者" class="headerlink" title="2. Automation Anywhere — AI 先行者"></a>2. Automation Anywhere — AI 先行者</h3><p><strong>核心定位</strong>：云原生自动化 + 认知 AI</p>
+<p>Automation Anywhere（AA）是三者中最”激进”向 AI 转型的厂商。2025 年收购 Aisera 后，其 AI Agent 能力显著增强。</p>
+<p><strong>AI&#x2F;Agent 能力</strong>：</p>
+<ul>
+<li><strong>AI Agent Studio</strong>：可视化构建认知 Agent</li>
+<li><strong>Process Reasoning Engine</strong>：流程推理引擎，理解业务流程而非固定脚本</li>
+<li><strong>自动化副驾（Automation Copilot）</strong>：用自然语言创建和触发自动化</li>
+</ul>
+<p><strong>优势</strong>：云原生 SaaS 架构、AI 驱动自动化、智能文档处理能力强<br><strong>短板</strong>：高级功能需额外付费、复杂部署依赖专业服务、价格偏高（$500-1,000&#x2F;机器人&#x2F;月）<br><strong>最佳场景</strong>：追求 AI 深度集成、云优先策略的企业</p>
+<h3 id="3-Blue-Prism（SS-C-Blue-Prism）—-合规首选"><a href="#3-Blue-Prism（SS-C-Blue-Prism）—-合规首选" class="headerlink" title="3. Blue Prism（SS&amp;C Blue Prism）— 合规首选"></a>3. Blue Prism（SS&amp;C Blue Prism）— 合规首选</h3><p><strong>核心定位</strong>：安全合规型企业 RPA</p>
+<p>Blue Prism 被 SS&amp;C 收购后，继续保持其在合规、治理方面的极致追求，是金融和医疗行业的首选。</p>
+<p><strong>AI&#x2F;Agent 能力</strong>：起步较晚，但正在围绕自主智能体重塑产品线，推出 Decipher IDP（智能文档处理）和 Blue Prism Agent Framework。</p>
+<p><strong>优势</strong>：治理与合规能力顶尖（SOC 2、ISO 27001、完整审计追踪）、稳定性评分最高（7.4&#x2F;10）<br><strong>短板</strong>：AI 能力相对落后、云原生较弱、价格昂贵（定制报价）<br><strong>最佳场景</strong>：银行、保险、政府等强监管行业</p>
+<p><strong>三巨头核心对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>UiPath</th>
+<th>Automation Anywhere</th>
+<th>Blue Prism</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026 市场份额</td>
+<td>~19.5%</td>
+<td>~15.3%</td>
+<td>~11.1%</td>
+</tr>
+<tr>
+<td>Agent 能力</td>
+<td>Agent Builder + Maestro</td>
+<td>AI Agent Studio</td>
+<td>Agent Framework（起步中）</td>
+</tr>
+<tr>
+<td>稳定性评分</td>
+<td>7.3&#x2F;10</td>
+<td>7.0&#x2F;10</td>
+<td>7.4&#x2F;10</td>
+</tr>
+<tr>
+<td>年费（20 机器人）</td>
+<td>¥85-160 万</td>
+<td>中高档</td>
+<td>定制报价</td>
+</tr>
+<tr>
+<td>生态规模</td>
+<td>100 万+ 开发者</td>
+<td>中等</td>
+<td>较小</td>
+</tr>
+<tr>
+<td>AI 成熟度</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+</tr>
+</tbody></table>
+<h3 id="Microsoft-Power-Automate-—-生态绑定的最佳选择"><a href="#Microsoft-Power-Automate-—-生态绑定的最佳选择" class="headerlink" title="Microsoft Power Automate — 生态绑定的最佳选择"></a>Microsoft Power Automate — 生态绑定的最佳选择</h3><p>虽然不算传统 RPA 三巨头，但 Microsoft Power Automate 凭借与 Azure&#x2F;M365 的深度绑定，已成为 2026 年最具性价比的自动化平台之一。定价仅 $15-40&#x2F;用户&#x2F;月，且深度集成了 Azure AI Foundry 的 Agent 能力。如果你的企业已经生活在微软生态中，它几乎是不用思考的选择。</p>
+<hr>
+<h2 id="国产阵营：影刀、来也、弘玑的差异化路线"><a href="#国产阵营：影刀、来也、弘玑的差异化路线" class="headerlink" title="国产阵营：影刀、来也、弘玑的差异化路线"></a>国产阵营：影刀、来也、弘玑的差异化路线</h2><p>国内市场呈现出与全球市场截然不同的格局。国产 RPA 厂商通过低价、本地化服务和信创合规，正在快速占领中小企业市场。</p>
+<h3 id="1-影刀-—-全民-RPA-的推动者"><a href="#1-影刀-—-全民-RPA-的推动者" class="headerlink" title="1. 影刀 — 全民 RPA 的推动者"></a>1. 影刀 — 全民 RPA 的推动者</h3><p><strong>核心定位</strong>：AI 驱动的轻量级 RPA 平台</p>
+<p>影刀是国产 RPA 中知名度最高的品牌之一，以电商场景起家，目前在电商领域的市占率超过 55%。</p>
+<p><strong>差异化策略</strong>：</p>
+<ul>
+<li><strong>个人免费</strong>：大力推广个人用户，培养”全民 RPA”生态</li>
+<li><strong>极致易用</strong>：拖拽式操作，业务人员 1-2 周即可上手</li>
+<li><strong>自然语言驱动</strong>：魔法指令 3.0 让用户用中文描述需求，AI 自动生成流程</li>
+</ul>
+<p><strong>AI Agent 进展</strong>：集成了 AI 辅助流程设计，但 AI 能力仍依赖外部大模型，自主任务规划能力有限。AI 与 RPA 的结合深度尚浅。</p>
+<p><strong>适用场景</strong>：电商运营（SEO 标题优化、竞品监控、自动上架）、中小企业内部自动化<br><strong>价格</strong>：专业版约 ¥3,000-5,000&#x2F;年&#x2F;机器人，企业版约 ¥8,000-15,000&#x2F;年&#x2F;机器人</p>
+<p><strong>一句话评价</strong>：入门门槛最低，适合想”先跑起来”的团队。</p>
+<h3 id="2-来也科技-—-行业深度的-AI-RPA-方案"><a href="#2-来也科技-—-行业深度的-AI-RPA-方案" class="headerlink" title="2. 来也科技 — 行业深度的 AI+RPA 方案"></a>2. 来也科技 — 行业深度的 AI+RPA 方案</h3><p><strong>核心定位</strong>：RPA + AI 全栈解决方案</p>
+<p>来也科技的产品矩阵由三部分组成：</p>
+<ul>
+<li><strong>UiBot</strong>：RPA 自动化平台</li>
+<li><strong>吾来</strong>：对话机器人平台</li>
+<li><strong>UiBot Mage</strong>：AI 能力平台（OCR、NLP、智能文档处理）</li>
+</ul>
+<p><strong>差异化策略</strong>：深耕高门槛行业。在金融、政务领域累积了大量标杆客户，尤其在智能文档处理（保单识别、合同审核、学历验证）方面积累深厚。</p>
+<p><strong>AI Agent 进展</strong>：推出”数字员工”产品线，将 OCR、NLP、RPA、Agent 打包为一体化解决方案，支持国产化与私有化部署，满足信创合规要求。</p>
+<p><strong>适用场景</strong>：政务审批、金融行业（合同审核、学历验证）、保险单据处理<br><strong>价格</strong>：中高价位，AI 模块可能额外收费</p>
+<p><strong>一句话评价</strong>：如果你在金融或政务行业，来也是信创合规下的安全牌。</p>
+<h3 id="3-弘玑-Cyclone-—-大型企业的超自动化平台"><a href="#3-弘玑-Cyclone-—-大型企业的超自动化平台" class="headerlink" title="3. 弘玑 Cyclone — 大型企业的超自动化平台"></a>3. 弘玑 Cyclone — 大型企业的超自动化平台</h3><p><strong>核心定位</strong>：超自动化（Hyperautomation）平台</p>
+<p>弘玑是唯一入选 Gartner RPA 魔力象限的中国厂商，产品具备全球化基因，支持多语言、多时区处理。</p>
+<p><strong>差异化策略</strong>：走”大企业、大平台”路线。将流程挖掘、RPA、AI 整合为端到端平台，服务中石化、国家电网、比亚迪等大型标杆客户。</p>
+<p><strong>AI Agent 进展</strong>：强调端到端流程智能——从流程设计、运行、管理到 AI 赋能的全链路打通。在比亚迪项目中，通过整合 MES、ERP、WMS 等多套异构系统，将生产排产效率提升 40%。</p>
+<p><strong>适用场景</strong>：大型企业数字化转型、制造业&#x2F;能源&#x2F;央企的复杂流程自动化、跨国业务<br><strong>价格</strong>：较高，需定制报价</p>
+<p><strong>一句话评价</strong>：如果你在大型国企或跨国企业，弘玑的平台化架构更适合复杂需求。</p>
+<p><strong>国产三强对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>影刀</th>
+<th>来也科技</th>
+<th>弘玑 Cyclone</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>核心优势</td>
+<td>易用 + 低价</td>
+<td>行业深度 + 信创</td>
+<td>平台化 + 全球化</td>
+</tr>
+<tr>
+<td>AI Agent 能力</td>
+<td>⭐⭐（外部依赖）</td>
+<td>⭐⭐⭐⭐（深度集成）</td>
+<td>⭐⭐⭐（端到端）</td>
+</tr>
+<tr>
+<td>上手门槛</td>
+<td>极低</td>
+<td>较高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>适用企业规模</td>
+<td>中小</td>
+<td>中大型</td>
+<td>大型&#x2F;超大型</td>
+</tr>
+<tr>
+<td>主打行业</td>
+<td>电商&#x2F;零售</td>
+<td>金融&#x2F;政务</td>
+<td>制造&#x2F;能源&#x2F;央企</td>
+</tr>
+<tr>
+<td>价格区间</td>
+<td>低</td>
+<td>中</td>
+<td>高</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="AI-编程-Agent-vs-RPA：竞争还是互补？"><a href="#AI-编程-Agent-vs-RPA：竞争还是互补？" class="headerlink" title="AI 编程 Agent vs RPA：竞争还是互补？"></a>AI 编程 Agent vs RPA：竞争还是互补？</h2><p>2026 年，Claude Code、OpenAI Codex、Cursor 等 AI 编程工具的能力已经强大到让人不禁发问：<strong>它们会取代 RPA 吗？</strong></p>
+<p>答案是：<strong>不会完全取代，但会重塑 RPA 的边界。</strong></p>
+<h3 id="核心差异"><a href="#核心差异" class="headerlink" title="核心差异"></a>核心差异</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>AI 编程 Agent（Claude Code&#x2F;Codex&#x2F;Cursor）</th>
+<th>RPA 平台（UiPath&#x2F;影刀等）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>操作对象</td>
+<td>代码、终端、文件系统</td>
+<td>桌面应用、Web 页面、企业系统</td>
+</tr>
+<tr>
+<td>用户群体</td>
+<td>开发者&#x2F;工程师</td>
+<td>业务人员&#x2F;平民开发者</td>
+</tr>
+<tr>
+<td>核心能力</td>
+<td>写代码、重构、调试</td>
+<td>模拟人工操作、数据搬运、流程编排</td>
+</tr>
+<tr>
+<td>自动化形态</td>
+<td>直接生成代码&#x2F;脚本</td>
+<td>录制回放 &#x2F; 拖拽流程图</td>
+</tr>
+<tr>
+<td>人机交互</td>
+<td>CLI &#x2F; IDE 插件</td>
+<td>可视化设计器 &#x2F; 流程图</td>
+</tr>
+<tr>
+<td>治理与合规</td>
+<td>弱（面向开发）</td>
+<td>强（审计追踪、角色权限、版本管理）</td>
+</tr>
+</tbody></table>
+<h3 id="谁在蚕食谁？"><a href="#谁在蚕食谁？" class="headerlink" title="谁在蚕食谁？"></a>谁在蚕食谁？</h3><p>AI 编程 Agent 正在吃掉 RPA 市场的”技术端”：</p>
+<ul>
+<li>以前需要 UiPath 自动化一个 ERP 操作，现在开发者可以让 Claude Code 直接写一个 Python 脚本来调用 ERP 的 API</li>
+<li>以前需要拖拽流程图实现的审批流程，现在 Codex 可以直接生成一个 Airflow DAG</li>
+</ul>
+<p>但 RPA 的护城河在于<strong>非技术用户</strong>和<strong>遗留系统</strong>：</p>
+<ul>
+<li>业务人员不会写 Python 脚本，但他们能理解拖拽流程图</li>
+<li>很多老旧企业系统没有 API，只能通过 UI 自动化操作</li>
+<li>RPA 平台提供的治理、审计、合规能力，是裸脚本无法替代的</li>
+</ul>
+<h3 id="实际趋势：融合而非替代"><a href="#实际趋势：融合而非替代" class="headerlink" title="实际趋势：融合而非替代"></a>实际趋势：融合而非替代</h3><p>最好的实践是组合使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[AI 编程 Agent] --&gt; B[生成自动化脚本/API 调用]</span><br><span class="line">    C[RPA 平台] --&gt; D[编排非 API 系统操作]</span><br><span class="line">    B --&gt; E[统一 Agent 编排层]</span><br><span class="line">    D --&gt; E</span><br><span class="line">    E --&gt; F[业务流程完成]</span><br></pre></td></tr></table></figure>
+
+<p>例如，一个订单处理流程可以是：Claude Code 生成调用 CRM API 的 Python 脚本 → 脚本将数据写入中间表 → 影刀 RPA 从中间表读取数据并填入老旧的 ERP 桌面客户端。**AI Agent 做”大脑”，RPA 做”手脚”**。</p>
+<hr>
+<h2 id="选型决策指南"><a href="#选型决策指南" class="headerlink" title="选型决策指南"></a>选型决策指南</h2><p>没有最好的 RPA，只有最适合的 RPA。以下是 2026 年的分场景推荐：</p>
+<table>
+<thead>
+<tr>
+<th>你的情况</th>
+<th>推荐平台</th>
+<th>核心理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>已在微软生态中</td>
+<td>Power Automate</td>
+<td>最低集成成本，透明定价</td>
+</tr>
+<tr>
+<td>全球大型企业，追求功能完整</td>
+<td>UiPath</td>
+<td>生态最强、社区最大</td>
+</tr>
+<tr>
+<td>重视 AI 深度集成，云优先</td>
+<td>Automation Anywhere</td>
+<td>认知能力 + 云原生架构</td>
+</tr>
+<tr>
+<td>金融&#x2F;政务&#x2F;强合规行业</td>
+<td>Blue Prism &#x2F; 来也科技</td>
+<td>审计追踪与信创合规</td>
+</tr>
+<tr>
+<td>国内中小企业，电商场景</td>
+<td>影刀</td>
+<td>低价、易用、电商生态好</td>
+</tr>
+<tr>
+<td>大型国企&#x2F;制造业主</td>
+<td>弘玑 Cyclone</td>
+<td>平台化架构，端到端服务</td>
+</tr>
+<tr>
+<td>你是开发团队，仅需简单自动化</td>
+<td>Python + Claude Code</td>
+<td>零成本、灵活、可定制</td>
+</tr>
+<tr>
+<td>想要尝试 AI Agent 原生平台</td>
+<td>Crew AI &#x2F; n8n &#x2F; Dify.ai</td>
+<td>纯 Agent 架构，无遗留包袱</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>2026 年，RPA 市场的关键词不是”竞争”而是”融合”。</p>
+<p>传统 RPA 厂商正在拥抱 AI Agent——UiPath 推 Agent Builder，AA 收购 Aisera，影刀的魔法指令用自然语言驱动流程。与此同时，Claude Code、Codex 等 AI 编程工具正在模糊”写代码”和”做自动化”之间的界限。</p>
+<p>对企业的启示是：**不要纠结于”选 RPA 还是 Agent”，而是思考”哪些流程需要确定性执行，哪些需要智能决策”**。前者交给 RPA，后者交给 Agent，而两者之间的桥梁，正在被 2026 年的技术浪潮悄然铺就。</p>
+<blockquote>
+<p>工具没有绝对好坏，只有是否适合。建议在做出最终决策前，用 2-4 周做一个 POC（概念验证），让候选平台在你的真实业务场景中跑一遍——这是最有说服力的选型方式。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/hexo-blog/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">hash-dog</div><div class="post-copyright__author_desc">记录学习与技术分享</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hash-dogs.github.io/hexo-blog/2026/07/06/rpa-landscape-2026-ai-agent-era/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hash-dogs.github.io/hexo-blog/2026/07/06/rpa-landscape-2026-ai-agent-era/')">2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hash-dogs.github.io/hexo-blog/2026/07/06/rpa-landscape-2026-ai-agent-era/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南&amp;url=https://hash-dogs.github.io/hexo-blog/2026/07/06/rpa-landscape-2026-ai-agent-era/&amp;pic=https://images.pexels.com/photos/34207359/pexels-photo-34207359.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hash-dogs.github.io/hexo-blog" target="_blank">我的技术博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/hexo-blog/tags/AI-Agent/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI Agent<span class="tagsPageCount">12</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>自动化<span class="tagsPageCount">6</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>技术分享<span class="tagsPageCount">7</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/RPA/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>RPA<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://opengraph.githubassets.com/1/yc-software/qm" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo-blog/2026/07/06/alibaba-page-agent-intro/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/alibaba/page-agent" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">GitHub热门（6/30-7/6）alibaba/page-agent — 页面内嵌 GUI Agent</div></div></a></div><div class="next-post pull-right"><a href="/hexo-blog/2026/07/19/taste-skill-anti-slop-frontend/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/Leonxlnx/taste-skill" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GitHub热门（6/13-6/19）Leonxlnx/taste-skill — 前端审美校准器</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/hexo-blog/2026/06/11/hermes-agent-feishu-life-empowerment/" title="从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/8566470/pexels-photo-8566470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-12</div><div class="title">从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践</div></div></a></div><div><a href="/hexo-blog/2026/06/23/agent-reach-intro/" title="GitHub热门（6&#x2F;22-6&#x2F;28）Panniantong&#x2F;Agent-Reach — 一键给你的 AI Agent 装上全网眼睛"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/Panniantong/Agent-Reach" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-23</div><div class="title">GitHub热门（6&#x2F;22-6&#x2F;28）Panniantong&#x2F;Agent-Reach — 一键给你的 AI Agent 装上全网眼睛</div></div></a></div><div><a href="/hexo-blog/2026/07/06/alibaba-page-agent-intro/" title="GitHub热门（6&#x2F;30-7&#x2F;6）alibaba&#x2F;page-agent — 页面内嵌 GUI Agent"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/alibaba/page-agent" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-06</div><div class="title">GitHub热门（6&#x2F;30-7&#x2F;6）alibaba&#x2F;page-agent — 页面内嵌 GUI Agent</div></div></a></div><div><a href="/hexo-blog/2026/06/17/github-trending-ecc-agent-harness-intro/" title="GitHub热门（6&#x2F;8-6&#x2F;14）affaan-m&#x2F;ECC — 212K Stars 的 Agent Harness 操作系统"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/affaan-m/ECC" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-17</div><div class="title">GitHub热门（6&#x2F;8-6&#x2F;14）affaan-m&#x2F;ECC — 212K Stars 的 Agent Harness 操作系统</div></div></a></div><div><a href="/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/" title="Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-07-19</div><div class="title">Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命</div></div></a></div><div><a href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8&#x2F;3-8&#x2F;9）yc-software&#x2F;qm — 团队级多人Agent协作框架"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/yc-software/qm" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-08-08</div><div class="title">GitHub热门（8&#x2F;3-8&#x2F;9）yc-software&#x2F;qm — 团队级多人Agent协作框架</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">hash-dog 的技术博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/hexo-blog/"><h1 class="author-info__name">hash-dog</h1><div class="author-info__desc">记录学习与技术分享</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="mailto:18033207159@163.com" target="_blank" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E4%B8%9A%E5%8F%98%E5%B1%80%EF%BC%9ARPA-%E5%A2%9E%E9%80%9F%E6%94%BE%E7%BC%93%EF%BC%8CAgent-%E5%B8%82%E5%9C%BA%E7%88%86%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">行业变局：RPA 增速放缓，Agent 市场爆发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E9%99%85%E9%98%B5%E8%90%A5%EF%BC%9A%E4%B8%89%E5%B7%A8%E5%A4%B4%E7%9A%84-Agent-%E5%8C%96%E8%BD%AC%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">国际阵营：三巨头的 Agent 化转型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-UiPath-%E2%80%94-%E7%94%9F%E6%80%81%E4%B9%8B%E7%8E%8B"><span class="toc-number">3.1.</span> <span class="toc-text">1. UiPath — 生态之王</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Automation-Anywhere-%E2%80%94-AI-%E5%85%88%E8%A1%8C%E8%80%85"><span class="toc-number">3.2.</span> <span class="toc-text">2. Automation Anywhere — AI 先行者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Blue-Prism%EF%BC%88SS-C-Blue-Prism%EF%BC%89%E2%80%94-%E5%90%88%E8%A7%84%E9%A6%96%E9%80%89"><span class="toc-number">3.3.</span> <span class="toc-text">3. Blue Prism（SS&amp;C Blue Prism）— 合规首选</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Microsoft-Power-Automate-%E2%80%94-%E7%94%9F%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E6%9C%80%E4%BD%B3%E9%80%89%E6%8B%A9"><span class="toc-number">3.4.</span> <span class="toc-text">Microsoft Power Automate — 生态绑定的最佳选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E4%BA%A7%E9%98%B5%E8%90%A5%EF%BC%9A%E5%BD%B1%E5%88%80%E3%80%81%E6%9D%A5%E4%B9%9F%E3%80%81%E5%BC%98%E7%8E%91%E7%9A%84%E5%B7%AE%E5%BC%82%E5%8C%96%E8%B7%AF%E7%BA%BF"><span class="toc-number">4.</span> <span class="toc-text">国产阵营：影刀、来也、弘玑的差异化路线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BD%B1%E5%88%80-%E2%80%94-%E5%85%A8%E6%B0%91-RPA-%E7%9A%84%E6%8E%A8%E5%8A%A8%E8%80%85"><span class="toc-number">4.1.</span> <span class="toc-text">1. 影刀 — 全民 RPA 的推动者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9D%A5%E4%B9%9F%E7%A7%91%E6%8A%80-%E2%80%94-%E8%A1%8C%E4%B8%9A%E6%B7%B1%E5%BA%A6%E7%9A%84-AI-RPA-%E6%96%B9%E6%A1%88"><span class="toc-number">4.2.</span> <span class="toc-text">2. 来也科技 — 行业深度的 AI+RPA 方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BC%98%E7%8E%91-Cyclone-%E2%80%94-%E5%A4%A7%E5%9E%8B%E4%BC%81%E4%B8%9A%E7%9A%84%E8%B6%85%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B9%B3%E5%8F%B0"><span class="toc-number">4.3.</span> <span class="toc-text">3. 弘玑 Cyclone — 大型企业的超自动化平台</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E7%BC%96%E7%A8%8B-Agent-vs-RPA%EF%BC%9A%E7%AB%9E%E4%BA%89%E8%BF%98%E6%98%AF%E4%BA%92%E8%A1%A5%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">AI 编程 Agent vs RPA：竞争还是互补？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%B7%AE%E5%BC%82"><span class="toc-number">5.1.</span> <span class="toc-text">核心差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%81%E5%9C%A8%E8%9A%95%E9%A3%9F%E8%B0%81%EF%BC%9F"><span class="toc-number">5.2.</span> <span class="toc-text">谁在蚕食谁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E8%B6%8B%E5%8A%BF%EF%BC%9A%E8%9E%8D%E5%90%88%E8%80%8C%E9%9D%9E%E6%9B%BF%E4%BB%A3"><span class="toc-number">5.3.</span> <span class="toc-text">实际趋势：融合而非替代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E5%9E%8B%E5%86%B3%E7%AD%96%E6%8C%87%E5%8D%97"><span class="toc-number">6.</span> <span class="toc-text">选型决策指南</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/yc-software/qm" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架"/></a><div class="content"><a class="title" href="/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/" title="GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架">GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架</a><time datetime="2026-08-08T07:00:00.000Z" title="发表于 2026-08-08 15:00:00">2026-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/odysseus-dev/odysseus" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/" title="GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台">GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台</a><time datetime="2026-07-31T07:00:00.000Z" title="发表于 2026-07-31 15:00:00">2026-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/26/block-buzz-intro/" title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/block/buzz" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/26/block-buzz-intro/" title="GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台">GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台</a><time datetime="2026-07-26T06:00:00.000Z" title="发表于 2026-07-26 14:00:00">2026-07-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/" title="从 FDE 到 OPC：2026 年 AI 新名词里的产业转向">从 FDE 到 OPC：2026 年 AI 新名词里的产业转向</a><time datetime="2026-07-24T13:00:00.000Z" title="发表于 2026-07-24 21:00:00">2026-07-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/xai-org/grok-build" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent"/></a><div class="content"><a class="title" href="/hexo-blog/2026/07/24/xai-org-grok-build-intro/" title="GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent">GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent</a><time datetime="2026-07-24T13:00:00.000Z" title="发表于 2026-07-24 21:00:00">2026-07-24</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2026 By <a class="footer-bar-link" href="/hexo-blog/" title="hash-dog" target="_blank">hash-dog</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/hexo-blog/archives/" title="archive"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/hexo-blog/tags/" title="tag"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/hexo-blog/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 0.88rem;">AI<sup>14</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 0.88rem;">AI Agent<sup>12</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 0.88rem;">Claude Code<sup>5</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 0.88rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 0.88rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 0.88rem;">LLM<sup>3</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 0.88rem;">MCP<sup>6</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 0.88rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 0.88rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 0.88rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 0.88rem;">Skills<sup>8</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 0.88rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 0.88rem;">Token优化<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 0.88rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.88rem;">安全<sup>1</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 0.88rem;">开源<sup>14</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">技术分享<sup>7</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">研究工具<sup>2</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 0.88rem;">自动化<sup>6</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">观点分享<sup>3</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 0.88rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 0.88rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 0.88rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 0.88rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/hexo-blog/js/utils.js"></script><script src="/hexo-blog/js/main.js"></script><script src="/hexo-blog/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("06/01/2026 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2026 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 hash-dog 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="/hexo-blog/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.cbd.int/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/hexo-blog/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
