@@ -123,3 +123,9 @@
 - **描述**: 2026年7月，北京发布全国首个省级智能体专项政策，里面出现了FDE、Harness Engineering、AIPM、OPC、Token Economy等一批新词。FDE岗位需求暴涨42倍、年薪百万。这些词不是学术黑话，而是AI产业从"模型时代"转向"交付时代"的信号。
 - **标签**: 观点分享, 开源, AI, AI Agent, LLM
 
+### 3. 八天之内，DeepSeek 与 OpenAI 相继开源 Harness：Agent 时代的"运行时"之战
+- **文件名**: `agent-harness-runtime-war.md`
+- **发布日期**: 2026-08-22
+- **描述**: 2026年8月，DeepSeek 与 OpenAI 在八天内相继开源各自的 Agent Harness。前者用"一切皆插件"做 Agent 界的安卓，后者用"控制/计算分离"做调教好的 iOS。本文深入拆解两者底层架构差异（DSH 架构理念更完善、但需向 Codex 学习工程化），并剖析背后数据闭环、流量计费、生态定义权三层逻辑及未来推演。
+- **标签**: 观点分享, 开源, AI, AI Agent, LLM, Skills, MCP
+

@@ -11,6 +11,11 @@ public/
 # Secret files
 .env
 _config.yml.bak
+.claude/pexels-api-key
+
+# Local tooling
+.playwright-mcp/
+.serena/
 
 # OS files
 .DS_Store
