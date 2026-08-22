@@ -85,6 +85,12 @@
 - **描述**: yc-software/qm 由 Y Combinator 开源，是团队级多人 Agent 协作框架（Multiplayer Agent Harness），本周约 12.1K Stars 登顶 GitHub Trending 第一、Hacker News 榜首，TypeScript 技术栈，为每个员工和项目提供隔离工作区与共享协作空间。
 - **标签**: 开源, AI, AI Agent, Skills, 自动化
 
+### 14. GitHub热门（8/17-8/23）cathrynlavery/diagram-design — 39 种编辑级图表
+- **文件名**: `diagram-design-intro.md`
+- **发布日期**: 2026-08-22
+- **描述**: cathrynlavery/diagram-design 上周周增 14,735 星连续霸榜 GitHub 热门，总星数突破 25K。这是独立开发者 Cathryn Lavery 打造的 Claude Code / Codex / Pi 图表生成 Skill：39 种编辑级图表类型，自包含 HTML+SVG，60 秒品牌适配，让 AI 画出的图真正能拿去交付。
+- **标签**: 开源, AI, AI Agent, Skills, Claude Code
+
 ---
 
 ## 技术分享
