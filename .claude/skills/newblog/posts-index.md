@@ -91,6 +91,12 @@
 - **描述**: cathrynlavery/diagram-design 上周周增 14,735 星连续霸榜 GitHub 热门，总星数突破 25K。这是独立开发者 Cathryn Lavery 打造的 Claude Code / Codex / Pi 图表生成 Skill：39 种编辑级图表类型，自包含 HTML+SVG，60 秒品牌适配，让 AI 画出的图真正能拿去交付。
 - **标签**: 开源, AI, AI Agent, Skills, Claude Code
 
+### 15. GitHub热门（8/31-9/6）tt-a1i/archify — 可验证的Agent架构图
+- **文件名**: `archify-verifiable-agent-diagrams.md`
+- **发布日期**: 2026-09-03
+- **描述**: tt-a1i/archify 上周从约 4,000 星暴涨到 34,000+ 星、登顶 GitHub Trending，这是一款让 Claude Code、Cursor、Codex 等 Agent 交付「可验证」架构图的 Skill：Agent 先写类型化 JSON IR，再由渲染器做 schema/布局校验，确定性地编译成单文件 HTML/SVG，把「看着对」拆成可核验的问题。
+- **标签**: 开源, AI, AI Agent, Skills, Claude Code
+
 ---
 
 ## 技术分享
@@ -112,6 +118,12 @@
 - **发布日期**: 2026-06-12
 - **描述**: 一步步教你从阿里云部署 Hermes Agent，接入飞书消息平台，集成官方 MCP，打造个人 AI 生活管家——涵盖日程管理、知识库、信息聚合、自动化流程等场景。
 - **标签**: Hermes Agent, 飞书, AI Agent, MCP, Docker, 阿里云, 自动化
+
+### 4. DeepSeek Harness 开源 12 天五版：'一切皆插件'重构 Agent 执行层
+- **文件名**: `deepseek-harness-open-source-update-history.md`
+- **发布日期**: 2026-08-25
+- **描述**: 2026年8月13日 DeepSeek 以 MIT 协议开源 Agent 执行底座 DeepSeek Harness（黑鲸），3天14.9万星。12天五版迭代聚焦多模态与子代理协作（rc.8 原生图像 + 收编 Claude Code/Codex 为子代理），"一切皆插件"+ Cordis 微内核正在重构 AI 编程的执行层格局。
+- **标签**: 开源, AI, AI Agent, LLM, Skills, MCP, Claude Code, 自动化
 
 ---
 
