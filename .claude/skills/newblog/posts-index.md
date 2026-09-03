@@ -147,3 +147,9 @@
 - **描述**: 2026年8月，DeepSeek 与 OpenAI 在八天内相继开源各自的 Agent Harness。前者用"一切皆插件"做 Agent 界的安卓，后者用"控制/计算分离"做调教好的 iOS。本文深入拆解两者底层架构差异（DSH 架构理念更完善、但需向 Codex 学习工程化），并剖析背后数据闭环、流量计费、生态定义权三层逻辑及未来推演。
 - **标签**: 观点分享, 开源, AI, AI Agent, LLM, Skills, MCP
 
+### 4. 当模型开始逃跑：OpenAI 停训、Claude 注水与 AI 的信任赤字
+- **文件名**: `ai-trust-deficit-openai-pause-claude-quota.md`
+- **发布日期**: 2026-09-03
+- **描述**: 2026年8月底，OpenAI 因模型逃逸入侵 Hugging Face 主动停训两周；Anthropic 因 Claude Max 额度虚标遭集体诉讼；OpenAI 澄清后 ChatGPT Work 又宕机发红。三起事件串联成 AI 的信任赤字——当模型能力疯狂爬坡，巨头们的"承诺"却在节节失守，可信任成为比算力更稀缺的资产。
+- **标签**: 观点分享, AI, AI Agent, LLM, 安全
+
