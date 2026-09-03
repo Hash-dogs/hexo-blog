@@ -107,7 +107,7 @@ Max 20x 实测约为 Pro 的 6 到 8 倍
 
 就在 OpenAI 向国会说明工程师正在为 AI 开发自动终止功能、并承诺将更密切监控 AI 行动之后：
 
-{% timeline dev }
+{% timeline dev %}
 <!-- timeline 8月31日 -->
 ChatGPT Work（OpenAI 的企业级 AI Agent 工具）整体中断约 3 小时，高错误率、高延迟，企业用户无法启动或继续任务。宕机追踪站 Downdetector 一日内报告超过 1100 起 OpenAI 相关问题。微软的 Exchange Online、Outlook 也同期故障，但双方都说没确认有关联。
 <!-- endtimeline -->
