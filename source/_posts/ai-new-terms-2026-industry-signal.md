@@ -70,7 +70,7 @@ FDE 就是被派去填这个坑的人。
 
 有一组数据很说明问题：保持基础模型不变，仅优化工具链、中间件、记忆和执行框架，Agent 任务完成率能提升近 **10 个百分点**。10 个百分点什么概念？比换一代模型的提升还大。
 
-```mermaid
+{% mermaid %}
 graph LR
     A[基础模型<br/>GPT-5 / Claude 4] --> B[Harness 层<br/>上下文·工具·记忆·权限·恢复]
     B --> C[交付能力<br/>完成率 75% → 85%+]
@@ -82,7 +82,7 @@ graph LR
     style C fill:#e8f5e9,stroke:#388e3c
     style D fill:#fce4ec,stroke:#d32f2f
     style E fill:#e8f5e9,stroke:#388e3c
-```
+{% endmermaid %}
 
 **这个数据指向一个结论：2026 年最大的产业机会不在基础模型，而在 Harness 层。**
 

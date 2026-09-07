@@ -107,7 +107,7 @@ buzz 是一个 Rust workspace，由多个面向特定职责的 crate 组成：
 
 ### Nostr Relay 为中心
 
-```mermaid
+{% mermaid %}
 graph TB
     subgraph 客户端层
         Desktop["桌面端<br/>Tauri + React"]
@@ -139,7 +139,7 @@ graph TB
     style PG fill:#e8f5e9
     style Redis fill:#e8f5e9
     style S3 fill:#e8f5e9
-```
+{% endmermaid %}
 
 单一的真相源（Single Source of Truth）是 Relay。所有客户端——无论是桌面应用、CLI 还是 AI Agent——都通过 WebSocket 或 REST 与同一个 Relay 通信。
 

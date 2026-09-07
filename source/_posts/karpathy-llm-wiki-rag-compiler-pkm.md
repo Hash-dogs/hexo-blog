@@ -39,14 +39,14 @@ Karpathy 自己给过一个很顺口的比喻：**Obsidian 是 IDE，LLM 是程�
 
 架构只有三层，却设计得有些刻意：
 
-```mermaid
+{% mermaid %}
 flowchart TD
     subgraph "LLM Wiki 三层架构"
         RAW["Layer 1 raw/<br/>不可变原始资料"] --> WIKI["Layer 2 wiki/<br/>LLM 维护的页面"]
         SCHEMA["Layer 3 Schema<br/>CLAUDE.md 行为契约"] -.控制.-> WIKI
         WIKI --> SITE["可选 site/<br/>静态 HTML"]
     end
-```
+{% endmermaid %}
 
 - **raw/**：原始来源（PDF、文章、网页、转录稿）只读，绝不被 LLM 修改。保证可溯源，wiki 出错了能靠原始素材重建。
 - **wiki/**：LLM 创建并维护的页面，通常分 `entities/`（人物、项目、工具）、`concepts/`（概念、框架）、`syntheses/`（沉淀的问答）三类，外加 `index.md`（所有页面的路由表）和 `log.md`（追加式构建日志）。页面间用 `[[wikilink]]` 互联，发现矛盾就标注而非悄悄覆盖。

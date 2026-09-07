@@ -95,7 +95,7 @@ Grok Build 的开源代码库是研究生产级 Agent 运行时架构的绝佳�
 
 核心设计思想是将传统"模型即服务"单层架构拆解为四层解耦的 Agent 协议栈：
 
-```mermaid
+{% mermaid %}
 graph TB
     subgraph "Layer 4: Agent Interaction Layer"
         TUI[xai-grok-pager<br/>全屏 TUI 引擎]
@@ -127,7 +127,7 @@ graph TB
 
     style PLAN fill:#4a6,color:#fff
     style SANDBOX fill:#a44,color:#fff
-```
+{% endmermaid %}
 
 ### Layer 1：任务规划层
 

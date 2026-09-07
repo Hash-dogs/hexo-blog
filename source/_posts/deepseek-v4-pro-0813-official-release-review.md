@@ -27,13 +27,13 @@ description: DeepSeek 在 8 月 13 日上线 V4 Pro 0813 正式版，保持极�
 
 但从权重和基准看，变化非常明显。V4 Pro 0813 是在同一套架构上，针对大代码库加载、长任务规划、持续工具调用等 Agent 场景重新做了后训练，让 1M 上下文和 384K 输出真正变成可用能力。
 
-```mermaid
+{% mermaid %}
 graph TD
     A[V4 Pro Preview<br/>2026-04] -->|Agent 专项后训练| B[V4 Pro 0813<br/>2026-08-13]
     B --> C[API 名称不变<br/>deepseek-v4-pro]
     B --> D[1M context<br/>384K max output]
     B --> E[代码 Agent / 长任务能力大幅提升]
-```
+{% endmermaid %}
 
 DeepSeek 对这次正式版的定位很清晰：**Flash 负责高并发、低成本、高频调用；Pro 负责重推理、长上下文、复杂 Agent 工作流。** 两个版本形成 V4 系列的双轨结构。
 

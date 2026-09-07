@@ -212,14 +212,14 @@ AI 编程 Agent 正在吃掉 RPA 市场的"技术端"：
 
 最好的实践是组合使用：
 
-```mermaid
+{% mermaid %}
 graph LR
     A[AI 编程 Agent] --> B[生成自动化脚本/API 调用]
     C[RPA 平台] --> D[编排非 API 系统操作]
     B --> E[统一 Agent 编排层]
     D --> E
     E --> F[业务流程完成]
-```
+{% endmermaid %}
 
 例如，一个订单处理流程可以是：Claude Code 生成调用 CRM API 的 Python 脚本 → 脚本将数据写入中间表 → 影刀 RPA 从中间表读取数据并填入老旧的 ERP 桌面客户端。**AI Agent 做"大脑"，RPA 做"手脚"**。
 

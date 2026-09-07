@@ -46,7 +46,7 @@ description: 2026年8月，DeepSeek 与 OpenAI 在八天内相继开源各自的
 
 所以当 DeepSeek 和 OpenAI 先后把壳开源，行业的第一反应是：这背后有大事。
 
-```mermaid
+{% mermaid %}
 graph LR
     A[基础模型<br/>GPT-5.6 Sol / DeepSeek V4] --> B[Harness 层<br/>上下文·工具·记忆·沙箱·审批]
     B --> C[Agent 交付能力]
@@ -58,7 +58,7 @@ graph LR
     style C fill:#e8f5e9,stroke:#388e3c
     style D fill:#fce4ec,stroke:#d32f2f
     style E fill:#e8f5e9,stroke:#388e3c
-```
+{% endmermaid %}
 
 ---
 

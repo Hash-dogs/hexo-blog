@@ -77,7 +77,7 @@ taste-skill 的核心创新不在于写更多代码，而在于**重新定义 AI
 
 **基线值**：VARIANCE=8, MOTION=6, DENSITY=4。可根据项目类型动态调整——企业数据产品调整为 5/3/6（布局稳健、动效克制、信息密度适中），设计工作室首页调整为 9/8/3（版式大胆、动效丰富、留白充分）。
 
-```mermaid
+{% mermaid %}
 flowchart LR
     A[用户需求] --> B[Brief Inference<br/>需求推断]
     B --> C[Design Read<br/>页面类型·受众·气质]
@@ -93,7 +93,7 @@ flowchart LR
     J --> K{通过?}
     K -->|是| L[交付输出]
     K -->|否| I
-```
+{% endmermaid %}
 
 ### 硬编码的反模式黑名单
 
@@ -115,7 +115,7 @@ taste-skill 明确禁止了以下模式（违反直接亮红牌）：
 
 taste-skill 不是一个单一技能，而是一个**技能家族**。每个技能专注一个职责，按需安装：
 
-```mermaid
+{% mermaid %}
 graph TD
     subgraph "taste-skill 技能生态"
         TS[taste-skill v2<br/>design-taste-frontend] -->|核心| CI[代码实现类]
@@ -132,7 +132,7 @@ graph TD
         IG --> I2[imagegen-frontend-mobile<br/>移动端界面流]
         IG --> I3[brandkit<br/>品牌物料板]
     end
-```
+{% endmermaid %}
 
 ### 代码实现类技能矩阵
 

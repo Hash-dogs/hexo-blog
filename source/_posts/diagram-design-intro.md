@@ -88,7 +88,7 @@ diagram-design 本质不是图表生成算法，而是一套**可被 Agent 调�
 
 ### 整体架构
 
-```mermaid
+{% mermaid %}
 graph LR
     subgraph Input["意图理解层"]
         NL[自然语言请求]
@@ -114,7 +114,7 @@ graph LR
     SEM --> TYPES
     DS --> HTML
     HTML --> EXP
-```
+{% endmermaid %}
 
 ### 设计思想一：模板约束 + AI 填充
 

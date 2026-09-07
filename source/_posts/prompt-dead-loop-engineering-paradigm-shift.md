@@ -35,7 +35,7 @@ description: 2026年6月中旬，黄仁勋一句"没人再写提示词了"引爆
 
 要理解为什么"Loop"让整个硅谷疯狂，需要先看清 AI 编程在过去三年经历的四个阶段：
 
-```mermaid
+{% mermaid %}
 graph TD
     subgraph "AI 编程范式四阶段演进"
         direction LR
@@ -48,7 +48,7 @@ graph TD
     C --- C1["给 AI 看什么<br/>（上下文构建）"]
     H --- H1["让 AI 能干什么<br/>（工具链搭建）"]
     L --- L1["让 AI 自主循环<br/>（系统设计）"]
-```
+{% endmermaid %}
 
 - **Prompt Engineering 时代**（2023-2024）：核心是"怎么问"。人们研究 Chain-of-Thought、few-shot、角色设定，把写 Prompt 当成一门玄学手艺。
 - **Context Engineering 时代**（2024-2025）：核心是"给 AI 看什么"。RAG、MCP 协议、知识图谱兴起，焦点从提问技巧转向上下文构建。
@@ -121,7 +121,7 @@ Anthropic 的 Claude Code 在这一波中走得更远——它已经完全内置
 
 n8n 的 AI Agent 节点天然实现了 Loop 的核心模型——它不是传统的"输入→处理→输出"的确定性节点，而是一个**循环执行引擎**：
 
-```mermaid
+{% mermaid %}
 flowchart LR
     A[输入触发<br/>Webhook / 定时] --> B[Prompt 组装<br/>系统指令 + 上下文 + 记忆]
     B --> C[LLM 推理<br/>决定下一步]
@@ -132,7 +132,7 @@ flowchart LR
     D -->|否| G[返回最终答案]
     
     H[断路器<br/>最大迭代限制] -.- C
-```
+{% endmermaid %}
 
 每个循环中，Agent 经历：**推理 → 决定调用工具 → 执行工具 → 更新上下文 → 再次推理**，直到任务完成或被断路器终止。
 
@@ -224,7 +224,7 @@ Andrej Karpathy 的警告与此呼应：
 
 在一片喧嚣中，Addy Osmani 和社区贡献者总结了构建一个可靠 Loop 的五个关键环节：
 
-```mermaid
+{% mermaid %}
 flowchart LR
     A[发现<br/>Discovery] --> B[交接<br/>Handoff]
     B --> C[验证<br/>Verification]
@@ -237,7 +237,7 @@ flowchart LR
     C1["独立评估者<br/>写与验必须分离"] -.- C
     D1["状态落地到磁盘<br/>STATE.md 文件"] -.- D
     E1["自动化周期性触发<br/>闭合循环"] -.- E
-```
+{% endmermaid %}
 
 ### 1. 发现（Discovery）
 AI 利用技能库自主寻找有价值的工作：读取 CI 失败记录、扫描未解决的 Issue、监控异常日志。不再是"人告诉 AI 做什么"，而是 AI **自己找到该做什么**。

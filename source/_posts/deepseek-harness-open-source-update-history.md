@@ -63,7 +63,7 @@ DeepSeek 有国内最完整的开源模型矩阵，现在把模型加外壳的�
 
 架构用一张图就能看明白：
 
-```mermaid
+{% mermaid %}
 graph TD
     subgraph "DeepSeek Harness：一切皆插件"
         C["Cordis 微内核<br/>时空可组合"] --> M["模型适配器"]
@@ -78,7 +78,7 @@ graph TD
     M --> M2["OpenAI / Anthropic / 38 家路由"]
     T --> T1["web_search / bash / 文件编辑器 / 子代理"]
     S --> S1["dsh-code-review / dsh-find-simplifications / dsh-doc-standards / dsh-prose-standard"]
-```
+{% endmermaid %}
 
 四种预设模式对应四种工具集：标准模式给全量工具，文件编辑、CLI、检索、Skills、规划、子代理、工作流，日常开发用；PTC 模式做程序化工具调用，服务自动化流水线的多步编排；极简模式只给 CLI 加文件编辑器，追求低开销快跑；创造模式做环境探测加插件实验，面向写插件和调自定义预设的人。
 
@@ -145,14 +145,14 @@ rc.1 当晚再发一版，专注把送图做稳。上一版把模型接上了，
 
 把五版连起来，主轴很清楚：子代理收编、多模态补齐、并发和存储优化，这几条线共同指向一个方向，把 harness 从能跑做到能扛。
 
-```mermaid
+{% mermaid %}
 flowchart LR
     A["v0.1.0-rc.6<br/>框架开源 一切皆插件"] --> B["v0.1.0-rc.7<br/>插件自注册 商标 定价"]
     B --> C["v0.1.0-rc.8<br/>首个大版本 多模态 子代理收编"]
     C --> D["v0.1.1-rc.1<br/>接入视觉模型 V4-Flash-Vision-Exp"]
     D --> E["v0.1.1-rc.2<br/>图片管线硬化 Files API 复用"]
     E -.-> F["下一步 更稳的编排 更多插件能装"]
-```
+{% endmermaid %}
 
 ---
 
