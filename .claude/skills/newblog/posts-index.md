@@ -125,6 +125,12 @@
 - **描述**: 2026年8月13日 DeepSeek 以 MIT 协议开源 Agent 执行底座 DeepSeek Harness（黑鲸），3天14.9万星。12天五版迭代聚焦多模态与子代理协作（rc.8 原生图像 + 收编 Claude Code/Codex 为子代理），"一切皆插件"+ Cordis 微内核正在重构 AI 编程的执行层格局。
 - **标签**: 开源, AI, AI Agent, LLM, Skills, MCP, Claude Code, 自动化
 
+### 5. Karpathy 的 LLM Wiki：把 RAG 从解释器升级成编译器，企业真的能用它做知识库吗？
+- **文件名**: `karpathy-llm-wiki-rag-compiler-pkm.md`
+- **发布日期**: 2026-09-07
+- **描述**: 2026年4月，Karpathy 发了一份 Gist 而非开源代码，提出 LLM Wiki 范式——让 Agent 在「摄入」时把知识编译成互相链接的 Markdown 页面，而非像 RAG 那样在查询时反复解释原文。本文拆解三层架构与三大操作、开源实现盘点、与 RAG / Notion AI / Obsidian 的差异，论证「人做判断、LLM 做维护」的最佳实践，以及为何它在个人研究尺度成立、在企业尺度却栽在数据治理上。
+- **标签**: 技术分享, AI, LLM, AI Agent, 开源, 研究工具
+
 ---
 
 ## 观点分享
