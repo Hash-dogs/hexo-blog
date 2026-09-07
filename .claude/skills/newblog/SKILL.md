@@ -74,7 +74,7 @@ allowed_tools:
 4. **文件命名**：`source/_posts/<英文-kebab-slug>.md`
 5. **语言**：zh-CN
 6. **构建**：博文保存后执行 `npm run build`，确保构建通过
-7. **流程图/图表**：博文中如需展示流程图、时序图、架构图等，统一使用 Mermaid 代码块（` ```mermaid `）实现，禁止使用 ASCII 艺术图或图片截图。Mermaid 代码块在博客前端会被主题自动渲染为可视化图形
+7. **流程图/图表**：博文中如需展示流程图、时序图、架构图等，统一使用 Mermaid 标签（`{% mermaid %}...{% endmermaid %}`）实现，禁止使用 ASCII 艺术图或图片截图。不要在 Markdown 中写 ` ```mermaid ` 围栏——`hexo-renderer-marked` 会把它当作普通代码块渲染成源码，不会触发 mermaid 标签，导致图表只显示源码。（仅当内容是合法 mermaid 语法时用标签；纯 ASCII 流程图不是合法 mermaid，转标签后会渲染为空白）
 8. **封面图（非 github热门 分支）**：
    - github热门 分支使用 GitHub Open Graph，无需额外处理
    - 其他分类（技术分享/观点分享等）必须配置封面图
