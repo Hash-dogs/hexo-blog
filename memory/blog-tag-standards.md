@@ -21,6 +21,7 @@ metadata:
 - `Skills` — AI 编程工具的技能/插件生态（统一复数，不用 `Skill`）
 - `Claude Code` — Anthropic Claude Code 相关
 - `安全` — 安全相关主题
+- `代码质量` — 代码质量/反过度工程相关主题（首次使用：2026-09-10《GitHub热门（9/7-9/13）DietrichGebert/ponytail — 反过度工程》）
 
 ### 具体技术栈/工具标签
 - `Hermes Agent` — Hermes Agent 项目相关

@@ -97,6 +97,12 @@
 - **描述**: tt-a1i/archify 上周从约 4,000 星暴涨到 34,000+ 星、登顶 GitHub Trending，这是一款让 Claude Code、Cursor、Codex 等 Agent 交付「可验证」架构图的 Skill：Agent 先写类型化 JSON IR，再由渲染器做 schema/布局校验，确定性地编译成单文件 HTML/SVG，把「看着对」拆成可核验的问题。
 - **标签**: 开源, AI, AI Agent, Skills, Claude Code
 
+### 16. GitHub热门（9/7-9/13）DietrichGebert/ponytail — 反过度工程
+- **文件名**: `ponytail-anti-overengineering-skill.md`
+- **发布日期**: 2026-09-10
+- **描述**: DietrichGebert/ponytail 本周以 12,186+ 星增量登上 GitHub Trending 周榜第二，累计突破 134,000 星，创建不足三个月。这是一份纯文本的 Agent Skill，用七级「决策阶梯」强制 AI 编码代理停在第一个成立的方案上（YAGNI→复用→标准库→平台原生→已有依赖→一行→最小实现）。Agent 化基准显示代码行数 −54%、Token −22%、成本 −20%、耗时 −27%，安全检查 100% 保留；作者主动撤回了早期「减少 80-94%」的单次生成数据。支持 20+ 宿主，代表 Agent Skills 从「加能力」到「管行为」的转向。
+- **标签**: 开源, AI, AI Agent, Skills, Claude Code, Token优化, 代码质量
+
 ---
 
 ## 技术分享
