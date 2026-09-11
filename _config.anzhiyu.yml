@@ -1230,10 +1230,14 @@ inject:
   head:
     # 自定义css
     # - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'">
+    # 注意：inject 里的路径不会过 url_for，必须写全站点 root（本站 root 为 /hexo-blog/）
+    - <link rel="stylesheet" href="/hexo-blog/css/countdown.css">
 
   bottom:
     # 自定义js
     # - <script src="/js/xxx"></script>
+    # 侧边栏「时光」卡片（节日倒计时 + 时间进度），结构见 source/_data/widget.yml
+    - <script src="/hexo-blog/js/countdown.js"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work

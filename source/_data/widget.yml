@@ -1,0 +1,19 @@
+# 侧边栏自定义卡片
+# 由主题的 includes/widget/card_top_self.pug（top）与 card_bottom_self.pug（bottom）读取。
+# 字段：class_name 附加类名 / id_name 元素 id / icon 图标类 / name 标题 / html 卡片内容（原始 HTML）
+
+top:
+  - class_name: card-countdown
+    id_name: card-countdown
+    icon: anzhiyufont anzhiyu-icon-stopwatch
+    name: 时光
+    html: |
+      <div class="cd-wrap">
+        <div class="cd-left">
+          <span class="cd-text">距离</span>
+          <span class="cd-name" id="cd-name">--</span>
+          <span class="cd-days" id="cd-days">--</span>
+          <span class="cd-date" id="cd-date">--</span>
+        </div>
+        <div class="cd-right" id="cd-right"></div>
+      </div>
