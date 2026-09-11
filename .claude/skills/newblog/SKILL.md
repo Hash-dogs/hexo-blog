@@ -128,8 +128,9 @@ allowed_tools:
 1. 执行 `git add source/_posts/<filename>`
 2. 将博文信息（标题、文件名、分类、标签、描述）追加到 `.claude/skills/newblog/posts-index.md` 的对应分类下
 3. 执行 `git add .claude/skills/newblog/posts-index.md`
-4. 按格式写入 commit message：`feat: 发布新博文「{title}」`
-5. 执行 `git commit`
+4. 按格式准备好 commit message：`feat: 发布新博文「{title}」`
+
+> 到这一步**先不要 commit**，把 add 好的暂存区原样交给 Checkpoint 3，等用户确认后再 commit + push。
 
 ---
 
@@ -149,4 +150,6 @@ allowed_tools:
 > 
 > 确认后执行推送？
 
-用户确认后，执行 `git push origin main`。告知用户 Vercel 将自动部署。
+用户确认后，依次执行 `git commit` + `git push origin main`，**两步一次做完，不要再单独问要不要推送**（Checkpoint 3 的确认同时覆盖了提交和推送授权）。
+
+告知用户：推送到 `main` 会触发 GitHub Actions 自动构建并部署到 `gh-pages` 分支，线上站点稍后生效。

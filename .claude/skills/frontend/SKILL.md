@@ -1,6 +1,6 @@
 ---
 name: frontend
-description: 前端页面改动助手 — 定位主题文件、给可选方案、改动后截图审核、循环直到满意再提交
+description: 前端页面改动助手 — 定位主题文件、给可选方案、改动后截图审核、循环直到满意再提交推送
 invocation: /frontend
 allowed_tools:
   - Read
@@ -14,7 +14,7 @@ allowed_tools:
 
 # /frontend — 前端页面改动助手
 
-对 AnZhiYu 主题的前端页面（Pug 模板 / Stylus 样式 / 主题配置 / 自定义 tag 插件）做改动，**每改一轮都产出本地截图供用户审核**，不满意就继续循环，直到用户确认才提交。
+对 AnZhiYu 主题的前端页面（Pug 模板 / Stylus 样式 / 主题配置 / 自定义 tag 插件）做改动，**每改一轮都产出本地截图供用户审核**，不满意就继续循环，直到用户确认才提交并推送。
 
 核心原则：**改动没有截图证据不算完成。** 不要只用文字描述"已经改好了"。
 
@@ -27,7 +27,7 @@ allowed_tools:
 | 阶段 2 | 定位修改处 | — |
 | 阶段 3 | 提出方案（含影响面分析） | 🔴 Checkpoint 1：方案选定 |
 | 阶段 4 | 执行改动 + 重建 + 截图 | 🔴 Checkpoint 2：截图审核（不满意则回到阶段 4 循环） |
-| 阶段 5 | Git 提交 | 🔴 Checkpoint 3：提交确认 |
+| 阶段 5 | Git 提交 + 推送 | 🔴 Checkpoint 3：提交确认 |
 
 ---
 
@@ -277,7 +277,9 @@ feat: <改动描述>
 
 或修复类改动用 `fix:`。
 
-用户确认后执行 `git add <具体文件>` + `git commit`。**用户没要求就不要 push。**
+用户确认后执行 `git add <具体文件>` + `git commit` + `git push origin main`，**三步一次做完，不要再单独问要不要 push**（Checkpoint 3 的确认同时覆盖了推送授权）。
+
+推送后告知用户：推送到 `main` 会触发 GitHub Actions 自动构建并部署到 `gh-pages` 分支，线上站点稍后生效。
 
 ---
 
