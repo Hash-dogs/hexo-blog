@@ -11,7 +11,10 @@ public/
 # Secret files
 .env
 _config.yml.bak
-.claude/pexels-api-key
+# API Key 文件：规则不带斜杠，因此在任意目录层级都生效。
+# 原先只写了 .claude/pexels-api-key，漏掉了 .codex/ 下的同名文件。
+pexels-api-key
+*-api-key
 
 # Local tooling
 .playwright-mcp/
