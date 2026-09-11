@@ -444,35 +444,21 @@ footer:
       # - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
       #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
       #   message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
+  # 页脚居中图标行：left 显示在左侧、right 显示在右侧，中间为 centerImg 头像
+  # 【改邮箱】把下面 left 里的 link 换成你自己的邮箱地址（mailto:邮箱）
+  # 【改跳转URL】把下面 right 里的 link 换成你自己的 GitHub 主页地址
+  # 想加更多图标，按同样的三行格式追加 - title / link / icon 即可
   socialBar:
-    enable: false
+    enable: true
     centerImg:
     left:
-      # - title: email
-      #   link: mailto:anzhiyu-c@qq.com
-      #   icon: anzhiyu-icon-envelope
-      # - title: 微博
-      #   link: https://weibo.com/u/6378063631
-      #   icon: anzhiyu-icon-weibo
-      # - title: facebook
-      #   link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
-      #   icon: anzhiyu-icon-facebook1
-      # - title: RSS
-      #   link: atom.xml
-      #   icon: anzhiyu-icon-rss
+      - title: 邮箱
+        link: mailto:18033207159@163.com
+        icon: anzhiyu-icon-envelope
     right:
-      # - title: Github
-      #   link: https://github.com/anzhiyu-c
-      #   icon: anzhiyu-icon-github
-      # - title: Bilibili
-      #   link: https://space.bilibili.com/372204786
-      #   icon: anzhiyu-icon-bilibili
-      # - title: 抖音
-      #   link: https://v.douyin.com/DwCpMEy/
-      #   icon: anzhiyu-icon-tiktok
-      # - title: CC
-      #   link: /copyright
-      #   icon: anzhiyu-icon-copyright-line
+      - title: GitHub
+        link: https://github.com/Hash-dogs
+        icon: anzhiyu-icon-github
   list:
     enable: false
     randomFriends: 3
@@ -1038,20 +1024,20 @@ css_prefix: true
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 生活明朗
-  subTitle: 万物可爱。
-  siteText: anheyu.com
+  title: 我的技术博客
+  subTitle: 记录学习与技术分享
+  siteText: hash-dogs.github.io/hexo-blog
   category:
     - name: 技术分享
       path: /tags/技术分享/
       shadow: var(--anzhiyu-shadow-purple)
       class: purple
-      icon: anzhiyu-icon-code
+      icon: anzhiyu-icon-bolt
     - name: 观点分享
       path: /tags/观点分享/
       shadow: var(--anzhiyu-shadow-yellow)
       class: yellow
-      icon: anzhiyu-icon-comment
+      icon: anzhiyu-icon-comments
     - name: 大学
       path: /tags/大学/
       shadow: var(--anzhiyu-shadow-red)
@@ -1228,7 +1214,7 @@ rightClickMenu:
 
 # 首页随便逛逛people模式 而非技能点模式，关闭后为技能点模式需要配置creativity.yml
 peoplecanvas:
-  enable: true
+  enable: false
   img: https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png
 
 # 动效

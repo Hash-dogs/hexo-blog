@@ -1,0 +1,39 @@
+# 首页技能点 / 图标墙数据，被 theme 的 tags-group-all.pug 与 about.pug 读取
+# 图标来源：https://github.com/devicons/devicon（jsDelivr CDN）
+- creativity_list:
+    - name: Python
+      color: '#3776ab'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg
+    - name: Java
+      color: '#0074bd'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg
+    - name: Go
+      color: '#00add8'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg
+    - name: React
+      color: '#61dafb'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg
+    - name: Docker
+      color: '#2496ed'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg
+    - name: Rust
+      color: '#dea584'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg
+    - name: MySQL
+      color: '#4479a1'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg
+    - name: Redis
+      color: '#dc382d'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg
+    - name: Flutter
+      color: '#02569b'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg
+    - name: Apple
+      color: '#a2aaad'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg
+    - name: Android
+      color: '#3ddc84'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg
+    - name: TypeScript
+      color: '#3178c6'
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg
