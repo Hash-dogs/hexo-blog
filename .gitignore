@@ -15,7 +15,11 @@ _config.yml.bak
 
 # Local tooling
 .playwright-mcp/
+.playwright-cli/
 .serena/
+
+# 前端改动审核用的截图产物（只留在本地，不进版本库）
+.screenshots/
 
 # OS files
 .DS_Store
