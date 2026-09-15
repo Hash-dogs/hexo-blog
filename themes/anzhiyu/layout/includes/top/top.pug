@@ -80,7 +80,7 @@ if home_top_config.enable
               .post_cover.left_radius
                 a(href=item.path, title=item.title)
                   span.recent-post-top-text 荐
-                  img.post_bg(onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'`, alt='cover',  src=item.cover)
+                  img.post_bg(onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'`, alt='cover',  src=url_for(item.cover))
               .recent-post-info
                 a.article-title(href=item.path, title=item.title)=item.title
           //- 首页文章索引网格：手动指定模式，取 front-matter 中的 top_group_index
@@ -89,7 +89,7 @@ if home_top_config.enable
           .index-grid
             each item in index_grid_list.slice(0, 6)
               a.index-grid-item(href=url_for(item.path), title=item.title)
-                img.index-grid-cover(onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'`, alt=item.title, src=item.cover)
+                img.index-grid-cover(onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'`, alt=item.title, src=url_for(item.cover))
                 .index-grid-title=item.title
 
         link(rel="stylesheet", href=theme.home_top.banner.top_group_banner_css)

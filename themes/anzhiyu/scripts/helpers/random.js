@@ -17,10 +17,14 @@ hexo.extend.generator.register("random", function (locals) {
     });
   });
 
+  // 站点可能部署在子路径下（本站为 /hexo-blog/），拼接文章路径时必须带上 config.root
+  const root = hexo.config.root || "/";
+  const randomPostPath = `posts[Math.floor(Math.random() * posts.length)]`;
+
   let result = `var posts=${JSON.stringify(
     posts
   )};function toRandomPost(){
-    ${pjaxEn ? "pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);" : "window.location.href='/'+posts[Math.floor(Math.random() * posts.length)];"}
+    ${pjaxEn ? `pjax.loadUrl('${root}'+${randomPostPath});` : `window.location.href='${root}'+${randomPostPath};`}
   };`;
 
   if (themeConfig.footer.list.enable && randomNumberFriend > 0) {
