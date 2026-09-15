@@ -6,9 +6,10 @@
           a(href=url_for(item.link || item.img), target='_blank')
             img.post-qr-code-img(alt=item.text, src=url_for(item.img))
           .post-qr-code-desc=item.text
-  .console-card-group
-    .console-card-group-left
-      !=partial('includes/widget/card_newest_comment', {}, {cache: true})
+  .console-card-group(class=theme.newest_comments.enable ? false : 'console-card-group-single')
+    if theme.newest_comments.enable
+      .console-card-group-left
+        !=partial('includes/widget/card_newest_comment', {}, {cache: true})
     .console-card-group-right
       .console-card.tags
         .card-content
