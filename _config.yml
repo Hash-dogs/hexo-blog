@@ -104,6 +104,37 @@ search:
   format: html
   limit: 10000
 
+# 留言板 (Message Board)
+# -----------------------------------------------------------------------------
+# 由 hexo-butterfly-envelope 插件生成 /comments/ 页面（信封样式）。
+# 官方文档：https://docs.anheyu.com/page/message.html
+# 插件读取顺序为「站点 _config.yml 优先，其次主题配置」，故写在这里。
+# 注意：custom_pic 四个键必须齐全。插件源码直接解引用 config.custom_pic.cover，
+# 漏写 custom_pic 会抛 TypeError 让整站生成失败。
+envelope_comment:
+  enable: true
+  # 信封素材。任一项留空会回落到 unpkg.zhimg.com 的旧图源，该域名已不可靠，勿留空。
+  custom_pic:
+    cover: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/violet.jpg
+    line: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/line.png
+    beforeimg: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/before.png
+    afterimg: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/after.png
+  # 信纸上的问候语，逐行显示
+  message:
+    - 有什么想问的？
+    - 有什么想说的？
+    - 有什么想吐槽的？
+    - 哪怕是有什么想吃的，都可以告诉我哦~
+  bottom: 自动书记人偶竭诚为您服务！ # 仅支持单行文本
+  height: 1024px # 鼠标悬停时信封展开的高度
+  path: comments # 生成 comments/index.html
+  # 生成页面的 front-matter。type 供主题做页面样式分支，勿删。
+  front_matter:
+    title: 留言板
+    comments: true
+    top_img: false
+    type: envelope
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/

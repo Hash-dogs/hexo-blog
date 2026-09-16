@@ -31,7 +31,9 @@ valine:
 twikoo:
   name: twikoo
   file: dist/twikoo.all.min.js
-  version: 1.6.44
+  # 需与 Vercel 云函数版本保持一致，否则前端可能调不通部分接口。
+  # 云函数版本可访问 https://twikoo4azy.vercel.app 查看其 version 字段。
+  version: 1.7.24
 waline_js:
   name: "@waline/client"
   file: dist/waline.js

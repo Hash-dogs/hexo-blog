@@ -10,6 +10,9 @@ menu:
   关于:
     关于本人: /about/ || anzhiyu-icon-paper-plane
 
+  留言:
+    留言板: /comments/ || anzhiyu-icon-envelope
+
 # nav相关配置
 nav:
   enable: false
@@ -302,7 +305,7 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Valine/Waline/Twikoo/Artalk
-  use: # Twikoo/Waline
+  use: Twikoo # 当前启用 Twikoo，留言板依赖它；写成 "Twikoo,Waline" 可配第二套做切换
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
@@ -348,7 +351,9 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId:
+  # Twikoo 云函数地址。Vercel 部署的必须带 https:// 前缀。
+  # 注意：Vercel 的项目名可以改，改完这个地址会失效，届时同步更新这里。
+  envId: https://twikoo4azy.vercel.app
   region:
   visitor: false
   option:
