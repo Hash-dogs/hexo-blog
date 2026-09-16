@@ -3,6 +3,23 @@ if hexo-config('comments.use') == 'Twikoo'
     min-width: 31.25rem
   .twikoo svg
     color: var(--anzhiyu-fontcolor);
+  /* 管理面板关闭按钮。
+     上面那条 .twikoo svg 会把评论区所有图标统一染成 --anzhiyu-fontcolor，
+     亮色模式下是深灰 #363636。但 Twikoo 的关闭按钮是深色遮罩上的白色 ✕，
+     被染成深灰后画在 rgba(0,0,0,.85) 的面板上对比度只剩 1.5:1，等于隐形，
+     用户点开管理面板后找不到关闭入口，只能刷新页面。
+     这里用更高特异性（0-2-1 对 0-1-1）单独还原它，并补上圆形底做可点暗示。 */
+  .twikoo .tk-admin-close
+    border-radius: 50%
+    background-color: rgba(255, 255, 255, 0.15)
+    transition: background-color 0.3s ease
+    svg
+      color: var(--anzhiyu-white)
+      transition: transform 0.3s ease
+    &:hover
+      background-color: var(--anzhiyu-main)
+      svg
+        transform: scale(1.1)
   /* 评论区表情放大 */
   @keyframes owoIn
     0% {
