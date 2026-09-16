@@ -10,6 +10,10 @@ public/
 
 # Secret files
 .env
+# 任意 *.env（如 atlas-credentials.env 里的 MongoDB 连接串）。
+# 规则不带斜杠，因此在任意目录层级都生效。本仓库是公开的 GitHub Pages 源仓库，
+# 连接串一旦入库就等于公开数据库的增删改权限，勿改成带斜杠的写法。
+*.env
 _config.yml.bak
 # API Key 文件：规则不带斜杠，因此在任意目录层级都生效。
 # 原先只写了 .claude/pexels-api-key，漏掉了 .codex/ 下的同名文件。
