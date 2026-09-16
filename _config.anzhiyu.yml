@@ -572,13 +572,26 @@ google_adsense:
 # Verification (站长验证)
 # --------------------------------------
 
-site_verification:
-  - name: google-site-verification
-    content: xxx
-  - name: baidu-site-verification
-    content: code-xxx
-  - name: msvalidate.01
-    content: xxx
+# 必须显式写 null（或 false），不能把整块注释掉。
+# 原因：themes/anzhiyu/_config.yml 自带一份 xxx 占位符，Hexo 用 hexo-util 的 deepMerge
+# 把「站点配置」合并到「主题配置」之上，而 deepMerge 对「键不存在」和「空数组 []」
+# 都会保留主题侧的数组 —— 只有 null / false 才能真正覆盖掉。
+# 留占位符的后果：假验证标签会输出到线上每个页面的 <head>，无任何作用。
+site_verification: null
+
+# 拿到各站长平台的真实校验码后，删掉上面那行，改用下面这段：
+#   验证入口：
+#     Google  https://search.google.com/search-console  → 网址前缀 → HTML 标记
+#     Bing    https://www.bing.com/webmasters           → 可直接从 GSC 导入，无需填码
+#   本站是子路径部署，GSC 必须选「网址前缀」并填 https://hash-dogs.github.io/hexo-blog/
+#   （「域名」属性需 DNS 验证，而 github.io 的 DNS 不在本站可控范围）
+# site_verification:
+#   - name: google-site-verification
+#     content: xxxxx
+#   - name: baidu-site-verification
+#     content: code-xxxxx
+#   - name: msvalidate.01
+#     content: xxxxx
 
 # Beautify/Effect (美化/效果)
 # --------------------------------------
