@@ -30,6 +30,9 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  # Google Search Console 的 HTML 文件验证：必须原样拷贝，不能被主题布局包裹渲染。
+  # 删除该文件会导致 GSC 定期复检失败、属性失去验证，勿删。
+  - 'google*.html'
 
 # Writing
 new_post_name: :title.md # File name of new posts
