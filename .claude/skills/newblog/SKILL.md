@@ -74,7 +74,26 @@ allowed_tools:
 4. **文件命名**：`source/_posts/<英文-kebab-slug>.md`
 5. **语言**：zh-CN
 6. **构建**：博文保存后执行 `npm run build`，确保构建通过
-7. **流程图/图表**：博文中如需展示流程图、时序图、架构图等，统一使用 Mermaid 标签（`{% mermaid %}...{% endmermaid %}`）实现，禁止使用 ASCII 艺术图或图片截图。不要在 Markdown 中写 ` ```mermaid ` 围栏——`hexo-renderer-marked` 会把它当作普通代码块渲染成源码，不会触发 mermaid 标签，导致图表只显示源码。（仅当内容是合法 mermaid 语法时用标签；纯 ASCII 流程图不是合法 mermaid，转标签后会渲染为空白）
+7. **富文本标签**：博文可用安知鱼主题的标签插件增强排布，**不要只写纯 Markdown**。完整 42 个标签、参数取值与全部陷阱见 `.claude/skills/newblog/tag-plugins.md`。常用速查：
+
+   | 用途 | 语法 |
+   |------|------|
+   | 提示块（最常用） | `{% note info %}…{% endnote %}`（类型 `info`/`warning`/`danger`/`success`/`primary`/`default`） |
+   | 折叠面板 | `{% folding blue, 标题 %}…{% endfolding %}` |
+   | 选项卡 | `{% tabs 名称 %}` + `<!-- tab 标题 -->`…`<!-- endtab -->` + `{% endtabs %}` |
+   | 时间线 | `{% timeline 总标题, blue %}` + `<!-- timeline 子标题 -->`…`<!-- endtimeline -->` + `{% endtimeline %}` |
+   | 按钮 | `{% btn 链接, 文字, 图标, blue outline %}` |
+   | 相册 | `{% gallery %}…{% endgallery %}` |
+   | 隐藏内容 | `{% hideToggle 按钮文字 %}…{% endhideToggle %}` |
+   | 行内标记 | `{% label 文字 blue %}`、`{% kbd Ctrl %}`、`{% u 下划线 %}`、`{% p red, 文字 %}` |
+   | 流程图/图表 | `{% mermaid %}…{% endmermaid %}` |
+
+   **三个最常踩的坑**：
+   - `p`/`span` **必须带逗号**（`{% p red, 文字 %}`），单参数写法 `{% p 文字 %}` 会让构建直接报错
+   - `tabs`/`timeline` 的正文必须**换行**写在 `<!-- tab 标题 -->` 的下一行，写在同一行会被静默吞掉
+   - 分隔符分三种（逗号+空格 / 逗号 / 纯空格），写错不报错但渲染异常，用前先查 `tag-plugins.md` 的分隔符对照表
+
+   **流程图/图表**：统一使用 Mermaid 标签（`{% mermaid %}...{% endmermaid %}`）实现，禁止使用 ASCII 艺术图或图片截图。不要在 Markdown 中写 ` ```mermaid ` 围栏——`hexo-renderer-marked` 会把它当作普通代码块渲染成源码，不会触发 mermaid 标签，导致图表只显示源码。（仅当内容是合法 mermaid 语法时用标签；纯 ASCII 流程图不是合法 mermaid，转标签后会渲染为空白）
 8. **封面图（非 github热门 分支）**：
    - github热门 分支使用 GitHub Open Graph，无需额外处理
    - 其他分类（技术分享/观点分享等）必须配置封面图
