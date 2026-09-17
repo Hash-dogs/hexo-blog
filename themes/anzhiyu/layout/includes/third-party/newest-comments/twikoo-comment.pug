@@ -1,5 +1,18 @@
 script.
+  //- 评论页 URL -> 可读来源标题，构建期算好；Twikoo 接口本身不返回页面标题
+  window.anzhiyuCommentSources = !{newest_comment_sources()}
+
   window.addEventListener('load', () => {
+    const sourceOf = (url) => {
+      const sources = window.anzhiyuCommentSources || {}
+      try {
+        const path = new URL(url, location.origin).pathname
+        return sources[path] || sources[path.replace(/\/index\.html$/, '/')] || path.replace(/\/$/, '').split('/').pop()
+      } catch (e) {
+        return ''
+      }
+    }
+
     const changeContent = (content) => {
       if (content === '') return content
 
@@ -59,8 +72,11 @@ script.
             result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
           }
           
+          const source = sourceOf(array[i].url)
+
           result += `<div class='content'>
           <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+          <div class='source' title='${source}'><i class='anzhiyufont anzhiyu-icon-file-lines'></i><span class='source-title'>${source}</span></div>
           <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
           </div>`
         }

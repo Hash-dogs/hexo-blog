@@ -178,6 +178,7 @@
 
 #console .aside-list-item:hover .thumbnail,
 #console .aside-list-item:hover .content .comment,
+#console .aside-list-item:hover .content .source,
 #console .aside-list-item:hover .content time {
   color: var(--anzhiyu-white);
 }
@@ -186,6 +187,35 @@
   font-size: 12px;
   margin-top: auto;
   color: var(--anzhiyu-fontcolor);
+}
+
+/* 评论来源标注：来源行吃剩余的纵向空间贴底，时间紧跟其后 */
+#console .aside-list-item .content .source {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  margin-top: auto;
+  font-size: 12px;
+  line-height: 16px;
+  min-width: 0;
+  color: var(--anzhiyu-fontcolor);
+  opacity: 0.75;
+}
+
+#console .aside-list-item .content .source i {
+  flex: none;
+  font-size: 12px;
+}
+
+#console .aside-list-item .content .source .source-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#console .aside-list-item .content .source + time {
+  margin-top: 2px;
 }
 
 #console .aside-list {

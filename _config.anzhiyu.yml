@@ -859,7 +859,7 @@ newest_comments:
   enable: true
   sort_order: # Don't modify the setting unless you know how it works
   limit: 6
-  storage: 10 # unit: mins, save data to localStorage
+  storage: 2 # unit: mins, save data to localStorage
   avatar: true
 
 # Bottom right button (右下角按钮)
