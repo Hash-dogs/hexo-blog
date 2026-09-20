@@ -24,6 +24,7 @@
 |---|---|
 | `p` / `span` 单参数 | `{% p 文本 %}` 会在 `span.js` 里对 `undefined` 调 `.trim()`，抛 `TypeError` **中断构建**。必须写 `{% p 样式, 文本 %}`，样式可留空：`{% p , 文本 %}` |
 | `p` / `span` 正文含逗号 | 源码只取 `args[0]`、`args[1]`，正文里的逗号会把内容**截断** |
+| `p` / `span` 用 `large` 当强调 | `large` = 2.5rem（`huge` 4rem、`ultra` 6rem），是块级巨字，夹在正文中极其突兀。**要强调用 `**加粗**`，要独立大字行用 `h3`/`h4`**。详见下方「三、文本行内」 |
 | `tabs` / `timeline` 正文换行 | 内部正则要求 `-->\n`。`<!-- tab A -->正文` 写在同一行，**正文会被静默丢弃** |
 | `folding` 的颜色是裸属性 | 输出 `<details class="folding-tag" blue>`，CSS 靠 `[blue]` 属性选择器命中 |
 | `note` 样式无需手写 | `_config.anzhiyu.yml` 里 `note.style: flat` 会自动补上 |
@@ -46,15 +47,22 @@
 | 维度 | 取值 |
 |---|---|
 | 对齐 | `left`、`center`、`right` |
-| 字号 | `small`、`large`、`huge`、`ultra`、`h1`、`h2`、`h3`、`h4`、`h5` |
+| 字号 | `small`(正文同字号)、`large`(**2.5rem**)、`huge`(**4rem**)、`ultra`(**6rem**)、`h1`(1.625rem)、`h2`(1.625rem)、`h3`(1.375rem)、`h4`(1.125rem)、`h5`(1rem) |
 | 字重 | `bold` |
 | 颜色 | `red`、`yellow`、`green`、`cyan`、`blue`、`purple`、`gray` |
 | 其他 | `subtitle` |
 
+> ⚠️ **`large` / `huge` / `ultra` 是块级巨字，禁止在正文里当强调用**
+>
+> 源码实测（`themes/anzhiyu/source/css/_tags/span.styl:21-31`）：正文约 `0.9rem`，而 `large` = **2.5rem**，是正文的 2.8 倍；`huge` = 4rem；`ultra` = 6rem。再配上 `center` 就是一段居中巨字，**夹在正常段落中间会非常突兀**，是本站明确否决的排版。
+>
+> **要强调一句话，用 `**加粗**` 或 `{% note %}` 提示块，不要动字号 token。** 如果确实需要一个"标题感"的独立行，用 `h3`(1.375rem) 或 `h4`(1.125rem)，这两个才是接近正文比例的安全值。
+
 ```
 {% p red, 红色文字 %}
-{% p center large, 居中大字 %}
+{% p center, 居中文字 %}
 {% span blue, 蓝色行内 %}
+{% p center h4, 接近正文比例的居中短句 %}
 ```
 
 ### 行内标记（纯空格，无参数）
