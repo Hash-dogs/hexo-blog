@@ -103,6 +103,18 @@
 - **描述**: DietrichGebert/ponytail 本周以 12,186+ 星增量登上 GitHub Trending 周榜第二，累计突破 134,000 星，创建不足三个月。这是一份纯文本的 Agent Skill，用七级「决策阶梯」强制 AI 编码代理停在第一个成立的方案上（YAGNI→复用→标准库→平台原生→已有依赖→一行→最小实现）。Agent 化基准显示代码行数 −54%、Token −22%、成本 −20%、耗时 −27%，安全检查 100% 保留；作者主动撤回了早期「减少 80-94%」的单次生成数据。支持 20+ 宿主，代表 Agent Skills 从「加能力」到「管行为」的转向。
 - **标签**: 开源, AI, AI Agent, Skills, Claude Code, Token优化, 代码质量
 
+### 17. GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent
+- **文件名**: `alibaba-open-code-review-hybrid-architecture.md`
+- **发布日期**: 2026-09-20
+- **描述**: alibaba/open-code-review 本周以 11,489 星增量登顶 GitHub Trending 周榜第一，总星数来到 37.7K。这是阿里内部跑了两年、服务数万名开发者的 AI 代码审查工具，思路与主流做法相反：不给 Agent 更多自由，而是在流水线三个节点注入确定性（Rule-Guided Dispatch / Grounded File Review / Independent Reflection）。同模型下 Precision 从 7.23% 提到 33.90%、Token 降到九分之一，Recall 主动从 28.90% 降到 20.00%。文中也核验了 Hacker News 上那次方向完全相反的独立复现（74% Recall / 12% Precision），以及 AACR-Bench 只存在于一张 PNG、无 harness 可复跑的问题。
+- **标签**: 开源, AI, AI Agent, Skills, Claude Code, Token优化
+
+### 18. GitHub热门（9/14-9/20）cloudflare/security-audit-skill — 对抗式验证的安全审计
+- **文件名**: `cloudflare-security-audit-skill.md`
+- **发布日期**: 2026-09-20
+- **描述**: cloudflare/security-audit-skill 于 2026 年 9 月 14 日开源，9 月 19 日拿下 GitHub Trending 日榜第一，单日新增 3,019 星，目前 16.6K 星。这是 Cloudflare 机群级漏洞挖掘框架的起点版本，用六阶段编排把验证权从发现者手里拿走：隔离子 Agent 侦察、按覆盖账本狩猎、每条候选交给全新验证者证伪、独立记录核验。三态结论（confirmed / needs_validation / rejected）中未验证的不许带严重级别。全文 22 个文件、14 次提交，是一个把规格当产品的仓库；缺口在于验证者独立性靠指令而非机制强制、沙箱需自备、findings.json 之后没有分发层。
+- **标签**: 开源, AI, AI Agent, Skills, Claude Code, 安全
+
 ---
 
 ## 技术分享
