@@ -80,17 +80,15 @@ description: 2026 年 9 月 15 日，前 OpenAI 研究员 Diogo Almeida 发布 J
 
 Jev 是：给定一个 state 和一组带类型的问题，一次性算出每个问题在预先枚举好的答案空间上的概率分布，直接返回。输出不是文本，是类型安全的结构化值。
 
-{% mermaid %}
-flowchart TB
-    subgraph LLM["生成式 LLM：自回归逐 Token"]
-        direction LR
-        A1["输入文本"] --> A2["Token 1"] --> A3["Token 2"] --> A4["……"] --> A5["Token N"] --> A6["正则/JSON 解析<br/>可能失败"]
-    end
-    subgraph JEV["Jev：单次并行读出"]
-        direction LR
-        B1["state + 类型化问题"] --> B2["state 共享编码一次"] --> B3["各问题独立分支<br/>并行计算"] --> B4["类型化读出层"] --> B5["概率分布<br/>+ 校准置信度"]
-    end
-{% endmermaid %}
+| 环节 | 生成式 LLM | Jev |
+|------|-----------|-----|
+| 输入 | 一段文本 | 一个 state 加一组带类型的问题 |
+| 计算单位 | 一个 Token | 一个问题 |
+| 计算方式 | 自回归，输出 N 个 Token 就要跑 N 次前向传播 | 单次前向，所有问题并行算出 |
+| 上下文开销 | 每个 Token 都要重算一遍上下文 | state 只编码一次，各问题分支共享 |
+| 输出形态 | 长度不定的文本 | 类型安全的结构化值 |
+| 后处理 | 正则或 JSON 解析，可能失败 | 无需解析，直接可用 |
+| 失败模式 | 格式解析失败、编造字段 | 只会在选项内判断错误，结构永远合法 |
 
 ### 2.2 三种输出原语
 
@@ -536,7 +534,7 @@ flowchart TB
     H["Harness 调度层<br/>决定谁来做、做几步"]
     H --> F["Frontier Model<br/>复杂规划 / 深度推理"]
     H --> FL["Flash 小模型<br/>普通推理 / 生成"]
-    H --> D["Decision Model（Jev）<br/>路由 / 分类 / 评分 / 验证"]
+    H --> D["Decision Model / Jev<br/>路由 / 分类 / 评分 / 验证"]
     H --> C["传统代码<br/>确定性逻辑"]
     D -.低置信度上升.-> F
     D -.中置信度.-> FL
