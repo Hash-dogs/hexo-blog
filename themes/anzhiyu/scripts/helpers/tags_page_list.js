@@ -13,9 +13,13 @@ hexo.extend.helper.register('tags_page_list', function (type) {
   }, []);
 
   let html = ``;
-  sortedTags.forEach(function (item) {
+  sortedTags.forEach((item) => {
+    // 本站部署在 /hexo-blog/ 子路径下，href 必须带根路径，否则分类/标签链接会 404。
+    // id 供 utils.js 与 decodeURIComponent(location.pathname) 比对，须保持未编码，
+    // 因此用 config.root 直接拼接，不能走 url_for（它会把中文编码成 %XX）。
+    const id = this.config.root + item.path;
     html += `
-      <a href="/${item.path}" id="/${item.path}">
+      <a href="${this.url_for(item.path)}" id="${id}">
         <span class="tags-punctuation">#</span>${item.name}
         <span class="tagsPageCount">${item.length}</span>
       </a>

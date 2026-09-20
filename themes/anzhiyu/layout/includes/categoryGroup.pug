@@ -3,11 +3,12 @@
       #catalog-bar
         #catalog-list
           .catalog-list-item(id='首页')
-            a(href="/") 首页
+            a(href=url_for('/')) 首页
           - var categoryList = site.categories.filter(cat => cat.name !== '友链').toArray()
+          //- id 需未编码，配合 utils.js 的 decodeURIComponent(pathname) 比对；href 走 url_for 补根路径
           each cat in categoryList
-            .catalog-list-item(id=`/${cat.path}`)
-              a(href=`/${cat.path}`) #{cat.name}
+            .catalog-list-item(id=config.root + cat.path)
+              a(href=url_for(cat.path)) #{cat.name}
         .category-bar-next#category-bar-next(onclick="anzhiyu.scrollCategoryBarToRight()")
           i.anzhiyufont.anzhiyu-icon-angle-double-right
-        a.catalog-more(href="/categories/")!= '更多'
+        a.catalog-more(href=url_for('/categories/'))!= '更多'
