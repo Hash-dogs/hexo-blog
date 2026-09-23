@@ -7,8 +7,11 @@ menu:
   # 友链:
   #   友人帐: /link/ || anzhiyu-icon-link
 
-  关于:
-    关于本人: /about/ || anzhiyu-icon-paper-plane
+  # 关于页签暂时关闭跳转：/about/ 页面目前只有 front-matter、没有正文，
+  # 先隐藏入口避免访客点进空页面。页面文件本身保留，直接访问 /about/ 仍可打开。
+  # 补完正文后取消下面两行注释即可恢复。
+  # 关于:
+  #   关于本人: /about/ || anzhiyu-icon-paper-plane
 
   留言:
     留言板: /comments/ || anzhiyu-icon-envelope
@@ -807,7 +810,8 @@ aside:
     enable: false
     content: 欢迎来看我的博客鸭~
   card_weixin:
-    enable: true
+    # 关闭公众号卡片（侧边栏绿色翻转卡）。改回 true 即可恢复。
+    enable: false
     face: https://bu.dusays.com/2023/01/13/63c02edf44033.png
     backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
   card_recent_post:
@@ -1042,7 +1046,7 @@ css_prefix: true
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 我的技术博客
+  title: Hash-dogs的博客
   subTitle: 记录学习与技术分享
   siteText: hash-dogs.github.io/hexo-blog
   category:
