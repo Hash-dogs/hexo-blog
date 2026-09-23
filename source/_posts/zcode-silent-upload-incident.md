@@ -212,4 +212,19 @@ xAI 的 Grok Build 在 2026 年 7 月被研究者抓包，整项目上传 Google
 
 ---
 
+## 相关阅读
+
+本篇拆的是事件本身。ZCode 在 9 月 21 日已全量开源，那份代码的运行时结构、权限模型与工程约束，以及它与 DSH、Codex 三条技术路线的优劣势对比，写在续篇里：
+
+{% btn https://hash-dogs.github.io/hexo-blog/2026/09/23/zcode-open-source-architecture-deep-dive/,ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异,anzhiyufont anzhiyu-icon-arrow-right,blue outline %}
+
+Agent Harness 这一层的背景，见更早的两篇：
+
+{% btns grid2 rounded %}
+{% cell 八天之内，DeepSeek 与 OpenAI 相继开源 Harness, https://hash-dogs.github.io/hexo-blog/2026/08/22/agent-harness-runtime-war/, anzhiyufont anzhiyu-icon-rocket %}
+{% cell DeepSeek Harness 开源 12 天五版, https://hash-dogs.github.io/hexo-blog/2026/08/25/deepseek-harness-open-source-update-history/, anzhiyufont anzhiyu-icon-rocket %}
+{% endbtns %}
+
+---
+
 *文中配图来自 Pexels 免版权图库。事件时间线与技术细节综合自 ferstar 原始博文、澎湃新闻、InfoWorld / CSO Online、36Kr 及智谱官方公开声明。*

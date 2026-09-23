@@ -155,6 +155,12 @@
 - **描述**: 2026年9月15日，前 OpenAI 研究员 Diogo Almeida 发布 Jev，一个不生成任何文本、只输出结构化决策的模型。本文拆解它的三种输出原语、被上万次 API 调用逆向出的架构、取代 RLHF 的 RLCD 训练法，核验 193 倍提速与零幻觉的边界，并分析 OpenAI 侧的沉默、扑克实测翻车与 Laya 抄袭争议，以及它对未来 Agent 分层架构的影响。
 - **标签**: 技术分享, AI, LLM, AI Agent, 自动化
 
+### 7. ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异
+- **文件名**: `zcode-open-source-architecture-deep-dive.md`
+- **发布日期**: 2026-09-23
+- **描述**: 智谱于 2026 年 9 月 21 日以 Apache-2.0 开源 ZCode，版本 3.14.0，TypeScript pnpm monorepo，约 30 万行、14 个包。本文按源码拆解运行时内核：三端一核的共享结构、Turn 状态机把非法跃迁转成构建期报错、工具元数据驱动的 15 步权限判定、microcompact 必须先于 autocompact 的两级压缩算术、architecture-policy.yaml 把 400 行上限挂上 CI、dynamic-workflow 用 TypeScript 脚本编排子代理并放进 vm 沙箱、自研表达式语言让接新模型只需写一行配置。第七节三方对照 9 个维度，结论是 ZCode 是产品、DSH 是底座、Codex 是平台，安全边界 ZCode 最弱且为官方 NOTICE.md 自认。第八节说明可审计边界：仓库仅 2 个提交、native 模块缺席、核心能力为占位符。与 `zcode-silent-upload-incident.md`、`deepseek-harness-open-source-update-history.md`、`agent-harness-runtime-war.md` 建立双向交叉引用，并更正后两者中两处已被事实推翻的判断。
+- **标签**: 开源, AI, AI Agent, Claude Code, Skills, MCP
+
 ---
 
 ## 观点分享

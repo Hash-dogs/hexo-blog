@@ -70,9 +70,9 @@ DSH 的核心设计只有一条：**没有任何特权内核**。
 
 这套机制底层由 **Cordis** 这个元框架驱动，DeepSeek 与北京大学联合研发，论文叫《A Programming Paradigm for Spatiotemporal Composability》。Cordis 不是从零开始：它已经在 Koishi 框架上运行了四年，经过 4000+ 社区插件的验证。所以 DSH 的"一切皆插件"不是 PPT 概念，背后有一套跑了四年的成熟内核托底。
 
-![DeepSeek Harness 插件化架构：运行能力被组织成可查看、可替换、可重新组合的插件（来源：腾讯科技《黑鲸之后，OpenAI 开放 Harness》报道）](/images/dsh-architecture-qq.jpg)
+![DeepSeek Harness 插件化架构：运行能力被组织成可查看、可替换、可重新组合的插件，来源腾讯科技《黑鲸之后，OpenAI 开放 Harness》报道](/images/dsh-architecture-qq.jpg)
 
-*图：DeepSeek Harness 将运行能力组织成插件，开发者可以查看、替换和重新组合不同组件（来源：腾讯科技报道）*
+*图：DeepSeek Harness 将运行能力组织成插件，开发者可以查看、替换和重新组合不同组件。来源：腾讯科技报道*
 
 几个让我印象深刻的细节。
 
@@ -90,7 +90,7 @@ DSH 的核心设计只有一条：**没有任何特权内核**。
 | 8 月 20 日，开源第 6 天 | 约 17.37 万，Fork 1.88 万 |
 | 现在，8 月 22 日 | 约 18.2 万 |
 
-到 8 月 20 日，社区已经积累了 5100+ 插件、3500+ 作者。五天时间，社区补上了官方没来得及做的桌面应用（甚至有压到 18MB 的版本）、读图插件、IDE 形态、TUI，以及从 Claude Code、Cursor 迁移的工具。DeepSeek 官方还放出了自家工程团队每天在用的十几个 Skill。
+到 8 月 20 日，社区已经积累了 5100+ 插件、3500+ 作者。五天时间，社区补上了官方没来得及做的桌面应用，甚至有压到 18MB 的版本，还有读图插件、IDE 形态、TUI，以及从 Claude Code、Cursor 迁移的工具。DeepSeek 官方还放出了自家工程团队每天在用的十几个 Skill。
 
 连竞品 Pi 的掌舵者、Flask 之父 Armin Ronacher 都公开表态："这确实是我头一回看到这个领域里的新东西，被触动到想重新审视我们自己的一些选择。"
 
@@ -119,9 +119,9 @@ Codex Harness 本质上是 Codex App、CLI、IDE 扩展共用的同一套底层�
 - **GitHub 与 JetBrains**：把 Codex 带入现有 IDE 工作流；
 - **Relay**：官方示例运营应用，货运异常仪表板旁嵌入 Agent，用应用自有的 MCP 工具取数，重新预订货运等写操作须经人工审批。
 
-![OpenAI 展示的物流运营场景：Codex 被嵌入业务控制台，辅助调查异常运单（来源：腾讯科技《黑鲸之后，OpenAI 开放 Harness》报道）](/images/codex-relay-qq.jpg)
+![OpenAI 展示的物流运营场景：Codex 被嵌入业务控制台，辅助调查异常运单，来源腾讯科技《黑鲸之后，OpenAI 开放 Harness》报道](/images/codex-relay-qq.jpg)
 
-*图：OpenAI 展示的物流运营场景，Codex 被嵌入业务控制台，辅助调查异常运单（来源：腾讯科技报道）*
+*图：OpenAI 展示的物流运营场景，Codex 被嵌入业务控制台，辅助调查异常运单。来源：腾讯科技报道*
 
 值得注意的边界：**开源的是 Harness 和集成层，模型访问、账号额度、托管服务仍然是独立的付费层**。开源不等于免费模型。另外，IDE 扩展和 Codex Cloud 并不在开源范围内。
 
@@ -239,6 +239,12 @@ DSH 不直接收费，但它能帮 DeepSeek 更准确地计算 Session 轮数、
 **判断三：开源节奏不会停在 DeepSeek 和 OpenAI。**
 
 Kimi Code、ZCode、Pi Harness 都在同一条赛道上。但接下来值得关注的不是"还有谁开源"，而是"开源到什么深度"。ZCode 就不开放核心运行时源码，只开放插件、Skill 和 MCP 扩展。开放深度会成为新的竞争维度：谁能开源得更彻底，谁就能吸引更多开发者把工作流托管在自己的接口上。
+
+{% note warning %}
+**这条判断后来被事实推翻了。** 2026 年 9 月 18 日 ZCode 被曝静默上传全量 Git 历史，9 月 21 日智谱把整个仓库以 Apache-2.0 开源，包括 Agent 主循环在内的核心运行时全部放出。从"只开放插件"到"全量开源"，中间隔了三天。事件经过见[《ZCode 静默上传全量 Git 历史：事件经过与遗留争议》](https://hash-dogs.github.io/hexo-blog/2026/09/23/zcode-silent-upload-incident/)，源码层面的拆解见[《ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异》](https://hash-dogs.github.io/hexo-blog/2026/09/23/zcode-open-source-architecture-deep-dive/)。
+
+需要修正的还有动机。这里原本的判断是"开放深度会成为竞争维度"，ZCode 走完这一步却不是因为竞争，而是因为一次数据边界事故。同一个结果，两条完全不同的路径。
+{% endnote %}
 
 **判断四：模型公司会越来越像"基础设施公司"。**
 

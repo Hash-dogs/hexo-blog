@@ -171,6 +171,10 @@ flowchart LR
 
 各自的短板上，Claude Code 内核不开放，模型绑定订阅；Codex 可编程性受限，只有允许和拒绝写不了复杂逻辑；dsh 是开发者预览版，上手门槛高，MCP 支持面窄，只桥接 Tool，Resource 和 Prompt 的 Consumer 还没做，不建议直接上生产。
 
+{% note info %}
+**续篇补充。** 2026 年 9 月 21 日，智谱把 ZCode 全量开源，Apache-2.0，成为这个对比里的第四个坐标。它的路线和 dsh、Codex 都不同：交付的是完整产品形态的三端工作台，权限模型按工具元数据做 15 步判定，但没有默认 OS 沙箱。三家路线的横向对照写在[《ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异》](https://hash-dogs.github.io/hexo-blog/2026/09/23/zcode-open-source-architecture-deep-dive/)。
+{% endnote %}
+
 ## 这一周 DeepSeek 的下半场
 
 8月13日那一周，V4-Pro-0813 把模型开源，DeepSeek Harness 把执行层开源，API 峰谷定价开始商业化。8月17日的涨价不是简单收割，是模型单位价值让位给模型加执行层加生态的整体价值。
