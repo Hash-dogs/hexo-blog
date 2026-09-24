@@ -13,6 +13,11 @@ on:
       - main
   # 允许手动触发
   workflow_dispatch:
+    inputs:
+      indexnow_all:
+        description: '向 IndexNow 全量推送 sitemap 里的所有博文（默认只推变更部分）'
+        type: boolean
+        default: false
 
 # 权限设置：允许写入内容以部署到 gh-pages 分支
 permissions:
@@ -58,3 +63,18 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'chore: deploy updated site [skip ci]'
+
+      # 必须留在部署步骤之后：站点发布成功才推送。
+      # 只推本次新增/修改的博文（删除的被跳过，理由见脚本注释），基线取
+      # github.event.before。基线不可用时的行为见 tools/indexnow.js 顶部注释。
+      # 该步失败会让 job 标红，以便暴露密钥或 host 配置问题。
+      - name: 🔔 推送变更博文到 IndexNow
+        env:
+          # push 事件专有；workflow_dispatch 没有这个字段，会渲染成空串
+          INDEXNOW_SINCE: ${{ github.event.before }}
+        run: |
+          if [ "${{ inputs.indexnow_all }}" = "true" ]; then
+            node tools/indexnow.js --all
+          else
+            node tools/indexnow.js
+          fi

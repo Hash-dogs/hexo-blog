@@ -29,6 +29,10 @@ npx hexo new draft "Draft Title"
 
 # Publish draft
 npx hexo publish <draft-name>
+
+# 手动推送博文到 IndexNow（Bing / Yandex / Naver / Seznam / Yep）
+npm run indexnow        # 默认只推本次 git 变更的博文
+npm run indexnow:all    # 推送 sitemap 里的全部博文
 ```
 
 ## Architecture
@@ -44,6 +48,7 @@ npx hexo publish <draft-name>
 | `_config.yml` | Site-wide Hexo config (title, URL, theme, plugins, search) |
 | `_config.anzhiyu.yml` | Theme configuration overrides (~1340 lines — menus, music, comments, CDN, etc.) |
 | `.github/workflows/deploy.yml` | GitHub Actions: builds and deploys to `gh-pages` branch on push to `main` |
+| `tools/indexnow.js` | 部署后把本次变更的博文推送给 IndexNow（零依赖，见下方 Important Notes） |
 
 ### Content Structure
 
@@ -124,3 +129,5 @@ Custom tag plugins are registered as Hexo tags — e.g., `{% bilibili BV1... %}`
 - The `public/` directory is gitignored (generated artifacts).
 - Site URL is `https://hash-dogs.github.io/hexo-blog/` (GitHub Pages project site). The `root: /hexo-blog/` config must remain set.
 - Language is `zh-CN`, timezone `Asia/Shanghai`.
+- **`source/d9d28193ba55be2a2293b0516158bef5.txt` 勿删、勿改名。** 它是 IndexNow 的归属凭证，Hexo 会原样拷到 `public/` 供 `https://hash-dogs.github.io/hexo-blog/<key>.txt` 访问，`tools/indexnow.js` 每次请求都靠它证明站点归属。该文件一旦缺失或内容对不上，推送会全部返回 403。性质同 `googleee91582b4b178b35.html`。
+  因为站点在 `/hexo-blog/` 子路径下、主机根目录不属于本站，密钥无法放到根目录，只能通过请求里的 `keyLocation` 声明——IndexNow 允许这样，但附带一条限制：子目录里的密钥只对该目录及其子目录下的 URL 有效。本站所有 URL 都在 `/hexo-blog/` 之下，条件满足。若将来迁到自有域名根目录，最省事的做法是把密钥文件挪到根目录并去掉 `keyLocation`。
