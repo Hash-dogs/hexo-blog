@@ -31,9 +31,15 @@ npx hexo new draft "Draft Title"
 npx hexo publish <draft-name>
 
 # 手动推送博文到 IndexNow（Bing / Yandex / Naver / Seznam / Yep）
+# 日常无需手动跑：push 到 main 后由 CI 自动推送本次变更的博文。
 npm run indexnow        # 默认只推本次 git 变更的博文
 npm run indexnow:all    # 推送 sitemap 里的全部博文
 ```
+
+> ⚠️ 永久链接的日期**跟随构建机时区**（CI 是 UTC，本机是 Asia/Shanghai），
+> front-matter 时间早于 08:00 的博文两处会差一天——已有 4 篇如此，线上用的是 UTC 那套。
+> 所以本地构建出的 `public/sitemap.xml` 里那些 URL 在线上是 404。`npm run indexnow`
+> 在本地跑时会先逐条核验线上存在性并拦住，但**别用本地构建的产物去推断线上 URL**。
 
 ## Architecture
 

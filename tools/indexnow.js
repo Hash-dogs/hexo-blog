@@ -12,6 +12,9 @@
  *
  * 前置条件：先跑过 npm run build。sitemap 与待校验的 public/ 密钥文件都来自 public/。
  *
+ * 日常交给 CI 即可（push 到 main 会自动跑）。本地手动跑会在提交前额外校验每条 URL
+ * 在线上确实存在，因为本机构建的永久链接日期可能与线上差一天（见 assertUrlsLive）。
+ *
  * 用法：
  *   node tools/indexnow.js              # 只推送本次 git 变更的博文
  *   node tools/indexnow.js --all        # 忽略 git diff，推送 sitemap 里全部博文
@@ -297,6 +300,49 @@ async function checkKeyLocation() {
   return false;
 }
 
+/**
+ * 本地运行专用：逐个确认目标 URL 在线上确实存在。
+ *
+ * 本机构建的 public/sitemap.xml 与线上未必一致 —— 永久链接的日期跟随构建机时区
+ * （CI 是 UTC，本机是 Asia/Shanghai），front-matter 时间在 08:00 之前的博文两边会
+ * 差一天。实测有 4 篇如此，本机那套日期在线上是 404。把 404 的 URL 推给搜索引擎
+ * 纯粹是噪音，所以本地跑之前先拦住。
+ *
+ * CI 里不做这个校验：那时新博文刚推到 gh-pages，Pages 还没构建完，页面本来就还没
+ * 上线，校验只会每次都误报。
+ */
+async function assertUrlsLive(urls) {
+  console.log(`  本地运行，先确认这 ${urls.length} 条在线上存在…`);
+  const failures = [];
+
+  for (const url of urls) {
+    try {
+      const res = await fetch(url, {
+        method: 'HEAD',
+        redirect: 'follow',
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
+      });
+      if (!res.ok) failures.push(`${url}  →  HTTP ${res.status}`);
+    } catch (err) {
+      failures.push(`${url}  →  ${err.message}`);
+    }
+  }
+
+  if (failures.length === 0) {
+    console.log('  ✓ 全部存在');
+    return;
+  }
+
+  die(
+    `以下 ${failures.length} 条 URL 在线上取不到：\n` +
+      failures.map(f => `  ${f}`).join('\n') +
+      `\n\n  最常见的原因是本机构建与线上构建的时区不同：Hexo 永久链接的日期跟随\n` +
+      `  构建机时区，CI 跑在 UTC、本机在 Asia/Shanghai，front-matter 时间早于\n` +
+      `  08:00 的博文两边会差一天。要拿与线上一致的 URL，请让 CI 去推送\n` +
+      `  （push 到 main 即可），或先在 CI 上确认线上日期后再手工核对。`
+  );
+}
+
 async function submit(urls) {
   let submitted = 0;
 
@@ -457,6 +503,9 @@ async function main() {
     );
   }
   console.log('  ✓ 密钥文件已上线');
+
+  // 仅在本地运行时做线上校验，CI 里跳过（理由见 assertUrlsLive 注释）。
+  if (!process.env.CI) await assertUrlsLive(urls);
 
   const count = await submit(urls);
   console.log(`\n完成，共提交 ${count} 条。`);
