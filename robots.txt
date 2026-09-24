@@ -1,0 +1,21 @@
+# robots.txt
+#
+# ⚠️ 当前不生效，属预置文件，请勿误以为它在工作。
+#
+#   规范要求 robots.txt 必须位于「主机根目录」，爬虫只在根目录请求该文件。
+#   本站主机是 hash-dogs.github.io，本文件落在 /hexo-blog/ 子路径下，
+#   Google / Bing / 百度 都不会请求它，等同于不存在。
+#
+#   它会自动生效的时机 = 迁到自有域名、站点位于根目录之后。
+#   在那之前，让搜索引擎发现 sitemap 有两条路：
+#     1) Google Search Console / Bing Webmaster Tools 后台手动提交
+#        https://hash-dogs.github.io/hexo-blog/sitemap.xml
+#     2) 新博文发布后由 IndexNow 主动推送（见 tools/indexnow.js）。
+#        注意 IndexNow 只覆盖 Bing / Yandex / Naver / Seznam / Yep，不含 Google。
+#
+#   （注：<link rel="sitemap"> 与 sitemap ping 端点均已被搜索引擎废弃，不要用）
+
+User-agent: *
+Allow: /
+
+Sitemap: https://hash-dogs.github.io/hexo-blog/sitemap.xml

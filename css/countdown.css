@@ -1,0 +1,165 @@
+/*
+ * 侧边栏「时光」卡片 —— 节日倒计时 + 今日/本周/本月/本年时间进度
+ * 配色全部取自主题 CSS 变量，亮色/暗色模式自动跟随，无需额外适配：
+ *   --anzhiyu-main      站点主色（亮色 #425AEF 蓝 / 暗色 #f2b94b 黄）
+ *   --anzhiyu-secondbg  进度条轨道底色
+ *   --anzhiyu-card-bg   卡片底色，用作填充区内文字色以保证两种模式下都有对比度
+ */
+
+#card-countdown .item-content {
+  padding-top: 4px;
+}
+
+/* ── 两栏容器 ───────────────────────────────────────── */
+.cd-wrap {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* ── 左栏：节日倒计时 ───────────────────────────────── */
+.cd-left {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding-right: 14px;
+}
+
+/* 两栏之间的竖分隔线（用卡片描边色，secondbg 太白会看不见） */
+.cd-left::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 6%;
+  bottom: 6%;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--anzhiyu-card-border);
+}
+
+.cd-text {
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--anzhiyu-fontcolor);
+  opacity: .6;
+}
+
+.cd-name {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+  white-space: nowrap;
+  color: var(--anzhiyu-fontcolor);
+}
+
+.cd-days {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--anzhiyu-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-date {
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: nowrap;
+  color: var(--anzhiyu-fontcolor);
+  opacity: .5;
+}
+
+/* ── 右栏：时间进度 ─────────────────────────────────── */
+.cd-right {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  padding-left: 14px;
+}
+
+.cd-item {
+  display: flex;
+  align-items: center;
+}
+
+.cd-item-name {
+  flex: 0 0 auto;
+  width: 30px;
+  font-size: 12px;
+  color: var(--anzhiyu-fontcolor);
+  opacity: .75;
+}
+
+.cd-track {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--anzhiyu-secondbg);
+}
+
+.cd-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-radius: 9px;
+  background: var(--anzhiyu-main);
+  transition: width .8s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* 百分比文字：始终贴在填充区右缘 —— 填充够宽时压在色块内（is-in），
+   不够宽时挪到色块右侧（is-out），避免文字被裁切。 */
+.cd-pct {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  transition: left .8s cubic-bezier(.4, 0, .2, 1);
+}
+
+.cd-pct.is-in {
+  transform: translate(-100%, -50%);
+  padding-right: 7px;
+  color: var(--anzhiyu-card-bg);
+}
+
+.cd-pct.is-out {
+  transform: translate(0, -50%);
+  padding-left: 7px;
+  color: var(--anzhiyu-fontcolor);
+  opacity: .75;
+}
+
+/* ── 窄屏：压缩字号与间距 ───────────────────────────── */
+@media screen and (max-width: 768px) {
+  .cd-left {
+    min-width: 72px;
+    padding-right: 10px;
+  }
+
+  .cd-days {
+    font-size: 26px;
+  }
+
+  .cd-right {
+    gap: 6px;
+    padding-left: 10px;
+  }
+
+  .cd-item-name {
+    width: 28px;
+    font-size: 11px;
+  }
+}

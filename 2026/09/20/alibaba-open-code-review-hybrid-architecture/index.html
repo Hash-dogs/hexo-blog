@@ -1,0 +1,876 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent | Hash-dogs的博客</title><meta name="keywords" content="开源,AI,Skills,Claude Code,AI Agent,Token优化"><meta name="author" content="hash-dog"><meta name="copyright" content="hash-dog"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent"><meta name="application-name" content="GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent"><meta property="og:url" content="https://hash-dogs.github.io/hexo-blog/2026/09/20/alibaba-open-code-review-hybrid-architecture/index.html"><meta property="og:site_name" content="Hash-dogs的博客"><meta property="og:description" content="alibaba&amp;#x2F;open-code-review 本周以 11,489 星增量登顶 GitHub Trending 周榜第一，总星数来到 37.7K。这是阿里内部跑了两年、服务数万名开发者的 AI 代码审查工具，思路与主流做法相反：不给 Agent 更多自由，而是在流水线三个节点注入确定性。本文拆解"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://opengraph.githubassets.com/1/alibaba/open-code-review"><meta property="article:author" content="hash-dog"><meta property="article:tag" content="技术,博客,编程,开发"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://opengraph.githubassets.com/1/alibaba/open-code-review"><meta name="description" content="alibaba&amp;#x2F;open-code-review 本周以 11,489 星增量登顶 GitHub Trending 周榜第一，总星数来到 37.7K。这是阿里内部跑了两年、服务数万名开发者的 AI 代码审查工具，思路与主流做法相反：不给 Agent 更多自由，而是在流水线三个节点注入确定性。本文拆解"><link rel="shortcut icon" href="/hexo-blog/favicon.ico"><link rel="canonical" href="https://hash-dogs.github.io/hexo-blog/2026/09/20/alibaba-open-code-review-hybrid-architecture/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/hexo-blog/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://twikoo4azy.vercel.app',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/hexo-blog/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/hexo-blog/search.json","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: hash-dog","link":"链接: ","source":"来源: Hash-dogs的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Hash-dogs的博客',
+  title: 'GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent',
+  postAI: '',
+  pageFillDescription: '引言, 项目背景：用通用 Agent 做代码审查的三个坑, 核心创新：把确定性注入流水线, 深度架构解析, 一、Rule-Guided Dispatch, 二、Grounded File Review, 三、Independent Reflection, 完整数据流, 基准测试：25.10% F1 与九分之一 Token, 争议：一次方向完全相反的独立复现, 快速上手, 安装, 配置模型, 四种审查模式, 输出成 JSON 接进 CI, 宿主 Agent 集成, 总结引言本周周榜第一的位置被一个代码审查工具拿走了本周新增星总星数从约涨到在月日那期热榜快照里它的周增星数排在第一压过了同期所有类项目项目地址官网许可证技术栈个文件个仓库体积开源时间年月日它不是一个新项目突然爆红阿里内部的代码审查助手已经跑了两年服务数万名开发者累计识别数百万个代码缺陷这次是把内部版本完整开源同期还有一篇论文支撑年月日发布作者来自阿里共人论文标题就是它的方法论宣言项目背景用通用做代码审查的三个坑年上半年社区一度认为代码审查会被通用顺带解决既然能读懂整个仓库能调用工具能跑测试那让它读一遍提意见似乎是水到渠成的事实际跑下来团队普遍撞到三堵墙问题表现后果覆盖不全变更文件被跳过重点文件没进审查范围漏掉的恰好是核心逻辑位置漂移评论行号对不上指向错误代码行开发者得自己找问题在哪质量不稳同一份代码换个提示词结论就变无法写进无法作为门禁论文把根因归结为两个交织的缺陷非确定性工具调用不受约束可以自由决定读哪些文件调几次工具在哪停下审查结果因此不可复现上下文局部性审查者只能看到范围内的信息无法判断一个改动在更大的调用链里意味着什么由此衍生出三项具体挑战上下文检索错位多文件在连贯性与效率之间的权衡以及削弱开发者信任的虚假评论最后一项最要命工具的价值取决于开发者是否愿意读它的输出一条误报不会让人关掉工具一百条会核心创新把确定性注入流水线抛开具体实现提出的方法论文档只有一句话能用工程保证正确的步骤就不交给模型决定这与当时的主流方向正好相反年的工程习惯是不断扩大模型的自主权给更多工具更长的时间更少的约束的做法是反过来的在流水线的关键节点主动收权只把真正需要理解语义的环节留给模型分工如下环节由谁负责具体做什么文件选择确定性管线判定哪些文件需要审查哪些应过滤文件打包确定性管线把相关文件合成一个审查单元规则匹配确定性管线模板引擎式匹配按文件特征选规则评论定位确定性管线外置的定位模块保证行号准确评论反思确定性管线独立的反驳检查过滤误报上下文检索动态决定读哪些额外信息缺陷描述理解语义组织语言生成评论场景提示词针对代码审查蒸馏过的模板设计要点工程层保证完整性位置和规则命中模型层只负责理解与表达深度架构解析论文把架构拆成三个阶段全量扫描规则引导式分发文件包文件包文件包独立反思证伪过滤通过行级评论驳回丢弃输出一这一层解决的是审什么和按什么标准审传统做法是让自己看自己决定重点改为多层规则体系确定性地完成初筛消除自主决策带来的偏差规则来自三个层级可以逐层覆盖内置规则集针对代码审查优化的多语言规则覆盖空指针线程安全注入参数校验缺失配置错误等项目级规则团队在仓库里自定义的标准用户级规则开发者个人的偏好配置匹配方式是模板引擎式的而非让模型判断论文的说法是这比纯语言驱动更稳定更可预测二这一层解决的是怎么审关键设计是文件打包把相关的文件捆绑成一个审查单元每个包交给一个隔离上下文的独立处理给的例子很典型和会被捆在一起审而不是拆成两次互不知情的审查这样做同时拿到了两个好处上下文连贯单个包内的文件有完整关联信息不会出现只改了英文资源文件漏看中文文件的误判可并发包与包之间隔离可以并行跑整体效率可控代价是跨文件的依赖被切断了所以架构里保留了按需恢复跨文件依赖的机制内部并不放开探索它跑的是一个循环但暴露的工具集是经过筛选的有限集合这个工具集不是拍脑袋定的而是从大规模生产数据里的工具调用轨迹分析得来按调用频率和重复率蒸馏用得少重复度高的工具被砍掉三这一层解决的是审得对不对这是整个架构里最有意思的部分反思模块是一个证伪优先的过滤器专门负责杀掉误报但它的关键设计不在于提示词而在于信息边界的控制反思模块只看原始看不到主评审那一路工具增强探索的过程这条约束叫非对称信息边界如果反思模块能看到主的全部推理链条和中间证据它很容易顺着已有的论证走下去得出确实是个问题的结论这种自我强化偏见在长链条推理里非常常见只给它原始等于强迫它从证据重新走一遍论文称这个设计能在保留召回率的同时提升精确率完整数据流一次典型审查的生命周期收集变更读取或按做分支对比或按锁定单个提交规则分发多层规则体系筛选出待审文件相关文件打成审查包并行评审每个包交给一个隔离的在受限工具集里跑循环产出候选评论独立反思候选评论交给只看原始的反思模块逐条尝试证伪定位与输出外置定位模块锚定行号输出行级评论可转成供消费基准测试与九分之一项目自建了基准构建方式是个热门开源仓库个真实种编程语言多位资深工程师交叉标注条经人工验证的真实缺陷作为数据集已发布在的评测指标是平均耗时和平均在同一个底层模型下对比通用官方公布的完整结果配置平均耗时论文给出的结论是六种后端上全面超过等主流编码最高基线提升倍消耗为基线的到两个数字之间的关系值得单独看提升接近倍从到同样一个模型换掉外层框架误报率从九成多降到三分之二主动降低了从掉到这是明确的设计取舍官方表述是用个真实问题的漏报换回条误报的消失开发者少读条噪声多漏个问题这笔账在场景里算得过来但的精确率本身也说明问题即便是这份基准上表现最好的配置每三条告警里仍有两条不是真缺陷代码审查这个品类目前离可信门禁还差得远争议一次方向完全相反的独立复现基准公布后上出现了分条评论的讨论帖争论的核心是一条独立复现结果用户拿跑了的代码审查基准取了其中个里的个结果与官方数据方向完全相反指标官方公布独立复现性格高精度低召回高召回大噪声一个主打牺牲召回换精确的工具实测表现得像个高召回噪声很大的审查器项目负责人在同一帖中回应称被测试的版本里并确认问题已复现并修复但双方的证据都没能彻底说服对方版本错位独立测试跑的是而当时仓库已到数字描述的是一个旧构建基准不可复跑所有官方数字只存在于仓库里的一张图没有表格没有原始输出也没有可重跑的测试框架一个已知解释不了全部差距其他值得记录的批评上线时规则文件全部是中文非中文使用者需要机器翻译用户自行发布了一份译好的规则副本项目后来才合并英文版有评论者用自建审查应用跑完全部个得到精确率召回率成本约美元这个数字比官方和独立复现都更中庸也从侧面说明这一品类的工具普遍会漏掉大多数缺陷一条流传很广的评论点破了指标游戏值得公允记录的是披露了仓库名单数量和标注者规模比多数厂商的基准要透明也主动承认了召回率偏弱问题出在工程可复现性上而不是态度上快速上手安装推荐二进制前置条件是安装后全局可用命令也可以从下载预编译二进制或走仓库里的脚本一条命令装进兼容的宿主配置模型选择供应商选择模型或者直接改配置文件环境变量优先级更高四种审查模式工作区模式审查所有暂存未暂存和未跟踪的改动分支对比模式单个提交全文件扫描不依赖用于审计陌生代码库审查会话可以中断续跑用查看历史继续输出成接进输出里的每条记录带和字段可以直接被流水线消费官方已提供和的集成方式宿主集成委托模式注册斜杠命令会运行并自动过滤修复发现的问题和是给不想单独配置模型的场景准备的不自己调而是把审查任务委托给宿主执行此外还支持的可移植以及用于扩展审查浏览器端的可以回放审查会话并标记已修复或已忽略的问题走总结本周拿下周榜第一靠的不是新能力而是一个方向的回调年上半年工程的主流做法是不断给模型放权把这件事倒过来做在流水线的三个节点主动注入确定性文件选择规则匹配评论反思全部交给工程代码模型只保留理解语义和生成表达这两件事结果是同一个底层模型从提到降到九分之一代价同样清晰从掉到地毯式排查不是它的强项的可复现性至今存疑官方数字只活在一张里唯一一次独立复现给出了方向相反的结果适用边界适合本地自检或者作为上的参考性评论不适合无人把关的强制合并门禁也不适合召回率优先的场景把它和最近几周的热门放在一起看线索会更清楚用七级决策阶梯约束别过度设计要求先写类型化再渲染把确定性写进流水线三个项目来自完全不同的作者和领域指向的却是同一件事工程的重心正在从加能力转向管行为阿里这次开源的真正价值可能不在工具本身而在它给出的那个判断模型变强不代表约束可以变少有些环节工程比模型更值得信任本文基于仓库年月日发布的论文公开数据讨论帖及多篇社区实测文章编写星数截至年月日',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-09-20 11:00:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/hexo-blog/css/countdown.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/hexo-blog/atom.xml" title="Hash-dogs的博客" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/hexo-blog/images/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/hexo-blog/" accesskey="h"><div class="title">Hash-dogs的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 留言</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 1.05rem;">AI<sup>27</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 1.05rem;">AI Agent<sup>25</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 1.05rem;">Claude Code<sup>12</sup></a><a href="/hexo-blog/tags/DeepSeek/" style="font-size: 1.05rem;">DeepSeek<sup>1</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 1.05rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 1.05rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 1.05rem;">LLM<sup>9</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 1.05rem;">MCP<sup>9</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 1.05rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 1.05rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 1.05rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 1.05rem;">Skills<sup>16</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 1.05rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 1.05rem;">Token优化<sup>3</sup></a><a href="/hexo-blog/tags/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/" style="font-size: 1.05rem;">代码质量<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 1.05rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B/" style="font-size: 1.05rem;">大模型评测<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.05rem;">安全<sup>4</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.05rem;">开源<sup>25</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">技术分享<sup>10</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 1.05rem;">研究工具<sup>3</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.05rem;">自动化<sup>8</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">观点分享<sup>6</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.05rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.05rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 1.05rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 1.05rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/09/"><span class="card-archive-list-date">九月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/08/"><span class="card-archive-list-date">八月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/07/"><span class="card-archive-list-date">七月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/hexo-blog/archives/2026/06/"><span class="card-archive-list-date">六月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/hexo-blog/categories/github%E7%83%AD%E9%97%A8/" itemprop="url">github热门</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>开源</span></a><a class="article-meta__tags" href="/hexo-blog/tags/AI/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI</span></a><a class="article-meta__tags" href="/hexo-blog/tags/Skills/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Skills</span></a><a class="article-meta__tags" href="/hexo-blog/tags/Claude-Code/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Claude Code</span></a><a class="article-meta__tags" href="/hexo-blog/tags/AI-Agent/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI Agent</span></a><a class="article-meta__tags" href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Token优化</span></a></span></div></div><h1 class="post-title" itemprop="name headline">GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-09-20T03:00:00.000Z" title="发表于 2026-09-20 11:00:00">2026-09-20</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-09-20T03:00:00.000Z" title="更新于 2026-09-20 11:00:00">2026-09-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://opengraph.githubassets.com/1/alibaba/open-code-review"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://hash-dogs.github.io/hexo-blog/2026/09/20/alibaba-open-code-review-hybrid-architecture/"><header><a class="post-meta-categories" href="/hexo-blog/categories/github%E7%83%AD%E9%97%A8/" itemprop="url">github热门</a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" tabindex="-1" itemprop="url">开源</a><a href="/hexo-blog/tags/AI/" tabindex="-1" itemprop="url">AI</a><a href="/hexo-blog/tags/Skills/" tabindex="-1" itemprop="url">Skills</a><a href="/hexo-blog/tags/Claude-Code/" tabindex="-1" itemprop="url">Claude Code</a><a href="/hexo-blog/tags/AI-Agent/" tabindex="-1" itemprop="url">AI Agent</a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" tabindex="-1" itemprop="url">Token优化</a><h1 id="CrawlerTitle" itemprop="name headline">GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">hash-dog</span><time itemprop="dateCreated datePublished" datetime="2026-09-20T03:00:00.000Z" title="发表于 2026-09-20 11:00:00">2026-09-20</time><time itemprop="dateCreated datePublished" datetime="2026-09-20T03:00:00.000Z" title="更新于 2026-09-20 11:00:00">2026-09-20</time></header><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>本周 GitHub Trending 周榜第一的位置，被一个代码审查工具拿走了。</p>
+<p><strong>alibaba&#x2F;open-code-review</strong> 本周新增 <strong>11,489</strong> 星，总星数从约 25,000 涨到 <strong>37,700</strong>，Forks <strong>2,700</strong>，Commits <strong>744</strong>。在 9 月 19 日那期热榜快照里，它的周增星数排在第一，压过了同期所有 Agent Skills 类项目。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/alibaba/open-code-review">https://github.com/alibaba/open-code-review</a><br>官网：<a target="_blank" rel="noopener" href="https://open-codereview.ai/">open-codereview.ai</a><br>许可证：Apache-2.0，Copyright 2026 Alibaba<br>技术栈：Go **70.2%**、TypeScript **16.9%**，925 个文件、345 个 <code>.go</code>、仓库体积 52 MB<br>开源时间：2026 年 5 月 18 日</p>
+<p>它不是一个新项目突然爆红。阿里内部的 AI 代码审查助手已经跑了两年，服务数万名开发者，累计识别数百万个代码缺陷。这次是把内部版本完整开源。</p>
+<div class="note info flat"><p>同期还有一篇论文支撑：<strong>OpenCodeReview: Determinism over Non-Determinism for Cost-Effective Agent-Based Code Review</strong>，2026 年 8 月 10 日发布，作者来自阿里，共 11 人。论文标题就是它的方法论宣言。</p>
+</div>
+
+<hr>
+<h2 id="项目背景：用通用-Agent-做代码审查的三个坑"><a href="#项目背景：用通用-Agent-做代码审查的三个坑" class="headerlink" title="项目背景：用通用 Agent 做代码审查的三个坑"></a>项目背景：用通用 Agent 做代码审查的三个坑</h2><p>2026 年上半年，社区一度认为代码审查会被通用 Agent 顺带解决。既然 Claude Code、Codex 能读懂整个仓库、能调用工具、能跑测试，那让它读一遍 diff 提意见，似乎是水到渠成的事。</p>
+<p>实际跑下来，团队普遍撞到三堵墙：</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>表现</th>
+<th>后果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>覆盖不全</td>
+<td>变更文件被跳过，重点文件没进审查范围</td>
+<td>漏掉的恰好是核心逻辑</td>
+</tr>
+<tr>
+<td>位置漂移</td>
+<td>评论行号对不上，指向错误代码行</td>
+<td>开发者得自己找问题在哪</td>
+</tr>
+<tr>
+<td>质量不稳</td>
+<td>同一份代码换个提示词，结论就变</td>
+<td>无法写进 CI，无法作为门禁</td>
+</tr>
+</tbody></table>
+<p>论文把根因归结为两个交织的缺陷：</p>
+<p><strong>非确定性</strong>。工具调用不受约束，Agent 可以自由决定读哪些文件、调几次工具、在哪停下。审查结果因此不可复现，<code>unbounded tool use makes review outcomes unstable</code>。</p>
+<p><strong>上下文局部性</strong>。审查者只能看到 diff 范围内的信息，无法判断一个改动在更大的调用链里意味着什么，<code>the reviewer&#39;s access remains bounded to the diff</code>。</p>
+<p>由此衍生出三项具体挑战：上下文检索错位、多文件 PR 在连贯性与效率之间的权衡，以及削弱开发者信任的虚假评论。</p>
+<div class="note warning flat"><p>最后一项最要命。工具的价值取决于开发者是否愿意读它的输出。一条误报不会让人关掉工具，一百条会。</p>
+</div>
+
+<hr>
+<h2 id="核心创新：把确定性注入流水线"><a href="#核心创新：把确定性注入流水线" class="headerlink" title="核心创新：把确定性注入流水线"></a>核心创新：把确定性注入流水线</h2><p>抛开具体实现，open-code-review 提出的方法论文档只有一句话：</p>
+<blockquote>
+<p><strong>能用工程保证正确的步骤，就不交给模型决定。</strong></p>
+</blockquote>
+<p>这与当时的主流方向正好相反。2026 年的 Agent 工程习惯是不断扩大模型的自主权，给更多工具、更长的时间、更少的约束。open-code-review 的做法是反过来的：在流水线的关键节点主动收权，只把真正需要理解语义的环节留给模型。</p>
+<p>分工如下：</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>由谁负责</th>
+<th>具体做什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件选择</td>
+<td>确定性管线</td>
+<td>判定哪些文件需要审查、哪些应过滤</td>
+</tr>
+<tr>
+<td>文件打包</td>
+<td>确定性管线</td>
+<td>把相关文件合成一个审查单元</td>
+</tr>
+<tr>
+<td>规则匹配</td>
+<td>确定性管线</td>
+<td>模板引擎式匹配，按文件特征选规则</td>
+</tr>
+<tr>
+<td>评论定位</td>
+<td>确定性管线</td>
+<td>外置的定位模块，保证行号准确</td>
+</tr>
+<tr>
+<td>评论反思</td>
+<td>确定性管线</td>
+<td>独立的反驳检查，过滤误报</td>
+</tr>
+<tr>
+<td>上下文检索</td>
+<td>LLM Agent</td>
+<td>动态决定读哪些额外信息</td>
+</tr>
+<tr>
+<td>缺陷描述</td>
+<td>LLM Agent</td>
+<td>理解语义、组织语言、生成评论</td>
+</tr>
+<tr>
+<td>场景提示词</td>
+<td>LLM Agent</td>
+<td>针对代码审查蒸馏过的 prompt 模板</td>
+</tr>
+</tbody></table>
+<mark class="hl-label blue">设计要点</mark>  工程层保证完整性、位置和规则命中，模型层只负责理解与表达。
+
+<hr>
+<h2 id="深度架构解析"><a href="#深度架构解析" class="headerlink" title="深度架构解析"></a>深度架构解析</h2><p>论文把架构拆成三个阶段：<strong>Rule-Guided Dispatch</strong>、<strong>Grounded File Review</strong>、<strong>Independent Reflection</strong>。</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden>
+  graph TD
+    A[Git diff &#x2F; 全量扫描] --&gt; B[Rule-Guided Dispatch&lt;br&#x2F;&gt;规则引导式分发]
+    B --&gt; C1[SubAgent&lt;br&#x2F;&gt;文件包 1]
+    B --&gt; C2[SubAgent&lt;br&#x2F;&gt;文件包 2]
+    B --&gt; C3[SubAgent&lt;br&#x2F;&gt;文件包 N]
+    C1 --&gt; D[Independent Reflection&lt;br&#x2F;&gt;独立反思]
+    C2 --&gt; D
+    C3 --&gt; D
+    D --&gt; E{证伪过滤}
+    E --&gt;|通过| F[行级评论]
+    E --&gt;|驳回| G[丢弃]
+    F --&gt; H[JSON &#x2F; CI 输出]
+  </pre></div>
+
+<h3 id="一、Rule-Guided-Dispatch"><a href="#一、Rule-Guided-Dispatch" class="headerlink" title="一、Rule-Guided Dispatch"></a>一、Rule-Guided Dispatch</h3><p>这一层解决的是”审什么”和”按什么标准审”。</p>
+<p>传统做法是让 Agent 自己看 diff、自己决定重点。open-code-review 改为多层规则体系确定性地完成初筛，消除 Agent 自主决策带来的偏差。规则来自三个层级，可以逐层覆盖：</p>
+<ul>
+<li><strong>内置规则集</strong>：针对代码审查优化的多语言规则，覆盖空指针 NPE、线程安全、XSS、SQL 注入、参数校验缺失、Mapper SQL 配置错误等</li>
+<li><strong>项目级规则</strong>：团队在仓库里自定义的标准</li>
+<li><strong>用户级规则</strong>：开发者个人的偏好配置</li>
+</ul>
+<p>匹配方式是模板引擎式的，而非让模型判断。论文的说法是这比纯语言驱动更稳定、更可预测。</p>
+<h3 id="二、Grounded-File-Review"><a href="#二、Grounded-File-Review" class="headerlink" title="二、Grounded File Review"></a>二、Grounded File Review</h3><p>这一层解决的是”怎么审”。</p>
+<p>关键设计是<strong>文件打包</strong>。把相关的文件捆绑成一个审查单元，每个包交给一个隔离上下文的 SubAgent 独立处理。README 给的例子很典型：<code>message_en.properties</code> 和 <code>message_zh.properties</code> 会被捆在一起审，而不是拆成两次互不知情的审查。</p>
+<p>这样做同时拿到了两个好处：</p>
+<ol>
+<li><strong>上下文连贯</strong>：单个包内的文件有完整关联信息，不会出现只改了英文资源文件、漏看中文文件的误判</li>
+<li><strong>可并发</strong>：包与包之间隔离，可以并行跑，整体效率可控</li>
+</ol>
+<p>代价是跨文件的依赖被切断了，所以架构里保留了按需恢复跨文件依赖的机制。</p>
+<p>SubAgent 内部并不放开探索。它跑的是一个 ReAct 循环，但暴露的工具集是<strong>经过筛选的有限集合</strong>。这个工具集不是拍脑袋定的，而是从大规模生产数据里的工具调用轨迹分析得来，按调用频率和重复率蒸馏。用得少、重复度高的工具被砍掉。</p>
+<h3 id="三、Independent-Reflection"><a href="#三、Independent-Reflection" class="headerlink" title="三、Independent Reflection"></a>三、Independent Reflection</h3><p>这一层解决的是”审得对不对”。</p>
+<p>这是整个架构里最有意思的部分。反思模块是一个<strong>证伪优先的过滤器</strong>，专门负责杀掉误报。但它的关键设计不在于提示词，而在于信息边界的控制：</p>
+<div class="note primary flat"><p>反思模块只看<strong>原始 diff</strong>，看不到主评审 Agent 那一路工具增强探索的过程。</p>
+</div>
+
+<p>这条约束叫<strong>非对称信息边界</strong>。如果反思模块能看到主 Agent 的全部推理链条和中间证据，它很容易顺着已有的论证走下去，得出”确实是个问题”的结论。这种自我强化偏见在长链条推理里非常常见。只给它原始 diff，等于强迫它从证据重新走一遍。</p>
+<p>论文称这个设计能在保留召回率的同时提升精确率。</p>
+<h3 id="完整数据流"><a href="#完整数据流" class="headerlink" title="完整数据流"></a>完整数据流</h3><div class="timeline  blue"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>一次典型审查的生命周期</p>
+</div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>收集变更</p>
+</div></div><div class='timeline-item-content'><p>读取 Git diff，或按 <code>--from</code>&#x2F;<code>--to</code> 做分支对比，或按 <code>--commit</code> 锁定单个提交。</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>规则分发</p>
+</div></div><div class='timeline-item-content'><p>多层规则体系筛选出待审文件，相关文件打成审查包。</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>并行评审</p>
+</div></div><div class='timeline-item-content'><p>每个包交给一个隔离的 SubAgent，在受限工具集里跑 ReAct 循环，产出候选评论。</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>独立反思</p>
+</div></div><div class='timeline-item-content'><p>候选评论交给只看原始 diff 的反思模块，逐条尝试证伪。</p>
+</div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>定位与输出</p>
+</div></div><div class='timeline-item-content'><p>外置定位模块锚定行号，输出行级评论，可转成 JSON 供 CI 消费。</p>
+</div></div></div>
+
+<hr>
+<h2 id="基准测试：25-10-F1-与九分之一-Token"><a href="#基准测试：25-10-F1-与九分之一-Token" class="headerlink" title="基准测试：25.10% F1 与九分之一 Token"></a>基准测试：25.10% F1 与九分之一 Token</h2><p>项目自建了 <strong>AACR-Bench</strong> 基准，构建方式是：</p>
+<ul>
+<li>50 个热门开源仓库</li>
+<li>200 个真实 Pull Request</li>
+<li>10 种编程语言</li>
+<li>80 多位资深工程师交叉标注</li>
+<li><strong>1,505</strong> 条经人工验证的真实缺陷作为 ground truth</li>
+</ul>
+<p>数据集已发布在 Hugging Face 的 <code>Alibaba-Aone/aacr-bench</code>。评测指标是 F1、Precision、Recall、平均耗时和平均 Token。</p>
+<p>在同一个底层模型下对比通用 Agent，官方公布的完整结果：</p>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>F1</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>平均耗时</th>
+<th>Token</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Open Code Review</strong> + Claude 4.6 Opus</td>
+<td><strong>25.10%</strong></td>
+<td><strong>33.90%</strong></td>
+<td>20.00%</td>
+<td>1m23s</td>
+<td>385K</td>
+</tr>
+<tr>
+<td>Open Code Review + Qwen3.8-Max</td>
+<td>23.00%</td>
+<td>33.90%</td>
+<td>17.40%</td>
+<td>5m14s</td>
+<td>625K</td>
+</tr>
+<tr>
+<td>Open Code Review + GLM-5.2</td>
+<td>21.30%</td>
+<td>32.30%</td>
+<td>15.90%</td>
+<td>7m58s</td>
+<td>743K</td>
+</tr>
+<tr>
+<td>Open Code Review + GPT-5.5</td>
+<td>21.00%</td>
+<td>32.10%</td>
+<td>15.50%</td>
+<td>2m51s</td>
+<td>422K</td>
+</tr>
+<tr>
+<td>Claude Code + Claude 4.6 Opus</td>
+<td>11.57%</td>
+<td>7.23%</td>
+<td><strong>28.90%</strong></td>
+<td>13m6s</td>
+<td>5,664K</td>
+</tr>
+<tr>
+<td>Claude Code + Qwen3.7-Max</td>
+<td>12.17%</td>
+<td>8.23%</td>
+<td>23.37%</td>
+<td>8m6s</td>
+<td>5,153K</td>
+</tr>
+<tr>
+<td>Claude Code + GLM-5.1</td>
+<td>11.93%</td>
+<td>8.37%</td>
+<td>20.80%</td>
+<td>14m10s</td>
+<td>4,038K</td>
+</tr>
+<tr>
+<td>Claude Code + GPT-5.5</td>
+<td>8.36%</td>
+<td>27.82%</td>
+<td>4.92%</td>
+<td>2m58s</td>
+<td>525K</td>
+</tr>
+</tbody></table>
+<p>论文给出的结论是：六种 LLM 后端上全面超过 Claude Code、Codex 等主流编码 Agent，SEM-F1 最高 **25.10%**，基线 **11.57%**，提升 <strong>2.17 倍</strong>；Token 消耗为基线的 <strong>1&#x2F;5 到 1&#x2F;15</strong>。</p>
+<p>两个数字之间的关系值得单独看：</p>
+<ul>
+<li><strong>Precision 提升接近 5 倍</strong>，从 7.23% 到 33.90%。同样一个模型，换掉外层框架，误报率从九成多降到三分之二。</li>
+<li><strong>Recall 主动降低了</strong>，从 28.90% 掉到 20.00%。这是明确的设计取舍，官方表述是 <code>favoring precision over noise</code>。</li>
+</ul>
+<p>用 134 个真实问题的漏报，换回 5,545 条误报的消失。开发者少读 5,545 条噪声，多漏 134 个问题，这笔账在 CI 场景里算得过来。</p>
+<div class="note warning flat"><p>但 33.90% 的精确率本身也说明问题：即便是这份基准上表现最好的配置，<strong>每三条告警里仍有两条不是真缺陷</strong>。代码审查 Agent 这个品类，目前离”可信门禁”还差得远。</p>
+</div>
+
+<hr>
+<h2 id="争议：一次方向完全相反的独立复现"><a href="#争议：一次方向完全相反的独立复现" class="headerlink" title="争议：一次方向完全相反的独立复现"></a>争议：一次方向完全相反的独立复现</h2><p>基准公布后，Hacker News 上出现了 284 分、73 条评论的讨论帖。争论的核心是一条独立复现结果。</p>
+<p>用户 <code>eranation</code> 拿 open-code-review 跑了 Martian 的代码审查基准 <code>codereview.withmartian.com</code>，取了其中 50 个 PR 里的 10 个。结果与官方数据<strong>方向完全相反</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>官方公布</th>
+<th>独立复现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Precision</td>
+<td>33.90%</td>
+<td>≈ 12%</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td>20.00%</td>
+<td>≈ 74%</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>25.10%</td>
+<td>≈ 20%</td>
+</tr>
+<tr>
+<td>性格</td>
+<td>高精度、低召回</td>
+<td>高召回、大噪声</td>
+</tr>
+</tbody></table>
+<p>一个主打”牺牲召回换精确”的工具，实测表现得像个高召回、噪声很大的审查器。项目负责人在同一帖中回应，称被测试的版本里 <code>there was an anomaly in a critical tool call that significantly impacted the overall performance</code>，并确认问题已复现并修复。</p>
+<p>但双方的证据都没能彻底说服对方：</p>
+<ul>
+<li><strong>版本错位</strong>：独立测试跑的是 v1.3.1，而当时仓库已到 v1.8.1，数字描述的是一个旧构建</li>
+<li><strong>基准不可复跑</strong>：所有官方数字只存在于仓库里的一张图 <code>imgs/benchmark-en.png</code>，没有表格、没有原始输出、也没有可重跑的测试框架</li>
+<li><strong>一个已知 bug 解释不了全部差距</strong></li>
+</ul>
+<details class="folding-tag" red><summary> 其他值得记录的批评 </summary>
+              <div class='content'>
+              <ul><li>上线时规则文件全部是中文，非中文使用者需要机器翻译。用户 <code>pramodbiligiri</code> 自行发布了一份译好的规则副本，项目后来才合并英文版。</li><li>有评论者用自建审查应用跑完全部 50 个 PR，得到 <strong>43.0% 精确率、35.8% 召回率</strong>，成本约 7 美元。这个数字比官方和独立复现都更”中庸”，也从侧面说明这一品类的工具普遍会漏掉大多数缺陷。</li><li>一条流传很广的评论点破了指标游戏：<code>If I flag every line in your PR as a potential security bug then I have 100% recall.</code></li></ul>
+              </div>
+            </details>
+
+<p>值得公允记录的是，open-code-review 披露了仓库名单、PR 数量和标注者规模，比多数厂商的基准要透明，也主动承认了召回率偏弱。问题出在工程可复现性上，而不是态度上。</p>
+<hr>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><div class="tabs" id="安装方式"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="安装方式-1">npm 推荐</button><button type="button" class="tab " data-href="安装方式-2">二进制</button><button type="button" class="tab " data-href="安装方式-3">Agent Skill</button></ul><div class="tab-contents"><div class="tab-item-content active" id="安装方式-1"><p>前置条件是 Git &gt;&#x3D; 2.41。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @alibaba-group/open-code-review</span><br></pre></td></tr></table></figure>
+
+<p>安装后全局可用 <code>ocr</code> 命令。</p></div><div class="tab-item-content" id="安装方式-2"><p>也可以从 GitHub Release 下载预编译二进制，或走仓库里的 <code>install.sh</code> &#x2F; <code>install.ps1</code> 脚本。</p></div><div class="tab-item-content" id="安装方式-3"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx skills add alibaba/open-code-review --skill open-code-review</span><br></pre></td></tr></table></figure>
+
+<p>一条命令装进兼容 Skills 的宿主 Agent。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div>
+
+<h3 id="配置模型"><a href="#配置模型" class="headerlink" title="配置模型"></a>配置模型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ocr config provider   <span class="comment"># 选择供应商</span></span><br><span class="line">ocr config model      <span class="comment"># 选择模型</span></span><br></pre></td></tr></table></figure>
+
+<p>或者直接改配置文件 <code>~/.opencodereview/config.json</code>。环境变量优先级更高：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> OCR_LLM_URL=...</span><br><span class="line"><span class="built_in">export</span> OCR_LLM_TOKEN=...</span><br><span class="line"><span class="built_in">export</span> OCR_LLM_MODEL=...</span><br><span class="line"><span class="built_in">export</span> OCR_USE_ANTHROPIC=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="四种审查模式"><a href="#四种审查模式" class="headerlink" title="四种审查模式"></a>四种审查模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工作区模式：审查所有暂存、未暂存和未跟踪的改动</span></span><br><span class="line">ocr review</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分支对比：merge-base 模式</span></span><br><span class="line">ocr review --from main --to feature-branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单个提交</span></span><br><span class="line">ocr review --commit abc123</span><br><span class="line"></span><br><span class="line"><span class="comment"># 全文件扫描：不依赖 diff，用于审计陌生代码库</span></span><br><span class="line">ocr scan --path ./src</span><br></pre></td></tr></table></figure>
+
+<p>审查会话可以中断续跑，用 <code>ocr session list</code> 查看历史，<code>--resume</code> 继续。</p>
+<h3 id="输出成-JSON-接进-CI"><a href="#输出成-JSON-接进-CI" class="headerlink" title="输出成 JSON 接进 CI"></a>输出成 JSON 接进 CI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ocr review --format json --output result.json</span><br></pre></td></tr></table></figure>
+
+<p>输出里的每条记录带 <code>category</code> 和 <code>severity</code> 字段，可以直接被流水线消费。官方已提供 GitHub Actions、GitLab CI、GitFlic CI 和 Gerrit 的集成方式。</p>
+<h3 id="宿主-Agent-集成"><a href="#宿主-Agent-集成" class="headerlink" title="宿主 Agent 集成"></a>宿主 Agent 集成</h3><div class="tabs" id="agent-集成"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="agent-集成-1">Claude Code</button><button type="button" class="tab " data-href="agent-集成-2">Codex</button><button type="button" class="tab " data-href="agent-集成-3">委托模式</button></ul><div class="tab-contents"><div class="tab-item-content active" id="agent-集成-1"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/plugin marketplace add alibaba/open-code-review</span><br></pre></td></tr></table></figure>
+
+<p>注册 <code>/open-code-review:review</code> 斜杠命令，会运行 OCR 并自动过滤、修复发现的问题。</p></div><div class="tab-item-content" id="agent-集成-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codex plugin marketplace add alibaba/open-code-review</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="agent-集成-3"><p><code>ocr delegate preview</code> 和 <code>ocr delegate rule</code> 是给<strong>不想单独配置模型</strong>的场景准备的：OCR 不自己调 LLM，而是把审查任务委托给宿主 Agent 执行。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div>
+
+<p>此外还支持 Cursor、Kimi Code、OpenCode 的可移植 Skills，以及 MCP Server 用于扩展审查 Agent。浏览器端的 Session Viewer 可以回放审查会话，并标记已修复或已忽略的问题。Telemetry 走 OpenTelemetry。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>open-code-review 本周拿下周榜第一，靠的不是新能力，而是一个方向的回调。</p>
+<p>2026 年上半年，Agent 工程的主流做法是不断给模型放权。open-code-review 把这件事倒过来做：<strong>在流水线的三个节点主动注入确定性</strong>，文件选择、规则匹配、评论反思全部交给工程代码，模型只保留理解语义和生成表达这两件事。结果是同一个底层模型，Precision 从 7.23% 提到 33.90%，Token 降到九分之一。</p>
+<p>代价同样清晰。Recall 从 28.90% 掉到 20.00%，地毯式排查不是它的强项；AACR-Bench 的可复现性至今存疑，官方数字只活在一张 PNG 里，唯一一次独立复现给出了方向相反的结果。</p>
+<div class="note info flat"><p><strong>适用边界</strong>：适合本地 pre-push &#x2F; pre-PR 自检，或者作为 PR 上的参考性评论。不适合无人把关的强制合并门禁，也不适合召回率优先的场景。</p>
+</div>
+
+<p>把它和最近几周的热门放在一起看，线索会更清楚。ponytail 用七级决策阶梯约束 Agent 别过度设计，archify 要求 Agent 先写类型化 JSON IR 再渲染，open-code-review 把确定性写进流水线。三个项目来自完全不同的作者和领域，指向的却是同一件事：**Agent 工程的重心正在从”加能力”转向”管行为”**。</p>
+<p>阿里这次开源的真正价值，可能不在工具本身，而在它给出的那个判断：模型变强不代表约束可以变少。有些环节，工程比模型更值得信任。</p>
+<hr>
+<p><em>本文基于 <a target="_blank" rel="noopener" href="https://github.com/alibaba/open-code-review">alibaba&#x2F;open-code-review</a> 仓库 README、2026 年 8 月 10 日发布的论文《OpenCodeReview: Determinism over Non-Determinism for Cost-Effective Agent-Based Code Review》、AACR-Bench 公开数据、Hacker News 讨论帖及多篇社区实测文章编写。星数截至 2026 年 9 月 20 日。</em></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/hexo-blog/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/hexo-blog/images/avatar.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/hexo-blog/images/avatar.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">hash-dog</div><div class="post-copyright__author_desc">记录学习与技术分享</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hash-dogs.github.io/hexo-blog/2026/09/20/alibaba-open-code-review-hybrid-architecture/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hash-dogs.github.io/hexo-blog/2026/09/20/alibaba-open-code-review-hybrid-architecture/')">GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hash-dogs.github.io/hexo-blog" target="_blank">Hash-dogs的博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>开源<span class="tagsPageCount">25</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/AI/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI<span class="tagsPageCount">27</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/Skills/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Skills<span class="tagsPageCount">16</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/Claude-Code/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Claude Code<span class="tagsPageCount">12</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/AI-Agent/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI Agent<span class="tagsPageCount">25</span></a><a class="post-meta__box__tags" href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Token优化<span class="tagsPageCount">3</span></a></div></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/hexo-blog/2026/09/20/cloudflare-security-audit-skill/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/cloudflare/security-audit-skill" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">GitHub热门（9/14-9/20）cloudflare/security-audit-skill — 对抗式验证的安全审计</div></div></a></div><div class="next-post pull-right"><a href="/hexo-blog/2026/09/23/zcode-silent-upload-incident/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/30885763/pexels-photo-30885763.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="onerror=null;src='/hexo-blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ZCode 静默上传全量 Git 历史：事件经过与遗留争议</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/hexo-blog/2026/09/10/ponytail-anti-overengineering-skill/" title="GitHub热门（9&#x2F;7-9&#x2F;13）DietrichGebert&#x2F;ponytail — 反过度工程"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/DietrichGebert/ponytail" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-09-10</div><div class="title">GitHub热门（9&#x2F;7-9&#x2F;13）DietrichGebert&#x2F;ponytail — 反过度工程</div></div></a></div><div><a href="/hexo-blog/2026/06/28/addyosmani-agent-skills-intro/" title="GitHub热门（6&#x2F;22-6&#x2F;28）addyosmani&#x2F;agent-skills — 工程AI技能"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/addyosmani/agent-skills" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-28</div><div class="title">GitHub热门（6&#x2F;22-6&#x2F;28）addyosmani&#x2F;agent-skills — 工程AI技能</div></div></a></div><div><a href="/hexo-blog/2026/09/03/archify-verifiable-agent-diagrams/" title="GitHub热门（8&#x2F;31-9&#x2F;6）tt-a1i&#x2F;archify — 可验证的Agent架构图"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/tt-a1i/archify" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-09-03</div><div class="title">GitHub热门（8&#x2F;31-9&#x2F;6）tt-a1i&#x2F;archify — 可验证的Agent架构图</div></div></a></div><div><a href="/hexo-blog/2026/09/20/cloudflare-security-audit-skill/" title="GitHub热门（9&#x2F;14-9&#x2F;20）cloudflare&#x2F;security-audit-skill — 对抗式验证的安全审计"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/cloudflare/security-audit-skill" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-09-20</div><div class="title">GitHub热门（9&#x2F;14-9&#x2F;20）cloudflare&#x2F;security-audit-skill — 对抗式验证的安全审计</div></div></a></div><div><a href="/hexo-blog/2026/08/25/deepseek-harness-open-source-update-history/" title="DeepSeek Harness 开源 12 天五版：一切皆插件的 Agent 执行层重构"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/17980729/pexels-photo-17980729.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-08-25</div><div class="title">DeepSeek Harness 开源 12 天五版：一切皆插件的 Agent 执行层重构</div></div></a></div><div><a href="/hexo-blog/2026/08/22/diagram-design-intro/" title="GitHub热门（8&#x2F;17-8&#x2F;23）cathrynlavery&#x2F;diagram-design — 39 种编辑级图表"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/cathrynlavery/diagram-design" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-08-22</div><div class="title">GitHub热门（8&#x2F;17-8&#x2F;23）cathrynlavery&#x2F;diagram-design — 39 种编辑级图表</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/hexo-blog/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/hexo-blog/images/avatar.jpg" onerror="this.onerror=null;this.src='/hexo-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">hash-dog 的技术博客</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/hexo-blog/"><h1 class="author-info__name">hash-dog</h1><div class="author-info__desc">记录学习与技术分享</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="mailto:18033207159@163.com" target="_blank" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a></div></div></div></div><div class="card-widget card-countdown" id="card-countdown"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-stopwatch"></i><span>时光</span></div><div class="item-content"><div class="cd-wrap">
+  <div class="cd-left">
+    <span class="cd-text">距离</span>
+    <span class="cd-name" id="cd-name">--</span>
+    <span class="cd-days" id="cd-days">--</span>
+    <span class="cd-date" id="cd-date">--</span>
+  </div>
+  <div class="cd-right" id="cd-right"></div>
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF%EF%BC%9A%E7%94%A8%E9%80%9A%E7%94%A8-Agent-%E5%81%9A%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9D%91"><span class="toc-number">2.</span> <span class="toc-text">项目背景：用通用 Agent 做代码审查的三个坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%88%9B%E6%96%B0%EF%BC%9A%E6%8A%8A%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%B3%A8%E5%85%A5%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">3.</span> <span class="toc-text">核心创新：把确定性注入流水线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">深度架构解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81Rule-Guided-Dispatch"><span class="toc-number">4.1.</span> <span class="toc-text">一、Rule-Guided Dispatch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Grounded-File-Review"><span class="toc-number">4.2.</span> <span class="toc-text">二、Grounded File Review</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81Independent-Reflection"><span class="toc-number">4.3.</span> <span class="toc-text">三、Independent Reflection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-number">4.4.</span> <span class="toc-text">完整数据流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95%EF%BC%9A25-10-F1-%E4%B8%8E%E4%B9%9D%E5%88%86%E4%B9%8B%E4%B8%80-Token"><span class="toc-number">5.</span> <span class="toc-text">基准测试：25.10% F1 与九分之一 Token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%89%E8%AE%AE%EF%BC%9A%E4%B8%80%E6%AC%A1%E6%96%B9%E5%90%91%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%8F%8D%E7%9A%84%E7%8B%AC%E7%AB%8B%E5%A4%8D%E7%8E%B0"><span class="toc-number">6.</span> <span class="toc-text">争议：一次方向完全相反的独立复现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="toc-number">7.</span> <span class="toc-text">快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">7.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">7.2.</span> <span class="toc-text">配置模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E7%A7%8D%E5%AE%A1%E6%9F%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">7.3.</span> <span class="toc-text">四种审查模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%88%90-JSON-%E6%8E%A5%E8%BF%9B-CI"><span class="toc-number">7.4.</span> <span class="toc-text">输出成 JSON 接进 CI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%BF%E4%B8%BB-Agent-%E9%9B%86%E6%88%90"><span class="toc-number">7.5.</span> <span class="toc-text">宿主 Agent 集成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/09/23/zcode-open-source-architecture-deep-dive/" title="ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/34803998/pexels-photo-34803998.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异"/></a><div class="content"><a class="title" href="/hexo-blog/2026/09/23/zcode-open-source-architecture-deep-dive/" title="ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异">ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异</a><time datetime="2026-09-23T06:00:00.000Z" title="发表于 2026-09-23 14:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/09/23/zcode-silent-upload-incident/" title="ZCode 静默上传全量 Git 历史：事件经过与遗留争议"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/30885763/pexels-photo-30885763.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="ZCode 静默上传全量 Git 历史：事件经过与遗留争议"/></a><div class="content"><a class="title" href="/hexo-blog/2026/09/23/zcode-silent-upload-incident/" title="ZCode 静默上传全量 Git 历史：事件经过与遗留争议">ZCode 静默上传全量 Git 历史：事件经过与遗留争议</a><time datetime="2026-09-23T06:00:00.000Z" title="发表于 2026-09-23 14:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/09/20/alibaba-open-code-review-hybrid-architecture/" title="GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/alibaba/open-code-review" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent"/></a><div class="content"><a class="title" href="/hexo-blog/2026/09/20/alibaba-open-code-review-hybrid-architecture/" title="GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent">GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent</a><time datetime="2026-09-20T03:00:00.000Z" title="发表于 2026-09-20 11:00:00">2026-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/09/20/cloudflare-security-audit-skill/" title="GitHub热门（9/14-9/20）cloudflare/security-audit-skill — 对抗式验证的安全审计"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://opengraph.githubassets.com/1/cloudflare/security-audit-skill" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="GitHub热门（9/14-9/20）cloudflare/security-audit-skill — 对抗式验证的安全审计"/></a><div class="content"><a class="title" href="/hexo-blog/2026/09/20/cloudflare-security-audit-skill/" title="GitHub热门（9/14-9/20）cloudflare/security-audit-skill — 对抗式验证的安全审计">GitHub热门（9/14-9/20）cloudflare/security-audit-skill — 对抗式验证的安全审计</a><time datetime="2026-09-20T03:00:00.000Z" title="发表于 2026-09-20 11:00:00">2026-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/hexo-blog/2026/09/20/jev-system-one-decision-model-deep-dive/" title="Jev 深度解析：不生成文本的决策模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://images.pexels.com/photos/957312/chess-checkmated-chess-pieces-black-white-957312.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" onerror="this.onerror=null;this.src='/hexo-blog/img/404.jpg'" alt="Jev 深度解析：不生成文本的决策模型"/></a><div class="content"><a class="title" href="/hexo-blog/2026/09/20/jev-system-one-decision-model-deep-dive/" title="Jev 深度解析：不生成文本的决策模型">Jev 深度解析：不生成文本的决策模型</a><time datetime="2026-09-20T02:00:00.000Z" title="发表于 2026-09-20 10:00:00">2026-09-20</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" href="mailto:18033207159@163.com" title="邮箱"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><img class="footer_mini_logo" title="返回顶部" alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/hexo-blog/images/avatar.jpg" size="50px"/><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/Hash-dogs" title="GitHub"><i class="anzhiyufont anzhiyu-icon-github"></i></a></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2026 By <a class="footer-bar-link" href="/hexo-blog/" title="hash-dog" target="_blank">hash-dog</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/hexo-blog/archives/" title="archive"><div class="headline">文章</div><div class="length-num">31</div></a><a href="/hexo-blog/tags/" title="tag"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/hexo-blog/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 留言</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/hexo-blog/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/hexo-blog/tags/AI/" style="font-size: 0.88rem;">AI<sup>27</sup></a><a href="/hexo-blog/tags/AI-Agent/" style="font-size: 0.88rem;">AI Agent<sup>25</sup></a><a href="/hexo-blog/tags/Claude-Code/" style="font-size: 0.88rem;">Claude Code<sup>12</sup></a><a href="/hexo-blog/tags/DeepSeek/" style="font-size: 0.88rem;">DeepSeek<sup>1</sup></a><a href="/hexo-blog/tags/Docker/" style="font-size: 0.88rem;">Docker<sup>3</sup></a><a href="/hexo-blog/tags/Hermes-Agent/" style="font-size: 0.88rem;">Hermes Agent<sup>1</sup></a><a href="/hexo-blog/tags/LLM/" style="font-size: 0.88rem;">LLM<sup>9</sup></a><a href="/hexo-blog/tags/MCP/" style="font-size: 0.88rem;">MCP<sup>9</sup></a><a href="/hexo-blog/tags/Markdown/" style="font-size: 0.88rem;">Markdown<sup>1</sup></a><a href="/hexo-blog/tags/RPA/" style="font-size: 0.88rem;">RPA<sup>1</sup></a><a href="/hexo-blog/tags/Rust/" style="font-size: 0.88rem;">Rust<sup>3</sup></a><a href="/hexo-blog/tags/Skills/" style="font-size: 0.88rem;">Skills<sup>16</sup></a><a href="/hexo-blog/tags/Tauri/" style="font-size: 0.88rem;">Tauri<sup>1</sup></a><a href="/hexo-blog/tags/Token%E4%BC%98%E5%8C%96/" style="font-size: 0.88rem;">Token优化<sup>3</sup></a><a href="/hexo-blog/tags/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/" style="font-size: 0.88rem;">代码质量<sup>1</sup></a><a href="/hexo-blog/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 0.88rem;">压缩<sup>1</sup></a><a href="/hexo-blog/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B/" style="font-size: 0.88rem;">大模型评测<sup>1</sup></a><a href="/hexo-blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.88rem;">安全<sup>4</sup></a><a href="/hexo-blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 0.88rem;">开源<sup>25</sup></a><a href="/hexo-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">技术分享<sup>10</sup></a><a href="/hexo-blog/tags/%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7/" style="font-size: 0.88rem;">研究工具<sup>3</sup></a><a href="/hexo-blog/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 0.88rem;">自动化<sup>8</sup></a><a href="/hexo-blog/tags/%E8%A7%82%E7%82%B9%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">观点分享<sup>6</sup></a><a href="/hexo-blog/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 0.88rem;">跨平台<sup>1</sup></a><a href="/hexo-blog/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" style="font-size: 0.88rem;">配置管理<sup>2</sup></a><a href="/hexo-blog/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 0.88rem;">阿里云<sup>1</sup></a><a href="/hexo-blog/tags/%E9%A3%9E%E4%B9%A6/" style="font-size: 0.88rem;">飞书<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/hexo-blog/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/hexo-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/hexo-blog/js/utils.js"></script><script src="/hexo-blog/js/main.js"></script><script src="/hexo-blog/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("06/01/2026 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2026 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 hash-dog 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script src="/hexo-blog/anzhiyu/random.js"></script><script src="/hexo-blog/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.cbd.int/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo4azy.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.7.24/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo4azy.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>//- 评论页 URL -> 可读来源标题，构建期算好；Twikoo 接口本身不返回页面标题
+window.anzhiyuCommentSources = {"/hexo-blog/2026/06/28/addyosmani-agent-skills-intro/":"GitHub热门（6/22-6/28）addyosmani/agent-skills — 工程AI技能","/hexo-blog/2026/06/23/agent-reach-intro/":"GitHub热门（6/22-6/28）Panniantong/Agent-Reach — 一键给你的 AI Agent 装上全网眼睛","/hexo-blog/2026/08/22/agent-harness-runtime-war/":"八天之内，DeepSeek 与 OpenAI 相继开源 Harness：Agent 时代的\"运行时\"之战","/hexo-blog/2026/07/24/ai-new-terms-2026-industry-signal/":"从 FDE 到 OPC：2026 年 AI 新名词里的产业转向","/hexo-blog/2026/09/03/ai-trust-deficit-openai-pause-claude-quota/":"当模型开始逃跑：OpenAI 停训、Claude 注水与 AI 的信任赤字","/hexo-blog/2026/09/20/alibaba-open-code-review-hybrid-architecture/":"GitHub热门（9/14-9/20）alibaba/open-code-review — 确定性管线兜底的代码审查 Agent","/hexo-blog/2026/07/06/alibaba-page-agent-intro/":"GitHub热门（6/30-7/6）alibaba/page-agent — 页面内嵌 GUI Agent","/hexo-blog/2026/09/03/archify-verifiable-agent-diagrams/":"GitHub热门（8/31-9/6）tt-a1i/archify — 可验证的Agent架构图","/hexo-blog/2026/07/26/block-buzz-intro/":"GitHub热门（7/20-7/26）block/buzz — 蜂巢式人机协作平台","/hexo-blog/2026/06/16/cc-switch-intro/":"GitHub热门（6/8-6/14）farion1231/cc-switch — 多 AI 工具配置统一管理，跨平台桌面中枢","/hexo-blog/2026/09/20/cloudflare-security-audit-skill/":"GitHub热门（9/14-9/20）cloudflare/security-audit-skill — 对抗式验证的安全审计","/hexo-blog/2026/08/25/deepseek-harness-open-source-update-history/":"DeepSeek Harness 开源 12 天五版：一切皆插件的 Agent 执行层重构","/hexo-blog/2026/08/13/deepseek-v4-pro-0813-official-release-review/":"DeepSeek V4 Pro 0813 正式版发布：Agent 能力补齐后，离 Fable 5 只差 5%","/hexo-blog/2026/08/22/diagram-design-intro/":"GitHub热门（8/17-8/23）cathrynlavery/diagram-design — 39 种编辑级图表","/hexo-blog/2026/06/19/first-internship-terms-guide/":"第一次实习打工，这七个词你得先弄明白","/hexo-blog/2026/06/17/github-trending-ecc-agent-harness-intro/":"GitHub热门（6/8-6/14）affaan-m/ECC — 212K Stars 的 Agent Harness 操作系统","/hexo-blog/2026/06/06/headroom-context-compression-intro/":"GitHub热门（6/1-6/7）chopratejas/headroom — AI 上下文压缩层，60-95% Token 节省","/hexo-blog/2026/06/11/hermes-agent-feishu-life-empowerment/":"从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践","/hexo-blog/2026/09/20/jev-system-one-decision-model-deep-dive/":"Jev 深度解析：不生成文本的决策模型","/hexo-blog/2026/09/07/karpathy-llm-wiki-rag-compiler-pkm/":"Karpathy 的 LLM Wiki：把 RAG 从解释器升级成编译器，企业真的能用它做知识库吗？","/hexo-blog/2026/06/14/last30days-skill-intro/":"GitHub热门（6/8-6/14）mvanhorn/last30days-skill — 跨平台 AI 研究神器","/hexo-blog/2026/06/06/microsoft-markitdown-intro/":"GitHub热门（6/1-6/7）microsoft/markitdown — 微软开源的通用文件转 Markdown 工具","/hexo-blog/2026/07/31/odysseus-self-hosted-ai-workspace/":"GitHub热门（7/27-8/2）odysseus-dev/odysseus — 一站式AI工作台","/hexo-blog/2026/09/10/ponytail-anti-overengineering-skill/":"GitHub热门（9/7-9/13）DietrichGebert/ponytail — 反过度工程","/hexo-blog/2026/07/19/prompt-dead-loop-engineering-paradigm-shift/":"Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命","/hexo-blog/2026/07/06/rpa-landscape-2026-ai-agent-era/":"2026 RPA 全景对比：AI Agent 时代的企业自动化选型指南","/hexo-blog/2026/07/19/taste-skill-anti-slop-frontend/":"GitHub热门（6/13-6/19）Leonxlnx/taste-skill — 前端审美校准器","/hexo-blog/2026/07/24/xai-org-grok-build-intro/":"GitHub热门（7/20-7/26）xai-org/grok-build — 终端编程 Agent","/hexo-blog/2026/08/08/yc-software-qm-multiplayer-agent-harness/":"GitHub热门（8/3-8/9）yc-software/qm — 团队级多人Agent协作框架","/hexo-blog/2026/09/23/zcode-open-source-architecture-deep-dive/":"ZCode 开源源码拆解：三端一核运行时与 DSH、Codex 的路线差异","/hexo-blog/2026/09/23/zcode-silent-upload-incident/":"ZCode 静默上传全量 Git 历史：事件经过与遗留争议","/hexo-blog/about/index.html":"about","/hexo-blog/categories/index.html":"categories","/hexo-blog/archives/index.html":"archives","/hexo-blog/link/index.html":"link","/hexo-blog/tags/index.html":"tags","/hexo-blog/comments/":"留言板"}
+
+window.addEventListener('load', () => {
+  const sourceOf = (url) => {
+    const sources = window.anzhiyuCommentSources || {}
+    try {
+      const path = new URL(url, location.origin).pathname
+      return sources[path] || sources[path.replace(/\/index\.html$/, '/')] || path.replace(/\/$/, '').split('/').pop()
+    } catch (e) {
+      return ''
+    }
+  }
+
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo4azy.vercel.app',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 2/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.7.24/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        const source = sourceOf(array[i].url)
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='source' title='${source}'><i class='anzhiyufont anzhiyu-icon-file-lines'></i><span class='source-title'>${source}</span></div>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script src="/hexo-blog/js/countdown.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/hexo-blog/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
