@@ -131,7 +131,10 @@ hexo.extend.helper.register("findArchivesTitle", function (page, menu, date) {
   const loop = m => {
     for (const key in m) {
       if (typeof m[key] === "object") {
-        loop(m[key]);
+        // 递归结果必须往上传：否则分组式菜单（如「文章: { 总览: /archives/ }」）
+        // 里匹配到的键名会被丢掉，归档页标题回落成默认的「归档」
+        const found = loop(m[key]);
+        if (found) return found;
       }
 
       if (/\/archives\//.test(m[key])) {

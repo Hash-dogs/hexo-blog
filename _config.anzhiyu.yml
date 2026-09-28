@@ -1,6 +1,6 @@
 menu:
   文章:
-    隧道: /archives/ || anzhiyu-icon-box-archive
+    总览: /archives/ || anzhiyu-icon-box-archive
     分类: /categories/ || anzhiyu-icon-shapes
     标签: /tags/ || anzhiyu-icon-tags
 
