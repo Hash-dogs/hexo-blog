@@ -24,7 +24,7 @@ description: vectorize-io/hindsight 本周以 11,089 星增量登顶 GitHub Tren
 - 项目地址：[https://github.com/vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)
 - 官方文档与云服务：[hindsight.vectorize.io](https://hindsight.vectorize.io)
 - 许可证：MIT
-- 技术栈：Python **72.0%**、TypeScript **17.0%**、MDX **6.4%**、Rust **1.8%**、Shell **1.2%**
+- 技术栈：Python 72.0%、TypeScript 17.0%、MDX 6.4%、Rust 1.8%、Shell 1.2%
 - 创建时间：2025 年 10 月 30 日，至今约 333 天
 - 最近推送：2026 年 9 月 26 日
 
@@ -131,9 +131,8 @@ graph TD
     S2 --> R
     S3 --> R
     S4 --> R
-    R --> CE[Cross-Encoder 重排]
-    CE --> T[Token 预算裁剪]
-    T --> O[回灌上下文]
+    R --> CE[Cross-Encoder 重排<br/>+ Token 预算裁剪]
+    CE --> O[回灌上下文]
 {% endmermaid %}
 
 四路各自的定位不一样：向量路径管语义近似，BM25 路径管精确术语命中，图路径管"这两个实体之间是什么关系"，时间路径管"只要最近三天"。融合用的是 RRF，一种只看排名不看分数的合并方式，好处是四路的分数量纲不一致时不需要额外归一化。之后交给 cross-encoder 重排，最后按 token 预算裁剪。
@@ -288,7 +287,7 @@ http://localhost:8888/mcp/{bank_id}/
 还有一组走订阅制的免 API key 通道：`openai-codex`、`claude-code`、`cursor`、`github-copilot`。也就是说如果本机已经装好了这些编码 Agent，记忆层可以直接借用它们的额度。
 
 {% note info %}
-集成宣称 **60+**，覆盖面分三类：
+集成宣称覆盖 **60+ 项**，分三类：
 
 - **编码 Agent**：Claude Code、Codex、Cursor、GitHub Copilot、opencode、Cline、Aider、Zed 等
 - **Agent 框架**：LangGraph / LangChain、LlamaIndex、CrewAI、Pydantic AI、OpenAI Agents SDK、Google ADK、AutoGen 等

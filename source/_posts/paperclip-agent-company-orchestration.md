@@ -22,7 +22,7 @@ description: paperclipai/paperclip 本周以 7,364 星增量登上 GitHub Trendi
 - 项目地址：[https://github.com/paperclipai/paperclip](https://github.com/paperclipai/paperclip)
 - 官网：[paperclip.ing](https://paperclip.ing)
 - 许可证：MIT，Copyright 2026 Paperclip Labs, Inc
-- 技术栈：TypeScript **93.6%**、Rust **2.9%**、JavaScript **2.1%**、PLpgSQL **0.5%**
+- 技术栈：TypeScript 93.6%、Rust 2.9%、JavaScript 2.1%、PLpgSQL 0.5%
 - 创建时间：2026 年 3 月 2 日，至今约 7 个月
 - 最近推送：2026 年 9 月 28 日
 - Commits：4,603
@@ -97,40 +97,29 @@ README 给的流程是：**定目标 → 组团队 → 审批 → 设预算 → 
 
 ### 4.1 服务端 12 个模块
 
-Paperclip Server 的框图把它分成 12 个模块：
+Paperclip Server 的框图把它分成 12 个模块。按职责归组如下：
 
-{% mermaid %}
-graph TD
-    subgraph Access["接入方"]
-        CC[Claude Code]
-        CX[Codex]
-        CLI[CLI agents<br/>Cursor / Gemini / bash]
-        BOT[HTTP / webhook bots<br/>如 OpenClaw]
-    end
-    subgraph Server["Paperclip Server"]
-        M1[Identity &amp; Access]
-        M2[Work &amp; Tasks]
-        M3[Heartbeat Execution]
-        M4[Governance &amp; Approvals]
-        M5[Org Chart &amp; Agents]
-        M6[Workspaces &amp; Runtime]
-        M7[Plugins]
-        M8[Budget &amp; Costs]
-        M9[Routines &amp; Schedules]
-        M10[Secrets &amp; Storage]
-        M11[Activity &amp; Events]
-        M12[Company Portability]
-    end
-    CC --> M2
-    CX --> M2
-    CLI --> M2
-    BOT --> M2
-    M2 --> M3
-    M3 --> M4
-    M3 --> M8
-    M5 --> M3
-    M6 --> M3
-{% endmermaid %}
+| 分组 | 模块 | 职责 |
+|------|------|------|
+| 身份与存储 | Identity & Access | 用户与 Agent 的身份，公司级数据强隔离 |
+| | Secrets & Storage | 密钥集中管理与文件存储 |
+| 任务与调度 | Work & Tasks | 任务票据化，每个任务带完整目标链路 |
+| | Heartbeat Execution | 心跳唤醒与执行窗口，Agent 状态跨心跳延续 |
+| | Routines & Schedules | 定时例程，与心跳并列的第二套触发源 |
+| 组织与治理 | Org Chart & Agents | 汇报线、角色与岗位描述，每个 Agent 只向一个上级汇报 |
+| | Governance & Approvals | 审批门禁，配置版本化可回滚 |
+| | Activity & Events | 活动流与不可变审计日志 |
+| 成本与运行时 | Budget & Costs | 预算分级与硬停，签出任务时原子校验 |
+| | Workspaces & Runtime | 运行时环境，技能在运行时注入 |
+| 扩展与迁移 | Plugins | 插件系统，已含 MCP Tool Gateway |
+| | Company Portability | 公司配置可导出导入 |
+
+接入方通过四类通道对接，四类最终都落到 `Work & Tasks`：
+
+- **官方适配器**：Claude Code、Codex
+- **CLI agents**：Cursor、Gemini、bash
+- **HTTP / webhook bots**：OpenClaw 这类持续运行的 Agent
+- **HTTP 入口**：任意自建 bot
 
 技术栈是 Node.js 服务端加 React UI，pnpm workspace 单仓，含 `packages`、`server`、`ui`、`cli`、`skills`、`evals`、`tests` 等目录。测试用 Vitest，浏览器端到端用 Playwright。数据库是**内嵌 PostgreSQL**，自动创建，不需要额外配置。可观测性方面，OpenTelemetry 的 traces 和 Sentry 都是可选。
 
