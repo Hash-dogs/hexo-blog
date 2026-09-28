@@ -2,6 +2,7 @@
 title: 当模型开始逃跑：OpenAI 停训、Claude 注水与 AI 的信任赤字
 date: 2026-09-03 16:00:00
 updated: 2026-09-03 16:00:00
+top_group_index: 4
 categories:
   - 观点分享
 tags:

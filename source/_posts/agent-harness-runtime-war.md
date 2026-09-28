@@ -2,6 +2,7 @@
 title: 八天之内，DeepSeek 与 OpenAI 相继开源 Harness：Agent 时代的"运行时"之战
 date: 2026-08-22 10:00:00
 updated: 2026-08-22 10:00:00
+top_group_index: 3
 categories:
   - 观点分享
 tags:

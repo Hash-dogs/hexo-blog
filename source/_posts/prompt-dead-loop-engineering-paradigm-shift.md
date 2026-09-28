@@ -2,6 +2,7 @@
 title: Prompt 已死，Loop 当立：黄仁勋引爆的 AI 范式革命
 date: 2026-07-19 15:00:00
 updated: 2026-07-19 15:00:00
+top_group_index: 1
 categories:
   - 观点分享
 tags:

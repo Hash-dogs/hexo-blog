@@ -2,6 +2,7 @@
 title: Karpathy 的 LLM Wiki：把 RAG 从解释器升级成编译器，企业真的能用它做知识库吗？
 date: 2026-09-07 16:00:00
 updated: 2026-09-07 16:00:00
+top_group_index: 2
 categories:
   - 技术分享
 tags:

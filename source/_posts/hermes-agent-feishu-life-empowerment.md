@@ -2,6 +2,7 @@
 title: 从零部署 Hermes Agent + 飞书：开源 AI 代理的生活赋能实践
 date: 2026-06-12
 updated: 2026-06-12
+top_group_index: 6
 categories:
   - 技术分享
 tags:
