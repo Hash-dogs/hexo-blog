@@ -3,7 +3,7 @@ title: DeepSeek Harness 开源 12 天五版：一切皆插件的 Agent 执行层
 date: 2026-08-25 14:00:00
 updated: 2026-08-25 14:00:00
 categories:
-  - 技术分享
+  - github热门
 tags:
   - 开源
   - AI

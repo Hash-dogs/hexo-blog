@@ -1049,24 +1049,26 @@ home_top:
   title: Hash-dogs的博客
   subTitle: 记录学习与技术分享
   siteText: hash-dogs.github.io/hexo-blog
+  # 这四张卡片走分类归档页（/categories/…/），不再走标签页。
+  # 分类与卡片一一对应：github热门 / 技术分享 / 观点分享 / 生活。
   category:
+    - name: github热门
+      path: /categories/github热门/
+      shadow: var(--anzhiyu-shadow-blue)
+      class: blue
+      icon: anzhiyu-icon-github
     - name: 技术分享
-      path: /tags/技术分享/
+      path: /categories/技术分享/
       shadow: var(--anzhiyu-shadow-purple)
       class: purple
       icon: anzhiyu-icon-bolt
     - name: 观点分享
-      path: /tags/观点分享/
+      path: /categories/观点分享/
       shadow: var(--anzhiyu-shadow-yellow)
       class: yellow
       icon: anzhiyu-icon-comments
-    - name: 大学
-      path: /tags/大学/
-      shadow: var(--anzhiyu-shadow-red)
-      class: red
-      icon: anzhiyu-icon-fire
     - name: 生活
-      path: /tags/生活/
+      path: /categories/生活/
       shadow: var(--anzhiyu-shadow-green)
       class: green
       icon: anzhiyu-icon-book

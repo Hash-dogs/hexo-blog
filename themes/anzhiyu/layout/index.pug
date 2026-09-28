@@ -3,6 +3,6 @@ extends includes/layout.pug
 block content
   include ./includes/mixins/post-ui.pug
   #recent-posts.recent-posts
-    include includes/categoryGroup.pug
+    //- 首页分类条（#category-bar 白条栏）已移除：与 home_top 的四张分类卡片功能重复
     +postUI
     include includes/pagination.pug

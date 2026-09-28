@@ -216,8 +216,11 @@
     display: flex;
   }
 
+  /* 原来这里隐藏第 3 张卡片（display: none）。首页四张卡片改为
+     github热门/技术分享/观点分享/生活 后，第 3 张是「观点分享」——
+     属于有内容的正式分类，不该在 1200px 以下被隐藏，故取消该规则。 */
   .categoryGroup .categoryItem:nth-child(3) {
-    display: none;
+    display: block;
   }
   .categoryGroup {
     flex-direction: column;
