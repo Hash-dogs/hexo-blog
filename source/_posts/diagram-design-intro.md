@@ -68,13 +68,13 @@ diagram-design 的答案是：**模板约束 + AI 填充**——把 AI 不擅长
 
 ### 四大关键创新
 
-**1. 39 种图表类型 + 3 种视觉变体。** 从架构图、流程图、时序图、泳道图，到桑基图、鱼骨图、Wardley 地图、UML 类图、数据库 schema……覆盖架构、流程、数据、项目管理的绝大多数场景。每种图表有 **minimal light / minimal dark / full-editorial** 三种变体，从草稿讨论到正式交付全流程覆盖。
+<strong>1. 39 种图表类型 + 3 种视觉变体。</strong> 从架构图、流程图、时序图、泳道图，到桑基图、鱼骨图、Wardley 地图、UML 类图、数据库 schema……覆盖架构、流程、数据、项目管理的绝大多数场景。每种图表有 **minimal light / minimal dark / full-editorial** 三种变体，从草稿讨论到正式交付全流程覆盖。
 
-**2. 60 秒品牌适配（Brand Onboarding）。** 输入 `onboard diagram-design to https://yoursite.com`，Skill 自动抓取网站主色调与字体栈，映射为语义化设计 token（paper/ink/muted/accent/link），并自动做 WCAG AA 对比度检查。之后所有图表读取语义角色名而非硬编码颜色——改一次 `style-guide.md`，全站图表同步换肤。
+<strong>2. 60 秒品牌适配（Brand Onboarding）。</strong> 输入 `onboard diagram-design to https://yoursite.com`，Skill 自动抓取网站主色调与字体栈，映射为语义化设计 token（paper/ink/muted/accent/link），并自动做 WCAG AA 对比度检查。之后所有图表读取语义角色名而非硬编码颜色——改一次 `style-guide.md`，全站图表同步换肤。
 
-**3. "除得尽 4" 设计系统。** 所有坐标、宽度、间距必须是 4 的倍数。这条规则被社区视为图不像 AI 画的关键——AI 排版怪异往往源于 13px、17px 的乱跳间距，锁死网格后整张图立刻有了节奏。配以 1px 发丝线边框、无阴影、圆角上限 10px，以及三字体分工：Instrument Serif（标题）、Geist Sans（节点名）、Geist Mono（技术标签）。
+<strong>3. "除得尽 4" 设计系统。</strong> 所有坐标、宽度、间距必须是 4 的倍数。这条规则被社区视为图不像 AI 画的关键——AI 排版怪异往往源于 13px、17px 的乱跳间距，锁死网格后整张图立刻有了节奏。配以 1px 发丝线边框、无阴影、圆角上限 10px，以及三字体分工：Instrument Serif（标题）、Geist Sans（节点名）、Geist Mono（技术标签）。
 
-**4. 语义模式与布局解耦。** 同一图表类型可承载队列、策略追踪、信任边界等多种业务语义（fan-in 队列、安全铺装道路、补偿安全层等 7 种语义模式），避免"为每个语义造一种图"的类型爆炸。
+<strong>4. 语义模式与布局解耦。</strong> 同一图表类型可承载队列、策略追踪、信任边界等多种业务语义（fan-in 队列、安全铺装道路、补偿安全层等 7 种语义模式），避免"为每个语义造一种图"的类型爆炸。
 
 ![diagram-design 流程图示例（来源：项目官方图例库）](https://raw.githubusercontent.com/cathrynlavery/diagram-design/main/docs/screenshots/flowchart.png)
 
@@ -247,8 +247,8 @@ Agent: → 抓取首页 → 提取配色与字体 → 映射语义角色
 
 权威报道与社区测评一致给出了较高评价：
 
-- [什么值得买](https://post.smzdm.com/p/ad72qqgk/)：**"一周涨 1.2 万星，Claude Code 的'画图丑'有救了"**
-- [DEV Community](https://dev.to/sachincool/seven-visual-tools-one-diagram-2j4i)：在长文技术博客的内嵌图中**"以压倒性优势胜出"**，设计系统"有真实的品味"，输出达出版质量无需返工
+- [什么值得买](https://post.smzdm.com/p/ad72qqgk/)：<strong>"一周涨 1.2 万星，Claude Code 的'画图丑'有救了"</strong>
+- [DEV Community](https://dev.to/sachincool/seven-visual-tools-one-diagram-2j4i)：在长文技术博客的内嵌图中<strong>"以压倒性优势胜出"</strong>，设计系统"有真实的品味"，输出达出版质量无需返工
 - ClassMethod 工程师对比 Mermaid CLI 与手写 SVG 的独立评测：**视觉天花板中高、布局稳定性高、品牌定制强、零外部依赖**
 - [Mr. Slash](https://slash-invest.com/diagram-design-claude-code-editorial-diagrams-2026/)：将"除得尽 4"规则解读为告别"AI 味"的关键
 

@@ -48,9 +48,9 @@ flowchart TD
     end
 {% endmermaid %}
 
-- **raw/**：原始来源（PDF、文章、网页、转录稿）只读，绝不被 LLM 修改。保证可溯源，wiki 出错了能靠原始素材重建。
-- **wiki/**：LLM 创建并维护的页面，通常分 `entities/`（人物、项目、工具）、`concepts/`（概念、框架）、`syntheses/`（沉淀的问答）三类，外加 `index.md`（所有页面的路由表）和 `log.md`（追加式构建日志）。页面间用 `[[wikilink]]` 互联，发现矛盾就标注而非悄悄覆盖。
-- **schema/**（CLAUDE.md）：一条配置文档，规定结构规则、页面模板、质量标准与工作流。它把"一个通用聊天机器人"变成"一个有纪律的 wiki 维护者"。
+- <strong>raw/</strong>：原始来源（PDF、文章、网页、转录稿）只读，绝不被 LLM 修改。保证可溯源，wiki 出错了能靠原始素材重建。
+- <strong>wiki/</strong>：LLM 创建并维护的页面，通常分 `entities/`（人物、项目、工具）、`concepts/`（概念、框架）、`syntheses/`（沉淀的问答）三类，外加 `index.md`（所有页面的路由表）和 `log.md`（追加式构建日志）。页面间用 `[[wikilink]]` 互联，发现矛盾就标注而非悄悄覆盖。
+- <strong>schema/</strong>（CLAUDE.md）：一条配置文档，规定结构规则、页面模板、质量标准与工作流。它把"一个通用聊天机器人"变成"一个有纪律的 wiki 维护者"。
 
 三大操作让系统活起来：
 
@@ -70,7 +70,7 @@ Karpathy 刻意只发"想法文件"不发代码，主张在 Agent 时代"分享�
 - **Astro-Han/karpathy-llm-wiki** — 被认为是"最成熟的实现"，644 星 MIT，`npx add-skill` 即可装，兼容 Claude Code/Cursor/Codex/OpenCode，支持级联更新、冲突检测、来源追踪。
 - **MehmetGoekce/llm-wiki** — 基于 Claude Code，L1/L2 缓存架构，支持 Logseq + Obsidian，`/wiki` 命令做摄入、查询、prune（LRU 降温冷页）、lint。
 - **nashsu/llm_wiki** — Tauri + React 桌面应用，两步思维链摄入、SHA256 增量缓存、持久串行队列崩溃恢复、CJK 分词的多级检索。
-- **Rust `llmwiki`** — 单二进制本地程序，用 Tantivy BM25 + fastembed 语义 + RRF 混合融合替换 index.md 导航，页面涨到 10,000 也能保持成本恒定，以 MCP server 形式提供工具。
+- <strong>Rust `llmwiki`</strong> — 单二进制本地程序，用 Tantivy BM25 + fastembed 语义 + RRF 混合融合替换 index.md 导航，页面涨到 10,000 也能保持成本恒定，以 MCP server 形式提供工具。
 
 共同的取舍很清晰：**Markdown 仍是唯一事实源头**，谁都能读、能改、能 version；差异只在导航与检索引擎这一层。
 
@@ -145,7 +145,7 @@ Karpathy 自己承认边界：这套模式在约 **100 篇文章 / 40 万词**�
 
 **规模天花板**：Karpathy 的 100 篇 vault "不是百万文档的证据"。过了几百页，检索、排序、重排、切块全回来了；扁平文件扛不住大规模性能，索引在 10⁴–10⁶ 文件、PB 级数据、50 个并发写入 Agent 下爆掉。
 
-**成本对比（2026 参考值）**：
+<strong>成本对比（2026 参考值）</strong>：
 
 | 指标 | RAG | LLM Wiki | Agentic Search |
 |------|-----|----------|----------------|

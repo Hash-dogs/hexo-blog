@@ -19,9 +19,9 @@ description: 2026年，当 Claude Code、Codex、Cursor 等 AI 编程智能体�
 
 一方面，以 **Claude Code**、**OpenAI Codex**、**Cursor** 为代表的 AI 编程智能体（Coding Agent）正在重新定义软件开发——它们能自主理解需求、编写代码、修复 Bug、甚至管理整个 CI/CD 流水线。在开发者社区，"Agent 替代人工"已不再是一句口号。
 
-另一方面，传统的 **RPA（Robotic Process Automation）** 市场正在经历一场"自我革命"。UiPath、Automation Anywhere、Blue Prism 等老牌厂商纷纷摘下"RPA"的帽子，转而拥抱 Agent 架构。它们不再说"我用机器人模拟你的鼠标点击"，而是说"我用 AI 智能体自主完成你的业务流程"。
+另一方面，传统的 <strong>RPA（Robotic Process Automation）</strong> 市场正在经历一场"自我革命"。UiPath、Automation Anywhere、Blue Prism 等老牌厂商纷纷摘下"RPA"的帽子，转而拥抱 Agent 架构。它们不再说"我用机器人模拟你的鼠标点击"，而是说"我用 AI 智能体自主完成你的业务流程"。
 
-这场变革背后的问题是：**当 AI 编程 Agent 都能写代码了，RPA 还有存在的必要吗？**
+这场变革背后的问题是：<strong>当 AI 编程 Agent 都能写代码了，RPA 还有存在的必要吗？</strong>
 
 答案是肯定的——但 RPA 的形态已经彻底改变了。本文将从国际阵营、国产阵营、AI 编程工具三个维度，为你梳理 2026 年 RPA 市场的全景图与选型逻辑。
 
@@ -37,7 +37,7 @@ description: 2026年，当 Claude Code、Codex、Cursor 等 AI 编程智能体�
 | 全球 AI Agent 市场规模 | ~$76 亿 | ~$109 亿 | >45% |
 | 企业自动化预算转向 Agent | — | 60%+ 新项目首选 Agent 架构 | — |
 
-RPA 市场仍在增长，但增速远不及 AI Agent。更关键的是，**所有主流 RPA 厂商都在主动"去 RPA 化"**：
+RPA 市场仍在增长，但增速远不及 AI Agent。更关键的是，<strong>所有主流 RPA 厂商都在主动"去 RPA 化"</strong>：
 
 - **UiPath** 推出了 Agent Builder 和 Maestro 编排平台
 - **Automation Anywhere** 收购了 AI 公司 Aisera
@@ -75,7 +75,7 @@ Automation Anywhere（AA）是三者中最"激进"向 AI 转型的厂商。2025 
 **AI/Agent 能力**：
 - **AI Agent Studio**：可视化构建认知 Agent
 - **Process Reasoning Engine**：流程推理引擎，理解业务流程而非固定脚本
-- **自动化副驾（Automation Copilot）**：用自然语言创建和触发自动化
+- <strong>自动化副驾（Automation Copilot）</strong>：用自然语言创建和触发自动化
 
 **优势**：云原生 SaaS 架构、AI 驱动自动化、智能文档处理能力强
 **短板**：高级功能需额外付费、复杂部署依赖专业服务、价格偏高（$500-1,000/机器人/月）
@@ -180,9 +180,9 @@ Blue Prism 被 SS&C 收购后，继续保持其在合规、治理方面的极致
 
 ## AI 编程 Agent vs RPA：竞争还是互补？
 
-2026 年，Claude Code、OpenAI Codex、Cursor 等 AI 编程工具的能力已经强大到让人不禁发问：**它们会取代 RPA 吗？**
+2026 年，Claude Code、OpenAI Codex、Cursor 等 AI 编程工具的能力已经强大到让人不禁发问：<strong>它们会取代 RPA 吗？</strong>
 
-答案是：**不会完全取代，但会重塑 RPA 的边界。**
+答案是：<strong>不会完全取代，但会重塑 RPA 的边界。</strong>
 
 ### 核心差异
 
@@ -221,7 +221,7 @@ graph LR
     E --> F[业务流程完成]
 {% endmermaid %}
 
-例如，一个订单处理流程可以是：Claude Code 生成调用 CRM API 的 Python 脚本 → 脚本将数据写入中间表 → 影刀 RPA 从中间表读取数据并填入老旧的 ERP 桌面客户端。**AI Agent 做"大脑"，RPA 做"手脚"**。
+例如，一个订单处理流程可以是：Claude Code 生成调用 CRM API 的 Python 脚本 → 脚本将数据写入中间表 → 影刀 RPA 从中间表读取数据并填入老旧的 ERP 桌面客户端。<strong>AI Agent 做"大脑"，RPA 做"手脚"</strong>。
 
 ---
 
@@ -248,6 +248,6 @@ graph LR
 
 传统 RPA 厂商正在拥抱 AI Agent——UiPath 推 Agent Builder，AA 收购 Aisera，影刀的魔法指令用自然语言驱动流程。与此同时，Claude Code、Codex 等 AI 编程工具正在模糊"写代码"和"做自动化"之间的界限。
 
-对企业的启示是：**不要纠结于"选 RPA 还是 Agent"，而是思考"哪些流程需要确定性执行，哪些需要智能决策"**。前者交给 RPA，后者交给 Agent，而两者之间的桥梁，正在被 2026 年的技术浪潮悄然铺就。
+对企业的启示是：<strong>不要纠结于"选 RPA 还是 Agent"，而是思考"哪些流程需要确定性执行，哪些需要智能决策"</strong>。前者交给 RPA，后者交给 Agent，而两者之间的桥梁，正在被 2026 年的技术浪潮悄然铺就。
 
 > 工具没有绝对好坏，只有是否适合。建议在做出最终决策前，用 2-4 周做一个 POC（概念验证），让候选平台在你的真实业务场景中跑一遍——这是最有说服力的选型方式。

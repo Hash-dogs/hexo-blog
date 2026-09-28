@@ -16,7 +16,7 @@ description: Leonxlnx/taste-skill 本周以 8,700+ Stars 增量登顶 Agent 类 
 
 ## 引言
 
-2026 年 6 月中旬的 GitHub Trending 榜单上，AI Agent 生态继续主导热门趋势。在众多 Agent 仓库中，**Leonxlnx/taste-skill** 以 **+8,700 Stars** 的周增量脱颖而出，在 Agent 类项目中位列前三，截至 6 月中旬总量突破 **43,000 Stars**。这是一个定位于 **"The Anti-Slop Frontend Framework for AI Agents"** 的开源项目——它不是又一个组件库，而是一套可移植的 Agent Skill 文件（`.SKILL.md`），专门修正 AI 编码工具生成前端时的设计品味问题。
+2026 年 6 月中旬的 GitHub Trending 榜单上，AI Agent 生态继续主导热门趋势。在众多 Agent 仓库中，**Leonxlnx/taste-skill** 以 **+8,700 Stars** 的周增量脱颖而出，在 Agent 类项目中位列前三，截至 6 月中旬总量突破 **43,000 Stars**。这是一个定位于 <strong>"The Anti-Slop Frontend Framework for AI Agents"</strong> 的开源项目——它不是又一个组件库，而是一套可移植的 Agent Skill 文件（`.SKILL.md`），专门修正 AI 编码工具生成前端时的设计品味问题。
 
 项目地址：[https://github.com/Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)  
 官方站点：[https://tasteskill.dev](https://tasteskill.dev)  
@@ -35,9 +35,9 @@ description: Leonxlnx/taste-skill 本周以 8,700+ Stars 增量登顶 Agent 类 
 - 深色背景 + **紫蓝渐变**大 Hero
 - 三张**等宽功能卡片**一字排开
 - 居中大标题加一段 20 字以内的副文本
-- 页面底部三列 **"假数据"**——4.8x 性能提升、99.99% 准确率、12,000+ 团队信赖
+- 页面底部三列 <strong>"假数据"</strong>——4.8x 性能提升、99.99% 准确率、12,000+ 团队信赖
 
-代码没有错，但页面"差点意思"。这种 AI 生成界面的**视觉趋同现象**在社区中被称为 **"AI Slop"**（AI 廉价感）。它不是单个模型的问题，而是当前 AI 编程工具的共同短板：
+代码没有错，但页面"差点意思"。这种 AI 生成界面的**视觉趋同现象**在社区中被称为 <strong>"AI Slop"</strong>（AI 廉价感）。它不是单个模型的问题，而是当前 AI 编程工具的共同短板：
 
 | 问题 | 表现 | 根因 |
 |------|------|------|
@@ -48,7 +48,7 @@ description: Leonxlnx/taste-skill 本周以 8,700+ Stars 增量登顶 Agent 类 
 
 ### 现有方案的盲区
 
-此前社区已有一些尝试来改善 AI 输出质量——更好的 Prompt 模板、更详细的系统指令。但这些方案都存在一个根本问题：**每次都要从零写 Prompt，不可复用、不可版本化、不可共享。**
+此前社区已有一些尝试来改善 AI 输出质量——更好的 Prompt 模板、更详细的系统指令。但这些方案都存在一个根本问题：<strong>每次都要从零写 Prompt，不可复用、不可版本化、不可共享。</strong>
 
 taste-skill 的出现，正是在这个节点上：它将设计经验和反模式规则打包为**可版本管理、一键安装、跨 Agent 共享**的 SKILL.md 模块，让"审美"从玄学变成工程。
 
@@ -60,8 +60,8 @@ taste-skill 的核心创新不在于写更多代码，而在于**重新定义 AI
 
 | 机制 | 说明 | 解决的问题 |
 |------|------|-----------|
-| **Brief Inference（需求推断）** | 生成代码前先输出 Design Read，判断页面类型、受众、风格关键词 | 阻止 AI 直接跳到默认审美 |
-| **三拨杆调节（Three Dials）** | VARIANCE / MOTION / DENSITY 三个 1-10 旋钮 | 将模糊的"设计感"量化 |
+| <strong>Brief Inference（需求推断）</strong> | 生成代码前先输出 Design Read，判断页面类型、受众、风格关键词 | 阻止 AI 直接跳到默认审美 |
+| <strong>三拨杆调节（Three Dials）</strong> | VARIANCE / MOTION / DENSITY 三个 1-10 旋钮 | 将模糊的"设计感"量化 |
 | **Design System Map** | 根据 Brief 自动匹配设计系统（Fluent / M3 / shadcn 等） | 确保风格上下文匹配 |
 | **Anti-Slop 规则引擎** | 硬编码反模式黑名单 + 10 条 Pre-Flight 自检 | 拦截 90% 的廉价感模式 |
 
@@ -103,7 +103,7 @@ taste-skill 明确禁止了以下模式（违反直接亮红牌）：
 - ❌ **三列等宽卡片**反复出现
 - ❌ **假数据**：无来源的 4.8x、99%、12k teams
 - ❌ **假截图**：用 div 伪造产品界面
-- ❌ **em-dash（—）** 出现在页面任何位置（v2 新增硬禁令）
+- ❌ <strong>em-dash（—）</strong> 出现在页面任何位置（v2 新增硬禁令）
 - ❌ **Inter 字体**作为默认（推荐 Geist、Outfit、Cabinet Grotesk）
 - ❌ 数字标签（"SECTION 01"）、Hero 堆料、滚动提示箭头
 
@@ -212,7 +212,7 @@ npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-fro
 
 ## 总结
 
-taste-skill 在 6 月中旬的爆发式增长（+8,700 Stars/周）不是偶然。它精准命中了 AI 编程进入深水区后的一个关键痛点：**AI 写代码的能力够了，但审美判断力仍是短板。**
+taste-skill 在 6 月中旬的爆发式增长（+8,700 Stars/周）不是偶然。它精准命中了 AI 编程进入深水区后的一个关键痛点：<strong>AI 写代码的能力够了，但审美判断力仍是短板。</strong>
 
 这个项目的真正价值不在于它写了多少行代码，而在于它开创了一种新的知识封装方式：
 

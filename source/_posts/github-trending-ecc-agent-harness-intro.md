@@ -26,7 +26,7 @@ description: affaan-m/ECC 本周持续霸榜 GitHub Trending 前列，以 212K+ 
 技术栈：JavaScript 主导（npm 生态），辅以 Shell 和少量 Rust  
 最新稳定版：v2.0.0（2026 年 6 月）
 
-ECC 的全称是 **"Everything Claude Code"**——但它的野心远不止于 Claude Code。它在 Claude Code、Codex、Cursor、OpenCode、Gemini CLI、Zed、GitHub Copilot 等几乎所有主流 AI 编程 Harness 之上，构建了一个统一的 **Agent 操作系统层**：Skills（技能）、Agents（智能体）、Rules（规则）、Hooks（钩子）和 AgentShield（安全护盾）五大模块协同，构成了目前社区中最完整的 Agent 开发基础设施。
+ECC 的全称是 <strong>"Everything Claude Code"</strong>——但它的野心远不止于 Claude Code。它在 Claude Code、Codex、Cursor、OpenCode、Gemini CLI、Zed、GitHub Copilot 等几乎所有主流 AI 编程 Harness 之上，构建了一个统一的 **Agent 操作系统层**：Skills（技能）、Agents（智能体）、Rules（规则）、Hooks（钩子）和 AgentShield（安全护盾）五大模块协同，构成了目前社区中最完整的 Agent 开发基础设施。
 
 ---
 
@@ -102,11 +102,11 @@ Skill = 触发条件 + 执行步骤 + 验证标准 + 成功/失败处理
 
 ECC 的 Agent 系统不是简单的"多角色提示词"，而是 **有明确职责边界和工具权限的独立智能体**：
 
-- **架构师（Architect）**：负责整体方案设计，使用搜索和绘图工具
-- **代码审查员（Code Reviewer）**：专注代码质量和一致性，无写权限
-- **安全审计员（Security Reviewer）**：调用 AgentShield 全套扫描管线
-- **构建错误修复者（Build Error Resolver）**：分析 CI 日志并自动修复常见错误
-- **敏捷教练（Agile Coach）**：管理 Issue 和 PR 流程
+- <strong>架构师（Architect）</strong>：负责整体方案设计，使用搜索和绘图工具
+- <strong>代码审查员（Code Reviewer）</strong>：专注代码质量和一致性，无写权限
+- <strong>安全审计员（Security Reviewer）</strong>：调用 AgentShield 全套扫描管线
+- <strong>构建错误修复者（Build Error Resolver）</strong>：分析 CI 日志并自动修复常见错误
+- <strong>敏捷教练（Agile Coach）</strong>：管理 Issue 和 PR 流程
 
 每个 Agent 都有明确的输入/输出规约，可以通过 Agent 编排管线（`orch-*` 系列命令）进行多 Agent 协同工作。
 

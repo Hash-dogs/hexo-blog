@@ -24,7 +24,7 @@ description: alibaba/open-code-review 本周以 11,489 星增量登顶 GitHub Tr
 项目地址：[https://github.com/alibaba/open-code-review](https://github.com/alibaba/open-code-review)
 官网：[open-codereview.ai](https://open-codereview.ai)
 许可证：Apache-2.0，Copyright 2026 Alibaba
-技术栈：Go **70.2%**、TypeScript **16.9%**，925 个文件、345 个 `.go`、仓库体积 52 MB
+技术栈：Go <strong>70.2%</strong>、TypeScript <strong>16.9%</strong>，925 个文件、345 个 `.go`、仓库体积 52 MB
 开源时间：2026 年 5 月 18 日
 
 它不是一个新项目突然爆红。阿里内部的 AI 代码审查助手已经跑了两年，服务数万名开发者，累计识别数百万个代码缺陷。这次是把内部版本完整开源。
@@ -65,7 +65,7 @@ description: alibaba/open-code-review 本周以 11,489 星增量登顶 GitHub Tr
 
 抛开具体实现，open-code-review 提出的方法论文档只有一句话：
 
-> **能用工程保证正确的步骤，就不交给模型决定。**
+> <strong>能用工程保证正确的步骤，就不交给模型决定。</strong>
 
 这与当时的主流方向正好相反。2026 年的 Agent 工程习惯是不断扩大模型的自主权，给更多工具、更长的时间、更少的约束。open-code-review 的做法是反过来的：在流水线的关键节点主动收权，只把真正需要理解语义的环节留给模型。
 
@@ -184,16 +184,16 @@ SubAgent 内部并不放开探索。它跑的是一个 ReAct 循环，但暴露�
 
 | 配置 | F1 | Precision | Recall | 平均耗时 | Token |
 |------|-----|-----------|--------|---------|-------|
-| **Open Code Review** + Claude 4.6 Opus | **25.10%** | **33.90%** | 20.00% | 1m23s | 385K |
+| **Open Code Review** + Claude 4.6 Opus | <strong>25.10%</strong> | <strong>33.90%</strong> | 20.00% | 1m23s | 385K |
 | Open Code Review + Qwen3.8-Max | 23.00% | 33.90% | 17.40% | 5m14s | 625K |
 | Open Code Review + GLM-5.2 | 21.30% | 32.30% | 15.90% | 7m58s | 743K |
 | Open Code Review + GPT-5.5 | 21.00% | 32.10% | 15.50% | 2m51s | 422K |
-| Claude Code + Claude 4.6 Opus | 11.57% | 7.23% | **28.90%** | 13m6s | 5,664K |
+| Claude Code + Claude 4.6 Opus | 11.57% | 7.23% | <strong>28.90%</strong> | 13m6s | 5,664K |
 | Claude Code + Qwen3.7-Max | 12.17% | 8.23% | 23.37% | 8m6s | 5,153K |
 | Claude Code + GLM-5.1 | 11.93% | 8.37% | 20.80% | 14m10s | 4,038K |
 | Claude Code + GPT-5.5 | 8.36% | 27.82% | 4.92% | 2m58s | 525K |
 
-论文给出的结论是：六种 LLM 后端上全面超过 Claude Code、Codex 等主流编码 Agent，SEM-F1 最高 **25.10%**，基线 **11.57%**，提升 **2.17 倍**；Token 消耗为基线的 **1/5 到 1/15**。
+论文给出的结论是：六种 LLM 后端上全面超过 Claude Code、Codex 等主流编码 Agent，SEM-F1 最高 <strong>25.10%</strong>，基线 <strong>11.57%</strong>，提升 **2.17 倍**；Token 消耗为基线的 **1/5 到 1/15**。
 
 两个数字之间的关系值得单独看：
 
@@ -343,7 +343,7 @@ open-code-review 本周拿下周榜第一，靠的不是新能力，而是一个
 **适用边界**：适合本地 pre-push / pre-PR 自检，或者作为 PR 上的参考性评论。不适合无人把关的强制合并门禁，也不适合召回率优先的场景。
 {% endnote %}
 
-把它和最近几周的热门放在一起看，线索会更清楚。ponytail 用七级决策阶梯约束 Agent 别过度设计，archify 要求 Agent 先写类型化 JSON IR 再渲染，open-code-review 把确定性写进流水线。三个项目来自完全不同的作者和领域，指向的却是同一件事：**Agent 工程的重心正在从"加能力"转向"管行为"**。
+把它和最近几周的热门放在一起看，线索会更清楚。ponytail 用七级决策阶梯约束 Agent 别过度设计，archify 要求 Agent 先写类型化 JSON IR 再渲染，open-code-review 把确定性写进流水线。三个项目来自完全不同的作者和领域，指向的却是同一件事：<strong>Agent 工程的重心正在从"加能力"转向"管行为"</strong>。
 
 阿里这次开源的真正价值，可能不在工具本身，而在它给出的那个判断：模型变强不代表约束可以变少。有些环节，工程比模型更值得信任。
 

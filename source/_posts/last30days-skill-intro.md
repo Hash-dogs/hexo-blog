@@ -34,7 +34,7 @@ description: mvanhorn/last30days-skill 本周以 12,053 stars 的增量登顶 Gi
 
 - **Reddit** 上有深度的技术讨论和社区反馈
 - **Hacker News** 汇聚了最前沿的技术资讯和创业动态
-- **X (Twitter)** 有行业领袖的实时观点
+- <strong>X (Twitter)</strong> 有行业领袖的实时观点
 - **YouTube** 有详细的技术教程和产品评测
 - **Polymarket** 反映了市场对技术趋势的真实预期
 
@@ -55,7 +55,7 @@ description: mvanhorn/last30days-skill 本周以 12,053 stars 的增量登顶 Gi
 
 ## 核心创新：AI Agent 技能生态的标杆
 
-last30days-skill 的核心创新可以概括为 **"一次查询，全网综合"** 的理念：
+last30days-skill 的核心创新可以概括为 <strong>"一次查询，全网综合"</strong> 的理念：
 
 ### 1. 14+ 平台的跨源搜索
 
@@ -94,7 +94,7 @@ last30days-skill 的核心创新可以概括为 **"一次查询，全网综合"*
 1. **相关性法官**（Relevance Judge）——标准的话题匹配评分
 2. **趣味性法官**（Humor/Virality Judge）——评估内容的机智程度、传播潜力
 
-每份简报末尾都有一个 **"最佳评论"（Best Takes）** 板块——将最巧妙的段子和最 viral 的引语嵌入叙事中，这在传统信息聚合工具中是前所未有的设计。
+每份简报末尾都有一个 <strong>"最佳评论"（Best Takes）</strong> 板块——将最巧妙的段子和最 viral 的引语嵌入叙事中，这在传统信息聚合工具中是前所未有的设计。
 
 ### 4. 五维加权综合评分
 
@@ -192,14 +192,14 @@ last30days-skill 定义了一个 **八阶段流水线**：
 
 ### 安装方式
 
-**方式一：Claude Code（推荐，自动更新）**
+<strong>方式一：Claude Code（推荐，自动更新）</strong>
 
 ```
 /plugin marketplace add mvanhorn/last30days-skill
 /plugin install last30days
 ```
 
-**方式二：Codex / Cursor / Copilot / Gemini CLI（50+ Agent 兼容）**
+<strong>方式二：Codex / Cursor / Copilot / Gemini CLI（50+ Agent 兼容）</strong>
 
 ```bash
 npx skills add mvanhorn/last30days-skill -g
@@ -250,7 +250,7 @@ git clone https://github.com/mvanhorn/last30days-skill.git ~/.claude/skills/last
 ### 渐进式源解锁
 
 1. **零配置即用**：Reddit、HN、Polymarket、GitHub
-2. **运行 `/last30days setup`**：30 秒解锁 X、YouTube、TikTok（自动提取浏览器 Cookie）
+2. <strong>运行 `/last30days setup`</strong>：30 秒解锁 X、YouTube、TikTok（自动提取浏览器 Cookie）
 3. **Exa API**：每月 1000 次免费搜索
 4. **ScrapeCreators API**：100 次免费调用，解锁 TikTok + Instagram
 5. **Bluesky App Password**：免费创建
@@ -263,15 +263,15 @@ last30days-skill 的成功不仅在于其技术实现，更在于它抓住了两
 
 ### Skills 生态的范式转变
 
-2026 年 6 月第二周被业界称为 **"AI Agent Skills 生态爆发周"**。多个 Skill 项目集中登榜，标志着 AI 应用正从"通用对话"彻底转向"垂直技能插件"架构。开发者评价称：
+2026 年 6 月第二周被业界称为 <strong>"AI Agent Skills 生态爆发周"</strong>。多个 Skill 项目集中登榜，标志着 AI 应用正从"通用对话"彻底转向"垂直技能插件"架构。开发者评价称：
 
 > *"Skills are becoming the new packages."*（技能正在成为新的包管理器）
 
-last30days-skill 正是这一趋势的标杆之作——它证明了 **一个定义良好的 Skill（65 行配置 + Python 脚本）** 可以达到商业 SaaS 产品级别的价值。
+last30days-skill 正是这一趋势的标杆之作——它证明了 <strong>一个定义良好的 Skill（65 行配置 + Python 脚本）</strong> 可以达到商业 SaaS 产品级别的价值。
 
 ### 跨平台信息聚合的刚需
 
-在信息爆炸的时代，开发者越来越需要一个 **"信息参谋"**——能自动扫描所有值得关注的平台，提炼出真正重要的内容，并以结构化的方式呈现。last30days-skill 正好填补了这个空白。
+在信息爆炸的时代，开发者越来越需要一个 <strong>"信息参谋"</strong>——能自动扫描所有值得关注的平台，提炼出真正重要的内容，并以结构化的方式呈现。last30days-skill 正好填补了这个空白。
 
 ---
 

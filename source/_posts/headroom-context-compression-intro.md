@@ -33,7 +33,7 @@ description: chopratejas/headroom 本周以 13,308 stars 的增量登顶 GitHub 
 
 2024-2025 年，各大 LLM 提供商竞相扩大上下文窗口——从 8K 到 32K、128K，乃至 Anthropic 的 200K。表面上看，更大的窗口意味着 AI 能"看到"更多信息。然而实际使用中，开发者很快发现了一个残酷的事实：
 
-**更大的窗口 ≠ 更好的推理精度。**
+<strong>更大的窗口 ≠ 更好的推理精度。</strong>
 
 事实上，研究早已表明，当上下文长度超过某个阈值后，LLM 的注意力机制会显著稀释。Anthropic 和 Google 的内部基准测试都观测到，放置在超长上下文中间位置的信息，召回率会急剧下降。
 
@@ -55,7 +55,7 @@ description: chopratejas/headroom 本周以 13,308 stars 的增量登顶 GitHub 
 在 Headroom 出现之前，社区已有一些尝试：
 
 - **RTK** / **lean-ctx**：仅针对 CLI 命令输出进行重写，作用域窄，不支持 RAG 或对话历史
-- **Compresr** / **Token Co.**：需要将文本发送到第三方 API，存在数据隐私风险
+- **Compresr** / <strong>Token Co.</strong>：需要将文本发送到第三方 API，存在数据隐私风险
 - **OpenAI 原生 Compaction**：仅作用于对话历史，且是提供商绑定的黑盒方案
 
 这些方案要么范围有限，要么不是本地运行，要么不可逆。市场上缺少一个 **通用的、本地的、可逆的、对精度无影响的上下文压缩层**——这正是 Headroom 要解决的问题。
@@ -64,7 +64,7 @@ description: chopratejas/headroom 本周以 13,308 stars 的增量登顶 GitHub 
 
 ## 核心创新：重新定义上下文压缩
 
-Headroom 的核心创新点可以概括为 **"智能 + 可逆 + 通用"** 三位一体：
+Headroom 的核心创新点可以概括为 <strong>"智能 + 可逆 + 通用"</strong> 三位一体：
 
 ### 1. 内容感知的智能路由（Content-Aware Routing）
 
@@ -173,14 +173,14 @@ SmartCrusher 并不使用固定数量的保留项。它通过 **Kneedle 算法**
 
 CCR（Compress-Cache-Retrieve）是 Headroom 实现可逆压缩的完整框架，分为四个阶段：
 
-**阶段一：压缩存储（Compression Store）**
+<strong>阶段一：压缩存储（Compression Store）</strong>
 
 当 SmartCrusher 压缩工具输出时，原始内容存储在 LRU 缓存中，生成哈希键，并在压缩输出中插入标记：
 ```
 [1000 items compressed to 20. Retrieve more: hash=abc123]
 ```
 
-**阶段二：工具注入（Tool Injection）**
+<strong>阶段二：工具注入（Tool Injection）</strong>
 
 Headroom 自动在 LLM 可用工具列表中注入 `headroom_retrieve`：
 ```json
@@ -194,11 +194,11 @@ Headroom 自动在 LLM 可用工具列表中注入 `headroom_retrieve`：
 }
 ```
 
-**阶段三：响应处理（Response Handler）**
+<strong>阶段三：响应处理（Response Handler）</strong>
 
 当 LLM 调用 `headroom_retrieve` 时，响应拦截器自动从本地缓存中恢复数据（约 1ms），并继续 API 调用。客户端完全感知不到 CCR 的存在——这一切是透明处理的。
 
-**阶段四：上下文跟踪（Context Tracker）**
+<strong>阶段四：上下文跟踪（Context Tracker）</strong>
 
 跨多轮对话跟踪所有压缩内容的上下文。当用户提出新问题时，Context Tracker 会主动分析问题是否与已缓存内容相关，并在 LLM 请求之前**主动展开**相关数据。例如：
 
@@ -217,7 +217,7 @@ Headroom 自动在 LLM 可用工具列表中注入 `headroom_retrieve`：
 
 ### CacheAligner 与提供商标缓存优化
 
-在现代 LLM 服务中，**提示词缓存（Prompt Caching）** 是最重要的成本优化手段之一。Anthropic 和 OpenAI 都对缓存的输入 Token 给予显著折扣（Anthropic 可达 90% 折扣）。
+在现代 LLM 服务中，<strong>提示词缓存（Prompt Caching）</strong> 是最重要的成本优化手段之一。Anthropic 和 OpenAI 都对缓存的输入 Token 给予显著折扣（Anthropic 可达 90% 折扣）。
 
 CacheAligner 确保系统提示词的静态前缀在多次调用间保持一致，从而**最大化缓存命中率**。Headroom 在此基础上还针对不同提供商设置了特定缓存策略：
 
@@ -397,7 +397,7 @@ Headroom 不仅仅是一个 Token 压缩工具，它是有史以来第一个 **A
 
 ---
 
-**后续补充。** 2026 年 9 月下旬，Agent 记忆系统 vectorize-io/hindsight 以 11,089 星增量登顶 GitHub Trending 周榜第一。它和 headroom 处理的是上下文的两端：**headroom 管的是这一次对话里塞进去多少**，靠压缩代理工具输出、日志、RAG 块来省 token；**hindsight 管的是历次对话之后留下什么**，靠 retain / recall / reflect 三个操作把记忆结构化成可推理的底座。一个压存量，一个存结构，两者可以叠用。
+<strong>后续补充。</strong> 2026 年 9 月下旬，Agent 记忆系统 vectorize-io/hindsight 以 11,089 星增量登顶 GitHub Trending 周榜第一。它和 headroom 处理的是上下文的两端：**headroom 管的是这一次对话里塞进去多少**，靠压缩代理工具输出、日志、RAG 块来省 token；**hindsight 管的是历次对话之后留下什么**，靠 retain / recall / reflect 三个操作把记忆结构化成可推理的底座。一个压存量，一个存结构，两者可以叠用。
 
 那篇还核验了 LongMemEval 91.4% 这个成绩的三条限定条件，以及第三方审计里 8 项被判定不存在的功能在 v0.10.x 下的实际状态，见[《GitHub热门（9/21-9/27）vectorize-io/hindsight — Agent 记忆系统》](https://hash-dogs.github.io/hexo-blog/2026/09/28/hindsight-agent-memory-system/)。
 
