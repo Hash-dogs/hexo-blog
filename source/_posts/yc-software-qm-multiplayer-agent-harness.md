@@ -217,4 +217,10 @@ QM 的实际应用场景覆盖了团队工作的方方面面：
 
 ---
 
+**后续补充。** 2026 年 9 月下旬，另一个多人 Agent 基础设施项目冲上 GitHub Trending 周榜第二：paperclipai/paperclip 把同一批 Agent 组织成一家带汇报线、预算硬停和审批门禁的公司，入场理由是"同时开二十个 Agent 之后不知道谁在做什么、花了多少"。
+
+两者面向的是同一批用户的不同焦虑。QM 管**空间**，每个员工、频道、项目一个隔离 Scope，解决数据串味；Paperclip 管**层级**，组织架构、预算、审批，解决成本与权责。需要特别分清的是安全粒度：Paperclip 的多公司隔离不等于 QM 的 Scope 级隔离。横向对照写在[《GitHub热门（9/21-9/27）paperclipai/paperclip — Agent 团队编排》](https://hash-dogs.github.io/hexo-blog/2026/09/28/paperclip-agent-company-orchestration/)。
+
+---
+
 *本文基于 [yc-software/qm](https://github.com/yc-software/qm) 仓库 README、SECURITY.md、官方文档及 GitHub Trending、Hacker News 数据编写，数据截至 2026 年 8 月 8 日。*

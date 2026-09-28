@@ -115,6 +115,18 @@
 - **描述**: cloudflare/security-audit-skill 于 2026 年 9 月 14 日开源，9 月 19 日拿下 GitHub Trending 日榜第一，单日新增 3,019 星，目前 16.6K 星。这是 Cloudflare 机群级漏洞挖掘框架的起点版本，用六阶段编排把验证权从发现者手里拿走：隔离子 Agent 侦察、按覆盖账本狩猎、每条候选交给全新验证者证伪、独立记录核验。三态结论（confirmed / needs_validation / rejected）中未验证的不许带严重级别。全文 22 个文件、14 次提交，是一个把规格当产品的仓库；缺口在于验证者独立性靠指令而非机制强制、沙箱需自备、findings.json 之后没有分发层。
 - **标签**: 开源, AI, AI Agent, Skills, Claude Code, 安全
 
+### 19. GitHub热门（9/21-9/27）vectorize-io/hindsight — Agent 记忆系统
+- **文件名**: `hindsight-agent-memory-system.md`
+- **发布日期**: 2026-09-28
+- **描述**: vectorize-io/hindsight 本周以 11,089 星增量登顶 GitHub Trending 周榜第一，总星数 38.3K（Forks 5,005，MIT，Python 72% / TypeScript 17%），创建于 2025 年 10 月 30 日。这是一个把记忆当成一等推理底座的 Agent 记忆系统，用 retain / recall / reflect 三个操作替代向量库式的片段堆叠：四类记忆结构（world facts / experiences / observations / mental models）、四路并行检索（向量 + BM25 + 图 + 时间窗）经 RRF 融合与 cross-encoder 重排后按 token 预算裁剪、Observation 带 proof count 被 refine 而非覆盖、Knowledge Page 把常驻答案从读路径上摘掉 LLM 调用。论文 arXiv:2512.12818 给出 20B 开源骨干从 39% 提到 83.6%、LongMemEval 91.4%、LoCoMo 89.61%。文中核验了 91.4% 的三条限定条件（端到端 QA 而非检索召回、答题模型为 Gemini 3 Pro、另一来源记作 94.6%）、LongMemEval 本身的四条方法论质疑，并对齐了第三方审计判定不存在的 8 项功能在 v0.10.x 下的实际状态（export / explicitForget / privacy / dedup 已部分落地，decay / supersede / recurrence 仍未见）。与 `headroom-context-compression-intro.md`、`karpathy-llm-wiki-rag-compiler-pkm.md`、`paperclip-agent-company-orchestration.md` 建立交叉引用。
+- **标签**: 开源, AI, AI Agent, LLM, MCP, Token优化
+
+### 20. GitHub热门（9/21-9/27）paperclipai/paperclip — Agent 团队编排
+- **文件名**: `paperclip-agent-company-orchestration.md`
+- **发布日期**: 2026-09-28
+- **描述**: paperclipai/paperclip 本周以 7,364 星增量登上 GitHub Trending 周榜第二，总星数 90.7K（Forks 15,721，Open Issues 5,882，MIT，TypeScript 93.6%），创建于 2026 年 3 月 2 日。它把 Agent 组织成一家公司，用组织架构、汇报线、预算硬停、审批门禁和心跳调度解决"同时开二十个 Agent 之后不知道谁在做什么、花了多少"。文中拆解服务端 12 个模块与四级预算体系（0-79% Normal / 80-89% Warning / 90-99% Critical / 100% Locked），并逐条核验三个仍在开放的 issue：#4809 心跳开关 `enabled: false` 被无视、每 30 秒空转约 $70/小时且绕过 HTTP 路由不进 server.log，#4027 无预算政策行时 `getInvocationBlock()` 守卫被完全跳过、某 CEO Agent 10 天 1,293 次唤醒 812 次成本事件，#3431 自指派唤醒死循环。结论是心跳既是核心能力也是最大成本风险源，而最被强调的预算保护在默认配置下是关着的。正文第二节正面切开与 `yc-software-qm-multiplayer-agent-harness.md` 的边界（QM 管空间隔离，Paperclip 管层级治理），并与该文建立双向交叉引用。
+- **标签**: 开源, AI, AI Agent, 自动化
+
 ---
 
 ## 技术分享

@@ -395,4 +395,12 @@ Headroom 不仅仅是一个 Token 压缩工具，它是有史以来第一个 **A
 
 > **生产数据**：基于 50,000+ 代理会话和 250+ 生产实例的匿名遥测（2026 年 3-4 月）。中位数代理延迟 52ms，总 Token 节省超 14 亿。
 
+---
+
+**后续补充。** 2026 年 9 月下旬，Agent 记忆系统 vectorize-io/hindsight 以 11,089 星增量登顶 GitHub Trending 周榜第一。它和 headroom 处理的是上下文的两端：**headroom 管的是这一次对话里塞进去多少**，靠压缩代理工具输出、日志、RAG 块来省 token；**hindsight 管的是历次对话之后留下什么**，靠 retain / recall / reflect 三个操作把记忆结构化成可推理的底座。一个压存量，一个存结构，两者可以叠用。
+
+那篇还核验了 LongMemEval 91.4% 这个成绩的三条限定条件，以及第三方审计里 8 项被判定不存在的功能在 v0.10.x 下的实际状态，见[《GitHub热门（9/21-9/27）vectorize-io/hindsight — Agent 记忆系统》](https://hash-dogs.github.io/hexo-blog/2026/09/28/hindsight-agent-memory-system/)。
+
+---
+
 *本文基于 [chopratejas/headroom](https://github.com/chopratejas/headroom) 仓库 README、官方文档（headroom-docs.vercel.app）及基准测试数据编写，数据截至 2026 年 6 月 7 日。*
